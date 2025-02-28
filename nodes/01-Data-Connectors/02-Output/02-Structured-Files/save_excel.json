@@ -1,0 +1,45 @@
+{
+  "id": "7",
+  "name": "Save Excel",
+  "iconImage": "/images/icons/node-icon/excel.svg",
+  "description": "Saves the DataFrame into the specified location in XLS Format",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.save.NodeSaveExcel",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the XLS file","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name":"dataAddress",  "display": true, "value":"", "widget": "textfield", "title": "SheetName",
+      "description":"SheetName and Range: 'My Sheet'!A1","required":"true"}
+    
+
+  ]
+}
+start-details:
+
+h2: Save Excel Node Details
+
+Saves the DataFrame into the specified location in XLS Format.
+
+h4: Parameters to be set:
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* PATH : Specify the path of the Excel file to be saved.
+* SAVE MODE : Specify the save mode - Append, Overwrite, ErrorIfExists and Ignore.
+* SHEETNAME : Specify the sheet name whose the data is to be saved.
+
+end-details:
+
+start-examples:
+
+h2: Save Excel Node Examples
+
+h4: Example of Values
+* PATH : /tmp/sample.xlsx
+* SAVE MODE : Overwrite
+* SHEETNAME : Sheet1
+
+end-examples:

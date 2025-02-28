@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "ImageSegmentation",
+
+  "description": "ImageSegmentation Using PreTrained Model.",
+  "input": "It takes pretrained model name and download the model.",
+  "output": "Segment thr input image and save the segmented image.",
+  "type": "dataset",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.dl.NodeImageSegmentation",
+  "fields" : [
+    {"name":"model_name", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Model Name", "description": "Name of the predtrained model"},
+    
+   {"name":"input_file_path", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Intput File Path", "description": "Path for input image."},
+   
+   {"name":"output_file_path", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Output File Path", "description": "Path for output image."}
+  ]
+}
+start-details:
+
+
+
+end-details:

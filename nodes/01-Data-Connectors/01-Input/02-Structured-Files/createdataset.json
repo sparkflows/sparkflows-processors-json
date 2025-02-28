@@ -1,0 +1,33 @@
+{
+  "id": "11",
+  "name": "Create Dataset",
+
+  "description": "Creates a dataset with the specified number of rows and nine pre-defined columns",
+  "input": "It does not read data from any external source",
+  "output": "It creates a DataFrame with the specified number of rows",
+
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetCreate",
+  "fields" : [
+    {"name":"numRows", "display": true, "value":"100", "widget": "textfield", "title": "Number of Rows",
+      "description": "Number of Rows in the Output Dataset"}
+  ]
+}
+start-details:
+
+This node Creates a dataset with the specified number of rows and nine pre-defined columns.
+
+end-details:
+
+start-examples:
+
+the node will give such table for the number of rows defined
+
+id	column1	column2	column3	column4	column5	column6	column7	column8
+long	double	integer	integer	integer	string	string	string	string
+0	9.0	7	8	9	cc@abc.com	2018-03-10	Markita Hansen	10/03/2018
+1	9.0	7	8	9	cc@abc.com	2018-03-10	Markita Hansen	10/03/2018
+2	9.0	7	8	9	cc@abc.com	2018-03-10	Markita Hansen	10/03/2018
+
+end-examples:

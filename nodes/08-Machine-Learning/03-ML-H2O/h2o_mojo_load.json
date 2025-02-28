@@ -1,0 +1,26 @@
+{
+  "id": "11",
+  "name": "H2O ML Model Load",
+  "description": "Loads an H2O MOJO ML model",
+  "input": "",
+  "output": "",
+  "type": "ml-modelload",
+  "nodeClass": "fire.nodes.h2o.NodeH2OMojoLoad",
+  "fields" : [
+    {"name": "path", "value":"", "required":true, "widget": "textfield","title": "Path", "description": "Path for loading the H2O MOJO model"}
+  ]
+}
+
+start-details:
+
+this node allows a previously trained and saved H2O model to be used again from the file system
+
+end-details:
+
+start-examples:
+
+path-folder1/folder2/H2OModelFileName
+
+the model saved in the path is fetched and can be sent to the prophet predict node to be used for prediction
+
+end-examples:

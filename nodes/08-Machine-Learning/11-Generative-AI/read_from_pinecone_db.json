@@ -1,0 +1,36 @@
+{
+  "id": "6",
+  "name": "Read Pinecone DB",
+  "description": "Read Vector Embeddings from Pinecone db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeReadFromPineconeDB",
+  "fields" : [
+    {"name": "topK", "value": "3", "widget": "textfield", "title": "Top K", "description": "Number of top results to retrieve (default: 3)."},
+    {"name": "pineconeApiKey", "value": "", "widget": "textfield", "title": "Pinecone API Key", "description": "Your Pinecone API key."},
+    {"name": "pineconeIndexName", "value": "", "widget": "textfield", "title": "Pinecone Index Name", "description": "Name of the Pinecone index."},
+    {"name": "indexNameSpace", "value": "", "widget": "textfield", "title": "Index Namespace", "description": "Namespace for organizing the Pinecone index."},
+    {"name": "userQueryCol", "value": "userQuery", "widget": "variable", "title": "User Query Column", "description": "Column name for user query (default: 'userQuery')."},
+    {"name": "queryEmbeddingCol", "value": "embeddings", "widget": "variable", "title": "Query Embedding Column", "description": "Column name for query embeddings (default: 'embeddings')."}
+  ]
+}
+start-details:
+h2: Read Pinecone DB Node Details
+
+This node configures the settings for querying a Pinecone vector database. It enables you to retrieve the top-K most similar results based on a user query by leveraging query embeddings. The configuration includes the necessary Pinecone credentials and specifies the data columns used during query processing.
+
+h4: Parameters to be set:
+
+### Query and Embedding Settings:
+- **Top K**: Specify the number of top similar results to retrieve from the database (default: 3).
+- **User Query Column**: Specify the column that contains the user query (default: `userQuery`).
+- **Query Embedding Column**: Specify the column that contains the query embeddings (default: `embeddings`).
+
+### Pinecone Credentials and Index Configuration:
+- **Pinecone API Key**: Provide your Pinecone API key for authentication.
+- **Pinecone Index Name**: Specify the name of the Pinecone index to be queried.
+- **Index Namespace**: Specify the namespace used to organize the Pinecone index.
+
+end-details:

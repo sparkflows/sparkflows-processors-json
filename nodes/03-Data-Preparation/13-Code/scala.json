@@ -1,0 +1,56 @@
+{
+  "id": "11",
+  "name": "Spark",
+  "description": "This node runs any given Scala code. The input dataframe is passed in the variable inDF. The output dataframe is passed back by registering it as a temporary table.",
+  "input": "The input dataframe is passed in the variable inDF.",
+  "output": "The output dataframe is passed back by registering it as a temporary table",
+  "type": "scala",
+  "nodeClass": "fire.nodes.code.NodeSpark",
+  "fields" : [
+    {"name":"outTempTable", "value":"", "widget": "textfield", "title": "Output Temp Table", "description": "Output Temp Table"},
+
+    {"name":"code", "value":"", "widget": "textarea_large", "type": "scala", "title": "Scala", "description": "Scala code to be run. Input dataframe : \"inDF\", SparkContext : \"sc\", SQLContext : \"sqlContext\",  Output/Result dataframe should be registered as a temporary table - df.registerTempTable(\"outDF\")"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "Schema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the CSV", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the CSV", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the CSV", "description": "Format of the Output Columns"}
+
+  ]
+}
+
+start-details:
+
+h2:Scala Details
+
+This node receives receives an input dataframe.
+The input dataframe is passed into the Scala code as a variable called inDF.
+
+The scala code operates on the dataframe inDF.
+Finally the scala code produces a resulting dataframe to be passed on to the next node. It does so by registering a temporary table called outDF.
+
+For DataSet support add below import stmt:
+import spark.implicits._
+
+end-details:
+
+start-examples:
+
+h2:Scala Examples
+
+h4:Pass the Input dataframe as Output dataframe.
+In OUTPUT TEMP TABLE field add the name of the temp table. ex: temp_table
+
+* val outDF = inDF
+* outDF.registerTempTable("temp_table")
+
+h4:Calculate Count of Houses by Bathrooms
+In OUTPUT TEMP TABLE field add the name of the temp table. ex: temp_table
+
+* val outDF = inDF.groupBy("bathrms").count()
+* outDF.registerTempTable("temp_table")
+
+registerTempTable is used to register the result dataframe as a temporary table. Use the `OUTPUT TEMP TABLE` field name for that.
+
+end-examples:

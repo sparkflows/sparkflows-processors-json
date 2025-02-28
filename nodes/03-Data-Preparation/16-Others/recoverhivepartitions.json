@@ -1,0 +1,22 @@
+{
+  "id": "7",
+  "name": "Recover Hive Partitions",
+  "description": "Node to recover the partitions of external hive table.",
+  "type": "doc",
+  "nodeClass": "fire.nodes.etl.NodeRecoverHivePartitions",
+  "fields" : [
+
+    {"name":"databaseName", "value":"", "widget": "textfield", "title": "HIVE Database",
+      "description":"Name of the HIVE Database"},
+    {"name":"tableName", "display": true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description":"Name of the HIVE table"}    
+  ]
+}
+
+start-details:
+
+This node is used to recover the partitions of external hive table.
+
+It will run the command: "MSCK REPAIR TABLE ${databaseName}.${tableName}"
+
+end-details:

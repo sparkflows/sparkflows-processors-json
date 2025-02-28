@@ -1,0 +1,49 @@
+{
+  "id": "6",
+  "name": "H2O Generalized Low Rank Models",
+  "description": "Generalized Low Rank Models (GLRM) is an algorithm for dimensionality reduction of a dataset",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.h2o.NodeH2OGlrm",
+  "fields" : [
+    {"name": "transform", "value":"NONE", "widget": "array", "title": "Transform", "optionsArray": ["NONE","STANDARDIZE", "NORMALIZE", "DEMEAN", "DESCALE"], "description": "STransformation of training data" ,"datatypes":["string"]},
+    {"name": "k", "value":2, "required":"true", "widget": "textfield","title": "K", "description": "Rank of matrix approximation.", "datatypes":["integer"]},
+    {"name": "ignoredCols", "value":"[]", "widget": "variables", "title": "Ignored Columns", "description": "Features to be ignored for Modelling"},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Columns to be Categorical encoded"},
+    {"name": "loss", "value":"Quadratic", "widget": "array", "title": "Loss", "optionsArray": ["Quadratic", "Absolute", "Huber", "Poisson", "Periodic(0)", "Logistic", "Hinge", "Categorical", "Ordinal"], "description": "Numeric loss function" ,"datatypes":["string"]},
+    {"name": "multiLoss", "value":"Categorical", "widget": "array", "title": "Multi Loss", "optionsArray": ["Quadratic", "Absolute", "Huber", "Poisson", "Periodic(0)", "Logistic", "Hinge", "Categorical", "Ordinal"], "description": "Categorical loss function" ,"datatypes":["string"]},
+    {"name": "period", "value":"1", "widget": "textfield","title": "Period", "description": "SLength of period (only used with periodic loss function). ", "datatypes":["long"]},
+    {"name": "regularizationX", "value":"None", "widget": "array", "title": "Regularization X", "optionsArray": ["Quadratic", "L2", "L1", "NonNegative", "OneSparse", "UnitOneSparse", "Simplex"], "description": "Regularization function for X matrix" ,"datatypes":["string"]},
+    {"name": "regularizationY", "value":"None", "widget": "array", "title": "Regularization Y", "optionsArray": ["Quadratic", "L2", "L1", "NonNegative", "OneSparse", "UnitOneSparse", "Simplex"], "description": "Regularization function for X matrix" ,"datatypes":["string"]},
+    {"name": "gammaX", "value":0.0, "widget": "textfield","title": "Gamma X", "description": "Regularization weight on X matrix", "datatypes":["double"]},
+    {"name": "gammaY", "value":0.0, "widget": "textfield","title": "Gamma Y", "description": "Regularization weight on Y matrix.", "datatypes":["double"]},
+    {"name": "maxIterations", "value":"1000", "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of iterations.", "datatypes":["integer"]},
+    {"name": "maxUpdates", "value":"2000", "widget": "textfield", "title": "Max Updates", "description": "Maximum number of Updated.", "datatypes":["integer"]},
+    {"name": "initStepSize", "value":"1.0", "widget": "textfield","title": "Init Step Size", "description": "Initial step size.", "datatypes":["double"]},
+    {"name": "minStepSize", "value":"1e-4", "widget": "textfield","title": "Min Step Size", "description": "Minimum step size.", "datatypes":["double"]},
+    {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for pseudo random number generator (if applicable).", "datatypes":["Long"]},
+    {"name": "init", "value":"PlusPlus", "widget": "array", "title": "Init", "optionsArray": ["Random","SVD", "PlusPlus", "User", "Power"], "description": "STransformation of training data" ,"datatypes":["string"]},
+    {"name": "svdMethod", "value":"Randomized", "widget": "array", "title": "SVD Method", "optionsArray": ["GramSVD","Power", "Randomized"], "description": "STransformation of training data" ,"datatypes":["string"]},
+    {"name": "loadingName", "value":"Categorical", "widget": "textfield", "title": "Loading Name", "description": "[Deprecated] Use representation_name instead.  Frame key to save resulting X." ,"datatypes":["string"]},
+    {"name": "representationName", "value":"Categorical", "widget": "textfield", "title": "Representation Name", "description": "SFrame key to save resulting X." ,"datatypes":["string"]},
+    {"name": "expandUserY", "value":"true", "widget": "array", "title": "Expand User Y", "optionsArray": ["false","true"], "description": "Expand categorical columns in user-specified initial Y." ,"datatypes":["boolean"]},
+    {"name": "imputeOriginal", "value":"false", "widget": "array", "title": "Impute Original", "optionsArray": ["false","true"], "description": "Reconstruct original training data by reversing transform." ,"datatypes":["boolean"]},
+    {"name": "recoverSvd", "value":"false", "widget": "array", "title": "Recover SVD", "optionsArray": ["false","true"], "description": "Recover singular values and eigenvectors of XY." ,"datatypes":["boolean"]},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Constant Columns", "optionsArray": ["false","true"], "description": "Ignore constant columns." ,"datatypes":["boolean"]},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Whether to score during each iteration of model training." ,"datatypes":["boolean"]},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).", "datatypes":["double"]},
+    {"name": "inputCols", "value":"[]", "widget": "variables", "title": "Input Columns", "description": "Input Columns."},
+    {"name": "reconstructedCol", "value":"reconstructed_col", "widget": "textfield","title": "Reconstructed Column", "description": "Reconstructed Column Name", "datatypes":["string"]},
+    {"name": "maxScoringIterations", "value":"100", "widget": "textfield", "title": "Max Scoring Iterations", "description": "Max Scoring Iterations.", "datatypes":["integer"]}
+  ]
+}
+
+start-details:
+
+Generalized Low Rank Models (GLRM) is an algorithm for dimensionality reduction of a dataset. It is a general, parallelized optimization algorithm that applies to a variety of loss and regularization functions. Categorical columns are handled by expansion into 0/1 indicator columns for each level. With this approach, GLRM is useful for reconstructing missing values and identifying important features in heterogeneous data.
+
+More details are available at : http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/glrm.html
+
+end-details:

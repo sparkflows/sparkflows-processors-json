@@ -1,0 +1,29 @@
+{
+  "id": "5",
+  "name": "Sklearn Ridge Regression",
+  "description": "Ridge Regression, solves a regression model where the loss function is the linear least squares function and regularization is given by the l2-norm.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnRidgeRegression",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "Feature columns of type - all numeric, boolean and vector", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "alpha", "value": 1.0, "widget": "textfield", "title": "Alpha", "description": "Constant that multiplies the L2 term, regularization strength."},
+    {"name": "fitintercept", "value": "true", "widget": "array", "title": "Fit Intercept", "optionsArray": ["false", "true"], "description": "Whether to calculate the intercept for this model.", "datatypes": ["boolean"]},
+    {"name": "normalize", "value": "false", "widget": "array", "title": "Normalize", "optionsArray": ["false", "true"], "description": "This parameter is ignored when `fit_intercept` is set to False. If True, the regressors X will be normalized before regression by subtracting the mean and dividing by the l2-norm.", "datatypes": ["boolean"]},
+    {"name": "maxiter", "value": "", "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of iterations for conjugate gradient solver."},
+    {"name": "tol", "value": 1e-3, "widget": "textfield", "title": "Tolerance", "description": "Precision of the solution."},
+    {"name": "solver", "value": "auto", "widget": "array", "title": "Solver", "optionsArray": ["auto", "svd", "cholesky", "lsqr", "sparse_cg", "sag", "saga"], "description": "Solver to use in the computational routines."},
+    {"name": "randomstate", "value": "", "widget": "textfield", "title": "Random State", "description": "The seed of the pseudo random number generator to use when shuffling the data for the solver.'"}
+  ]
+}
+
+start-details:
+
+More details are available at : https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html
+
+end-details:

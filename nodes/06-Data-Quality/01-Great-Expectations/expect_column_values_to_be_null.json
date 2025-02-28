@@ -1,0 +1,62 @@
+{
+  "id": "7",
+  "name": "ExpectColumnValuesToBeNull",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeNull",
+  "fields" : [
+
+    {"name": "cols", "value":"[]", "widget": "variables_list_select",
+      "title": "Column Name", "description": "The column name."},
+
+    {"name": "mostly", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Mostly", "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True."}
+  ]
+}
+
+start-details:
+
+h2:Expect Column Values To Be Null Details
+
+Expect the column values to be null.
+
+h4:Keyword Args
+
+Column Name: The column name
+Mostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.
+
+end-details:
+
+start-examples:
+
+h2:Example
+
+h4:Incoming Dataframe
+
+In this example we have considered a Incoming Dataframe with following rows:
+
+EMP_CD    |    DEPT        |
+--------------------------------------
+E01       |                |
+E02       |                |
+E03       |                |
+E04       |                |
+
+h4:Configuration #1
+
+Column Name   | Mostly  |
+-------------------------
+EMP_CD        |         |
+
+The above setup would result in a status of `success: false` as the condition is not satisfied.
+
+h4:Configuration #2
+
+Column Name   | Mostly  |
+-------------------------
+DEPT        |   0.9     |
+
+The above setup would result in a status of `success: true` as the condition is satisfied.
+
+end-examples:

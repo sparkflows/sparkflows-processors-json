@@ -1,0 +1,64 @@
+{
+  "id": "7",
+  "name": "Create CSV from GE Results",
+  "iconImage": "/images/icons/node-icon/csv.svg",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeCreateCsvFromGeResults",
+  "fields" : [
+
+    {"name":"csvPath", "display":true,"value":"", "widget": "textfield", "required":true, "title": "Path", "description": "Path to save consolidated Great Expectation results as a CSV"},
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "header", "value":"false", "widget": "array", "title": "Header", "optionsArray": ["true","false"],
+      "description": "Should a Header Row be saved with each File?"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"}
+
+
+  ]
+}
+
+start-details:
+
+h2: Create CSV from GE Results Node
+
+h4: Overview:
+
+This node writes the output of a GE pipeline to a CSV file. It offers flexibility in configuring the output file's path, save mode, and whether to include a header row.
+
+h4: Input:
+
+Path: The desired path for the output CSV file.
+Save Mode: Determines how to handle existing files:
+Append: Appends new data to the end of an existing file.
+Overwrite: Overwrites the file with the new data.
+ErrorIfExists: Throws an error if the file already exists.
+Header: Specifies whether to include a header row with column names.
+
+h4: Output:
+
+The node writes the output DataFrame to the specified CSV file.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's say you have a DataFrame containing customer data and want to save it as a CSV file.
+
+Configure the Node:
+
+Path: /path/to/output.csv
+Save Mode: Append
+Header: True
+Node Execution:
+
+The DataFrame will be written to the specified CSV file, appending new data if the file already exists. The output file will include a header row with column names.
+
+end-examples:

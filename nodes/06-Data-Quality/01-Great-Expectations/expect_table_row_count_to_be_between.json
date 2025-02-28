@@ -1,0 +1,59 @@
+{
+  "id": "7",
+  "name": "ExpectTableRowCountToBeBetween",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeExpectTableRowCountToBeBetween",
+  "fields" : [
+
+    {"name": "min", "value":"[]", "widget": "key_array",
+      "title": "Min Count", "description": ""},
+
+    {"name": "max", "value":"[]", "widget": "value_array",
+      "title": "Max Count", "description": ""}
+  ]
+}
+
+start-details:
+
+h2:Expect Table Row Count To Be Between Details
+
+Expect the number of rows to be between two values.
+
+h4:Keyword Args
+
+Min Count : The minimum number of rows, inclusive.
+Max Count : The maximum number of rows, inclusive.
+
+h4: Notes
+`Min Count` and `Max Count` are both inclusive.
+If `Min Count` is None, then `Max Count` is treated as an upper bound, and the number of acceptable rows has no minimum.
+If `Max Count` is None, then `Min Count` is treated as a lower bound, and the number of acceptable rows has no maximum.
+
+end-details:
+
+start-examples:
+
+h2:Expect Table Row Count To Be Between Example
+
+h4:Incoming Dataframe
+
+In this example we have considered a Incoming Dataframe with following rows:
+
+EMP_CD    |    EMP_NAME    |    DEPT
+--------------------------------------
+E01       |    DAVID       |    
+E02       |    JANE        |    
+E03       |    MARK        |
+E04       |    JACK        |
+
+h4:Expect Table Row Count To Be Between Node Configuration
+
+Min Count   |    Max Count   
+-----------------------------
+3           |    5          |       
+
+The above setup would result in a status of `success: true`, as the number of records in the table is 4 which lies between the count of the configured minimum and maximum value.  
+
+end-examples:

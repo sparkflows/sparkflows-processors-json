@@ -1,0 +1,69 @@
+{
+  "id": "4",
+  "name": "Gaussian Mixture",
+  "description": "This class performs expectation maximization for multivariate Gaussian Mixture Models (GMMs). A GMM represents a composite distribution of independent Gaussian distributions with associated mixing weights specifying each's contribution to the composite.",
+
+  "input": "It takes in a DataFrame as input and performs GaussianMixture clustering",
+  "output": "The input DataFrame is passed along to the next Processors",
+
+  "type": "ml-estimator",
+  "nodeClass": "fire.nodes.ml.NodeGaussianMixture",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting.", "datatypes":["vectorudt"]},
+
+    {"name": "k", "value":2, "required":true, "widget": "textfield","title": "K", "description": "The number of clusters to create.", "datatypes":["integer"]},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "The maximum number of iterations.", "datatypes":["integer"]},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column created during model scoring."},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Random Seed.", "datatypes":["long"]},
+
+    {"name": "tol", "value":1e-4, "widget": "textfield", "title": "Tolerence", "description": "The convergence tolerance for iterative algorithms.","datatypes":["double"] },
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Param for weight column name", "datatypes":["double"]},
+
+    {"name": "aggregationDepth", "value": 2, "widget": "textfield", "title": "Aggregation Depth", "description": "Param for suggested depth for treeAggregate (>= 2)"},
+
+    {"name":"probabilityCol", "value": "", "widget": "variable", "title": "Probability Column", "description": "Param for Column name for predicted class conditional probabilities."}
+
+  ]
+}
+
+
+start-details:
+
+A Gaussian Mixture Model represents a composite distribution whereby points are drawn from one of k Gaussian sub-distributions, each with its own probability. The spark.ml implementation uses the expectation-maximization algorithm to induce the maximum-likelihood model given a set of samples.
+
+GaussianMixture is implemented as an Estimator and generates a GaussianMixtureModel as the base model.
+
+More details are available at Apache Spark ML docs page:
+
+https://spark.apache.org/docs/latest/ml-clustering.html#gaussian-mixture-model-gmm
+
+end-details:
+
+start-examples:
+
+Below example is available at : https://spark.apache.org/docs/latest/ml-clustering.html#gaussian-mixture-model-gmm
+
+import org.apache.spark.ml.clustering.GaussianMixture
+
+// Loads data
+val dataset = spark.read.format("libsvm").load("data/mllib/sample_kmeans_data.txt")
+
+// Trains Gaussian Mixture Model
+val gmm = new GaussianMixture()
+  .setK(2)
+val model = gmm.fit(dataset)
+
+// output parameters of mixture model model
+for (i <- 0 until model.getK) {
+  println(s"Gaussian $i:\nweight=${model.weights(i)}\n" +
+      s"mu=${model.gaussians(i).mean}\nsigma=\n${model.gaussians(i).cov}\n")
+}
+
+
+end-examples:
+

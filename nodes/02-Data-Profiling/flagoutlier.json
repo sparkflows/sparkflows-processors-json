@@ -1,0 +1,36 @@
+{
+  "id": "7",
+  "name": "Flag Outlier",
+  "type": "transform",
+  "description": "Flag the outlier based on the selected column using Box-and-Whisker technique.",
+  "nodeClass": "fire.nodes.ml.NodeFlagOutlier",
+  "engine": "all",
+  "fields" : [
+     {"name": "inputCol", "value":"", "widget": "variable", "title": "Input Column to flag the outlier", "description": "The Input Column to flag the outlier",
+       "datatypes":["double", "integer", "float"],  "required": true},
+
+    {"name": "lowerQuantile", "value": 0.25, "widget": "textfield", "title": "Lower Quantile", "description": "",  "required": true},
+
+    {"name": "upperQuantile", "value": 0.75, "widget": "textfield", "title": "Upper Quantile", "description": "",  "required": true}
+  ]
+}
+
+start-details:
+
+This node identifies whether a data point is outlier in a series or not based on the lower and upper quantile set. 
+
+It can be checked against numeric columns only.
+
+end-details:
+
+start-examples:
+
+FlagOutlier node can be configured as below:
+
+INPUT COLUMN TO FLAG THE OUTLIER	:	SALARY
+LOWERQUANTILE						          :	0.25
+UPPERQUANTILE						          :	0.75
+
+New column [is_SALARY_outlier] would be added to the output specifing whether a data point is outlier or not.
+
+end-examples:

@@ -1,0 +1,41 @@
+{
+  "id": "11",
+  "name": "Upsert JDBC",
+  "description": "This node insert or update the data to databases using JDBC.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeUpsertJDBC",
+  "engine": "scala",
+  "fields" : [
+    {"name":"primaryKeyColumn", "value":"[]", "widget": "variables", "title": "PrimaryKeyColumn", "description": "Key column name in table", "required":"true"},
+
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "DB Table", "description": "The JDBC table to write to","required":"true"},
+
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"}
+
+  ]
+}
+start-details:
+
+h2: Upsert JDBC Node Details
+
+This node updates or inserts (upserts) data in a database table using JDBC. It allows you to synchronize data between your DataFrame and the database table.
+
+h4: Parameters to be set:
+* OUTPUT STORAGE LEVEL: Keep this as DEFAULT.
+* PRIMARY KEY COLUMN: Specify the column(s) that uniquely identify rows in the database table. You need to select the primary key column(s) from the "Available" list and move them to the "Selected" list using the arrow buttons.
+* DB TABLE: Specify the name of the database table to be updated or inserted into.
+* CONNECTION: Select the desired database connection to use.
+
+end-details:
+
+start-examples:
+
+h2: Upsert JDBC Node Examples
+
+h4: Example of Upserting Data
+* PRIMARY KEY COLUMN: product_id
+* DB TABLE: products
+* CONNECTION: MY_SQL_DB
+This configuration would upsert data into the products table using the MY_SQL_DB connection, The product_id column is used to match rows between the DataFrame and the database table, If a row with a matching product_id exists in the table, it will be updated, otherwise, a new row will be inserted.
+
+end-examples:

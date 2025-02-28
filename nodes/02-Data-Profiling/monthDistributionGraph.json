@@ -1,0 +1,40 @@
+{
+  "id": "3",
+  "name": "Graph Month Distribution",
+  "description":"This node Finds the distribution of months from Date values" ,
+  "type": "transform",
+  "nodeClass": "fire.nodes.graph.NodeGraphMonthDistribution",
+  "fields" : [
+  	{"name":"title", "value":"Month Distribution", "widget": "textfield", "title": "Title"},
+    {"name":"graphType", "value":"1", "widget": "enum", "title": "Chart Type",
+      "optionsMap":{"LINECHART":"Line Chart","COLUMNCHART":"Side by Side Bar Chart",
+                    "BARCHART":"Stacked Bar Chart", "PIE":"Pie Chart"}, "description" : "input graph type"},
+    {"name":"yCols", "value":"[]", "widget": "variables", "title": "Y Columns",
+                    "datatypes":["string", "date", "timestamp"],"description":"input to y axis"}
+  ]
+}
+
+start-detail:
+
+Graph Month Distribution Node
+
+Overview:
+
+This node Finds the distribution of months from Date values in the form of chart
+
+Configuration:
+
+1. **Output Storage Level:** Specifies the storage level for the output graph.
+2. **Title:** Sets the title of the graph.
+3. **Chart Type:** Selects the type of chart to be used (e.g., bar chart, line chart, pie chart).
+4. **Y Columns:** Specifies the columns to be used for the Y-axis of the chart.
+
+end-details:
+
+start-examples:
+
+Example:
+
+If you have a dataset with a "Month" column and a "Sales" column, you can use the Graph Month Distribution node to create a chart chosen  visualizing the total sales for each month. The X-axis will represent the months, and the Y-axis will represent the total sales.
+
+end-examples:

@@ -1,0 +1,63 @@
+{
+  "id": "11",
+  "name": "Prophet Cross Validator",
+  "description": "",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ts.NodeProphetCrossValidation",
+  "fields" : [
+    {"name": "horizon", "value":"", "widget": "textfield", "title": "Horizon", "description": "String with pd.Timedelta compatible style, e.g., '5 days','3 hours', '10 seconds'.","required": true},
+    {"name": "period", "value":"", "widget": "textfield", "title": "Period", "description": "String with pd.Timedelta compatible style. Simulated forecast will be done at every this period. If not provided, 0.5 * horizon is used."},
+    {"name": "initial", "value":"", "widget": "textfield", "title": "Initial", "description": "String with pd.Timedelta compatible style. The first training period will include at least this much data. If not provided,3 * horizon is used."},
+    {"name": "cutoffs", "value":"", "widget": "textfield", "title": "Cutoffs", "description": "list of pd.Timestamp specifying cutoffs to be used during cross validation. If not provided, they are generated as described above."}
+      ]
+}
+
+start-details:
+
+h2: Prophet Cross Validator Node Details
+
+The Prophet Cross Validator node evaluates the performance of a Prophet forecasting model by performing cross-validation on the time-series data. This node divides the data into multiple folds, trains the model on a portion of the data, and evaluates it on the remaining portion to calculate forecast errors.
+
+h4: Schema Tab
+
+Displays the schema of the input DataFrame with columns such as PartID, SupplierID, PartName, PartCategory, and PartQualityScore.
+Each column is defined with its Name, Type, and Format.
+h4: Configuration Options
+
+Output Storage Level: Defines the storage level of the output.
+Horizon (Required): The forecast horizon specifying how far into the future the forecast will be evaluated.
+Period: The spacing between cutoff points. If left empty, defaults to one-half of the forecast horizon.
+Initial: The size of the initial training period. If left empty, defaults to three times the forecast horizon.
+Cutoffs: A list of manually specified cutoff dates. If provided, overrides Period and Initial.
+
+end-details
+
+start-examples:
+
+h2: Prophet Cross Validator Node Examples
+
+Example 1: Evaluating Forecast Accuracy for Demand
+
+Input Schema:
+Time-series data with columns such as "Date" and "Demand".
+Configuration:
+Horizon: "30 days" (e.g., evaluating forecasts for the next 30 days).
+Period: "15 days" (e.g., cutoffs occur every 15 days).
+Initial: "90 days" (e.g., initial training period covers 90 days).
+Output:
+Metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) for each fold of the cross-validation.
+Example 2: Cross-Validation for Monthly Revenue Prediction
+
+Input Schema:
+Time-series data with columns "Month" and "Revenue".
+Configuration:
+Horizon: "3 months".
+Period: "1 month".
+Initial: "12 months".
+Output:
+Forecast error metrics aggregated across all cutoff points.
+
+end-examples:

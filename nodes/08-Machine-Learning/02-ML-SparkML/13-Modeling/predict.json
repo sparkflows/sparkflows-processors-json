@@ -1,0 +1,20 @@
+{
+  "id": "5",
+  "name": "Spark Predict",
+  
+  "description": "Predict node takes in a DataFrame and Model and makes predictions",
+
+  "input": "It takes in a DataFrame and Model as input",
+  "output": "A new column containing the predictions is added to the input DataFrame",
+  "engine": "all",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ml.NodePredict",
+  "fields" : [
+  ]
+}
+
+start-details:
+
+Predict node takes in a DataFrame and Model and makes predictions on the data using the Model.
+
+end-details:

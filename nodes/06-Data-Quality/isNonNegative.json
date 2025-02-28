@@ -1,0 +1,45 @@
+{
+  "id": "2",
+  "name": "IsNonNegative",
+  "description": "Should not contain negative values",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckIsNonNegative",
+  "fields" : [
+    {
+      "name": "cols", "value":"[]", "widget": "variables", "title": "Column Name", "description": "The column name."
+    },{"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}
+
+start-details:
+
+h2: IsNonNegative Node
+
+h4: Overview:
+
+The IsNonNegative node checks if a specific column in a DataFrame contains only non-negative values. This is useful for data quality checks and ensuring data integrity.
+
+h4: Input:
+
+Column Name: The name of the column to check.
+
+h4: Output:
+
+The node will flag records where the specified column contains negative values.
+
+end-details:
+
+start-examples:
+
+h2:Example:
+
+Let's assume we have a column named age and we want to identify records where the age is negative.
+
+Configure the Node:
+
+Column Name: age
+Node Execution:
+
+Records with an age less than 0 will be flagged.
+
+end-examples:

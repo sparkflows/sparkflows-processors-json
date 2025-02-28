@@ -1,0 +1,129 @@
+{
+  "id": "5",
+  "name": "Random Forest Regression",
+  "description": "It supports both continuous and categorical features.",
+
+  "input" : "This takes in a DataFrame and performs Random Forest Regression",
+  "output": "It generates the Random Forest Regression Model and passes it to the next Predict and ModelSave Nodes. The input DataFrame is also passed along to the next nodes.",
+
+  "type": "ml-estimator",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeRandomForestRegression",
+  "fields" : [
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting", "datatypes":["vectorudt"]},
+
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "The label column for model fitting", "datatypes":["double"]},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column created during model scoring."},
+
+    {"name": "featureSubsetStrategy", "value":"auto", "widget": "array", "title": "Feature Subset Strategy", "optionsArray": ["auto", "onethird", "sqrt", "log2"], "description": "The number of features to consider for splits at each tree node."},
+
+    {"name": "impurity", "value":"variance", "widget": "array", "title": "Impurity", "optionsArray": ["variance"], "description": "The Criterion used for information gain calculation"},
+
+    {"name": "maxBins", "value":32, "widget": "textfield", "title": "Max Bins", "description": "The maximum number of bins used for discretizing continuous features.Must be >= 2 and >= number of categories in any categorical feature.", "datatypes":["integer"]},
+
+    {"name": "maxDepth", "value":5, "widget": "textfield", "title": "Max Depth", "description": "The Maximum depth of a tree", "datatypes":["integer"]},
+
+    {"name": "minInfoGain", "value":0.0, "widget": "textfield", "title": "Min Information Gain", "description": "The Minimum information gain for a split to be considered at a tree node", "datatypes":["double"]},
+
+    {"name": "minInstancesPerNode", "value":1, "widget": "textfield", "title": "Min Instances Per Node", "description": "The Minimum number of instances each child must have after split", "datatypes":["integer"]},
+
+    {"name": "numTrees", "value":20, "widget": "textfield", "title": "Num Trees", "description": "The number of trees to train", "datatypes":["integer"]},
+
+    {"name": "subsamplingRate", "value":1.0, "widget": "textfield", "title": "Subsampling Rate", "description": "The fraction of the training data used for learning each decision tree.", "datatypes":["double"]},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "The random seed" ,"datatypes":["long"]},
+
+    {"name": "cacheNodeIds", "value":"false", "widget": "array", "title": "Cache Node Ids", "optionsArray": ["false","true"], "description": "The caching nodes IDs. Can speed up training of deeper trees." ,"datatypes":["boolean"]},
+
+    {"name": "checkpointInterval", "value":10, "widget": "textfield", "title": "Checkpoint Interval", "description": "The checkpoint interval. E.g. 10 means that the cache will get checkpointed every 10 iterations.Set checkpoint interval (>= 1) or disable checkpoint (-1)", "datatypes":["integer"]},
+
+    {"name": "maxMemoryInMB", "value":256, "widget": "textfield", "title": "Max memory", "description": "Maximum memory in MB allocated to histogram aggregation." ,"datatypes":["integer"]},
+
+    {"name": "minWeightFractionPerNode", "value":1.0, "widget": "textfield", "title": "Min weight fraction per node", "description": "Minimum fraction of the weighted sample count that each child must have after split", "datatypes":["double"]},
+
+    {"name": "bootstrap", "value":"true", "widget": "array", "title": "Bootstrap", "optionsArray": ["true","false"], "description": "Whether bootstrap samples are used when building trees.", "datatypes":["boolean"]},
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Param for weight column name. If this is not set or empty, we treat all instance weights as 1.0.", "datatypes":["double"]},
+
+
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "minInfoGainGrid", "value":"", "widget": "textfield", "title": "Min Info Gain Grid Search", "description": "Min Info Gain Grid Search"},
+
+    {"name": "maxBinsGrid", "value":"", "widget": "textfield", "title": "Max Bins Grid Search", "description": "Max Bins for Grid Search"},
+
+    {"name": "maxDepthGrid", "value":"", "widget": "textfield", "title": "Max Depth Grid Search", "description": "Regularization Parameters for Grid Search"},
+
+    {"name": "numTreesGrid", "value":"", "widget": "textfield", "title": "Num Trees Grid Search", "description": "Number of trees for Grid Search"}
+
+  ]
+}
+
+
+start-details:
+
+Random forests are a popular family of classification and regression methods.
+The DataFrame API supports two major tree ensemble algorithms: Random Forests and Gradient-Boosted Trees (GBTs). Both use spark.ml decision trees as their base models.
+
+More details are available at Apache Spark ML docs page :
+
+http://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-regression
+
+end-details:
+
+start-examples:
+Below example is available at : https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-regression
+
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.evaluation.RegressionEvaluator
+import org.apache.spark.ml.feature.VectorIndexer
+import org.apache.spark.ml.regression.{RandomForestRegressionModel, RandomForestRegressor}
+
+// Load and parse the data file, converting it to a DataFrame.
+val data = spark.read.format("libsvm").load("data/mllib/sample_libsvm_data.txt")
+
+// Automatically identify categorical features, and index them.
+// Set maxCategories so features with > 4 distinct values are treated as continuous.
+val featureIndexer = new VectorIndexer()
+  .setInputCol("features")
+  .setOutputCol("indexedFeatures")
+  .setMaxCategories(4)
+  .fit(data)
+
+// Split the data into training and test sets (30% held out for testing).
+val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3))
+
+// Train a RandomForest model.
+val rf = new RandomForestRegressor()
+  .setLabelCol("label")
+  .setFeaturesCol("indexedFeatures")
+
+// Chain indexer and forest in a Pipeline.
+val pipeline = new Pipeline()
+  .setStages(Array(featureIndexer, rf))
+
+// Train model. This also runs the indexer.
+val model = pipeline.fit(trainingData)
+
+// Make predictions.
+val predictions = model.transform(testData)
+
+// Select example rows to display.
+predictions.select("prediction", "label", "features").show(5)
+
+// Select (prediction, true label) and compute test error.
+val evaluator = new RegressionEvaluator()
+  .setLabelCol("label")
+  .setPredictionCol("prediction")
+  .setMetricName("rmse")
+val rmse = evaluator.evaluate(predictions)
+println(s"Root Mean Squared Error (RMSE) on test data = $rmse")
+
+val rfModel = model.stages(1).asInstanceOf[RandomForestRegressionModel]
+println(s"Learned regression forest model:\n ${rfModel.toDebugString}")
+
+end-examples:
+
+

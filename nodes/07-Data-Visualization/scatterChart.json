@@ -1,0 +1,73 @@
+{
+    "id": "3",
+    "name": "Scatter Chart",
+    "type": "transform",
+    "engine": "all",
+    "iconImage": "/images/icons/node-icon/scatter_chart.svg",
+    "nodeClass": "fire.nodes.graph.NodeScatterChart",
+    "fields" : [
+      {"name":"title", "value":"Scatter Chart", "widget": "textfield", "title": "Title"},
+      {"name":"titleColor", "value":"#77C27F", "widget": "textcolors", "title": "Title Color"},
+      {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+      {"name":"descriptionColor", "value":"#808080", "widget": "textcolors", "title": "Description Color"},
+      {"name":"xlabel", "value":"", "widget": "textfield", "title": "X Label"},
+      {"name":"ylabel", "value":"", "widget": "textfield", "title": "Y Label"},
+      {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+        "description": "Maximum number of values to display in result.", "required": true},
+  
+      {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+  
+        
+      {"name": "material", "value":"false", "widget": "array", "title": "Material Chart", "optionsArray": ["true","false"],
+        "description": "Select true will use material design", "datatypes":["boolean"]},
+    
+    {"name": "dualAxis", "value":"false", "widget": "array", "title": "Dual axis",  "optionsArray": ["true","false"],
+        "description": "Display axis on both side", "datatypes":["boolean"]},
+  
+        
+      {"name":"xCol", "value":"", "widget": "variable", "title": "X Column", "required":true},
+      {"name":"yCols", "value":"[]", "widget": "variables", "datatypes":["integer", "long", "double", "float"], "title": "Y Columns", "required":true},
+      {"name":"ySortCol", "value":"", "widget": "variable", "datatypes":["integer", "long", "double", "float"], "title": "Y Sort Column"},
+      {"name":"reNameYColumns", "value":"[]", "widget": "variables_selected", "title": "Rename Y Columns"}
+    ]
+  }
+
+start-details:
+
+This node creates a scatter plot to visualize the relationship between two numerical variables. Each data point is represented by a dot on the chart.
+
+Configuration:
+
+Max Values to Display: Limits the number of data points displayed on the chart.
+Chart Colors: Customizes the color palette for the scatter plot.
+Material Chart: Enables or disables Material Design for the chart.
+Dual Axis: Allows for multiple Y-axes.
+X Column: Selects the column to be used as the X-axis.
+Y Columns: Selects the columns to be used as the Y-axis.
+Output:
+
+The node generates a scatter plot visualizing the relationship between the selected X and Y variables. The size and color of the markers can be used to represent additional information.
+
+Use Cases:
+
+Correlation Analysis: Identify relationships between variables.
+Outlier Detection: Find data points that deviate significantly from the trend.
+Clustering: Group similar data points together.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's say you have a dataset with information about houses, including their size (in square feet) and price. You can use the Scatter Chart node to visualize the relationship between these two variables.
+
+Configuration:
+
+X Column: Size
+Y Column: Price
+Output:
+
+The scatter plot will show the relationship between the size of a house and its price. If there's a positive correlation, larger houses will generally have higher prices.
+
+end-examples:

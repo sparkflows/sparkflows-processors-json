@@ -1,0 +1,47 @@
+{
+  "id": "2",
+  "name": "HasMax",
+  "description": "Check for max value in selected column.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckHasMax",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name.","datatypes":["integer", "long", "double", "float"]},
+    {"name": "values", "value":"[]", "widget": "variables_list_textfield","title": "Values", "description": "A set of objects separated by spaces used for comparison.."},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}
+
+start-details:
+
+h2: Has Max Node
+
+h4: Overview:
+
+The Has Max node checks if a specific column in a DataFrame has a maximum value. This is useful for identifying outliers or unexpected values within a dataset.
+
+h4: Input:
+
+Column Name: The name of the column to check.
+Value: The maximum value to compare against.
+
+h4: Output:
+
+The node will flag records where the specified column value is greater than the defined maximum value.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's assume we have a column named age and we want to identify records where the age is greater than 120.
+
+Configure the Node:
+
+Column Name: age
+Value: 120
+Node Execution:
+
+Records with an age greater than 120 will be flagged.
+
+end-examples:

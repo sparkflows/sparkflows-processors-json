@@ -1,0 +1,55 @@
+{
+  "id": "7",
+  "name": "Row Numbering",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeRowNumbering",
+  "fields" : [
+
+    {"name": "outputCol", "value":"rowid", "widget": "textfield", "title": "Output Column", "description": "Name for output column", "datatypes":["string"]}
+  ]
+}
+
+start-details:
+
+h2: Row Numbering Node
+
+h4: Overview:
+
+The Row Numbering node adds a new column to a DataFrame, assigning a unique row number to each row. This can be useful for various data processing tasks, such as tracking row order or identifying specific rows.
+
+h4: Input:
+
+None
+
+h4: Output:
+
+Output Column: The name of the new column to store the row numbers.
+
+end-details:
+
+start-examples:
+
+h2:Example:
+
+Let's assume we have a DataFrame with the following data:
+
+id	column1	column2
+1	A	10
+2	B	20
+3	C	30
+
+Configure the Node:
+
+Output Column: row_id
+Node Execution:
+
+The node will add a new column row_id to the DataFrame, assigning sequential numbers to each row:
+
+id	column1	column2	row_id
+1	A	10	1
+2	B	20	2
+3	C	30	3
+
+end-examples:

@@ -1,0 +1,47 @@
+{
+  "id": "7",
+  "name": "R Formula",
+  "type": "ml-transformer",
+  "description": "RFormula feature selection, RFormula selects columns specified by an R model formula. Currently we support a limited subset of the R operators, including ‘~’, ‘.’, ‘:’, ‘+’, and ‘-‘",
+  "nodeClass": "fire.nodes.ml.NodeRFormula",
+  "engine": "all",
+  "fields" : [
+    {"name":"featuresCol", "value":"", "widget": "variable", "title": "Features Column ","required": true, "datatypes":["vectorudt"], "description": "The features column name"},
+
+    {"name":"formula", "value":"", "widget": "textfield", "title": "Formula", "required": true,  "description": "formula"},
+
+    {"name":"labelCol", "value":"", "widget": "variable", "title": "Label Column", "required": true, "datatypes":["double"], "description": "The label column name"}
+  ]
+}
+
+start-details:
+
+RFormula selects columns specified by an R model formula. Currently we support a limited subset of the R operators, including ‘~’, ‘.’, ‘:’, ‘+’, and ‘-‘. 
+
+More details are available at : https://spark.apache.org/docs/latest/ml-features.html#rformula
+
+end-details:
+
+start-examples:
+
+h2:The below example is available at : https://spark.apache.org/docs/latest/ml-features.html#rformula
+
+
+import org.apache.spark.ml.feature.RFormula
+
+val dataset = spark.createDataFrame(Seq(
+  (7, "US", 18, 1.0),
+  (8, "CA", 12, 0.0),
+  (9, "NZ", 15, 0.0)
+)).toDF("id", "country", "hour", "clicked")
+
+val formula = new RFormula()
+  .setFormula("clicked ~ country + hour")
+  .setFeaturesCol("features")
+  .setLabelCol("label")
+
+val output = formula.fit(dataset).transform(dataset)
+output.select("features", "label").show()
+
+
+end-examples:

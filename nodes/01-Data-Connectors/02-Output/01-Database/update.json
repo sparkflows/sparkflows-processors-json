@@ -1,0 +1,44 @@
+{
+  "id": "11",
+  "name": "Update JDBC",
+  "description": "This node update the data to selected columns.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeUpdateJDBC",
+  "engine": "scala",
+  "fields" : [
+    {"name":"primaryKeyColumn", "value":"[]", "widget": "variables", "title": "Primary Key Column", "description": "Key column name in table", "required":"true"},
+
+    {"name":"updateColumn", "value":"[]", "widget": "variables", "title": "Update Column", "description": "Update column name in table", "required":"true"},
+
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "DB Table", "description": "The JDBC table to write to","required":"true"},
+
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"}
+
+  ]
+}
+start-details:
+
+h2: Update JDBC Node Details
+
+This node update the data to selected columns.
+
+h4: Parameters to be set:
+*OUTPUT STORAGE LEVEL: Keep this as DEFAULT.
+*PRIMARY KEY COLUMN: Specify the column(s) that uniquely identify rows in the database table, Select the primary key column(s) from the "Available" list and move them to the "Selected" list.
+*UPDATE COLUMN: Specify the column(s) that you want to update in the database table, Select the columns to be updated from the "Available" list and move them to the "Selected" list.
+*DB TABLE: Specify the name of the database table where data will be updated.
+*CONNECTION: Select the desired database connection to use.
+
+end-details:
+
+start-examples:
+
+h2: Update JDBC Node Examples
+
+h4: Example of Updating Columns
+*PRIMARY KEY COLUMN: customer_id
+*UPDATE COLUMN: (email_address,last_login_date),This configuration would update the email_address and last_login_date for records in the database table, matching rows based on their customer_id.
+*DB TABLE:  customers
+*CONNECTION:  MY_POSTGRES_DB, This configuration would update the email_address and last_login_date for records in the customers table using the MY_POSTGRES_DB connection.
+
+end-examples:

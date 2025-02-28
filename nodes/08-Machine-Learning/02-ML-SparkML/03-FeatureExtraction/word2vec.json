@@ -1,0 +1,56 @@
+{
+  "id": "4",
+  "name": "Word2 Vec",
+  "type": "ml-transformer",
+  "description":"Transforms vectors of words into vectors of numeric codes for the purpose of further processing by NLP or machine learning algorithms.",
+
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "A new column containing feature vector is added to the incoming DataFrame",
+
+  "nodeClass": "fire.nodes.ml.NodeWord2Vec",
+  "engine": "all",
+  "fields" : [
+    {"name": "inputCol", "value":"text", "widget": "variable", "title": "Input Column", "description": "Contains sequences of words"},
+    {"name":"inputColStringArrCol", "value":"textarr", "widget": "textfield", "title": "Text Array Column", "description": "The text array column which is produced"},
+    {"name": "outputCol", "value":"outputCol", "widget": "textfield", "required":"true", "title": "Output Column", "description": "Output column name"},
+
+    {"name": "vectorSize", "value":3, "widget": "textfield", "title": "Vector Size", "description": "Vector Size", "datatypes":["integer"]},
+    {"name": "minCount", "value":0, "widget": "textfield", "title": "Min Count", "description": "Min Count", "datatypes":["integer"]},
+    {"name": "numPartitions", "value":1, "widget": "textfield", "title": "Num Partitions", "description": "Number of partitions for sentences of words", "datatypes":["integer"]},
+    {"name": "windowSize", "value":5, "widget": "textfield", "title": "Window Size", "description": "The window size (context words from [-window, window])", "datatypes":["integer"]},
+    {"name": "maxSentenceLength", "value":1000, "widget": "textfield", "title": "Max Sentence Length", "description": "Sets the maximum length (in words) of each sentence in the input data. Any sentence longer than this threshold will be divided into chunks of up to maxSentenceLength", "datatypes":["integer"]}
+  ]
+}
+
+
+start-details:
+
+h2: Word2Vec Node Details
+
+The Word2Vec Node is an Estimator which takes sequences of words representing documents and trains a Word2VecModel. The model maps each word to a unique fixed-size vector. The Word2VecModel transforms each document into a vector using the average of all words in the document; this vector can then be used for as features for prediction, document similarity calculations, etc.
+
+The word2vec algorithm uses a model to learn word associations from a large corpus of text. Once trained, such a model can detect synonymous words or suggest additional words for a partial sentence.
+
+h4:Input Parameters
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* INPUT COLUMN : The name of the field in the input schema that contains the features to build the model from.
+* TEXT ARRAY COLUMN : Set a name for the output transformed array column. 
+* OUTPUT COLUMN : Set a name for the output vector column. 
+* VECTOR SIZE : The dimension of the code that you want to transform from words. Defaults to 3.
+* MIN COUNT : The minimum number of times a token must appear to be included in the word2vec model's vocabulary.
+* NUM PARTITIONS : Number of partitions for sentences of words. 
+* WINDOW SIZE  : Hyperparameter used in training process. Defaults to 5.  
+* MAX SENTENCE LENGTH : Sets the maximum length (in words) of each sentence in the input data. 
+
+end-details:
+
+start-examples:
+
+h2: Word2Vec Node Example
+
+Consider the below <b>Word2Vec</b> output's for the input string <b>Title</b> column.
+* Title : 'Learning Sparkflows'
+* textarr : (Learning, Sparkflows)
+* Word2Vec : [-0.12955643981695175,0.0201990008354187,0.13060205057263374]
+
+end-examples:

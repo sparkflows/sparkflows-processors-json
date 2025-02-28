@@ -1,0 +1,48 @@
+{
+  "id": "15",
+  "name": "Drop Columns",
+  "description": "This node creates a new DataFrame by dropping the specified columns",
+  "input": "It takes in a DataFrame as input",
+  "output": "The specified columns are dropped from the incoming DataFrame to generate the output DataFrame",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeDropColumns",
+  "fields" : [
+    {"name":"dropCols", "value": "[]", "widget": "variables", "title": "Columns", "description": "The columns to be excluded from the output DataFrame"}
+  ]
+}
+
+start-details:
+
+h2:Drop Columns Node Details
+
+This node creates a new DataFrame by dropping the selected columns.
+
+It drops the selected columns from the outgoing dataframe. 
+
+Columns that need to be dropped are to be selected in the 'Selected' list. Multiple columns can be selected in the list that needs to be dropped.
+
+end-details:
+
+start-examples:
+
+h2:Drop Columns Node Examples
+
+h4:Incoming Dataframe
+
+In this example we have considered an Incoming Dataframe having following columns:
+
+* CUST_CD
+* CUST_NAME
+* DOB
+* ADDRESS
+
+h4:Drop Columns Node Configuration And Output
+
+[DOB] and [ADDRESS] columns are selected to be dropped from the outgoing Dataframe. 
+Outgoing dataframe would contain only below two columns after dropping the selected columns:
+
+* DOB
+* ADDRESS
+
+end-examples:

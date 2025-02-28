@@ -1,0 +1,23 @@
+{
+  "id": "11",
+  "name": "Unix Shell Commands",
+  "description": "This node executes shell command",
+  "type": "shellcommand",
+  "nodeClass": "fire.nodes.etl.NodeShellCommand",
+  "fields" : [
+    {"name":"commandSplitter", "display": true,"value":";", "widget": "textfield", "title": "CommandSplitter", "description": "Command Splitter"},
+    
+    {"name":"shellCommand", "value": "", "widget": "textarea_large", "title": "shell Command", "description": "Unix Shell Command"}
+
+  ]
+}
+
+start-details:
+
+h2:Unix Shell Command Details
+
+The Unix Shell Command Node executes the given set of Unix Shell Commands one by one.
+
+It captures the output and error of the execution and displays them back to the user.
+
+end-details:

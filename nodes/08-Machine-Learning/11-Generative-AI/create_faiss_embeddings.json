@@ -1,0 +1,25 @@
+{
+  "id": "6",
+  "name": "Create Faiss Embeddings",
+  "description": "Creates Vector Embeddings, stores them in faiss db and save as a pickle file",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeCreateFaissEmbeddings",
+  "fields" : [
+    {"name":"inputFilePath",  "display": true, "value":"", "widget": "textfield", "title": "Path Of Input File", "description":"Enter file path. Supported types: .pdf,.json, .txt, .docx"},
+    {"name":"outputPath",  "display": true, "value":"", "widget": "textfield", "title": "Path Of Vector DB", "description":"Select a path to save pickle file","required":"true"},
+    {"name": "separator", "value":"", "widget": "textfield", "title": "Separator", "description": "Enter a separator. If Empty defaults to recursive text splitter."},
+    {"name": "chunk_size", "value":"2000", "widget": "textfield", "title": "Chunk Size", "description": "Enter chunk size", "datatypes":["integer"]},
+    {"name": "chunk_overlap", "value":"100", "widget": "textfield", "title": "Chunk Overlap", "description": "Enter chunk overlap size", "datatypes":["integer"]},
+    {"name": "column_name", "value":"", "widget": "variable", "title": "Target Column", "description": "Target column for dataframe"},
+    {"name": "advanced", "value":"", "widget": "tab", "title": "LLM Connection"},
+    {"name": "llmConnection", "value":"", "widget": "object_array", "title": "Connection", "description": "The LLM connection to connect" ,"required":"true"},
+    {"name": "model", "value":"text-embedding-ada-002", "widget": "textfield", "title": "Model", "description": "Model name to use.","required":"true"},
+    {"name": "max_retries", "value":6, "widget": "textfield", "title": "Max Retries", "description": "Maximum number of retries to make when generating.", "datatypes":["integer"]},
+    {"name": "embedding_ctx_length", "value":8191, "widget": "textfield", "title": "Embedding ctx length", "description": "Embedding context length.", "datatypes":["integer"]},
+    {"name": "OpenAI_organization", "value":"None", "widget": "textfield", "title": "OpenAI Organization", "description": "OpenAI Organization", "datatypes":["string"]},
+    {"name": "tiktoken_model_name", "value":"None", "widget": "textfield", "title": "Tiktoken Model Name", "description": "The model name to pass to tiktoken", "datatypes":["string"]}
+  ]
+}

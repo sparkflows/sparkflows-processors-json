@@ -1,0 +1,27 @@
+{
+  "id": "11",
+  "name": "Read BigQuery",
+
+  "description": "It reads data from BigQuery table and creates a DataFrame from it",
+  "input": "It reads data from BigQuery table.",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "hint": "Whenever the file is changed, Refresh the Schema",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.gcp.NodeReadBigQuery",
+  "fields" : [
+    {"name":"bigQueryDataset", "display":true, "value":"", "widget": "textfield", "title": "BigQuery Dataset",
+      "description": "bigQueryDataset name",  "required": true},
+    {"name":"bigQueryTable", "display":true,"value":"", "widget": "textfield", "required":true, "title": "BigQuery Table", "description": "BigQueryTable name."},
+    {"name": "schema", "value":"", "widget": "tab", "title": "Schema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"},
+    {"name": "extraOptions", "value": "", "widget": "tab", "title": "Extra Options"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Extra Options Keys", "description": "Extra options available while reading from Big Query."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Extra Options Values", "description": "Config Values for the Corresponding keys"}
+
+  ]
+}
+start-details:
+
+end-details:

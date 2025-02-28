@@ -1,0 +1,163 @@
+{
+  "id": "4",
+  "name": "Random Forest Classifier",
+  "description": "Supports both binary and multiclass labels, as well as both continuous and categorical features.",
+
+  "input": "Takes in a DataFrame and performs Random Forest Classification",
+  "output": "Random Forest Classification Model generated is passed along to the next nodes. The input DataFrame is also passed along to the next nodes",
+
+  "type": "ml-estimator",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.ml.NodeRandomForestClassifier",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting", "datatypes":["vectorudt"]},
+
+    {"name": "labelCol", "value":"", "required":true, "widget": "variable", "title": "Label Column", "description": "The label column for model fitting", "datatypes":["double"]},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column created during model scoring."},
+
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Save Confusion Matrix to Path"},
+
+    {"name": "featureSubsetStrategy", "value":"auto", "widget": "array", "title": "Feature Subset Strategy", "optionsArray": ["auto", "onethird", "sqrt", "log2"], "description": "The number of features to consider for splits at each tree node."},
+
+    {"name": "impurity", "value":"gini", "widget": "array", "title": "Impurity", "optionsArray": ["gini","entropy"], "description": "The Criterion used for information gain calculation"},
+
+    {"name": "maxBins", "value":32, "widget": "textfield", "title": "Max Bins", "description": "The maximum number of bins used for discretizing continuous features.Must be >= 2 and >= number of categories in any categorical feature.", "datatypes":["integer"]},
+
+    {"name": "maxDepth", "value":5, "widget": "textfield", "title": "Max Depth", "description": "The Maximum depth of a tree", "datatypes":["int"]},
+
+    {"name": "minInfoGain", "value":0.0, "widget": "textfield", "title": "Min Information Gain", "description": "The Minimum information gain for a split to be considered at a tree node", "datatypes":["double"]},
+
+    {"name": "minInstancesPerNode", "value":1, "widget": "textfield", "title": "Min Instances Per Node", "description": "The Minimum number of instances each child must have after split", "datatypes":["integer"]},
+
+    {"name": "numTrees", "value":20, "widget": "textfield", "title": "Num Trees", "description": "The number of trees to train", "datatypes":["integer"]},
+
+    {"name": "subsamplingRate", "value":1.0, "widget": "textfield", "title": "Subsampling Rate", "description": "The fraction of the training data used for learning each decision tree.", "datatypes":["double"]},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "The random seed" ,"datatypes":["long"]},
+
+    {"name": "cacheNodeIds", "value":"false", "widget": "array", "title": "Cache Node Ids", "optionsArray": ["false","true"], "description": "The caching nodes IDs. Can speed up training of deeper trees." ,"datatypes":["boolean"]},
+
+    {"name": "checkpointInterval", "value":10, "widget": "textfield", "title": "Checkpoint Interval", "description": "The checkpoint interval. E.g. 10 means that the cache will get checkpointed every 10 iterations.Set checkpoint interval (>= 1) or disable checkpoint (-1)", "datatypes":["integer"]},
+
+    {"name": "maxMemoryInMB", "value":256, "widget": "textfield", "title": "Max memory", "description": "Maximum memory in MB allocated to histogram aggregation." ,"datatypes":["integer"]},
+
+    {"name": "minWeightFractionPerNode", "value":1.0, "widget": "textfield", "title": "Min weight fraction per node", "description": "Minimum fraction of the weighted sample count that each child must have after split", "datatypes":["double"]},
+
+    {"name": "bootstrap", "value":"true", "widget": "array", "title": "Bootstrap", "optionsArray": ["true","false"], "description": "Whether bootstrap samples are used when building trees.", "datatypes":["boolean"]},
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Param for weight column name. If this is not set or empty, we treat all instance weights as 1.0.", "datatypes":["double"]},
+
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "minInfoGainGrid", "value":"", "widget": "textfield", "title": "Min Information Gain Param Grid Search", "description": "Min Information Gain Parameters for Grid Search"},
+
+    {"name": "maxBinsGrid", "value":"", "widget": "textfield", "title": "Max Bins Param Grid Search", "description": "Max Bins Parameters for Grid Search"},
+
+    {"name": "maxDepthGrid", "value":"", "widget": "textfield", "title": "Max Depth Param Grid Search", "description": "Max Depth Parameters for Grid Search"},
+
+    {"name": "numTreesGrid", "value":"", "widget": "textfield", "title": "Number trees Param Grid Search", "description": "Total number of trees Parameters for Grid Search"},
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "Whether to display Confusion Matrix Chart." ,"datatypes":["boolean"]},
+    {"name": "cmChartTitle", "value":"Title", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+    {"name": "cmChartDescription", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": "Description to display in Confusion Matrix Chart"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "Add the business details of the outcome of the confusion matrix rows"},
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_chart", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "Whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "roc_title", "value":"Title", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"}
+  ]
+}
+
+start-details:
+
+Random forests are a popular family of classification and regression methods.
+Random forests supports both binary and multiclass labels, as well as both continuous and categorical features.
+
+Random forests are ensembles of decision trees. Random forests combine many decision trees in order to reduce the risk of overfitting. The spark.ml implementation supports random forests for binary and multiclass classification and for regression, using both continuous and categorical features.
+
+More details are available at Apache Spark ML docs page:
+
+http://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-classifier
+
+
+end-details:
+
+start-examples:
+
+Below example is available at : https://spark.apache.org/docs/latest/ml-classification-regression.html#random-forest-classifier
+
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.classification.{RandomForestClassificationModel, RandomForestClassifier}
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+import org.apache.spark.ml.feature.{IndexToString, StringIndexer, VectorIndexer}
+
+// Load and parse the data file, converting it to a DataFrame.
+val data = spark.read.format("libsvm").load("data/mllib/sample_libsvm_data.txt")
+
+// Index labels, adding metadata to the label column.
+// Fit on whole dataset to include all labels in index.
+val labelIndexer = new StringIndexer()
+  .setInputCol("label")
+  .setOutputCol("indexedLabel")
+  .fit(data)
+// Automatically identify categorical features, and index them.
+// Set maxCategories so features with > 4 distinct values are treated as continuous.
+val featureIndexer = new VectorIndexer()
+  .setInputCol("features")
+  .setOutputCol("indexedFeatures")
+  .setMaxCategories(4)
+  .fit(data)
+
+// Split the data into training and test sets (30% held out for testing).
+val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3))
+
+// Train a RandomForest model.
+val rf = new RandomForestClassifier()
+  .setLabelCol("indexedLabel")
+  .setFeaturesCol("indexedFeatures")
+  .setNumTrees(10)
+
+// Convert indexed labels back to original labels.
+val labelConverter = new IndexToString()
+  .setInputCol("prediction")
+  .setOutputCol("predictedLabel")
+  .setLabels(labelIndexer.labelsArray(0))
+
+// Chain indexers and forest in a Pipeline.
+val pipeline = new Pipeline()
+  .setStages(Array(labelIndexer, featureIndexer, rf, labelConverter))
+
+// Train model. This also runs the indexers.
+val model = pipeline.fit(trainingData)
+
+// Make predictions.
+val predictions = model.transform(testData)
+
+// Select example rows to display.
+predictions.select("predictedLabel", "label", "features").show(5)
+
+// Select (prediction, true label) and compute test error.
+val evaluator = new MulticlassClassificationEvaluator()
+  .setLabelCol("indexedLabel")
+  .setPredictionCol("prediction")
+  .setMetricName("accuracy")
+val accuracy = evaluator.evaluate(predictions)
+println(s"Test Error = ${(1.0 - accuracy)}")
+
+val rfModel = model.stages(2).asInstanceOf[RandomForestClassificationModel]
+println(s"Learned classification forest model:\n ${rfModel.toDebugString}")
+
+
+end-examples:
+

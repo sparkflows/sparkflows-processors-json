@@ -1,0 +1,33 @@
+{
+  "id": "11",
+  "name": "Skewness And Kurtosis",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSkewnessAndKurtosis",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Column Names",
+      "description": "Name of columns to get the skewness and kurtosis.", "required": true,
+      "datatypes":["double", "integer", "long", "float"]}
+  ]
+}
+
+start-details:
+
+This node identifies Skewness (measure of symmetry) and Kurtosis (measure of whether the data are heavy-tailed or light-tailed relative to a normal distribution) in the selected columns.
+
+More than one numeric column can be selected.
+
+end-details:
+
+start-examples:
+
+A set of columns from incoming dataset can be selected.
+
+If SkewnessAndKurtosis node is configured to compute values for [Salary]
+
+then outgoing Dataframe would contain Skewness and Kurtosis values for the selected column:
+
+* Skewness : 2.112
+* Kurtosis : 2.802
+
+end-examples:

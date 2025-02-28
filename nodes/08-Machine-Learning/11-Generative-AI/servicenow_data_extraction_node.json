@@ -1,0 +1,45 @@
+{
+    "id": "6",
+    "name": "Service Now Data Extraction",
+    "iconImage": "/images/icons/node-icon/Graph_group_by_column.svg",
+    "description": "",
+    "input": "It wont take any input, as this will be the 1st node in the workflow",
+    "output": "",
+    "type": "pyspark",
+    "engine": "pyspark",
+    "nodeClass": "fire.nodes.gai.NodeReadFromServiceNow",
+    "fields": [
+        {
+            "name": "user_id",
+            "value": "",
+            "widget": "textfield",
+            "title": "Service Now User Id",
+            "description": "The userId input from the user",
+            "required": "true"
+        },
+        {
+            "name": "password",
+            "value": "",
+            "widget": "textfield",
+            "title": "Service Now password",
+            "description": "The password input from the user",
+            "required": "true"
+        },
+        {
+            "name": "instance_url",
+            "value": "",
+            "widget": "textfield",
+            "title": "Service Now Instance Url",
+            "description": "The instance url input from the user",
+            "required": "true"
+        },
+        {
+            "name": "limit",
+            "value": "10",
+            "widget": "textfield",
+            "title": "Query Limit",
+            "description": "The query limit input from the user",
+            "required": "true"
+        }
+    ]
+}

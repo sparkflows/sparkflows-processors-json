@@ -1,0 +1,63 @@
+{
+  "id": "5",
+  "name": "Sklearn Gradient Boosting Classifier",
+  "description": "Gradient Boosting Classifier, builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. In each stage n_classes_ regression trees are fit on the negative gradient of the binomial or multinomial deviance loss function. Binary classification is a special case where only a single regression tree is induced.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnGradientBoostingClassifier",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "Feature columns of type - all numeric, boolean and vector", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "loss", "value": "log_loss", "widget": "array", "title": "Loss", "optionsArray": ["log_loss", "exponential"], "description": "The loss function to be optimized. 'Deviance' refers to deviance (= logistic regression) for classification with probabilistic outputs."},
+    {"name": "learning_rate", "value": 1.0, "widget": "textfield", "title": "LearningRate", "description": "Learning rate shrinks the contribution of each tree by learning_rate."},
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "NEstimators", "description": "The number of boosting stages to be run."},
+    {"name": "subsample", "value": 1.0, "widget": "textfield", "title": "Subsample", "description": "The fraction of samples to be used for fitting the individual base learners."},
+    {"name": "criterion", "value": "friedman_mse", "widget": "array", "title": "Criterion", "optionsArray": ["friedman_mse", "mse", "mae"], "description": "The function to measure the quality of a split."},
+    {"name": "min_samples_split", "value": 2, "widget": "textfield", "title": "MinSamplesSplit", "description": "The minimum number of samples required to split an internal node."},
+    {"name": "min_samples_leaf", "value": 1, "widget": "textfield", "title": "MinSamplesLeaf", "description": "The minimum number of samples required to be at a leaf node."},
+    {"name": "min_weight_fraction_leaf", "value": 0.0, "widget": "textfield", "title": "MinWeightFractionLeaf", "description": "The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node."},
+    {"name": "max_depth", "value": 3, "widget": "textfield", "title": "MaxDepth", "description": "Maximum depth of the individual regression estimators."},
+    {"name": "min_impurity_decrease", "value": 0.0, "widget": "textfield", "title": "MinImpurityDecrease", "description": "A node will be split if this split induces a decrease of the impurity greater than or equal to this value."},
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "RandomState", "description": "Controls the randomness of the bootstrapping of the samples used when building trees."},
+    {"name": "verbose", "value": 0, "widget": "textfield", "title": "Verbose", "description": "Enable verbose output. If 1 then it prints progress and performance once in a while (the more trees the lower the frequency)."},
+    {"name": "max_leaf_nodes", "value": "", "widget": "textfield", "title": "MaxLeafNodes", "description": "Default value is None i.e -1"},
+    {"name": "warm_start", "value":"false", "widget": "array", "title": "WarmStart", "optionsArray": ["True", "False"], "description": "" },
+    {"name": "presort", "value":"auto", "widget": "textfield", "title": "Presort", "description": ""},
+    {"name": "validation_fraction", "value": 0.1, "widget": "textfield", "title": "ValidationFraction", "description": ""},
+    {"name": "n_iter_no_change", "value": "", "widget": "textfield", "title": "NIterNoChange", "description": "Default value is None i.e -1"},
+    {"name": "tol", "value": 0.0001, "widget": "textfield", "title": "Tol", "description": ""},
+    {"name": "path", "value":"", "widget": "textfield", "title": "Save Confusion Matrix Path", "description": "Save Confusion Matrix"},
+
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": " Description to display in Confusion Matrix CHart"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield", "title": "Confusion Matrix Count Legend", "description": "Legend name to display for Count in Confusion Matrix"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "One can provide the business details of the outcome of the confusion matrix rows"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"}
+
+
+  ]
+}
+
+start-details:
+
+More details are available at : https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
+
+end-details:
+

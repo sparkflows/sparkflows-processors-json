@@ -1,0 +1,106 @@
+{
+  "id": "6",
+  "name": "Create Knowledge Base",
+  "iconImage": "/images/icons/node-icon/word_cloud-chart.svg",
+  "description": "This node enables the creation of a knowledge base by embedding text data and indexing it into a vector database, such as Pinecone or FAISS, using the specified configuration.",
+  "input": "It takes in Dataframe as an input",
+  "output": "Stores Embeddings from documents in Faiss or Pinecone DB",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeCreateKnowledgeBase",
+
+  "fields": [
+    {"name": "vectorDB", "value": "Pinecone", "widget": "array", "optionsArray": ["Pinecone", "Faiss"], "title": "Vector DB", "description": "Vector DB to be used for storing Embeddings"},
+    {"name": "embeddingMethod", "value": "HuggingFace", "widget": "array", "optionsArray": ["HuggingFace", "OpenAI", "Bedrock"], "title": "Embedding Method", "description": "Select Embedding Method"},
+    {"name": "dimension", "value": "1024", "widget": "textfield", "title": "Dimension", "description": "For text-embedding-ada-002 and amazon.titan-embed-text-v1, dimension is 1536; for multilingual-e5-large, dimension is 1024."},
+    {"name": "chunkSize", "value": "500", "widget": "textfield", "title": "Chunk Size", "description": "Chunk size for processing text"},
+    {"name": "chunkOverlap", "value": "50", "widget": "textfield", "title": "Chunk Overlap", "description": "Overlap size between chunks"},
+    {"name": "fileNameCol", "value": "", "widget": "variable", "title": "File Name Column", "description": "Select File Name Column.", "required": "true"},
+    {"name": "contentCol", "value": "", "widget": "variable", "title": "Content Column", "description": "Select Content Column.", "required": "true"},
+    {"name": "pageNumberCol", "value": "", "widget": "variable", "title": "Page Number Column", "description": "Select Page Number Column.", "required": "true"},
+
+    {"name": "faiss", "value": "", "widget": "tab", "title": "Faiss"},
+    {"name": "faissIndexDir", "value": "", "widget": "textfield", "title": "Faiss Index Directory Path", "description": "Faiss Index Directory Path"},
+    {"name": "faissIndexName", "value": "document-index", "widget": "textfield", "title": "Index Name", "description": "The name of the faiss index to create."},
+
+    {"name": "pinecone", "value": "", "widget": "tab", "title": "Pinecone"},
+    {"name": "pineconeApiKey", "value": "", "widget": "textfield", "title": "Pinecone API Key", "description": "Your Pinecone API Key"},
+    {"name": "pineconeIndexName", "value": "document-index", "widget": "textfield", "title": "Index Name", "description": "The name of the Pinecone index to create."},
+    {"name": "indexNameSpace", "value": "document-namespace", "widget": "textfield", "title": "Index Namespace", "description": "Pinecone Index Namespace"},
+    {"name": "metric", "value": "euclidean", "widget": "array", "optionsArray": ["cosine", "dotproduct", "euclidean"], "title": "Metric", "description": "Type of metric used in the vector index when querying."},
+    {"name": "pineconeModel", "value": "multilingual-e5-large", "widget": "textfield", "title": "Hugging Face Embedding Model", "description": "Pinecone Embedding Model"},
+
+    {"name": "openai", "value": "", "widget": "tab", "title": "OpenAI"},
+    {"name": "openaiApiKey", "value": "", "widget": "textfield", "title": "OpenAI API Key", "description": "Your OpenAI API Key"},
+    {"name": "openAiModel", "value": "text-embedding-ada-002", "widget": "textfield", "title": "OpenAI Embedding Model", "description": "OpenAI Embedding Model"},
+    {"name": "maxRetries", "value": "6", "widget": "textfield", "title": "Max Retries", "description": "Maximum number of retries for API calls"},
+    {"name": "embeddingCtxLength", "value": "8191", "widget": "textfield", "title": "Embedding Context Length", "description": "Context length for embeddings"},
+
+    {"name": "bedrock", "value": "", "widget": "tab", "title": "Bedrock"},
+    {"name": "serviceName", "value": "bedrock-runtime", "widget": "textfield", "title": "Service Name", "description": "The name of the Bedrock service"},
+    {"name": "regionName", "value": "us-east-1", "widget": "textfield", "title": "Region Name", "description": "The AWS region name"},
+    {"name": "awsAccessKeyId", "value": "", "widget": "textfield", "title": "AWS Access Key ID", "description": "Your AWS Access Key ID"},
+    {"name": "awsSecretAccessKey", "value": "", "widget": "textfield", "title": "AWS Secret Access Key", "description": "Your AWS Secret Access Key"},
+    {"name": "bedrockModel", "value": "amazon.titan-embed-text-v1", "widget": "textfield", "title": "Bedrock Embedding Model", "description": "Bedrock Embedding Model ID"},
+
+    {"name": "huggingface", "value": "", "widget": "tab", "title": "Hugging Face Model"},
+    {"name": "hfModelName", "value": "all-MiniLM-L6-v2", "widget": "textfield", "title": "Hugging Face Embedding Model", "description": "Hugging Face Embedding Model."}
+  ]
+}
+
+start-details:
+h2: Create Knowledge Base Node Details
+
+This node enables the creation of a knowledge base by embedding text data and indexing it into a vector database, such as Pinecone or FAISS, using the specified configuration.
+
+h4: Parameters to be set:
+
+### General:
+
+- **Vector DB**: Select the database for storing embeddings. Options include Pinecone or FAISS.
+- **Embedding Method**: Choose the embedding method from HuggingFace, OpenAI, or Bedrock.
+- **Dimension**: Set the embedding dimension.
+- Example:
+- `text-embedding-ada-002` (OpenAI) - 1536
+- `amazon.titan-embed-text-v1` (Amazon Bedrock) - 1536
+- `multilingual-e5-large` (Hugging Face) - 1024
+- `all-MiniLM-L6-v2` (Hugging Face) - 384
+- `multi-qa-mpnet-base-dot-v1` (Hugging Face) - 768
+
+### Input Data Configuration:
+
+- **File Name Column**: Select the column containing file names. (Required)
+- **Content Column**: Select the column containing the text content. (Required)
+- **Page Number Column**: Select the column containing page numbers. (Required)
+- **Chunk Size**: Define the size of text chunks for splitting large inputs (default: 500).
+- **Chunk Overlap**: Set the overlap size between chunks (default: 50).
+
+### Service-Specific Configurations:
+
+#### Pinecone:
+- **API Key**: Provide your Pinecone API key.
+- **Index Name**: Specify the Pinecone index name (default: `document-index`).
+- **Index Namespace**: Provide the namespace for organizing indexed data (default: `document-namespace`).
+- **Metric**: Choose a similarity metric (e.g., `cosine`, `dot product`, or `euclidean`).
+- **Embedding Model**: Specify the HuggingFace model for Pinecone embedding.
+
+#### FAISS:
+- **Index Directory Path**: Provide the local path for storing the FAISS index.
+- **Index Name**: Specify the FAISS index name (default: `document-index`).
+
+#### OpenAI:
+- **API Key**: Provide your OpenAI API key.
+- **Embedding Model**: Specify the OpenAI embedding model (default: `text-embedding-ada-002`).
+- **Max Retries**: Set the maximum retries for API calls (default: 6).
+- **Embedding Context Length**: Set the embedding context length (default: 8191).
+
+#### Bedrock:
+- **Service Name**: Specify the Bedrock service name (default: `bedrock-runtime`).
+- **Region Name**: Provide the AWS region (default: `us-east-1`).
+- **AWS Access Key ID and Secret Access Key**: Provide your AWS credentials.
+- **Embedding Model**: Specify the Bedrock embedding model ID (default: `amazon.titan-embed-text-v1`).
+
+#### HuggingFace:
+- **Model Name**: Specify the HuggingFace embedding model (default: `all-MiniLM-L6-v2`).
+
+end-details:

@@ -1,0 +1,48 @@
+{
+  "id": "6",
+  "name": "Audio Diarization",
+  "description": "This node processes audio files to transcribe and diarize speech, identifying different speakers in the audio. It generates a structured output as a DataFrame with two columns: speaker and dialogue.\n",
+  "input": "It takes directory or path as an input",
+  "output": "Outputs a Dataframe with 2 columns speaker and dialouge",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSpeechToText",
+  "fields" : [
+    {"name":"audioFilePath",  "display": true, "value":"", "widget": "textfield", "title": "Directory Or File Path", "description":"Select a Pdf/Text/Docx File or Directory","required":"true"},
+    {"name": "numSpeakers", "value":"1", "widget": "textfield", "title": "Number of Speakers", "description": "Provide the number of speakers expected in the conversation.", "datatypes":["integer"]},
+    {"name": "diarization", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Diarization", "description": "Diarise the transcription."},
+    {"name":"saveOutputPath",  "display": true, "value":"", "widget": "textfield", "title": "Output Save Path", "description":"Specify the file path to save the transcription output as a .txt file."},
+    {"name": "context", "value":"", "widget": "textarea_small", "title": "Additional Context", "description": "Add any relevant context or details about the conversation to help improve the diarization."},
+    {"name": "openai", "value": "", "widget": "tab", "title": "OpenAI"},
+    {"name": "openaiApiKey", "value": "", "widget": "textfield", "title": "OpenAI API Key", "description": "Your OpenAI API Key"},
+    {"name": "openaiModel", "value": "whisper-1", "widget": "textfield", "title": "OpenAI Model", "description": "OpenAI Model to be Used"}
+  ]
+}
+start-details:
+
+h2: Audio Diarization Node Details
+
+This node processes audio files to transcribe and diarize speech, identifying different speakers in the audio. It generates a structured output as a DataFrame with two columns: speaker and dialogue.
+
+h4: Parameters to be set:
+General:
+
+Directory or File Path: Specify the path to the audio file. This input is required.
+Number of Speakers: Provide the number of speakers expected in the conversation. If left as 1, the transcription will not be diarized.
+Output Save Path: Specify the file path to save the transcription output as a .txt file. This input is required.
+Additional Context: Add any relevant context or details about the conversation to help improve the diarization.
+
+OpenAI:
+
+OpenAI API Key: Enter your OpenAI API Key for accessing Whisper and GPT models.
+OpenAI Model: Specify the OpenAI model to use for transcription. Default is whisper-1.
+
+Processing:
+
+Audio Chunking: The node automatically splits large audio files (>25 MB) into smaller chunks for processing.
+Output Format: The node outputs a PySpark DataFrame with the following columns:
+speaker: The identified speaker (or Default if diarization is not applied).
+dialogue: The corresponding transcribed dialogue.
+
+end-details:
+

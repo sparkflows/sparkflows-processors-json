@@ -1,0 +1,17 @@
+{
+  "id": "11",
+  "name": "EmailNotification",
+  "description": "This node sends notification to given email address with given content",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.util.NodeEmailNotification",
+  "fields" : [
+
+    {"name":"emailAddress", "display": true, "value":"", "widget": "textfield", "title": "Email Address", "description": "Email Address (Add multiple email as comma separated)" ,"required":"true", "expandable":true},
+
+    {"name":"subject", "display": true, "value":"", "widget": "textfield", "title": "Subject", "description": "Subject" ,"required":"true", "expandable":true},
+
+    {"name":"content", "display": true, "value":"", "widget": "textareafield", "title": "Content", "description": "Content" ,"required":"true"}
+
+  ]
+}

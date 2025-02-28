@@ -1,0 +1,52 @@
+{
+  "id": "7",
+  "name": "HasDataSize",
+  "type": "transform",
+  "description": "Check the size of the dataset.",
+  "nodeClass": "fire.nodes.quality.NodeCheckHasDataSize",
+  "fields" : [
+  {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name."},
+    {"name": "checkTypes", "value":"[]", "widget": "variables_list_array", "title": "CheckTypes", "description": "",
+      "optionsArray": ["Greater than","Less than","Equals to"]},
+
+    {"name": "values", "value": "[]", "widget": "variables_list_textfield", "title": "Values", "description": ""},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+
+  ]
+}
+
+start-details:
+
+h2: Has Data Size Node
+
+h4: Overview:
+
+The Has Data Size node checks if a specific column in a DataFrame has a non-zero data size. This is useful for filtering out rows or columns with empty or null values.
+
+h4: Input:
+
+Column Name: The name of the column to check.
+Check Types: The type of check to perform (e.g., null, empty, zero).
+Values: Specific values to check for (if applicable).
+h4: Output:
+
+The node will filter out rows where the specified column meets the defined condition.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's assume we have a DataFrame with a column named amount. We want to filter out rows where amount is null or zero.
+
+Configure the Node:
+
+Column Name: amount
+Check Types: Null, Zero
+Values: (Leave blank)
+Node Execution:
+
+Rows with amount = null or amount = 0 will be filtered out.
+
+end-examples:

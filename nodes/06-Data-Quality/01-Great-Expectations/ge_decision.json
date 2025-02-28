@@ -1,0 +1,49 @@
+{
+  "id": "11",
+  "name": "GE Decision",
+  "description": "This Node takes in an expression. It evaluates the expression and based on the results sends the execution to the first or the second output Node",
+  "input" : "It accepts a DataFrame as input from the previous Node",
+  "output": "The incoming DataFrame is sent to the output. Only one of the output Nodes receives the DataFrame based on the results of the expression",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeGEDecision",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"expression", "value": "", "widget": "textarea_medium", "title": "Expression", "description": "Expression to be evaluated. It can use variables computed in the previous Nodes"},
+    {"name":"status_file_path", "display":true,"value":"", "widget": "textfield",  "title": "Path", "description": "Path to generate _success and _failed directory."}
+  ]
+}
+
+start-details:
+
+h2: GE Decision Node
+
+h4: Overview:
+
+The GE Decision node allows you to create complex decision logic within your data pipeline. It takes in a DataFrame and routes it based on specified conditions. You can use a variety of expressions and functions to define these conditions.
+
+h4: Input:
+
+Expression: A boolean expression that determines the output path.
+Path: The path to which the data will be routed if the expression evaluates to true.
+h4: Output:
+
+The data is routed to the specified path based on the evaluation of the expression.
+
+end-details:
+
+start-examples:
+
+h2:Example
+
+Let's say you want to split a DataFrame based on a column named is_high_value.
+
+Configure the Node:
+
+Expression: is_high_value == 1
+Path: /high_value_data
+Node Execution:
+
+Rows where is_high_value is 1 will be routed to /high_value_data.
+Rows where is_high_value is 0 or null will be routed to the default output path (if not specified).
+
+end-examples:

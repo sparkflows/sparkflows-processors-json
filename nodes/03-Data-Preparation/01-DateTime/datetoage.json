@@ -1,0 +1,45 @@
+{
+  "id": "1",
+  "name": "Date To Age",
+  "description": "This node converts a date-column into columns of age (both in years and in days).",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDateToAge",
+  "engine": "all",
+  "fields" : [
+    {"name":"inputColName", "value":"", "widget": "variable", "title": "Input Column Name",
+      "description": "Input Column Name" , "datatypes":["date", "timestamp"], "required": true},
+    {"name":"yearsOutputColName", "value": "", "widget": "textfield", "title": "Years Output Column Name",
+      "description": "Num Years Output Column Name", "required": true},
+    {"name":"daysOutputColName", "value": "", "widget": "textfield", "title": "Days Output Column Name",
+      "description": "Num Days Output Column Name", "required": true}
+
+  ]
+}
+
+start-details:
+
+h2:Date To Age Details
+
+Calculates current age in years and in days from the selected date or timestamp field.
+
+h4:Input
+* INPUT COLUMN NAME :- Select the Date\TimeStamp field for which we want to calculate the current age.
+* YEARS OUTPUT COLUMN NAME :- Specify the output column name for years column, the output will provide the number of years between the selected input column and today.
+* DAYS OUTPUT COLUMN NAME :- Specify the output column name for days column, it will provide the output in terms of number of days from the selected input column till date.
+
+h4:Output
+* Two new columns will be created, One for <b>years</b> and the other for <b>days</b>. 
+* Example :- When the current date is 06-25-2019 then the age difference for the below input value would be:
+  dd-MM-yyyy : 20-09-2018 , 0 year : 278 days
+
+end-details:
+
+start-examples:
+
+h2:Examples when date is 06-25-2019
+
+* dd-MM-yyyy : 20-09-2018 , 0 year : 278 days
+* MM-dd-yyyy : 09-30-2018 , 0 year : 268 days
+* yyyy-MM-dd : 2012-01-31 , 7	year : 2702 days
+
+end-examples:

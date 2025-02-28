@@ -1,0 +1,35 @@
+{
+  "id": "1",
+  "name": "Repartition",
+  "description": "This node repartitions incoming dataframe into a specified number of partitions",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRepartition",
+  "fields" : [
+    {"name":"numPartitions", "value":"", "widget": "textfield", "title": "Number of Partitions", "description": "Number of Partitions", "required": true}
+
+  ]
+}
+
+start-details:
+
+Repartition Node
+
+Overview:
+
+This node is used to repartition a DataFrame, which involves distributing the data across multiple partitions for improved performance and parallel processing.
+
+Configuration:
+
+1. Number of Partitions: Specifies the desired number of partitions.
+2. Output Storage Level: Sets the storage level for the repartitioned DataFrame.
+
+end-details:
+
+start-examples:
+
+Example:
+
+If you have a DataFrame with 1000 rows and you set the number of partitions to 10, the node will distribute the data evenly across 10 partitions. This can significantly improve performance for operations like joins, aggregations, and sorting.
+
+end-examples:

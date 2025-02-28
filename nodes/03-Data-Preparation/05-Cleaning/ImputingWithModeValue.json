@@ -1,0 +1,48 @@
+{
+  "id": "11",
+  "name": "Imputing With Mode Value",
+  "description": "Imputing with most frequently observed value. It fills missing values (None) in selected columns with most frequently observed value in the corresponding column, in the incoming DataFrame.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeReplaceMissingValueWithMode",
+  "engine":"all",
+  "fields" : [
+    {"name":"colNames", "value":"[]", "widget": "variables", "title": "Columns", "description": "Columns to be processed for imputing the missing values.",  "datatypes":["string","integer","double","float", "long"]}
+  ]
+}
+
+start-details:
+
+This node imputes the missing values in the specified columns by mode of the values in the column.
+
+end-details:
+
+start-examples:
+
+Incoming Dataframe has following rows and [AGE] column has missing value / [NULL] for some rows:
+
+CUST_CD    |    CUST_NAME    |    AGE
+------------------------------------------
+C01        |    MATT         |    50
+C02        |    LISA         |    45
+C03        |    ROBIN        |	
+C04        |    MARCUS       |	
+C05        |    MARK         |    30
+C06        |    DAVID        |    30
+C07        |    ANTHONY      |    90
+
+If imputingwithmodevalue node is configured to Impute [AGE] with mode value then missing values in [AGE] column would be replaced with 30 which is the mode of [AGE] column.
+Outgoing Dataframe would result as below:
+
+CUST_CD    |    CUST_NAME    |    AGE
+------------------------------------------
+C01        |    MATT         |    50
+C02        |    LISA         |    45
+C03        |    ROBIN        |    30	
+C04        |    MARCUS       |    30	
+C05        |    MARK         |    30
+C06        |    DAVID        |    30
+C07        |    ANTHONY      |    90
+
+
+end-examples:
+

@@ -1,0 +1,51 @@
+{
+  "id": "11",
+  "name": "Pipe Python",
+  "description": "This node runs any given Python code. It pipes the incoming DataFrame through pipe to the Python Script. Output back to Spark has to be written out using print.",
+  "input": "It pipes the incoming DataFrame through pipe to the Python Script. It also passes the Schema of the DataFrame to the Python script through the command line argument - argv[1]",
+  "output": "Output back to Spark has to be written out using print.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodePipePython",
+  "fields" : [
+    {"name":"code", "value":"",
+      "widget": "textarea_large", "title": "Pipe Python", "description": "Python code to be run. It receives each record as a string and outputs records back as a string."},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names",
+       "title": "Output Column Names", "description": "Output Schema of Pipe Python Processor", "disableRefresh": true},
+
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types",
+      "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+
+  ]
+}
+
+start-details:
+
+h2:Pipe Python Details
+
+The Pipe Python node receives an incoming DataFrame. It pipes the DataFrame through to a Python script that runs the given Python code. The script can operate on each row of the DataFrame and returns an updated row.
+
+The input to the script is passed as a string and the output from the script is also passed as a string. The input schema of the DataFrame is also passed to the Python script through the command line argument - argv[1].
+
+The output from the Python script has to be written back to Spark using print. The node then creates an updated DataFrame based on the output from the script and passes it on to the next node in the pipeline.
+
+end-details:
+
+start-examples:
+
+h2:Pipe Python Examples
+
+Below are some examples of the Python code that can be run in the Pipe Python node.
+
+The schema of the Input DataFrame is : id, price, lotsize, bedrooms, bathrms, stories, driveway, recroom, fullbase, gashw, airco, garagepl, prefarea
+
+h4: Update the value of price
+def update_price(record):
+  record['price'] = int(record['price']) + 1000
+  return record
+
+print(update_price(record))
+
+end-examples:

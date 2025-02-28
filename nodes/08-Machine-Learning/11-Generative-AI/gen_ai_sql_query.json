@@ -1,0 +1,28 @@
+{
+  "id": "6",
+  "name": "Natural Language Query",
+  "description": "Query database with natural language.",
+  "input": "",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeGenAiSqlQuery",
+  "fields" : [
+    {"name":"jdbcConnection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+    {"name": "query", "value":"", "widget": "textfield", "title": "Query", "description": "Query from database", "required":"true"},
+    {"name": "top_k", "value":5, "widget": "textfield", "title": "Top_K", "description": "Number of results to return from the query", "datatypes":["integer"]},
+    {"name": "return_sql", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Return SQL", "description": "Will return sql-command directly without executing it"},
+    {"name": "include_tables", "value":"", "widget": "textfield", "title": "Include Tables", "description": "Include Tables from database. e.g.: housing, diabetes, .."},
+    {"name": "advanced", "value":"", "widget": "tab", "title": "LLM Connection"},
+    {"name": "llmConnection", "value":"", "widget": "object_array", "title": "Connection", "description": "The LLM connection to connect" ,"required":"true"},
+    {"name": "temperature", "value":0, "widget": "textfield", "title": "Temperature", "description": "What sampling temperature to use.", "datatypes":["float"],"required":"true"},
+    {"name": "model", "value":"gpt-3.5-turbo-0301", "widget": "textfield", "title": "Model", "description": "Model name to use.","required":"true"},
+    {"name": "max_tokens", "value":1000, "widget": "textfield", "title": "Max Tokens", "description": "Maximum number of tokens to generate.", "datatypes":["integer"]},
+    {"name": "max_retries", "value":6, "widget": "textfield", "title": "Max Retries", "description": "Maximum number of retries to make when generating.", "datatypes":["integer"]},
+    {"name": "n", "value":1, "widget": "textfield", "title": "N", "description": "Number of chat completions to generate for each prompt.", "datatypes":["integer"]},
+    {"name": "streaming", "value":"false", "widget": "array", "title": "streaming", "optionsArray": ["false","true"], "description": "Whether to stream the results or not" ,"datatypes":["boolean"]},
+    {"name": "OpenAI_organization", "value":"None", "widget": "textfield", "title": "OpenAI Organization", "description": "OpenAI Organization", "datatypes":["string"]},
+    {"name": "OpenAI_proxy", "value":"None", "widget": "textfield", "title": "OpenAI Proxy", "description": "OpenAI Proxy", "datatypes":["string"]},
+    {"name": "tiktoken_model_name", "value":"None", "widget": "textfield", "title": "Tiktoken Model Name", "description": "The model name to pass to tiktoken", "datatypes":["string"]}
+  ]
+}

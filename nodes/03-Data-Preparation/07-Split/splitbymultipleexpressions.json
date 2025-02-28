@@ -1,0 +1,66 @@
+{
+  "id": "4",
+  "name": "Split By Multiple Expressions",
+  "description" : "Splits the incoming DataFrame into multiple output DataFrames by applying the conditional logic",
+  "input" : "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSplitByMultipleExpressions",
+  "fields" : [
+    {"name":"conditionExpr1", "value":"", "widget": "textfield", "title": "Conditional Expression 1 to split the Data on",
+      "description": "Conditional Expression 1 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr2", "value":"", "widget": "textfield", "title": "Conditional Expression 2 to split the Data on",
+      "description": "Conditional Expression 2 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr3", "value":"", "widget": "textfield", "title": "Conditional Expression 3 to split the Data on",
+      "description": "Conditional Expression 3 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr4", "value":"", "widget": "textfield", "title": "Conditional Expression 4 to split the Data on",
+      "description": "Conditional Expression 4 to be used for Splitting the Dataset", "expandable":true},
+
+    {"name":"conditionExpr5", "value":"", "widget": "textfield", "title": "Conditional Expression 5 to split the Data on",
+      "description": "Conditional Expression 5 to be used for Splitting the Dataset", "expandable":true}
+  ]
+}
+
+start-details:
+
+This node splits the incoming DataFrame into multiple output DataFrames by applying the provided conditional logic.
+
+end-details:
+
+start-examples:
+
+Incoming Dataframe has following rows:
+
+CUST_CD    |    CUST_NAME    |    AGE    |    SALARY    
+--------------------------------------------------------
+C01        |    MATT         |    50     |    50000     
+C02        |    LISA         |    45     |    40000
+C03        |    ROBIN        |    30     |    40000
+C04        |    MARCUS       |    35     |    50000
+
+If SplitByMultipleExpressions node is configured to split the incoming Dataframe into multiple Dataframes based on following conditional Expressions 
+then outgoing Dataframes would be created as below:
+
+h2: First outgoing Dataframe for the conditional Expression [AGE > 40]
+
+CUST_CD    |    CUST_NAME    |    AGE    |    SALARY    
+--------------------------------------------------------
+C01        |    MATT         |    50     |    50000     
+C02        |    LISA         |    45     |    40000
+
+h2: Second outgoing Dataframe for the conditional Expression [SALARY = 40000]
+
+CUST_CD    |    CUST_NAME    |    AGE    |    SALARY    
+--------------------------------------------------------
+C02        |    LISA         |    45     |    40000
+C03        |    ROBIN        |    30     |    40000
+
+h2: Third outgoing Dataframe for the conditional Expression [AGE > 40 AND AGE < 50]
+
+CUST_CD    |    CUST_NAME    |    AGE    |    SALARY    
+--------------------------------------------------------
+C02        |    LISA         |    45     |    40000
+
+end-examples:

@@ -1,0 +1,79 @@
+{
+  "id": "11",
+  "name": "Date Time Field Extract",
+  "description": "It creates a new DataFrame by extracting Date and Time fields.",
+  "input": "It takes in a DataFrame as Input",
+  "output": "The output DataFrame has year/month/dayofmonth/hour/minute/second values extracted from the specified TimeStamp column into new columns",
+  "engine": "all",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Column",
+      "description": "The input column name", "datatypes":["date", "timestamp"], "required": true},
+
+    {"name": "extractYear", "value":"false", "widget": "array", "title": "Extract Year", "optionsArray": ["true","false"],
+      "description": "Extract Year", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractMonth", "value":"false", "widget": "array", "title": "Extract Month", "optionsArray": ["true","false"],
+      "description": "Extract Month", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractDayOfMonth", "value":"false", "widget": "array", "title": "Extract Day of Month", "optionsArray": ["true","false"],
+      "description": "Extract Day of Month", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractHour", "value":"false", "widget": "array", "title": "Extract Hour", "optionsArray": ["true","false"],
+      "description": "Extract Hour", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractMinute", "value":"false", "widget": "array", "title": "Extract Minute", "optionsArray": ["true","false"],
+      "description": "Extract Minute", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractSecond", "value":"false", "widget": "array", "title": "Extract Second", "optionsArray": ["true","false"],
+      "description": "Extract Second", "datatypes":["boolean"], "required": true},
+    
+    {"name": "extractWeekOfYear", "value":"false", "widget": "array", "title": "Extract Week Of Year", "optionsArray": ["true","false"],
+      "description": "Extract WeekOfYear", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractDayOfWeek", "value":"false", "widget": "array", "title": "Extract Day Of Week", "optionsArray": ["true","false"],
+      "description": "Extract Day Of Week", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractDayOfYear", "value":"false", "widget": "array", "title": "Extract Day Of Year", "optionsArray": ["true","false"],
+      "description": "Extract Day Of Year", "datatypes":["boolean"], "required": true},
+
+    {"name": "extractMonthName", "value":"false", "widget": "array", "title": "Extract Month Name", "optionsArray": ["true","false"],
+      "description": "Extract Month Name", "datatypes":["boolean"], "required": true}
+  ]
+}
+
+start-details:
+
+h2:Date Time Field Extract Details
+
+Spark functions provides hour(), minute(), second() and weekofyear() functions to extract hour, minute, second and week of the year from Timestamp column respectively along with the standard functions of year(), month() and day().
+It creates a new DataFrame by extracting the Date and Time fields.
+
+h4:Input
+  * Column :- The input column is selected here and it should be of Date\TimeStamp datatype.
+
+h4:Output
+* The values that can be extracted are YEAR,MONTH,DAY OF MONTH,HOUR,MINUTE,SECOND,WEEKOFYEAR,DAYOFWEEK and MONTHNAME
+* The values that need to be extracted have to be set to true (by default it is false).
+
+* Example:- The incoming Dataframe has a Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format
+            Set the EXTRACT YEAR as true to get the year( YEAR : 2022 )
+
+end-details: 
+
+start-examples:
+
+If incoming Dataframe has Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format then using datetimeextract node would result in followings 
+added as new columns to the Dataframe:
+
+* YEAR : 2022 
+* MONTH : 01
+* DAY OF MONTH : 01 
+* HOUR : 14
+* MINUTE : 30
+* SECOND : 45
+* WEEKOFYEAR : 1 
+
+end-examples:
+

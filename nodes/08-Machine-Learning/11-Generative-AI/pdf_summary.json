@@ -1,0 +1,32 @@
+{
+  "id": "6",
+  "name": "Summarize PDF",
+  "iconImage": "/images/icons/node-icon/PDF.svg",
+  "description": "Summarises Pdf Documents",
+  "input": "It takes in a DataFrame as input",
+  "output": "outputs a text file or a directory with summary text files",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodePdfSummary",
+  "fields" : [
+    {"name":"inputFilePath",  "display": true, "value":"", "widget": "textfield", "title": "Path", "description":"Enter file path. Supported types: .pdf,.json, .txt, .docx"},
+    {"name":"outputPath",  "display": true, "value":"", "widget": "textfield", "title": "Path", "description":"Select a path to save pickle file","required":"true"},
+    {"name": "separator", "value":"", "widget": "textfield", "title": "Separator", "description": "Enter a separator. If Empty defaults to recursive text splitter."},
+    {"name": "chunk_size", "value":"2000", "widget": "textfield", "title": "Chunk Size", "description": "Enter chunk size", "datatypes":["integer"]},
+    {"name": "chunk_overlap", "value":"100", "widget": "textfield", "title": "Chunk Overlap", "description": "Enter chunk overlap size", "datatypes":["integer"]},
+    {"name": "chain_type", "value":"stuff", "widget": "array", "title": "Chain Type", "optionsArray": ["stuff","refine","map_reduce"], "description": "Type of document combining chain to use"},
+    {"name": "advanced", "value":"", "widget": "tab", "title": "LLM Connection"},
+    {"name": "llmConnection", "value":"", "widget": "object_array", "title": "Connection", "description": "The LLM connection to connect" ,"required":"true"},
+    {"name": "temperature", "value":0, "widget": "textfield", "title": "Temperature", "description": "What sampling temperature to use.", "datatypes":["float"],"required":"true"},
+    {"name": "model", "value":"text-davinci-003", "widget": "textfield", "title": "Model", "description": "Model name to use.","required":"true"},
+    {"name": "top_p", "value":1, "widget": "textfield", "title": "Top_P", "description": "Total probability mass of tokens to consider at each step.", "datatypes":["float"],"required":"true"},
+    {"name": "frequency_penalty", "value":0, "widget": "textfield", "title": "Frequency Penalty", "description": "Penalizes repeated tokens according to frequency.", "datatypes":["float"],"required":"true"},
+    {"name": "presence_penalty", "value":0, "widget": "textfield", "title": "Presence Penalty", "description": "Penalizes repeated tokens.", "datatypes":["float"],"required":"true"},
+    {"name": "max_retries", "value":6, "widget": "textfield", "title": "Max Retries", "description": "Maximum number of retries to make when generating.", "datatypes":["integer"]},
+    {"name": "best_of", "value":1, "widget": "textfield", "title": "Best of", "description": "Generates best_of completions server-side and returns the \"best\"", "datatypes":["integer"]},
+    {"name": "n", "value":1, "widget": "textfield", "title": "N", "description": "How many completions to generate for each prompt.", "datatypes":["integer"]},
+    {"name": "max_tokens", "value":256, "widget": "textfield", "title": "Max Tokens", "description": "The maximum number of tokens to generate in the completion", "datatypes":["integer"]},
+    {"name": "OpenAI_organization", "value":"", "widget": "textfield", "title": "OpenAI Organization", "description": "OpenAI Organization", "datatypes":["string"]},
+    {"name": "tiktoken_model_name", "value":"", "widget": "textfield", "title": "Tiktoken Model Name", "description": "The model name to pass to tiktoken", "datatypes":["string"]}
+  ]
+}

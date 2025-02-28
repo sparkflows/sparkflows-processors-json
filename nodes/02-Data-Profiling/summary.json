@@ -1,0 +1,59 @@
+{
+  "id": "7",
+  "name": "Summary Statistics",
+  "type": "transform",
+  "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+  "nodeClass": "fire.nodes.ml.NodeSummary",
+  "engine": "all",
+  "fields" : [
+  	{"name":"title", "value":"Summary", "widget": "textfield", "title": "Title"},
+    {"name":"colNames", "value":"[]", "widget": "variables", "title": "Column Names", "description": "Column Names for Summary", "datatypes":["integer", "long", "double", "float","decimal"]},
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Save Summary Statistics to Path"}
+  ]
+}
+
+start-details:
+
+h2:Summary Statistics Node Details
+
+The Summary Statistics node makes it easy to explore the contents of a DataFrame at a high level.
+
+This node computes specified statistics which includes : - count - mean - stddev - variance - min - max - approximate percentiles specified as a percentage
+
+h4:Input Parameters
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* TITLE : A short description to summarize what the data depicts.
+* COLUMN NAMES : 
+- Available : A list of numeric columns derived from the input dataframe schema.
+- Selected : A list of numeric columns for whom the node will compute statistical values.
+
+ end-details:
+
+start-examples:
+
+h2:Summary Statistics Node Example
+
+Consider the following DataFrame
+
+ID  | CODE |
+------------
+1   | aa  |
+2   | aa  |
+9   | bb  |
+5   | cc  |
+
+h4: If we calculate the summary statistics for all columns in the DataFrame, we get 
+
+summary|      ID          |  CODE |
+-----------------------------------
+|  count|                4|      4|
+|   mean|             4.25|   null|
+|    min|                1|     aa|
+|    25%|                1|   null|
+|    50%|                2|   null|
+|    75%|                5|   null|
+|    max|                9|     cc|
+| stddev|3.593976442141304|   null|
+|variance|12.916667       |   null|
+
+end-examples:

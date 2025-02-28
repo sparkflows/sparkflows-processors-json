@@ -1,0 +1,25 @@
+{
+  "id": "4",
+  "name": "H2O ML Model Load",
+  "type": "ml-modelload",
+  "description": "Loads an H2O MOJO ML model",
+  "nodeClass": "fire.nodes.h2o.NodeH2OModelLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path"}
+  ]
+}
+
+start-details:
+
+this node allows a previously trained and saved H2O model to be used again from the file system
+
+end-details:
+
+start-examples:
+
+path-folder1/folder2/H2OModelFileName
+
+the model saved in the path is fetched and can be sent to the prophet predict node to be used for prediction
+
+end-examples:

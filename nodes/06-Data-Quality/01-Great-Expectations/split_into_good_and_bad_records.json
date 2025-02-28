@@ -1,0 +1,38 @@
+{
+  "id": "7",
+  "name": "Split Into Good And Bad Records",
+  "description": "",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.ge.NodeSplitIntoGoodAndBadRecords",
+  "fields" : [
+    {"name": "uniqueId", "value":"row_index", "widget": "textfield", "title": "Create Identifier Column", "description": "Enter name for a unique identifier column", "datatypes":["string"]},
+    {"name": "separator", "value":",", "widget": "textfield", "title": "Separator", "description": "Enter a separator for separating exception_reason and failed column name"}
+  ]
+}
+start-details:
+
+h2:Split Into Good And Bad Records Details
+
+Lower numbered edge outputs the rows which passed the checks.
+Higher numbered edge outputs the rows which failed the checks.
+
+end-details: 
+ 
+start-examples:
+
+h2:Example:
+
+Let's assume we have a DataFrame with a column is_valid that indicates whether a record is valid or not.
+
+Configure the Node:
+
+Create Identifier Column: True
+Separator: "_"
+Node Execution:
+
+Records with is_valid = 1 will be routed to the "Good Records" output.
+Records with is_valid = 0 will be routed to the "Bad Records" output.
+A new column named "row_index_" will be added to both outputs to identify the original row number.
+
+end-examples:

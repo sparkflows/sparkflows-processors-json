@@ -1,0 +1,56 @@
+{
+  "id": "6",
+  "name": "DocumentToText",
+  "iconImage": "/images/icons/node-icon/PDF.svg",
+  "description": "Extract text from Documents",
+  "input": "It takes directory or path as an input",
+  "output": "Outputs a Dataframe with page content and file name columns",
+  "type": "dataset",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeDocumentToText",
+  "fields" : [
+    {"name":"filePath",  "display": true, "value":"", "widget": "textfield", "title": "Directory Or File Path", "description":"Select a Pdf/Text/Docx File or Directory","required":"true"},
+    {"name": "fileType", "value": "pdf", "widget": "array", "optionsArray": ["pdf", "txt","docx"], "title": "Document Type", "description": "Choose a Document Type.If Empty all three types of files will be processed."},
+    {"name": "recursive", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Recursive", "description": "Recursively process the documents in the given Directory"},
+    {"name": "isImage", "value": "false", "widget": "array", "optionsArray": ["true", "false"], "title": "Image Encoding", "description": "Adds a column for base64 encoded pages"},
+    {"name": "saveImageDir", "value": "", "widget": "textfield", "title": "Save Images Directory Path", "description": "The file path to save the output"},
+
+
+    {"name": "columns", "value":"", "widget": "tab", "title": "Rename Output Cols"},
+    {"name":"fileNameCol", "value":"fileName", "widget": "textfield", "title": "File Name Column", "description": "Rename File Name Column. Defaults to fileName" },
+    {"name":"contentCol", "value":"content", "widget": "textfield", "title": "Content Column", "description": "Rename Content Column. Defaults to content" },
+    {"name":"pageNumberCol", "value":"pageNumber", "widget": "textfield", "title": "Page Number Column", "description": "Rename Page Number Column. Defaults to pageNumber" },
+    {"name":"base64ImageCol", "value":"base64ImageCol", "widget": "textfield", "title": "Base64 Image Column", "description": "Rename Image Column. Defaults to base64ImageCol"}
+  ]
+}
+start-details:
+
+h2: DocumentToText Node Details
+
+This node extracts text content from various document types (PDF, TXT, DOCX) located in a specified directory or file path. It processes individual files or entire directories, converting the documents into structured text.
+
+h4: Parameters to be set:
+
+### General:
+
+- **Directory or File Path**: Specify the path to the file or directory containing the documents. This input is required.
+- **Document Type**: Choose the document types to process. Options include:
+- `pdf`
+- `txt`
+- `docx`
+- If left empty, the node will process all three types of files.
+
+### Recursive:
+
+- **Recursive**: Choose whether to recursively process documents in the provided directory. Options are:
+- `true`: Process documents in the specified directory and its subdirectories.
+- `false`: Process only the documents directly in the provided directory.
+
+### Output Column Renaming:
+
+- **File Name Column**: Rename the column that will store the file name. By default, this column is named `fileName`.
+- **Content Column**: Rename the column that will store the extracted text content. By default, this column is named `content`.
+- **Page Number Column**: Rename the column that will store the page number. By default, this column is named `pageNumber`.
+
+end-details:
+

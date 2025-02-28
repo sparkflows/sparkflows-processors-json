@@ -1,0 +1,52 @@
+{
+  "id": "7",
+  "name": "Sample",
+  "description": "Samples the incoming DataFrame",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeSample",
+  "fields" : [
+
+    {"name": "withReplacement", "value":"false", "widget": "array", "title": "With Replacement",
+      "optionsArray": ["false","true"],
+      "description": "With or without Replacement" },
+
+    {"name":"fraction", "value": "", "widget": "textfield", "title": "Fraction", "description": "Fraction"},
+
+    {"name":"seed", "value": "", "widget": "textfield", "title": "Seed", "description": "Seed"}
+
+  ]
+}
+
+start-details:
+
+h2: Sample Node
+
+This node samples a specified fraction of rows from the input DataFrame. It can be used for various purposes, such as reducing dataset size for testing or exploratory analysis.
+
+end-details:
+
+start-examples:
+
+h2: Sample Node Example
+
+Given the following dataset:
+
+PartID	SupplierID	PartName	PartCategory	PartQualityScore
+A1	S1	Bolt	Hardware	8
+B2	S2	Nut	Hardware	7
+C3	S3	Screw	Hardware	9
+...	...	...	...	...
+
+If you configure the Sample node to sample 0.2(20%) of the rows with replacement, the output might look like this:
+
+PartID	SupplierID	PartName	PartCategory	PartQualityScore
+A1	S1	Bolt	Hardware	8
+C3	S3	Screw	Hardware	9
+A1	S1	Bolt	Hardware	8
+...	...	...	...	...
+
+end-examples:
+
+
+
+

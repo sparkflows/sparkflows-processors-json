@@ -1,0 +1,59 @@
+{
+  "id": "1",
+  "name": "Date To String",
+  "description": "This node converts a date/time column to string with given format",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeMultiDateToString",
+  "fields" : [
+  
+    {"name": "inputColNames", "value":"[]", "widget": "variables_list_select",
+      "title": "Input Column Name", "description": "Input Column Name", "required": true, "datatypes":["date", "timestamp"]},
+
+    {"name": "outputColFormats", "value":"[]", "widget": "variables_list_textfield", "required": true,
+      "title": "Output Column Formats", "description": "Output Column Formats. eg: yyyy-MM-dd yyyy-MM-dd HH:mm:ss"},
+
+    {"name": "outputColNames", "value":"[]", "widget": "variables_list_textfield", "required": true,
+      "title": "Output Column Names", "description": "Output Column Names"}
+  ]
+}
+
+start-details:
+
+h2:Date To String Details
+
+This node converts the Date or Timestamp column to string datatype format.
+
+h4:Input
+*   INPUT COLUMN NAME :- Select the Date/Timestamp datatype which needs to be converted to a string.
+*   OUTPUT COLUMN FORMATS :-Specify the output String format.
+*   OUTPUT COLUMN NAMES :- Specify the new column name.
+
+h4:Output
+*   It will generate a new Dataframe with a specified column that will contain the specified String format value.
+
+h4:Example
+*  Input:2011-01-29
+*  OUTPUT COLUMN FORMATS : dd/mm/yyyy
+   The output would be 29/01/2011 
+
+*  Input:2011-01-29
+*  OUTPUT COLUMN FORMATS : yyyy-MM-dd HH:mm:ss
+   The output would be 2011-01-29 00:00:00 
+
+end-details:
+
+start-examples:
+
+h2:Format Examples
+
+* dd-MM-yy : 31-01-12
+* dd-MM-yyyy : 31-01-2012
+* MM-dd-yyyy : 01-31-2012
+* yyyy-MM-dd : 2012-01-31
+* yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59
+* yyyy-MM-dd HH:mm:ss.SSS : 2012-01-31 23:59:59.999
+* yyyy-MM-dd HH:mm:ss.SSSZ : 2012-01-31 23:59:59.999+0100
+* EEEEE MMMMM yyyy HH:mm:ss.SSSZ : Saturday November 2012 10:45:42.720+0100
+
+
+end-examples:

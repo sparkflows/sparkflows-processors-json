@@ -1,0 +1,25 @@
+{
+  "id": "5",
+  "name": "Sklearn Normalizer Transform",
+  "description": "Normalizes samples individually to unit norm.",
+
+  "input": "",
+  "output": "",
+
+  "type": "ml-predict",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.preprocessing.NodeNormalizerFitTransformSklearn",
+  "fields" : []
+}
+
+start-details:
+
+h2: Sklearn Normalizer Transform Node Details
+
+The Sklearn Normalizer Transform Node is used to normalize the samples of a DataFrame individually to unit norm. It uses the sklearn library to apply the Normalizer transformation to the input data. This transformation can be useful for feature scaling and normalization tasks. The Normalizer scales the features by transforming them such that the sum of their squares is equal to 1.
+
+h4:Input Parameters
+
+NORM : The norm to use to normalize the samples. Default is 'l2'
+
+end-details:

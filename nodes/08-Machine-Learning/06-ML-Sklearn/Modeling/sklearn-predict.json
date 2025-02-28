@@ -1,0 +1,28 @@
+{
+  "id": "5",
+  "name": "Sklearn Predict",
+
+  "description": "Predict node takes in a dataframe and model and makes predictions",
+
+  "input": "It takes in a DataFrame and Model as input",
+  "output": "A new column containing the predictions is added to the input DataFrame",
+
+  "type": "ml-predict",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnPredict",
+  "fields" : [
+
+    {"name":"featureCols", "value":"[]", "widget": "variables", "title": "Feature Columns",
+      "description": "Feature columns of type - all numeric, boolean and vector", "datatypes":["integer", "long", "double", "float", "int"], "required": true},
+
+    {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting",
+      "datatypes":["integer", "long", "double", "float", "int"]
+    },
+
+    {"name": "keyCol", "value":"", "widget": "variable", "title": "Key Column", "description": "The key column to identify the each row/data/sample."}
+
+  ]
+}
+
+
+

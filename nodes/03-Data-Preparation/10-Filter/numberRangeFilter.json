@@ -1,0 +1,74 @@
+{
+  "id": "11",
+  "name": "Filter By Number Range",
+  "description": "This node filters the rows in the given Number Range",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeFilterByNumberRange",
+  "fields" : [
+
+    {"name":"inputCol", "value": "", "widget": "variable", "title": "Input Column Name", "description": "input column name",
+        "datatypes":["int", "double", "float", "long", "integer"],  "required": true},
+    {"name":"lowestValue", "value": "", "widget": "textfield", "title": "Lowest Value", "description": "input lowest value",  "required": true},
+    {"name":"highestValue", "value": "", "widget": "textfield", "title": "Highest Value", "description": "input highest value",  "required": true}
+  
+  ]
+}
+
+start-details:
+
+h2:Filter By Number Range Node Details
+
+This node filters Rows for the specified number range. It helps to define a validation rule on the selected column.
+
+New outgoing Dataframe is created by applying Number Range filter on the selected column.
+
+h4:Input
+*   INPUT COLUMN NAME :- Select a Number column on which filter is to be applied.
+*   LOWEST VALUE :- Enter starting value of the Number Range Filter.
+*   HIGHEST VALUE :- Enter ending value of the Number Range Filter.
+
+h4:Output
+*   It will create an output dataframe with rows falling in the given number range between 'LOWEST VALUE' and 'HIGHEST VALUE' column. 
+
+end-details:
+
+start-examples:
+
+h2:Filter By Number Range Node Examples
+
+h4:Incoming Dataframe
+
+In this example we have considered an Incoming Dataframe with following rows:
+
+EMP_CD    |    EMP_NAME    |    DEPT    |    SALARY    |    AGE    
+------------------------------------------------------------------------
+E01       |    ANTHONY     |    HR      |    50000     |    40
+E02       |    LISA        |    HR      |    50000     |    35
+E03       |    MARTIN      |    HR      |    20000     |    25
+E04       |    DAVID       |    SALES   |    55000     |    40
+E05       |    MARK        |    SALES   |    60000     |    45
+E06       |    JOE         |    SALES   |    40000     |    25
+E07       |    BELLA       |    HR      |    60000     |    24
+
+h4:FilterByNumberRange Node Configuration
+
+FilterByNumberRange node is configured as below:
+
+INPUT COLUMN NAME    :    AGE
+LOWEST VALUE         :    35
+HIGHEST VALUE        :    45
+
+h4:FilterByNumberRange Node Output
+
+Outgoing Dataframe would be created as below with rows falling within the given number range:
+
+EMP_CD    |    EMP_NAME    |    DEPT    |    SALARY    |    AGE    
+------------------------------------------------------------------------
+E01       |    ANTHONY     |    HR      |    50000     |    40
+E02       |    LISA        |    HR      |    50000     |    35
+E04       |    DAVID       |    SALES   |    55000     |    40
+E05       |    MARK        |    SALES   |    60000     |    45
+
+end-examples:

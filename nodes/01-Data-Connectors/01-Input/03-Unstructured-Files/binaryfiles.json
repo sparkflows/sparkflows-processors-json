@@ -1,0 +1,21 @@
+{
+  "id": "8",
+  "name": "Binary Files",
+  "description": "Reads in Binary Files from a given path and loads them as FileName/Content",
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetBinaryFiles",
+  "fields" : [
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Binary file/directory"},
+    {"name":"fileNameCol", "value":"fileName", "widget": "textfield", "title": "File Name Column", "description": "File Name Column in the Output DataFrame"},
+    {"name":"binaryContentCol", "value":"content", "widget": "textfield", "title": "Binary File Content Column",
+        "description": "Binary File Content Column in the Output DataFrame"}
+  ]
+}
+
+
+start-details:
+
+It creates a new DataFrame from some data. Data can be in any of these formats - Binary, Text, Parquet, PDF, Image files.
+
+end-details:

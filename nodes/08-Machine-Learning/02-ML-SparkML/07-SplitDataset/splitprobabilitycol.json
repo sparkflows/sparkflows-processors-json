@@ -1,0 +1,12 @@
+{
+  "id": "11",
+  "name": "Split Probability Column",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.ml.NodeSplitProbabilityCol",
+  "fields" : [
+    {"name":"probabilityColName", "value": "", "widget": "variable", "title": "Probability Column",  "datatypes":["vectorudt"], "description": ""},
+
+    {"name": "numFields", "value":2, "widget": "textfield", "title": "Number of Fields", "description": "Number of fields (target variable levels) in probability columns to extract"}
+  ]
+}

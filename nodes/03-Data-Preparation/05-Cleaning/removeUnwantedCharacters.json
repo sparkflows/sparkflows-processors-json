@@ -1,0 +1,84 @@
+{
+  "id": "11",
+  "name": "Remove Unwanted Characters",
+  "description": "This node removes unwanted characters from the specified input columns",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRemoveUnwantedCharacters",
+  "fields" : [
+    {"name":"inputCols", "value": "[]", "widget": "variables", "title": "Input Columns","datatypes":["string"],
+            "required": true, "description": "Input columns"},
+    
+    {"name": "removeWhitespaces", "value":"false", "widget": "array", "title": "Remove Whitespaces", "optionsArray": ["true","false"],
+            "description": "Removes white space", "datatypes":["boolean"]},
+    {"name": "removeLetters", "value":"false", "widget": "array", "title": "Remove Letters", "optionsArray": ["true","false"],
+            "description": "Removes letters", "datatypes":["boolean"]},
+    {"name": "removeDigits", "value":"false", "widget": "array", "title": "Remove Digits", "optionsArray": ["true","false"],
+            "description": "Removes digits", "datatypes":["boolean"]},
+    {"name": "removeSigns", "value":"false", "widget": "array", "title": "Remove Signs", "optionsArray": ["true","false"],
+            "description": "Removes signs", "datatypes":["boolean"]},
+    {"name": "removeCommas", "value":"false", "widget": "array", "title": "Remove Commas", "optionsArray": ["true","false"],
+      "description": "Removes commas", "datatypes":["boolean"]}
+    
+  ]
+}
+
+
+start-details:
+
+This node removes unwanted characters from the specified input columns
+
+end-details:
+
+start-examples:
+
+Incoming Dataframe has following row:
+
+ CUST_CD  |  CUST_NAME  |  SALARY    |    COMMENTS          
+-------------------------------------------------------------
+ C01      |  MIKE       | $12,500.00 |  Salary hiked by 10%
+
+If removeUnwantedCharacters is configured to remove unwanted characters from [SALARY] and [COMMENTS] columns 
+then outgoing Dataframe would result as below based on option selected:
+
+h2:REMOVE WHITESPACES is selected as [True]
+
+Whitespaces are removed from the selected columns
+
+ CUST_CD  |  CUST_NAME  |  SALARY    |    COMMENTS          
+-------------------------------------------------------------
+ C01      |  MIKE       | $12,500.00 |  Salaryhikedby10%
+ 
+h2:REMOVE LETTERS is selected as [True]
+
+Alphabets are removed from the selected columns
+
+ CUST_CD  |  CUST_NAME  |  SALARY    |    COMMENTS          
+-------------------------------------------------------------
+ C01      |  MIKE       | $12,500.00 |  10%
+
+h2:REMOVE DIGITS is selected as [True]
+
+Numbers are removed from the selected columns
+
+ CUST_CD  |  CUST_NAME  |  SALARY    |    COMMENTS          
+-------------------------------------------------------------
+ C01      |  MIKE       | $,.        |  Salary hiked by %
+ 
+h2:REMOVE SIGNS is selected as [True]
+
+Special characters are removed from the selected columns
+
+ CUST_CD  |  CUST_NAME  |  SALARY    |    COMMENTS          
+-------------------------------------------------------------
+ C01      |  MIKE       | 1250000    |  Salary hiked by 10
+ 
+h2:REMOVE COMMAS is selected as [True]
+
+Commas are removed from the selected columns
+
+ CUST_CD  |  CUST_NAME  |  SALARY    |    COMMENTS          
+-------------------------------------------------------------
+ C01      |  MIKE       | $12500.00  |  Salary hiked by 10%
+
+end-examples:

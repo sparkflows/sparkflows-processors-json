@@ -1,0 +1,44 @@
+{
+  "id": "7",
+  "name": "Count rows columns",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.etl.NodeCountRowsColumns",
+  "fields" : [
+    {"name":"variable", "value": "count", "widget": "textfield", "title": "Variable Name", "description": "Name of the Variable in which the count is stored"}
+  ]
+}
+
+start-details:
+
+h2: Count Rows and Columns Node
+
+h4: Overview:
+
+The Count Rows and Columns node counts the number of rows and columns in a DataFrame. This information can be useful for understanding the size and structure of your data.
+
+h4: Input:
+
+None
+
+h4: Output:
+
+Variable Name: The name of the variable that will store the count of rows and columns.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's assume we have a DataFrame with 100 rows and 5 columns.
+
+Configure the Node:
+
+Variable Name: count
+Node Execution:
+
+The node will count the rows and columns in the DataFrame.
+The variable count will store a value like [100, 5].
+
+end-examples:

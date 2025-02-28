@@ -1,0 +1,49 @@
+{
+  "id": "7",
+  "name": "Tokenizer",
+  "description":"A tokenizer that converts the input string to lowercase and then splits it by white spaces.",
+
+  "input": "It takes in a DataFrame and transforms it to another DataFrame",
+  "output": "It adds a new column containing the results of tokenization of the input column, to the incoming DataFrame.",
+
+  "type": "ml-transformer",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeTokenizer",
+  "fields" : [
+    {"name":"inputCol", "value":"", "widget": "variable", "title": "Input Column",
+     "description": "Column containing text (such as sentence)", "datatypes":["string"] ,"required":"true"
+    },
+    {"name":"outputCol", "value":"tok", "widget": "textfield", "title": "Output Column", "required":"true", "description": "Output column name"}
+  ]
+}
+
+start-details:
+
+h2: Tokenizer Node Details
+
+Tokenization is essentially splitting a phrase, sentence, paragraph, or an entire text document into smaller units, such as individual words or terms. Each of these smaller units are called tokens. The Tokenizer node accepts an string input and breaks the string into an array of tokens.
+                                                                        
+h4:Input Parameters
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* INPUT COLUMN : Select the required string column for whom tokenization has to be done . 
+* OUTPUT COLUMN : The name of the output tokenized column.
+
+end-details:
+
+start-examples:
+
+h2: Tokenizer Node Example
+
+Assume that we have a DataFrame with the column <b>strText<b>:
+
+          strText             | 
+----------------------------- |
+ Sparkflows is cool to learn. |
+ 
+ If we set Tokenizer's <b>INPUT COLUMN</b> to strText and <b>OUTPUT COLUMN</b> to tokens, after transformation we should get the following DataFrame:
+
+                  tokens                       | 
+---------------------------------------------- |
+WrappedArray(sparkflows, is, cool, to, learn.) |
+
+end-examples:

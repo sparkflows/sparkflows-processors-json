@@ -1,0 +1,66 @@
+{
+  "id": "3",
+  "name": "Gauge Chart",
+  "type": "transform",
+  "engine": "all",
+  "iconImage": "/images/icons/node-icon/gauge_chart.svg",
+  "nodeClass": "fire.nodes.graph.NodeGauge",
+  "fields" : [
+    {"name":"title", "value":"Gauge Chart", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#77C27F", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#808080", "widget": "textcolors", "title": "Description Color"},
+    {"name":"keyCol", "value":"", "widget": "variable","datatypes":["string"], "title": "Key Column"},
+    {"name":"valueCol", "value":"", "widget": "variable","datatypes":["integer", "long", "double", "float"], "title": "Value Column"},
+
+    {"name":"redfrom", "value":90, "widget": "textfield", "title": "RedFrom"},
+    {"name":"redTo", "value":100, "widget": "textfield", "title": "RedTo"},
+    {"name":"yellowfrom", "value":75, "widget": "textfield", "title": "YellowFrom"},
+    {"name":"yellowTo", "value":90, "widget": "textfield", "title": "YellowTo"},
+    {"name":"minorTicks", "value":5, "widget": "textfield", "title": "MinorTicks"}
+
+  ]
+}
+
+start-details:
+
+h2:Gauge Details
+
+This node represents data for different categories in Gauge format.
+
+Multiple categories can be represented using separate Gauges.
+
+A numeric column from the incoming dataset is selected to represent the value in the Gauges.
+
+h4:Input
+*   TITLE :- The title of a graph can be set here.
+*   KEY COLUMN :- Categorical column is set here.
+*   VALUE COLUMN :- Numerical column is set.
+*   REDFROM :- Minimum threshold is set for red.
+*   REDTO :- Maximum threshold is set for red.
+*   YELLOWFROM :- Minimum threshold is set for yellow.
+*   YELLOWTO :- Maximum threshold is set for yellow.
+*   MINORTICKS :- MinorTicks can be set to style the minor tick marks.
+
+h4:Output
+*   This node is best to give a visual representation of how something is performing against a set goal.
+*   This node helps in identifying the problems in important data points or measures.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's say you have a dataset with a column ServerLoad representing the current load on a server. You can configure the Gauge Chart node as follows:
+
+Key Column: Server
+Value Column: ServerLoad
+Red From: 90
+Red To: 100
+Yellow From: 75
+Yellow To: 90
+Minor Ticks: 5
+This will create a gauge chart for each server, showing its current load. The gauge will be colored red if the load is between 90 and 100, yellow if it's between 75 and 90, and green otherwise.
+
+end-examples:

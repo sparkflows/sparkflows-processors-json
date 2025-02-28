@@ -1,0 +1,35 @@
+{
+  "id": "4",
+  "name": "Spark ML Model Save",
+  
+  "description": "This node saves the ML model generated at the specified path.",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+  
+  "type": "ml-modelsave",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeModelSave",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path"},
+    {"name": "fixedPath", "value":"false", "widget": "array", "title": "Static path", "optionsArray": ["false","true"], "description": "Set this to true if you want model to be saved in a static path. It will overwrite the model in the directory specified." ,"datatypes":["boolean"]},
+    {"name":"overwrite", "value":"false", "widget": "boolean","title": "Overwrite Output"}
+  ]
+}
+
+start-details:
+
+this node saves the trained model in the file system at the specified path to be used again in future
+
+end-details
+
+start-examples:
+
+path-folder1/folder2/filename
+static path-true/false -keep it true then it overwrites if there is existing model at the path
+
+the file will be saved under the file name at the path provided
+if folder is not present it will be created and save the file
+
+
+end-examples:

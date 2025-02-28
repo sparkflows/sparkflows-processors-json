@@ -1,0 +1,47 @@
+{
+  "id": "11",
+  "name": "Read JSON",
+  "iconImage": "/images/icons/node-icon/JSON.svg",
+  "description": "Dataset Node for Reading JSON Files",
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetJSON",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "required":true, "widget": "textfield", "title": "Path", "description": "Path of the JSON file/directory"},
+
+    {"name":"multiLine", "value":"false", "widget": "array", "title": "Multi Line", "optionsArray": ["false","true"], "description": ""},
+
+    {"name": "addInputFileName", "value":"false", "widget": "array", "title": "Add Input File Name", "optionsArray": ["false","true"],
+      "description": "Add the new field:input_file_name"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Name", "description": "New Output Column Name"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Type", "description": "Data Type of the Output Column"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Format", "description": "Format of the Output Column"}
+
+  ]
+}
+start-details:
+
+h2: Read JSON Node Details
+
+This node reads a JSON file and creates the DataFrame which contains the schema and data of the specified JSON file.
+
+h4: Parameters to be set:
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* PATH : Specify the path of the JSON file to be read.
+* MULTI LINE : Select if the JSON file contains multi line JSON objects.
+* ADD INPUT FILE NAME : Select if the JSON file name needs to be added to the DataFrame.
+* SCHEMA COLUMNS : Refresh the schema of the DataFrame.
+
+end-details:
+
+start-examples:
+
+h2: Read JSON Node Examples
+
+h4: Example of Values
+* PATH : /tmp/sample.json
+* MULTI LINE : True
+* ADD INPUT FILE NAME : True
+* SCHEMA COLUMNS : Refresh the schema of the DataFrame.
+
+end-examples:

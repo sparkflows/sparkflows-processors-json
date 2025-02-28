@@ -1,0 +1,63 @@
+{
+  "id": "1",
+  "name": "Date Difference",
+  "description": "This node finds difference between two dates",
+  "input": "It accepts a DataFrame as input from the previous Node", 
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeDateDiff",
+  "fields" : [
+
+    {"name":"fromDate", "value":"", "widget": "variable", "title": "FromDate", "description": "From date column name", "datatypes":["timestamp", "date"]},
+
+    {"name":"toDate", "value":"", "widget": "variable", "title": "Todate", "description": "To date column name", "datatypes":["timestamp", "date"]},
+
+    {"name": "useCurrentDateAsToDateCol", "value":"false", "widget": "array", "title": "Use Current Date As To Date", "optionsArray": ["true","false"],
+      "description": "Current Date As ToDate", "datatypes":["boolean"]},
+
+    {"name": "days", "value":"false", "widget": "array", "title": "Days", "optionsArray": ["true","false"],
+      "description": "Days difference", "datatypes":["boolean"]},
+
+    {"name": "hours", "value":"false", "widget": "array", "title": "Hours", "optionsArray": ["true","false"],
+      "description": "Hours difference", "datatypes":["boolean"]},
+
+    {"name": "minutes", "value":"false", "widget": "array", "title": "Minutes", "optionsArray": ["true","false"],
+      "description": "Minutes difference", "datatypes":["boolean"]},
+
+    {"name": "seconds", "value":"false", "widget": "array", "title": "Seconds", "optionsArray": ["true","false"],
+      "description": "Seconds difference", "datatypes":["boolean"]}
+  ]
+}
+
+start-details:
+
+h2:Date Difference Details
+
+Calculates the difference between two given date/datetime columns.
+
+h4:Input
+* FROMDATE :- The input column (i.e from which date) is selected here and it should be of Date\TimeStump datatype. 
+* TODATE :- The input column (i.e upto which date) is selected here and it should be of Date\TimeStump datatype.
+* USECURRENTDATEASTOCOL :- When set to true, uses current Date as the 'TODATE' value 
+
+h4:Output
+* Difference between the two date fields can be displayed in terms of days, hours, minutes and seconds.
+* To enable the new column(s) set the value of the field as true ( By Default, it is set to false )
+
+h4:Example
+* Date Difference output when all fields are enabled as true. 
+  dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :	743794461 : second
+
+end-details:
+
+start-examples:
+
+h2:Format Examples
+
+* dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :	743794461 : second
+* dd-MM-yyyy : 10-02-1996 to 20-09-2017 diff- 8536 days : 204881 hours : 12292884 min :	737573070 : second
+* MM-dd-yyyy : 19-10-1994 to 06-12-2017 diff- 9015 days : 216377 hours : 12982644 min :	778958670 : second
+* yyyy-MM-dd : 1994-12-25 to 2019-01-16 diff- 8948 days : 214769 hours : 12886164 min :	773169870 : second
+* yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59 to 2010-12-30 22:59:59 diff-397 days: 1 hour: 0 minutes : 0 seconds
+
+end-examples:

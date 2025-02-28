@@ -1,0 +1,30 @@
+{
+  "id": "4",
+  "name": "Prophet Model Save",
+
+  "description": "This node saves the Prophet model generated at the specified path in pickle file.",
+
+  "input": "It takes in a Model and DataFrame as input.",
+  "output": "The incoming dataframe is passed to the output.",
+
+  "engine": "pyspark",
+  "type": "ml-modelsave",
+  "nodeClass": "fire.nodes.ts.NodeProphetSave",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path", "required": true}
+  ]
+}
+
+start-details:
+
+this node saves the tained prohet model in the file system to be used in the future
+
+end-details:
+
+start-examples:
+
+path-folder1/folder2/ModelFileName
+
+the trained model will be saved to the given path,any folder not present will be created and exisiting model in the folder of the will be replaced
+
+end-examples:

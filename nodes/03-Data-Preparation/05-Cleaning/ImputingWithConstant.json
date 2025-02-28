@@ -1,0 +1,46 @@
+{
+  "id": "11",
+  "name": "Imputing With Constant",
+  "description": "It imputes missing value with constant value. It fills missing values (None) in selected columns with given constant value for the corresponding column, in the incoming DataFrame.",
+  "type": "transform",
+  "engine":"all",
+  "nodeClass": "fire.nodes.ml.NodeReplaceMissingValueWithConstant",
+  "fields" : [
+    {"name": "colNames", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns to be processed for missing values"},
+
+    {"name": "constants", "value":"[]", "widget": "variables_list_textfield", "title": "Constants", "description": "Missing value will be replaced with constant"}
+
+
+  ]
+}
+
+start-details:
+
+This node imputes the missing value with constant value.
+
+It fills missing values (None) in selected columns with given constant value for the corresponding column, in the incoming DataFrame.
+
+end-details:
+
+start-examples:
+
+Incoming Dataframe has following rows and [AGE] column has missing values / [NULL] for some rows:
+
+CUST_CD    |    CUST_NAME    |    AGE
+-----------------------------------------
+CD01       |    DAVID        |    30
+CD02       |    MARY         |    40
+CD03       |    PAUL         |			
+CD04       |    MATT         |			
+
+If imputingwithconstatnt node is configured to Impute [AGE] with 45 then missing values in [AGE] column would be replaced with 45.
+Outgoing Dataframe would result as below:
+
+CUST_CD    |    CUST_NAME    |    AGE
+-----------------------------------------
+CD01       |    DAVID        |    30
+CD02       |    MARY         |    40
+CD03       |    PAUL         |    45			
+CD04       |    MATT         |    45			
+
+end-examples:

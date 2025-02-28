@@ -1,0 +1,56 @@
+{
+  "id": "11",
+  "name": "Execute BigQuery",
+
+  "description": "It executes the query in BigQuery and creates a DataFrame from it",
+  "input": "It executes query.",
+  "output": "It creates a DataFrame from the executed query and sends it to its output",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.gcp.NodeExecuteBigQuery",
+  "fields" : [
+    {"name":"query", "display":true, "value":"", "widget": "textarea_small", "title": "Query", "description": "execute bigquery",  "required": true},
+
+    {"name": "viewsEnabled", "value":"false", "widget": "array", "title": "ViewsEnabled", "optionsArray": ["false","true"], "description": ""},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "Schema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names", "description": "New Output Columns of the SQL"},
+
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types", "description": "Data Type of the Output Columns"},
+
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Format of the Output Columns"},
+
+    {"name": "extraOptions", "value": "", "widget": "tab", "title": "Extra Options"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Extra Options Keys", "description": "Extra options available while executing in Big Query."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Extra Options Values", "description": "Config Values for the Corresponding keys"}
+
+  ]
+}
+start-details:
+
+It executes the query in BigQuery and creates a DataFrame from it
+This node allows you to execute SQL queries directly against a BigQuery database. It provides a flexible way to interact with BigQuery and retrieve data for further processing.
+
+end-details:
+
+start-examples:
+
+h2: Execute BigQuery Node Example
+
+Scenario:
+
+Let's say you want to retrieve a list of customers from a BigQuery table named customers. You can use the following SQL query in the Execute BigQuery node:
+
+SQL
+SELECT customer_id, customer_name, customer_email
+FROM customers;
+
+Configuration:
+
+Query: Enter the SQL query you want to execute.
+Schema Columns: Optionally, you can specify the schema of the output DataFrame, including column names and data types.
+Output:
+
+The node will execute the query and return the results as a DataFrame. You can then use this DataFrame in subsequent nodes for further processing, such as filtering, transforming, or joining with other datasets.
+
+end-examples:

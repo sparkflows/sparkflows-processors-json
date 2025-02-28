@@ -1,0 +1,47 @@
+{
+  "id": "10",
+  "name": "Print N Rows",
+  "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+  "type": "transform",
+  "iconImage": "/images/icons/node-icon/print_n_rows.svg",
+  "engine": "all",
+  "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+  "fields" : [
+  	{"name":"title", "value":"Row Values", "widget": "textfield", "title": "Title"},
+    {"name":"n", "value":"10", "widget": "textfield", "title": "Num Rows to Print","description":"number of rows to be printed"},
+    {"name":"displayDataType", "value":"true", "widget": "array", "title": "Display Data Type", "optionsArray": ["true","false"],"description":"If true display rows DataType"}
+  ]
+}
+
+start-details:
+
+h2:Print N Rows Node Details
+
+This node is used to print the first N rows from the incoming dataframe.
+
+The Number of rows that needs to be printed can be configured in the node.
+
+h4:Input Parameters
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* TITLE : Enter a short description for the type of information being displayed.
+* NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).
+* DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.
+
+h4:Output
+* This node can be used to view, analyze and validate the output of the Dataframe.
+
+end-details:
+
+start-examples:
+
+when input 5 in no of rows,it will show first 5 rows of the table as follows
+
+PartID	SupplierID	PartName	
+
+P9271	  S798	    Part_D	
+P523	  S955	    Part_K	
+P3201	  S332	    Part_M	
+P9634	  S527	    Part_G	
+P9345	  S850	    Part_M
+
+end-examples:

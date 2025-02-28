@@ -1,0 +1,43 @@
+{
+  "id": "7",
+  "name": "Save CSV",
+  "iconImage": "/images/icons/node-icon/csv.svg",
+  "description": "Saves the DataFrame into the specified location in CSV Format",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.save.NodeSaveCSV",
+  "fields" : [
+    {"name":"path",  "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the CSV files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "header", "value":"true", "widget": "array", "title": "Header", "optionsArray": ["true","false"],
+      "description": "Should a Header Row be saved with each File?"},
+    {"name": "encoding", "value":"UTF-8", "widget": "textfield", "title": "Encoding", "description": "Decodes the CSV files by the given encoding type"},
+    {"name":"quote", "value":"\"", "widget": "textfield", "title": "Quote", "description": "Sets a single character used for escaping quoted values where the separator can be part of the value"},
+    {"name":"escape", "value":"\\", "widget": "textfield", "title": "Escape", "description": "Sets a single character used for escaping quotes inside an already quoted value."},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"}
+
+  ]
+}
+
+start-details:
+
+This node saves incoming Dataframe into the specified location in CSV format.
+
+end-details:
+
+start-examples:
+
+path-folder1/folder2/filename
+
+the file will be saved under the file name at the path provided
+if folder is not present it will be created and save the file
+if the file already exists selection in save mode determines what happens to the file,append-adds the file data to it overwrite-replaces the file altogether
+
+end-examples:

@@ -1,0 +1,10 @@
+{
+  "id": "99",
+  "name": "URL Text File Reader",
+  "description": "Reads a text file from the given URL and creates a DataFrame from it. Each line in the file is a record in the DataFrame.",
+  "type": "dataset",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetUrlTextFileReader",
+  "fields" : [
+    {"name":"url", "value":"", "widget": "textfield", "title": "URL", "description": "URL of the file"}
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "1",
+  "name": "Regex Tokenizer",
+  "description": "This node creates a new DataFrame by the process of taking text (such as a sentence) and breaking it into individual terms (usually words) based on regular expression",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeRegexTokenizer",
+  "engine": "all",
+  "fields" : [
+    {"name":"inputCol", "value": "", "widget": "variable", "title": "Column", "description": "input column for tokenizing", "datatypes":["string"]},
+    {"name":"outputCol", "value":"", "widget": "textfield", "title": "Tokenized Column", "description": "New output column after tokenization"},
+    {"name":"pattern", "value":"", "widget": "textfield", "title": "Pattern", "description": "The regex pattern used to match delimiters","expandable": true},
+    {"name":"gaps", "value":"true", "widget": "array", "optionsArray": ["true", "false"], "title": "Gaps", "description": "Indicates whether the regex splits on gaps"}
+  ]
+}
+
+start-details:
+
+h2: Regex Tokenizer Node
+
+h4: Overview:
+
+The Regex Tokenizer node splits text data into tokens based on a regular expression pattern. This is useful for tasks like text preprocessing, natural language processing, and information extraction.
+
+h4: Input:
+
+Column: The column containing the text data to be tokenized.
+Tokenized Column: The name of the new column to store the tokenized text.
+Pattern: The regular expression pattern to use for tokenization.
+Gaps: A flag indicating whether to include gaps (spaces) between tokens.
+h4: Output:
+
+The node creates a new column containing the tokenized text.
+
+end-details:
+
+start-examples:
+
+h2:Example:
+
+Let's assume we have a column named text containing the following text:
+
+This is a sample text.
+Configure the Node:
+
+Column: text
+Tokenized Column: tokens
+Pattern: \w+ (matches word characters)
+Gaps: True
+Node Execution:
+
+The node will split the text into tokens based on word boundaries and create a new column tokens containing the following:
+
+This,is,a,sample,text
+
+end-examples:

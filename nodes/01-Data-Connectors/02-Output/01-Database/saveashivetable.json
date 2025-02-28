@@ -1,0 +1,66 @@
+{
+  "id": "7",
+  "name": "Save As HIVE Table",
+  "description": "Saves the DataFrame into an Apache HIVE Table",
+  "type": "transform",
+  "nodeClass": "fire.nodes.save.NodeSaveAsTable",
+  "fields" : [
+
+    {"name":"database", "value":"default", "widget": "textfield", "title": "HIVE Database",
+          "description":"Name of the HIVE Database" ,"required":"true"},
+    {"name":"table", "display": true, "value":"", "widget": "textfield", "title": "HIVE Table",
+      "description":"Name of the HIVE table" ,"required":"true"},
+
+    {"name":"format", "value":"", "widget": "array","optionsArray": ["", "csv", "json", "orc", "parquet", "delta"],
+      "title": "Format", "description":"File format when saving to HIVE Table"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionBy", "value":"[]", "widget": "variables", "title": "Partition By",
+      "description":"List of columns to partition by - separated by space"},
+
+    {"name": "numBuckets", "value":0, "widget": "textfield", "title": "NumBuckets", "description": "Number of buckets",  "datatypes":["integer"]},
+
+    {"name": "bucketBy", "value": "[]", "widget": "variables", "title": "Bucket By", "description": "List of columns to bucket by - separated by space"}
+
+  ]
+}
+start-details:
+
+h2: Save As HIVE Table Node Details
+
+Saves the DataFrame into an Apache HIVE Table.
+
+h4: Parameters to be set:
+General:
+*OUTPUT STORAGE LEVEL: Keep this as DEFAULT.
+*HIVE DATABASE: Specify the HIVE database where the table will be created.
+*HIVE TABLE: Specify the name of the HIVE table to which the data will be written.
+*FORMAT: Choose the file format for the HIVE table (e.g., Parquet, ORC, CSV, Json).
+*SAVE MODE: Choose how to save data in the table, if any (Append, Overwrite, ErrorIfExists, Ignore).
+Advanced:
+*PARTITION BY: (Optional) Specify columns to partition the HIVE table. You can select multiple columns from the "Available" list and move them to the "Selected" list to define the partitioning schema.
+*NUM BUCKETS: Specify the number of buckets to use when bucketing the HIVE table.
+*BUCKET BY: (Optional) Specify columns to bucket the HIVE table. You can select multiple columns from the "Available" list and move them to the "Selected" list to define the bucketing scheme.
+
+end-details:
+
+start-examples:
+
+h2: Save As HIVE Table Node Examples
+
+h4: Example of Connection Values
+General:
+*HIVE DATABASE: my_hive_db
+*HIVE TABLE: processed_customer_data
+*FORMAT: Parquet
+*SAVE MODE: Overwrite
+Advanced:
+*PARTITION BY: (year,month,country), This would create a partitioned HIVE table where data is organized into directories based on year, month, and country.
+*NUM BUCKETS:  32
+*BUCKET BY:  customer_id, This would create a bucketed HIVE table where data is divided into 32 buckets based on the customer_id column.
+
+end-examples:

@@ -1,0 +1,42 @@
+{
+  "id": "6",
+  "name": "Save Faiss DB",
+  "description": "Save Vector Embeddings to faiss db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSaveToFaissDb",
+  "fields" : [
+    {"name": "fileNameCol", "value": "fileName", "widget": "variable", "title": "File Name Column", "description": "Column name for file names."},
+    {"name": "pageNumberCol", "value": "pageNumber", "widget": "variable", "title": "Page Number Column", "description": "Column name for page numbers."},
+    {"name": "contentCol", "value": "content", "widget": "variable", "title": "Content Column", "description": "Column name for text content."},
+    {"name": "directoryPathCol", "value": "directoryPath", "widget": "variable", "title": "Directory Path Column", "description": "Column name for directory paths."},
+    {"name": "embeddingsCol", "value": "embeddings", "widget": "variable", "title": "Embeddings Column", "description": "Column name for embeddings."},
+    {"name": "base64ImageCol", "value": "base64Image", "widget": "variable", "title": "Base64 Image Column", "description": "Column name for Base64 encoded images."},
+    {"name": "faissIndexName", "value": "faiss_index", "widget": "textfield", "title": "FAISS Index Name", "description": "Name of the FAISS index."},
+    {"name": "faissIndexDir", "value": "", "widget": "textfield", "title": "FAISS Index Directory Path", "description": "Directory path for the FAISS index."},
+    {"name": "dimension", "value": "0", "widget": "textfield", "title": "Dimension", "description": "Dimension for embeddings."}
+  ]
+}
+start-details:
+h2: Configure Data Columns and FAISS Index Settings
+
+This node is designed to configure essential parameters for data ingestion and vector embedding processes. It allows you to specify the column names for file metadata and content, as well as settings for storing embeddings and images. Additionally, it configures the FAISS index by specifying the index name, directory path, and embedding dimension.
+
+h4: Parameters to be set:
+
+### Data Column Configuration:
+- **File Name Column**: Specifies the column that holds the file names (default: `fileName`).
+- **Page Number Column**: Specifies the column that holds the page numbers (default: `pageNumber`).
+- **Content Column**: Specifies the column that contains the text content (default: `content`).
+- **Directory Path Column**: Specifies the column for directory paths (default: `directoryPath`).
+- **Embeddings Column**: Specifies the column for storing computed embeddings (default: `embeddings`).
+- **Base64 Image Column**: Specifies the column for Base64 encoded images (default: `base64Image`).
+
+### FAISS Configuration:
+- **FAISS Index Name**: Define the name of the FAISS index (default: `faiss_index`).
+- **FAISS Index Directory Path**: Define the directory path for storing the FAISS index.
+- **Dimension**: Set the embedding dimension (default: `0`).
+
+end-details:

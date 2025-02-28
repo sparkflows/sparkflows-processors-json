@@ -1,0 +1,38 @@
+{
+  "id": "7",
+  "name": "MultiFlagOutliers",
+  "type": "transform",
+  "description": "This checks if values fall between Inter Quartile Range.",
+  "nodeClass": "fire.nodes.ml.NodeMultiFlagOutliers",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Input Column to flag the outlier", "description": "The Input Column to flag the outlier",
+      "datatypes":["double", "integer", "float"]},
+
+    {"name": "lowerQuantiles", "value": "[]", "widget": "variables_list_textfield", "title": "LowerQuantile", "description": ""},
+
+    {"name": "upperQuantiles", "value": "[]", "widget": "variables_list_textfield", "title": "UpperQuantile", "description": ""}
+  ]
+}
+
+start-details:
+
+MultiFlagOutliers Node
+Overview:
+
+This node is designed to identify and flag outliers in a dataset based on specified quantile ranges. It helps to detect anomalies and anomalies that deviate significantly from the norm.
+
+Configuration:
+
+Input Column to Flag the Outlier: Select the column containing the numeric values to be analyzed.
+Lower Quantile: Set the lower quantile threshold (e.g., 0.05 for the 5th percentile).
+Upper Quantile: Set the upper quantile threshold (e.g., 0.95 for the 95th percentile).
+
+end-details
+
+start-examples:
+
+Example:
+
+If you have a dataset with a "Sales" column and you set the Lower Quantile to 0.25 and the Upper Quantile to 0.75, the node will flag values below the 25th percentile as "low" outliers and values above the 75th percentile as "high" outliers.
+
+end-examples:

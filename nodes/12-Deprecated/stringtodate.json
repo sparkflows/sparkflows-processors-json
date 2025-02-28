@@ -1,0 +1,38 @@
+{
+  "id": "1",
+  "name": "String To Date",
+  "description": "This node converts a string column to date using the given date/time format",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeStringToDate",
+  "fields" : [
+    {"name":"inputColName", "value":"", "widget": "variable", "title": "Input Column Name",
+            "description": "Input Column Name", "datatypes":["string"]},
+    
+    {"name":"inputColFormat", "value":"yyyy-MM-dd HH:mm:ss", "widget": "textfield", "title": "Input Column Format",
+              "description": "Input Column Format. eg: yyyy-MM-dd yyyy-MM-dd HH:mm:ss"},
+
+    {"name":"outputColName", "value": " ", "widget": "textfield", "title": "Output Column Name", "description": "Output Column Name"},
+
+    {"name":"outputColType", "value":"DATE", "widget": "array", "optionsArray": ["DATE", "TIMESTAMP"],
+      "title": "Output Column Type", "description": "Output Column Type"}
+
+  ]
+}
+
+start-examples:
+
+h2:Format Examples
+
+* dd-MM-yy : 31-01-12
+* dd-MM-yyyy : 31-01-2012
+* MM-dd-yyyy : 01-31-2012
+* yyyy-MM-dd : 2012-01-31
+* yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59
+* yyyy-MM-dd HH:mm:ss.SSS : 2012-01-31 23:59:59.999
+* yyyy-MM-dd HH:mm:ss.SSSZ : 2012-01-31 23:59:59.999+0100
+* EEEEE MMMMM yyyy HH:mm:ss.SSSZ : Saturday November 2012 10:45:42.720+0100
+
+OUTPUT COLUMN NAME: - If user inputs an existing column name, it overrides the column 
+                      otherwise it will add a new column.
+
+end-examples:

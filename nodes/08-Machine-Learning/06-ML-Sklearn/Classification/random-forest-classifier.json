@@ -1,0 +1,73 @@
+{
+  "id": "5",
+  "name": "Sklearn Random Forest Classifier",
+  "description": "Random Forest Classifier, fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max_samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnRandomForestClassifier",
+  "fields" : [
+    {"name": "targetCol", "value":"", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting",
+      "datatypes":["integer", "long", "double", "float", "int"], "required": true},
+
+    {"name":"featureCols", "value":"[]", "widget": "variables", "title": "Feature Columns",
+      "description": "Feature columns of type - all numeric, boolean and vector", "datatypes":["integer", "long", "double", "float", "int"], "required": true},
+
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "NEstimators", "description": "Specifies the number of trees in the forest."},
+
+    {"name": "criterion", "value":"gini", "widget": "array", "title": "Criterion", "optionsArray": ["gini", "entropy"],"description": "The function to measure the quality of a split. 'gini' for the Gini impurity and 'entropy' for the information gain."},
+
+    {"name": "max_depth", "value": "", "widget": "textfield", "title": "MaxDepth", "description": "The maximum depth of the tree. If not set, nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples."},
+
+    {"name": "min_samples_split", "value": 2, "widget": "textfield", "title": "MinSamplesSplit", "description": "The minimum number of samples required to split an internal node. Higher values prevent creating nodes with few samples, which can be sensitive to noise."},
+
+    {"name": "min_samples_leaf", "value": 1, "widget": "textfield", "title": "MinSamplesLeaf","description": "The minimum number of samples required to be at a leaf node. A split point is only considered if it leaves at least this many training samples in each of the left and right branches."},
+
+    {"name": "min_weight_fraction_leaf", "value": 0.0, "widget": "textfield", "title": "MinWeightFractionLeaf","description": "The minimum weighted fraction of the sum total of weights required to be at a leaf node. Weights are assigned to individual samples in the construction of the tree."},
+
+    {"name": "max_features", "value":"sqrt", "widget": "array", "title": "MaxFeatures", "optionsArray": ["sqrt", "log2"],"description": ""},
+
+    {"name": "max_leaf_nodes", "value": "", "widget": "textfield", "title": "MaxLeafNodes","description": "Grow a tree with `max_leaf_nodes` in best-first fashion. If not set, then unlimited number of leaf nodes is used."},
+
+    {"name": "min_impurity_decrease", "value": 0.0, "widget": "textfield", "title": "MinImpurityDecrease", "description": "Generally used to control over-fitting. The higher the value, the more conservative the algorithm will be."},
+
+    {"name": "bootstrap", "value":"True", "widget": "array", "title": "Bootstrap", "optionsArray": ["True", "False"], "description": "Whether bootstrap samples are used when building trees. If False, the whole dataset is used to build each tree." },
+
+    {"name": "oob_score", "value":"False", "widget": "array", "title": "OobScore", "optionsArray": ["True", "False"], "description": "Whether to use out-of-bag samples to estimate the generalization accuracy." },
+
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "RandomState", "description": "Default value is None "},
+
+    {"name": "warm_start", "value":"False", "widget": "array", "title": "WarmStart", "optionsArray": ["True", "False"], "description": "When set to True, the existing trained trees in the model are reused and additional trees are added to the ensemble. This can save time when incrementally increasing the number of trees in the model." },
+    {"name": "path", "value":"", "widget": "textfield", "title": "Save Confusion Matrix Path", "description": "Save Confusion Matrix"},
+
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": " Description to display in Confusion Matrix CHart"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield", "title": "Confusion Matrix Count Legend", "description": "Legend name to display for Count in Confusion Matrix"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "One can provide the business details of the outcome of the confusion matrix rows"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"}
+
+  ]
+}
+
+start-details:
+
+More details are available at : https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+
+end-details:
+
+

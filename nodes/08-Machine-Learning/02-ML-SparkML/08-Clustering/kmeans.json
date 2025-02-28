@@ -1,0 +1,79 @@
+{
+  "id": "4",
+  "name": "K-Means",
+  "description": "K-means clustering with support for k-means initialization proposed by Bahmani et al",
+
+  "input": "It takes in a DataFrame as input and performs K-Means clustering",
+  "output": "The input DataFrame is passed along to the next Processors",
+
+  "type": "ml-estimator",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeKMeans",
+  "fields" : [
+    {"name": "modelIdentifier", "value":"", "required":false, "widget": "textfield", "title": "Model Identifier", "description": "modelIdentifier starts with $loop & columns names separated with underscore. Example: $loop_columnName1_columnName2."},
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting.", "datatypes":["vectorudt"]},
+
+    {"name": "k", "value":2, "required":true, "widget": "textfield","title": "K", "description": "The number of clusters to create.", "datatypes":["integer"]},
+
+    {"name": "maxIter", "value":20, "widget": "textfield", "title": "Max Iterations", "description": "The maximum number of iterations.", "datatypes":["integer"]},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column created during model scoring."},
+
+    {"name": "seed", "value":"", "widget": "textfield", "title": "Seed", "description": "Random Seed.", "datatypes":["long"]},
+
+    {"name": "tol", "value":1e-4, "widget": "textfield", "title": "Tolerence", "description": "The convergence tolerance for iterative algorithms.","datatypes":["double"] },
+
+    {"name": "initMode", "value":"k-means", "widget": "array","title": "initMode", "optionsArray": ["k-means||", "random"], "description": "The initialization algorithm mode." },
+
+    {"name": "initSteps", "value":5, "widget": "textfield","title": "initSteps", "description": "The number of steps for the k-means initialization mode. It will be ignored when other initialization modes are chosen.", "datatypes":["integer"]},
+
+    {"name": "distanceMeasure", "value":"euclidean", "widget": "array","title": "distanceMeasure", "optionsArray": ["euclidean", "cosine"], "description": "Trait for shared param distanceMeasure" },
+
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Weight Column", "datatypes":["double"]}
+  ]
+}
+
+
+start-details:
+
+k-means is one of the most commonly used clustering algorithms that clusters the data points into a predefined number of clusters. The MLlib implementation includes a parallelized variant of the k-means++ method called kmeans||.
+
+KMeans is implemented as an Estimator and generates a KMeansModel as the base model.
+
+More details are available at Apache Spark ML docs page:
+
+https://spark.apache.org/docs/latest/ml-clustering.html#k-means
+
+end-details:
+
+start-examples:
+
+Below example is available at : https://spark.apache.org/docs/latest/ml-clustering.html#k-means
+
+import org.apache.spark.ml.clustering.KMeans
+import org.apache.spark.ml.evaluation.ClusteringEvaluator
+
+// Loads data.
+val dataset = spark.read.format("libsvm").load("data/mllib/sample_kmeans_data.txt")
+
+// Trains a k-means model.
+val kmeans = new KMeans().setK(2).setSeed(1L)
+val model = kmeans.fit(dataset)
+
+// Make predictions
+val predictions = model.transform(dataset)
+
+// Evaluate clustering by computing Silhouette score
+val evaluator = new ClusteringEvaluator()
+
+val silhouette = evaluator.evaluate(predictions)
+println(s"Silhouette with squared euclidean distance = $silhouette")
+
+// Shows the result.
+println("Cluster Centers: ")
+model.clusterCenters.foreach(println)
+
+
+end-examples:
+  

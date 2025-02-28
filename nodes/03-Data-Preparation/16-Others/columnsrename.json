@@ -1,0 +1,34 @@
+{
+  "id": "1",
+  "name": "Columns Rename",
+  "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+  "input": "This type of node takes in a DataFrame and transforms it to another DataFrame.",
+  "output": "The specified columns are renamed to have the new names.",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+  "engine": "all",
+  "fields" : [
+    {"name": "currentColNames", "value":"[]", "widget": "variables_list_select", "title": "Current Column Names", "description": "Current Column Names", "required": true},
+
+    {"name": "newColNames", "value":"[]", "widget": "variables_list_textfield", "title": "Columns New Name", "description": "New name for existing columns", "required": true}
+  ]
+}
+
+start-details:
+
+This node creates a new DataFrame by renaming existing columns with the new name.
+
+For the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.
+
+end-details:
+
+start-examples:
+
+If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:
+
+* CURRENT COLUMN NAMES : CUST NAME
+* COLUMNS NEW NAME : CUST_NAME
+
+This would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.
+
+end-examples:

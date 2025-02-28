@@ -1,0 +1,46 @@
+{
+  "id": "11",
+  "name": "Read Delta",
+
+  "description": "Dataset Node for reading Apache Delta files",
+  "input": "It reads in Delta files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetDelta",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Delta file/directory" ,"required":"true"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "Schema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the Delta", "description": "Output Columns of the Delta"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Delta", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Delta", "description": "Format of the Output Columns"},
+
+    {"name": "extraOptions", "value": "", "widget": "tab", "title": "Extra Options"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Extra Options Keys", "description": "Delta-specific options for managing Delta tables and accessing historical data. Examples include:\nversionAsOf --> Integer value. Specifies the version of the Delta table to query. This option is used in time travel to get the state of the table at a specific version.\ntimestampAsOf --> Timestamp value. Specifies the timestamp to query the Delta table at, allowing access to historical data at a specific point in time.\nvacuumRetention --> Integer value in hours. Defines the retention period for deleted files in Delta Lake before they are permanently removed during a vacuum operation.\ndelta.dataSkipping --> 'true' or 'false'. Enables or disables data skipping in Delta Lake, which helps to optimize queries by skipping unnecessary partitions based on query predicates."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Extra Options Values", "description": "Config Values for the Corresponding keys"}
+
+  ]
+}
+start-details:
+
+h2: Read Delta Node Details
+
+Dataset Node for reading Apache Delta files.
+
+h4: Parameters to be set:
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* PATH : Specify the path of the delta file.
+* SCHEMA COLUMNS: Refresh the schema for loading column name,column type,column format. 
+
+end-details:
+
+start-examples:
+
+h2: Read Delta Node Examples
+
+h4: Example of Connection Values
+* PATH : Specify the path of the delta file.
+* SCHEMA COLUMNS: Refresh the schema for loading column name,column type,column format. 
+
+end-examples:

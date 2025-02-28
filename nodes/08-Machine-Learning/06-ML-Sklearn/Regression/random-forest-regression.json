@@ -1,0 +1,35 @@
+{
+  "id": "5",
+  "name": "Sklearn Random Forest Regression",
+  "description": "Random Forest Regression, fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max_samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree.",
+  "input" : "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnRandomForestRegression",
+  "fields" : [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "Feature columns of type - all numeric, boolean and vector", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "n_estimators", "value": 10, "widget": "textfield", "title": "Number of Estimators", "description": "Specifies the number of trees in the forest."},
+    {"name": "criterion", "value": "friedman_mse", "widget": "array", "title": "Criterion", "optionsArray": ["friedman_mse", "squared_error","poisson","absolute_error"], "description": "The function to measure the quality of a split."},
+    {"name": "max_depth", "value": "", "widget": "textfield", "title": "Max Depth", "description": "The maximum depth of the tree. If not set, nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples."},
+    {"name": "min_samples_split", "value": 2, "widget": "textfield", "title": "Min Samples Split", "description": "The minimum number of samples required to split an internal node. Higher values prevent a tree from growing too complex."},
+    {"name": "min_samples_leaf", "value": 1, "widget": "textfield", "title": "Min Samples Leaf", "description": "The minimum number of samples required to be at a leaf node."},
+    {"name": "min_weight_fraction_leaf", "value": 0.0, "widget": "textfield", "title": "Min Weight Fraction Leaf", "description": "The minimum weighted fraction of the sum total of weights required to be at a leaf node."},
+    {"name": "max_features", "value": "sqrt", "widget": "array", "title": "Max Features", "optionsArray": ["sqrt", "log2"], "description": "The number of features to consider when looking for the best split."},
+    {"name": "max_leaf_nodes", "value": "", "widget": "textfield", "title": "Max Leaf Nodes", "description": "Grow trees with max_leaf_nodes in best-first fashion. If not set, then unlimited number of leaf nodes."},
+    {"name": "min_impurity_decrease", "value": 0.0, "widget": "textfield", "title": "Min Impurity Decrease", "description": "A threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf."},
+    {"name": "bootstrap", "value": "True", "widget": "array", "title": "Bootstrap", "optionsArray": ["True", "False"], "description": "Whether bootstrap samples are used when building trees."},
+    {"name": "oob_score", "value": "False", "widget": "array", "title": "Oob Score", "optionsArray": ["True", "False"], "description": "Whether to use out-of-bag samples to estimate the R^2 on unseen data."},
+    {"name": "random_state", "value": "", "widget": "textfield", "title": "Random State", "description": "Controls the randomness of the bootstrapping of the samples used when building trees (if bootstrap=True). Default value is None"},
+    {"name": "warm_start", "value":"False", "widget": "array", "title": "Warm Start", "optionsArray": ["True", "False"], "description": "When warm_start is true, the existing fitted model attributes an are used to initialise the new model in a subsequent call to fit." }
+  ]
+}
+
+start-details:
+
+More details are available at : https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
+
+end-details:

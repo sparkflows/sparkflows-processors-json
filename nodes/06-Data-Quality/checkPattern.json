@@ -1,0 +1,47 @@
+{
+  "id": "2",
+  "name": "PatternMatch",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckPattern",
+  "fields" : [
+    {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name."},
+    {"name": "patterns", "value":"[]", "widget": "variables_list_textfield","title": "Patterns", "description": "Define matching patterns for column values.", "expandable":true},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}
+
+start-details:
+
+h2: Pattern Match Node
+
+h4: Overview:
+
+The Pattern Match node allows you to match values in a specific column against predefined patterns. This is useful for filtering data based on regular expressions or specific string patterns.
+
+h4: Input:
+
+Column Name: The name of the column to check.
+Patterns: A list of patterns to match against.
+h4: Output:
+
+The node will flag records where the specified column value matches any of the defined patterns.
+
+end-details:
+
+start-examples:
+
+h2:Example:
+
+Let's assume we have a column named email and we want to identify invalid email addresses.
+
+Configure the Node:
+
+Column Name: email
+Patterns: [^@]+@[^@]+\.[^@]+ (matches valid email addresses)
+
+Node Execution:
+
+Records with email values that do not match the pattern will be flagged.
+
+end-examples:

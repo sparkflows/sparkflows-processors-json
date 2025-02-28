@@ -1,0 +1,47 @@
+{
+  "id": "2",
+  "name": "Is Value In",
+  "description": "",
+  "type": "transform",
+  "nodeClass": "fire.nodes.quality.NodeCheckIsValueIn",
+  "fields" : [
+    {"name": "cols", "value":"[]", "widget": "variables_list_select", "title": "Column Name", "description": "The column name."},
+    {"name": "values", "value":"[]", "widget": "variables_list_textfield","title": "Values", "description": "A set of objects separated by spaces used for comparison.."},
+    {"name": "weightage", "value":"1", "widget": "textfield","title": "Weightage", "description": " Weightage"}
+  ]
+}
+
+start-details:
+
+h2: Is Value In Node
+
+h4: Overview:
+
+The Is Value In node checks if a specific column in a DataFrame contains a value from a predefined list of values. This is useful for filtering data based on specific criteria.
+
+h4: Input:
+
+Column Name: The name of the column to check.
+Values: A list of values to check for.
+
+h4: Output:
+
+The node will flag records where the specified column value is present in the list of values.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's assume we have a column named country and we want to identify records from specific countries.
+
+Configure the Node:
+
+Column Name: country
+Values: USA, Canada, Mexico
+Node Execution:
+
+Records with country values of "USA", "Canada", or "Mexico" will be flagged.
+
+end-examples:

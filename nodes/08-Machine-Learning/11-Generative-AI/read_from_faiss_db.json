@@ -1,0 +1,30 @@
+{
+  "id": "6",
+  "name": "Read Faiss DB",
+  "description": "Read Vector Embeddings, from faiss db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeReadFromFiassDB",
+  "fields" : [
+    {"name":"faissIndexDir",  "display": true, "value":"", "widget": "textfield", "title": "Path Of FAISS Index Directory", "description":"Enter FAISS Index Directory path."},
+    {"name": "topK", "value":"3", "widget": "textfield", "title": "Top K", "description": "Consider the top k(3) probable words at each step during text generation.", "datatypes":["integer"]},
+    {"name":"faissIndexName",  "display": true, "value":"", "widget": "textfield", "title": "Name Of FAISS Index", "description":"Enter FAISS Index Name."}
+  ]
+}
+start-details:
+
+h2: Read FAISS DB Node Details
+
+The Read FAISS DB node is designed to retrieve vector embeddings from a FAISS (Facebook AI Similarity Search) database. It allows users to perform similarity searches on stored vector embeddings efficiently
+h4: Parameters to be set:
+
+### General:
+
+- **Index Directory Path**: Specify the local path for loading the FAISS index.
+- **Index Name**: Provide the name of the FAISS index.
+- **Top K**: Defines the number of top similar vectors to retrieve from the FAISS index. For instance, setting topK = 3 will return the three closest matches for each query embedding.
+
+
+end-details:

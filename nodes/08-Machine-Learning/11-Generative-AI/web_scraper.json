@@ -1,0 +1,17 @@
+{
+  "id": "6",
+  "name": "Web Scraper",
+  "description": "Scrapes Webpages",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "dataset",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeWebScraper",
+  "fields" : [
+    {"name":"site",  "display": true, "value":"", "widget": "textfield", "title": "Webpage to Crawl", "description": "Enter website url","required":"true"},
+    {"name":"output_file",  "display": true, "value":"", "widget": "textfield", "title": "Path", "description":"Select a path to save Scraped data","required":"true"},
+    {"name": "output_file_format", "value":"JSON", "widget": "array", "title": "Output File Format", "optionsArray": ["JSON","TEXT"], "description": "Output File Format."},
+    {"name": "scrape_recursively", "value":"true", "widget": "array", "title": "Scrape Recursively", "optionsArray": ["true","false"], "description": "when True, will perform a recursive search of this PageElement's children. Otherwise, only the direct children will be considered.", "datatypes":["boolean"]},
+    {"name": "limit", "value":"5", "widget": "textfield", "title": "Limit", "description": "Stop looking after finding this many results when scrape recursively is True.", "datatypes":["integer"]}
+  ]
+}

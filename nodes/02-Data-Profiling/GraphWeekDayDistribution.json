@@ -1,0 +1,23 @@
+{
+  "id": "3",
+  "name": "Graph Week Day Distribution",
+  "description":"This node Finds the distribution of Week Days from Date values" ,
+  "type": "transform",
+  "nodeClass": "fire.nodes.graph.NodeGraphWeekDayDistribution",
+  "fields" : [
+  	{"name":"title", "value":"Week Day Distribution", "widget": "textfield", "title": "Title"},
+    {"name":"graphType", "value":"1", "widget": "enum", "title": "Chart Type",
+          "optionsMap":{"LINECHART":"Line Chart","COLUMNCHART":"Side by Side Bar Chart",
+                       "BARCHART":"Stacked Bar Chart", "PIE":"Pie Chart"}, "description" : "input graph type"},
+    {"name":"yCols", "value":"[]", "widget": "variables", "title": "Y Columns",
+                        "datatypes":["string", "date", "timestamp"],"description":"input to y axis"}
+  ]
+}
+
+start-details:
+
+This node plots a graph depicting distribution of dataset against each Week Days derived from the specified Date column.
+
+Graph can be plotted based on the chart type selected in the node.
+
+end-details:
