@@ -1,0 +1,102 @@
+{
+  "uuid": "e6228b2a-0811-4d65-a0e5-8bc65a939dbd",
+  "name": "Truck-Data",
+  "category": "Raw",
+  "description": "Rate of Trucks per Mile",
+  "header": true,
+  "readOptions": "{\"inferSchema\":\"false\",\"mode\":\"PERMISSIVE\"}",
+  "path": "/home/sparkflows/fire-data/nextracker/Raw-Data/Flatbed-OTR-Rate-per-Mile.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"FreightForwarder\",\"OriginCity\",\"DestinationState\",\"DestinationStateRegion\",\"Destination3Zip\",\"RequiredFreightForwarderCapacityperOrigin\",\"EstimatedMileage\",\"TransitDays\",\"RateValidity\",\"FlatbedMinimumCharge\",\"RateperMile\",\"FuelSurchargeperMile\",\"EstimatedDistance\",\"EstimatedTruckCost\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "FreightForwarder",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "OriginCity",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DestinationState",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DestinationStateRegion",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Destination3Zip",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "RequiredFreightForwarderCapacityperOrigin",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "EstimatedMileage",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TransitDays",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "RateValidity",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "FlatbedMinimumCharge",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "RateperMile",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "FuelSurchargeperMile",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "EstimatedDistance",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "EstimatedTruckCost",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

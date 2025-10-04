@@ -1,0 +1,51 @@
+{
+  "uuid": "d0eabcac-9540-484c-97c6-8bfbaa446082",
+  "name": "Nextracker Allocation and Total Cost",
+  "header": true,
+  "path": "fire_solution_db|Nextracker_Allocation_and_Total_Cost",
+  "delimiter": ",",
+  "datasetType": "JDBC",
+  "datasetSchema": "{colNames:[\"Supplier\",\"Product\",\"Project\",\"Allocation\",\"CostPerUnit\",\"TotalCost\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Supplier",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Project",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Allocation",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CostPerUnit",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TotalCost",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

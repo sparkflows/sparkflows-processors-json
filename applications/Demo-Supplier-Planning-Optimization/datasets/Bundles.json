@@ -1,0 +1,39 @@
+{
+  "uuid": "0792a7ce-c9a4-4e3b-a783-9210809197fe",
+  "name": "Bundles",
+  "header": true,
+  "path": "fire_solution_db|Bundles",
+  "delimiter": ",",
+  "datasetType": "JDBC",
+  "datasetSchema": "{colNames:[\"Supplier\",\"Product\",\"Project\",\"Bundles\"],colTypes:[\"STRING\",\"INTEGER\",\"INTEGER\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Supplier",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Project",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Bundles",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

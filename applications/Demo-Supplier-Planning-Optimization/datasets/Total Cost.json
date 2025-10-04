@@ -1,0 +1,39 @@
+{
+  "uuid": "748937cc-c628-413c-89c1-ef3c4bfe4649",
+  "name": "Total Cost",
+  "header": true,
+  "path": "fire_solution_db|TotalCost",
+  "delimiter": ",",
+  "datasetType": "JDBC",
+  "datasetSchema": "{colNames:[\"Project\",\"PurchaseCost\",\"ShippingCost\",\"TotalCost\"],colTypes:[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Project",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PurchaseCost",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ShippingCost",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TotalCost",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

@@ -1,0 +1,51 @@
+{
+  "uuid": "12129e02-d1a8-436d-a76e-48173ca36d06",
+  "name": "Allocations",
+  "header": true,
+  "path": "fire_solution_db|Allocations",
+  "delimiter": ",",
+  "datasetType": "JDBC",
+  "datasetSchema": "{colNames:[\"Supplier\",\"Product\",\"Project\",\"Allocation\",\"CostPerUnit\",\"Cost\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Supplier",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Project",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Allocation",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CostPerUnit",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Cost",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

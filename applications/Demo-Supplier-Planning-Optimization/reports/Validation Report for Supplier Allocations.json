@@ -1,0 +1,81 @@
+{
+  "name": "Validation Report for Supplier Allocations",
+  "uuid": "2fefdf2f-0bfe-403e-a6f6-727ca27796bc",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Sheet 1",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 9,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "614px",
+          "y": "125px",
+          "workflowId": "a79ca5bf-fe35-4789-a483-61c250f9914c",
+          "workflowName": "03-Outcome-Analytics-Supplier-Allocations",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "468px",
+          "y": "241px",
+          "workflowId": "a79ca5bf-fe35-4789-a483-61c250f9914c",
+          "workflowName": "03-Outcome-Analytics-Supplier-Allocations",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "618px",
+          "y": "222px",
+          "workflowId": "a79ca5bf-fe35-4789-a483-61c250f9914c",
+          "workflowName": "03-Outcome-Analytics-Supplier-Allocations",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "468px",
+          "y": "342px",
+          "workflowId": "a79ca5bf-fe35-4789-a483-61c250f9914c",
+          "workflowName": "03-Outcome-Analytics-Supplier-Allocations",
+          "nodeId": "12",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

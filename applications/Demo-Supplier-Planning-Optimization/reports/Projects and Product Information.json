@@ -1,0 +1,83 @@
+{
+  "name": "Projects and Product Information",
+  "uuid": "8c972136-43ce-4f7c-879a-2622f88fabf5",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Project and Product information for all projects with start date between weeks 44 to 52 in the United States",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Sheet 1",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 10,
+          "name": "Total number of projects filtered between week 44 to 52 in United States",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "528px",
+          "y": "313px",
+          "workflowId": "71051494-1edf-4ee0-b8c5-c1e3df44cdc4",
+          "workflowName": "Project-Data-EDA",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Project count for projects starting each week between week 44 to 52 of 2024 ",
+          "type": "transform",
+          "x": "771px",
+          "y": "26px",
+          "workflowId": "71051494-1edf-4ee0-b8c5-c1e3df44cdc4",
+          "workflowName": "Project-Data-EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Products with occurance count occuring for above filtered projects",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "852px",
+          "y": "185px",
+          "workflowId": "71051494-1edf-4ee0-b8c5-c1e3df44cdc4",
+          "workflowName": "Project-Data-EDA",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Unique product count for above filtered product",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "803px",
+          "y": "360px",
+          "workflowId": "71051494-1edf-4ee0-b8c5-c1e3df44cdc4",
+          "workflowName": "Project-Data-EDA",
+          "nodeId": "19",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
