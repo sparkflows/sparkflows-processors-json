@@ -1,0 +1,47 @@
+{
+    "id": "6",
+    "name": "Web Scraper",
+    "description": "Scrapes Webpages",
+    "input": "It takes in a DataFrame as input",
+    "output": "",
+    "type": "transform",
+    "engine": "pyspark",
+    "nodeClass": "fire.nodes.gai.NodeWebScraper",
+    "fields" : [
+        {"name":"site",  "display": true, "value":"", "widget": "textfield", "title": "Webpage to Crawl", "description": "Enter website url"},
+        {"name":"siteCol",  "display": true, "value":"", "widget": "variable", "title": "Webpage to Crawl", "description": "Select website url"},
+        {"name": "scrape_recursively", "value":"false", "widget": "array", "title": "Scrape Recursively", "optionsArray": ["true","false"], "description": "when True, will perform a recursive search of this PageElement's children. Otherwise, only the direct children will be considered.", "datatypes":["boolean"]},
+        {"name": "limit", "value":"5", "widget": "textfield", "title": "Depth", "description": "Stop looking after finding this many results when scrape recursively is True.", "datatypes":["integer"]}
+    ]
+}
+
+start-details:
+h2: Web Scraper Node Details
+The Web Scraper node is designed to extract content from webpages, starting from a specified URL. It collects text from a wide range of HTML elements, cleans it to remove unwanted characters (e.g., newlines, tabs) and boilerplate phrases (e.g., "top of page," "bottom of page"), and can optionally crawl linked pages within the same domain up to a specified limit. The node outputs a DataFrame containing the cleaned text and corresponding URLs for each scraped page.
+
+
+h4: Webpage to Crawl:Specifies the starting URL for the web scraping process. This is the initial webpage from which content is extracted and, if recursive scraping is enabled, the starting point for discovering linked pages.
+
+Required: Yes
+
+h4: Scrape Recursively:Controls whether the node follows links on the webpage to scrape additional pages within the same domain.
+
+Options:
+`true`: Recursively crawls linked pages within the same domain, up to the specified depth.
+`false`: Scrapes only the specified webpage without following links.
+
+
+Default: true
+
+h4: Depth:Defines the maximum number of pages to scrape when Scrape Recursively is set to true. The node stops once this limit is reached.
+
+Default: 5
+Example: 3
+
+h4: Output:The node outputs a DataFrame with the following columns:
+
+text: The cleaned text content extracted from the webpage, free of newlines, tabs, excessive spaces, and boilerplate phrases (e.g., "top of page," "bottom of page").
+metadata: The URL of the scraped webpage.Each row represents a single scraped page, with up to Depth pages included in the output.
+
+end-details:
+

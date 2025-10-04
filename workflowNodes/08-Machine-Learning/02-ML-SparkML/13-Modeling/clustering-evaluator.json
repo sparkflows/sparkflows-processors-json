@@ -1,0 +1,19 @@
+{
+  "id": "7",
+  "name": "Clustering Evaluator",
+  "description": "Evaluator for Clustering, which expects two input columns: features and prediction.",
+
+  "output": "It outputs the score ",
+
+  "type": "ml-evaluator",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeClusteringEvaluator",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting.", "datatypes":["vectorudt"]},
+
+    {"name":"predictionCol", "value":"", "widget": "variable", "title": "Prediction Column", "description": "The prediction column.", "datatypes":["double"]},
+    {"name":"modelUUID", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid"}
+
+  ]
+}

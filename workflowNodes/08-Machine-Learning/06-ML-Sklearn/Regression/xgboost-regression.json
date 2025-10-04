@@ -1,0 +1,43 @@
+{
+  "id": "6",
+  "name": "Sklearn XGBoost Regressor",
+  "description": "XGBoost Regressor for regression tasks. It implements gradient boosted decision trees designed for speed and performance.",
+  "input": "",
+  "output": "",
+  "engine": "pyspark",
+  "type": "ml-estimator",
+
+  "nodeClass": "fire.nodes.sklearn.NodeXGBoostRegressor",
+  "fields": [
+
+    {"name": "targetCol", "value": "", "widget": "variable", "title": "Target Column", "description": "The label column for model fitting", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+    {"name": "featureCols", "value": "[]", "widget": "variables", "title": "Feature Columns", "description": "Feature columns of type - all numeric, boolean and vector", "datatypes": ["integer", "long", "double", "float", "int"], "required": true},
+
+    {"name": "n_estimators", "value": 100, "widget": "textfield", "title": "Number of Estimators", "description": "Number of boosting rounds (trees)."},
+    {"name": "max_depth", "value": 6, "widget": "textfield", "title": "Max Depth", "description": "Maximum depth of a tree. Increasing makes model more complex."},
+    {"name": "learning_rate", "value": 0.3, "widget": "textfield", "title": "Learning Rate", "description": "Boosting learning rate (xgb's eta)."},
+    {"name": "subsample", "value": 1.0, "widget": "textfield", "title": "Subsample", "description": "Subsample ratio of the training instance."},
+    {"name": "colsample_bytree", "value": 1.0, "widget": "textfield", "title": "Colsample Bytree", "description": "Subsample ratio of columns when constructing each tree."},
+    {"name": "colsample_bylevel", "value": 1.0, "widget": "textfield", "title": "Colsample Bylevel", "description": "Subsample ratio of columns for each split, in each level."},
+    {"name": "colsample_bynode", "value": 1.0, "widget": "textfield", "title": "Colsample Bynode", "description": "Subsample ratio of columns for each split, in each node."},
+    {"name": "reg_alpha", "value": 0.0, "widget": "textfield", "title": "Reg Alpha (L1)", "description": "L1 regularization term on weights."},
+    {"name": "reg_lambda", "value": 1.0, "widget": "textfield", "title": "Reg Lambda (L2)", "description": "L2 regularization term on weights."},
+    {"name": "gamma", "value": 0.0, "widget": "textfield", "title": "Gamma", "description": "Minimum loss reduction required to make a further partition on a leaf node."},
+    {"name": "min_child_weight", "value": 1, "widget": "textfield", "title": "Min Child Weight", "description": "Minimum sum of instance weight needed in a child."},
+    {"name": "max_delta_step", "value": 0, "widget": "textfield", "title": "Max Delta Step", "description": "Maximum delta step allowed for each tree’s weight estimation."},
+    {"name": "random_state", "value": 42, "widget": "textfield", "title": "Random State", "description": "Random number seed."},
+    {"name": "n_jobs", "value": -1, "widget": "textfield", "title": "Number of Jobs", "description": "Number of parallel threads used to run xgboost."},
+    {"name": "verbosity", "value": 1, "widget": "textfield", "title": "Verbosity", "description": "Verbosity of printing messages (0 = silent, 1 = warning, 2 = info, 3 = debug)."},
+    {"name": "booster", "value": "gbtree", "widget": "array", "title": "Booster", "optionsArray": ["gbtree", "gblinear", "dart"], "description": "Specify which booster to use."},
+    {"name": "tree_method", "value": "auto", "widget": "array", "title": "Tree Method", "optionsArray": ["auto", "exact", "approx", "hist", "gpu_hist"], "description": "Tree construction algorithm used in XGBoost."},
+    {"name": "objective", "value": "reg:squarederror", "widget": "array", "title": "Objective", "optionsArray": ["reg:squarederror", "reg:squaredlogerror", "reg:pseudohubererror"], "description": "Learning task and objective function."},
+    {"name": "eval_metric", "value": "rmse", "widget": "array", "title": "Evaluation Metric", "optionsArray": ["rmse", "mae", "rmsle", "mape"], "description": "Evaluation metric for validation data."},
+    {"name": "early_stopping_rounds", "value": "", "widget": "textfield", "title": "Early Stopping Rounds", "description": "Activates early stopping. Validation metric needs to improve at least once in every given rounds."}
+  ]
+}
+
+start-details:
+
+More details are available at : https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBRegressor
+
+end-details:

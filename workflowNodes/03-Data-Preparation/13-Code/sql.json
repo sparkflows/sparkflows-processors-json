@@ -1,0 +1,64 @@
+{
+  "id": "11",
+  "name": "SQL",
+  "description": "This node runs the given SQL on the incoming DataFrame",
+  "input": "It takes in a DataFrame as input and transforms it to another DataFrame",
+  "output": "It runs the given SQL on the incoming DataFrame to generate the output DataFrame",
+  "hint": "Whenever the table is changed, go to InferSchema tab and Infer the Schema",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeSQL",
+  "fields" : [
+    {"name":"tempTable", "value":"fire_temp_table", "widget": "textfield", "title": "Temp Table", "description": "Temp Table Name to be used"},
+    {"name":"sql", "value":"", "widget": "code_editor", "type": "sql_mysql", "title": "SQL",
+      "required": true, "description": "SQL to be run"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+  ]
+}
+
+
+start-details:
+
+h2:SQL Details
+
+SQL node receives an input data frame. It creates a temporary table on top of that data frame. It executes the provided SQL in the node on the temporary table.
+
+The resulting data frame of running the SQL is passed on to the next node.
+
+end-details:
+
+start-examples:
+
+h2:SQL Examples
+
+Below are some examples of SQL. 
+
+Temporary table name used : tempTable
+
+The schema of the Input Dataframe is : id, price, lotsize, bedrooms, bathrms, stories, driveway, recroom, fullbase, gashw, airco, garagepl, prefarea
+
+h4: find the average price of houses
+
+select avg(price) as avg_price from tempTable
+
+
+h4: find bedrooms with avg price greater than 10000
+
+select bedrooms, avg_price from
+(select bedrooms, avg(price) as avg_price from tempTable group by bedrooms) as temp where avg_price > 10000
+
+
+h4: details of houses with bedrooms avg price greater than 10000
+
+select tempTable.* , inner_table.avg_price from
+(select bedrooms, avg_price from
+(select bedrooms, avg(price) as avg_price from tempTable group by bedrooms) as temp where avg_price > 10000) as inner_table
+JOIN tempTable ON(inner_table.bedrooms = tempTable.bedrooms)
+
+
+end-examples:

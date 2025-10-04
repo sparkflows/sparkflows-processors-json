@@ -1,0 +1,65 @@
+{
+  "id": "11",
+  "name": "Execute Query In Snowflake",
+
+  "description": "This node executes query in Snowflake",
+  "input": "",
+  "output": "Dataframe created from the data read in from Snowflake",
+
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.snowflake.NodeExecuteQueryInSnowFlake",
+  "fields" : [
+   {"name":"authType", "value":"UserCredential", "widget": "array", "title": "Auth Type", "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL or KEYPAIR" ,"required":"true","optionsArray": ["UserCredential","OAuth","KeyPair"]},
+  	{"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Snowflake connection to connect" ,"required":"true"},
+  	 {"name":"sfWarehouse", "value":"", "widget": "textfield", "title": "Snowflake Warehouse", "description": "Warehouse for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfDatabase", "value":"", "widget": "textfield", "title": "Snowflake Database", "description": "Database for connecting to the Snowflake" ,"required":"true"},
+    {"name":"sfSchema", "value":"", "widget": "textfield", "title": "Snowflake Schema", "description": "Schema for connecting to the Snowflake" ,"required":"true"},
+
+    {"name":"query", "value":"", "widget": "textarea_small", "title": "Snowflake Query", "required":"true",
+      "description": ""},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properties available while executing in Big Query."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+  ]
+}
+start-details:
+
+h2: Execute Query In Snowflake Node Details
+
+This node executes the provided query in Snowflake. It creates a Dataframe from the data read from Snowflake and passes the data to the next nodes.
+
+h4: Parameters to be set:
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* CONNECTION : Select the desired snowflake connection to be used.
+* SNOWFLAKE WAREHOUSE : Specify the virtual warehouse to use for the connection.
+* SNOWFLAKE DATABASE : Specify the database to use once connected.
+* SNOWFLAKE SCHEMA : Specify the schema to use for the specified database once connected.
+* SNOWFLAKE QUERY : Enter the query for execution on the snowflake database
+
+* end-details : 
+
+start-examples:
+
+h2: Execute Query In Snowflake Node Examples
+
+h4: Example of Connection Values
+* CONNECTION : SNOWFLAKE_DEV_ENV_NCUS
+* SNOWFLAKE WAREHOUSE : SNOWFLAKE_BI_VWH
+* SNOWFLAKE DATABASE : CUSTOMER_SALES_NCUS
+* SNOWFLAKE SCHEMA : INT_NA_CUSTSALES
+* SNOWFLAKE QUERY : SELECT FIRST_NAME, LAST_NAME, DATEADD('DAY',90,START_DATE) FROM EMP_BASIC WHERE START_DATE <= '2017-01-01'
+
+h4: Another example of a query using multiple tables would be 
+SELECT EMPLOYEES.TITLE,EMPLOYEES.EMPLOYEE_ID,MANAGERS.EMPLOYEE_ID AS MANAGER_ID, MANAGERS.TITLE AS "MANAGER TITLE"
+FROM EMPLOYEES, MANAGERS
+WHERE EMPLOYEES.MANAGER_ID = MANAGERS.EMPLOYEE_ID
+ORDER BY EMPLOYEES.TITLE
+
+end-examples:

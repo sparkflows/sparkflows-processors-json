@@ -1,0 +1,17 @@
+{
+  "id": "11",
+  "name": "ML Data Metrics",
+  "description": "This node calculates and outputs feature statistics and data drift metrics—including PSI and drift flags—by comparing a baseline dataset with a new batch dataset",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.util.NodeMLModelMetrics",
+  "fields" : [
+
+    {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid"},
+
+    {"name": "features", "value":"[]", "widget": "variables", "title": "Numeric Columns", "description": "Features to be used for computing metrics","datatypes":["integer", "long", "double", "float","decimal"]},
+
+    {"name": "categorical_features", "value":"[]", "widget": "variables", "title": "Categorical Columns", "description": " Categorical Features to be used for computing metrics","datatypes":["string", "long", "integer","double"]}
+
+  ]
+}

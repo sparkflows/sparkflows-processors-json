@@ -1,0 +1,22 @@
+{
+  "id": "6",
+  "name": "Invoice Extraction",
+  "iconImage": "/images/icons/node-icon/Graph_group_by_column.svg",
+  "description": "",
+  "input": "It may take in Dataframe as an input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeInvoiceExtractions",
+
+  "fields": [
+    {"name": "userQuery", "value": "", "widget": "textarea_small", "title": "User Query", "description": "The query input from the user", "required": "true"},
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select Connection"},
+    {"name": "separator", "value": "|", "widget": "textfield", "title": "Separator", "description": "String used to divide values for Dataframe"},
+
+    {"name": "config", "value": "", "widget": "tab", "title": "Additional"},
+    {"name": "temperature", "value": "0", "widget": "textfield", "title": "Temperature", "description": "The temperature for the model response"},
+    {"name": "writePrompt", "value": "", "widget": "textarea_small", "title": "System Prompt", "description": "Additional prompt used for generating content"}
+  ]
+
+}

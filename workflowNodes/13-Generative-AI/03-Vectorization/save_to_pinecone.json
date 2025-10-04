@@ -1,0 +1,98 @@
+{
+  "id": "6",
+  "name": "Save to Pinecone",
+  "description": "This process involves storing document embeddings in a Pinecone vector database for efficient similarity search and retrieval.",
+  "input": "It may take in Dataframe as an input",
+  "output": "Save data to Vector DB",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSaveToPineconeDB",
+
+  "fields": [
+  
+    {"name": "contentCol", "value": "", "widget": "variable", "title": "Select Content Column", "description": "Select Content Column"},
+    {"name": "embeddingsCol", "value": "", "widget": "variable", "title": "Select Embeddings Column", "description": "Select Embeddings Column"},
+    {"name": "pineconeConnection", "value": "", "widget": "object_array", "title": "Select Pinecone Connection", "description": "Select Pinecone Connection"},
+    {"name": "pineconeIndexName", "value": "document-index", "widget": "textfield", "title": "Index Name", "description": "The name of the Pinecone index to create."},
+    {"name": "indexNameSpace", "value": "document-namespace", "widget": "textfield", "title": "Index Namespace", "description": "Pinecone Index Namespace"},
+    {"name": "dimension", "value": "1024", "widget": "textfield", "title": "Dimension", "description": "For text-embedding-ada-002 and amazon.titan-embed-text-v1, dimension is 1536; for multilingual-e5-large, dimension is 1024."},
+    {"name": "metric", "value": "euclidean", "widget": "array", "optionsArray": ["cosine", "dotproduct", "euclidean"], "title": "Metric", "description": "Type of metric used in the vector index when querying."},
+    {"name":"metadataCols", "value": "[]", "widget": "variables", "title": "Metadata Columns", "description": "Metadata Columns"},
+
+     {"name":"uniqueIdCols", "value": "[]", "widget": "variables", "title": "Unique ID Columns", "description": "Unique ID Columns"}
+    ]
+
+}
+
+start-details:
+
+<h2>Save to Pinecone Node Details</h2>
+The Save to Pinecone node stores document embeddings in a Pinecone vector database, enabling efficient similarity search and retrieval. It takes a DataFrame as input, containing text content and corresponding embeddings, and saves them to a specified Pinecone index. This node is designed for PySpark-based workflows, making it ideal for integrating vector-based storage and search into data pipelines.
+
+<h4>General:</h4>
+<h5>Select Content Column:</h5> Specifies the DataFrame column containing the text content to be stored in the Pinecone vector database. This is required to associate text with the embeddings.
+
+<h5>Select Embeddings Column:</h5> Specifies the DataFrame column containing the embeddings (vector representations) of the text content. This is required for storage in the vector database.
+
+<h5>Select Pinecone Connection:</h5> Specifies the connection details for the Pinecone API (e.g., API key, environment). This is required to authenticate and access the Pinecone service.
+
+<h5>Index Name:</h5> Specifies the name of the Pinecone index where the embeddings will be stored. Default is 'document-index'. If the index does not exist, it will be created.
+
+<h5>Index Namespace:</h5> Specifies the namespace within the Pinecone index to organize the stored embeddings. Default is 'document-namespace'. This is optional and used to group related vectors.
+
+<h5>Dimension:</h5> Specifies the dimensionality of the embeddings. Default is 1024 (suitable for models like multilingual-e5-large). For other models, such as text-embedding-ada-002 or amazon.titan-embed-text-v1, the dimension is typically 1536. This must match the embedding model used.
+
+<h5>Metric:</h5> Specifies the distance metric used for similarity search in the Pinecone index. Options are:
+* cosine: Cosine similarity metric.
+* dotproduct: Dot product metric.
+* euclidean: Euclidean distance metric (default).
+
+<h5>Metadata Columns:</h5> Specifies one or more DataFrame columns to include as metadata for the stored embeddings. This is optional and allows additional context to be stored alongside the vectors.
+
+<h5>Unique ID Columns:</h5> Specifies one or more DataFrame columns to use as unique identifiers for the stored embeddings. This is optional; if provided, these IDs are used to reference the vectors in the Pinecone index.
+
+<h4>Output:</h4>
+The node saves the embeddings, content, and optional metadata to the specified Pinecone index and namespace. It does not produce a DataFrame output but confirms the successful storage of data in the Pinecone vector database, ready for similarity search and retrieval.
+
+end-details:
+
+start-examples:
+
+<h2>Example: Save to Pinecone Node</h2>
+
+<h3>Input:</h3>
+A DataFrame contains the following data:
+- doc_id: ["doc1", "doc2"]
+- content: ["This is a report about climate change...", "A study on AI advancements..."]
+- embeddings: [[0.12, 0.45, ...], [0.23, 0.67, ...]] (1024-dimensional vectors)
+- category: ["Environment", "Technology"]
+
+The Save to Pinecone node is configured as follows:
+* Select Content Column: content
+* Select Embeddings Column: embeddings
+* Select Pinecone Connection: Configured with a valid Pinecone API key and environment
+* Index Name: document-index
+* Index Namespace: document-namespace
+* Dimension: 1024
+* Metric: cosine
+* Metadata Columns: [category]
+* Unique ID Columns: [doc_id]
+
+<h3>Output:</h3>
+The node stores the embeddings in the Pinecone vector database under the 'document-index' index and 'document-namespace' namespace. The stored data includes:
+- Vectors from the embeddings column (1024-dimensional).
+- Corresponding text from the content column.
+- Metadata from the category column (e.g., "Environment", "Technology").
+- Unique IDs from the doc_id column (e.g., "doc1", "doc2").
+
+The Pinecone index is now ready for similarity search queries using the cosine metric.
+
+<h3>Explanation:</h3>
+- The node processes the DataFrame, extracting the content and embeddings columns to store in the Pinecone vector database.
+- The doc_id column is used as unique identifiers for each vector, allowing for easy retrieval.
+- The category column is stored as metadata, providing additional context for each vector (e.g., "Environment" for doc1).
+- The Index Name ('document-index') and Index Namespace ('document-namespace') organize the stored vectors in the Pinecone database.
+- The Dimension is set to 1024 to match the embedding model (e.g., multilingual-e5-large), and the Metric is set to cosine for similarity searches.
+- If Metadata Columns or Unique ID Columns were left empty, no metadata or custom IDs would be stored, and Pinecone would generate default IDs for the vectors.
+
+end-examples:

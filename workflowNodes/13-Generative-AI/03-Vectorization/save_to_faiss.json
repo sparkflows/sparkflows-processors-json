@@ -1,0 +1,92 @@
+{
+  "id": "6",
+  "name": "Save Faiss DB",
+  "description": "Save Vector Embeddings to faiss db",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeSaveToFaissDB",
+  "fields" : [
+    {"name": "fileNameCol", "value": "fileName", "widget": "variable", "title": "File Name Column", "description": "Column name for file names."},
+    {"name": "pageNumberCol", "value": "pageNumber", "widget": "variable", "title": "Page Number Column", "description": "Column name for page numbers."},
+    {"name": "contentCol", "value": "content", "widget": "variable", "title": "Content Column", "description": "Column name for text content."},
+    {"name": "directoryPathCol", "value": "directoryPath", "widget": "variable", "title": "Directory Path Column", "description": "Column name for directory paths."},
+    {"name": "embeddingsCol", "value": "embeddings", "widget": "variable", "title": "Embeddings Column", "description": "Column name for embeddings."},
+    {"name": "base64ImageCol", "value": "base64Image", "widget": "variable", "title": "Base64 Image Column", "description": "Column name for Base64 encoded images."},
+    {"name": "faissIndexName", "value": "faiss_index", "widget": "textfield", "title": "FAISS Index Name", "description": "Name of the FAISS index."},
+    {"name": "faissIndexDir", "value": "", "widget": "textfield", "title": "FAISS Index Directory Path", "description": "Directory path for the FAISS index."},
+    {"name": "dimension", "value": "0", "widget": "textfield", "title": "Dimension", "description": "Dimension for embeddings."}
+  ]
+}
+start-details:
+
+<h2>Save Faiss DB Node Details</h2>
+The Save Faiss DB node stores vector embeddings and associated metadata from a DataFrame into a FAISS vector database, enabling efficient similarity search and retrieval. It is designed for PySpark-based workflows, making it suitable for integrating vector-based storage into data pipelines. The node allows specification of columns for text content, embeddings, and metadata, which are saved to a FAISS index for later querying.
+
+<h4>General:</h4>
+
+<h5>File Name Column:</h5> Specifies the DataFrame column containing file names associated with the content. Default is 'fileName'. This is optional and used for metadata tracking.
+
+<h5>Page Number Column:</h5> Specifies the DataFrame column containing page numbers for multi-page documents. Default is 'pageNumber'. This is optional and relevant for documents like PDFs.
+
+<h5>Content Column:</h5> Specifies the DataFrame column containing the text content to be stored. Default is 'content'. This is required to associate text with the embeddings.
+
+<h5>Directory Path Column:</h5> Specifies the DataFrame column containing directory paths for the source files. Default is 'directoryPath'. This is optional and used for metadata tracking.
+
+<h5>Embeddings Column:</h5> Specifies the DataFrame column containing the embeddings (vector representations) of the text content. Default is 'embeddings'. This is required for storage in the FAISS database.
+
+<h5>Base64 Image Column:</h5> Specifies the DataFrame column containing base64-encoded images associated with the content. Default is 'base64Image'. This is optional and used for storing image-related metadata.
+
+<h5>FAISS Index Name:</h5> Specifies the name of the FAISS index where the embeddings will be stored. Default is 'faiss_index'. This is required to identify the index.
+
+<h5>FAISS Index Directory Path:</h5> Specifies the directory path (local or distributed filesystem) where the FAISS index will be saved. This is required to store the index.
+
+<h5>Dimension:</h5> Specifies the dimensionality of the embeddings. Default is 0, which must be overridden to match the embedding model (e.g., 1536 for text-embedding-ada-002, 1024 for multilingual-e5-large). This is required for proper index creation.
+
+<h4>Output:</h4>
+The node saves the embeddings, content, and optional metadata (file names, page numbers, directory paths, base64 images) to the specified FAISS index in the designated directory. It does not produce a DataFrame output but confirms the successful storage of data in the FAISS vector database, ready for similarity search and retrieval.
+
+end-details:
+
+start-examples:
+
+<h2>Example: Save Faiss DB Node</h2>
+
+<h3>Input:</h3>
+A DataFrame contains the following data:
+- fileName: ["report.pdf", "study.docx"]
+- pageNumber: [1, 1]
+- content: ["Climate change impacts ecosystems...", "AI advancements in 2025..."]
+- directoryPath: ["/data/docs/", "/data/docs/"]
+- embeddings: [[0.12, 0.45, ...], [0.23, 0.67, ...]] (1024-dimensional vectors)
+- base64Image: ["iVBORw0KGgoAAAANSUhEUg...", null]
+
+The Save Faiss DB node is configured as follows:
+* File Name Column: fileName
+* Page Number Column: pageNumber
+* Content Column: content
+* Directory Path Column: directoryPath
+* Embeddings Column: embeddings
+* Base64 Image Column: base64Image
+* FAISS Index Name: faiss_index
+* FAISS Index Directory Path: /data/faiss_indices/
+* Dimension: 1024
+
+<h3>Output:</h3>
+The node stores the embeddings and associated data in the FAISS vector database under the index named 'faiss_index' in the directory '/data/faiss_indices/'. The stored data includes:
+- Vectors from the embeddings column (1024-dimensional).
+- Text from the content column.
+- Metadata from the fileName, pageNumber, directoryPath, and base64Image columns.
+
+The FAISS index is now ready for similarity search queries.
+
+<h3>Explanation:</h3>
+- The node processes the DataFrame, extracting the embeddings and content columns to store in the FAISS index named 'faiss_index'.
+- The fileName, pageNumber, directoryPath, and base64Image columns are stored as metadata, providing additional context for each vector (e.g., fileName: "report.pdf", base64Image: base64-encoded image for the first row, null for the second).
+- The Dimension is set to 1024 to match the embedding model (e.g., multilingual-e5-large).
+- The FAISS Index Directory Path ('/data/faiss_indices/') specifies where the index is saved.
+- If optional columns like Base64 Image Column or Directory Path Column were not provided, they would not be included as metadata in the FAISS index.
+- The node ensures the FAISS index is created or updated with the provided data, making it available for efficient similarity searches.
+
+end-examples:

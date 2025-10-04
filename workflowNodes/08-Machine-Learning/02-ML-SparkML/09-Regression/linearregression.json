@@ -1,0 +1,95 @@
+{
+  "id": "5",
+  "name": "Linear Regression",
+  "description": "The interface for working with linear regression models and model summaries is similar to the logistic regression case.",
+
+  "input" : "This takes in a DataFrame and performs Logistic Regression",
+  "output": "It generates the LinearRegressionModel and passes it to the next Predict and ModelSave Nodes. The input DataFrame is also passed along to the next nodes.",
+
+  "type": "ml-estimator",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeLinearRegression",
+  "fields" : [
+    {"name": "modelIdentifier", "value":"", "required":false, "widget": "textfield", "title": "Model Identifier", "description": "modelIdentifier starts with $loop & columns names separated with underscore. Example: $loop_columnName1_columnName2."},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Split Ratio", "datatypes":["float"]},
+
+    {"name": "featuresCol", "value":"", "required":true, "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting", "datatypes":["vectorudt"]},
+
+    {"name": "labelCol", "value":"", "required":true, "widget": "variable", "title": "Label Column", "description": "The label column for model fitting", "datatypes":["double"]},
+
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column created during model scoring"},
+
+    {"name": "fitIntercept", "value":"true", "widget": "array", "title": "Fit Intercept", "optionsArray": ["true","false"], "description": "Whether to fit an intercept term", "datatypes":["boolean"]},
+
+    {"name": "maxIter", "value":100, "widget": "textfield", "title": "Maximum Iterations", "description": "Maximum number of iterations (>= 0)", "datatypes":["integer"]},
+
+    {"name": "regParam", "value":0.0, "widget": "textfield", "title": "Regularization Param", "description": "The regularization parameter", "datatypes":["double"]},
+
+    {"name": "elasticNetParam", "value":0.0, "widget": "textfield", "title": "ElasticNet Param", "description": "The ElasticNet mixing parameter. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty", "datatypes":["double"]},
+
+    {"name": "solver", "value":"auto", "widget": "array", "title": "Solver", "optionsArray": ["auto", "l-bfgs", "normal"], "description": "The solver algorithm for optimization"},
+
+    {"name": "standardization", "value":"true", "widget": "array", "title": "Standardization","optionsArray": ["true","false"], "description": "Whether to standardize the training features before fitting the model", "datatypes":["boolean"]},
+
+    {"name": "tol", "value":1E-6, "widget": "textfield", "title": "Tolerance", "description": "The convergence tolerance for iterative algorithms", "datatypes":["double"]},
+
+    {"name": "weightCol", "value":"", "widget": "textfield", "title": "Weight Column", "description": "If the 'weight column' is not specified, all instances are treated equally with a weight 1.0"},
+
+    {"name": "aggregationDepth", "value":2, "widget": "textfield", "title": "Aggregation Depth", "description": "depth for treeAggregate", "datatypes":["integer"]},
+
+    {"name": "epsilon", "value":1.35, "widget": "textfield", "title": "Epsilon", "description": "The shape parameter to control the amount of robustness", "datatypes":["double"]},
+
+    {"name": "loss", "value":"squaredError", "widget": "array", "title": "Loss", "optionsArray": ["squaredError", "huber"], "description": "The loss function to be optimized"},
+    {"name":"saveCoefficientsPath", "display":true,"value":"", "widget": "textfield", "title": "Path to Save Coefficients", "description": "Path to Save Coefficients and Intercept as CSV"},
+
+
+    {"name": "gridSearch", "value":"", "widget": "tab", "title": "Grid Search"},
+
+    {"name": "regParamGrid", "value":"", "widget": "textfield", "title": "Regularization Param Grid Search", "description": "Regularization Parameters for Grid Search"},
+
+    {"name": "elasticNetGrid", "value":"", "widget": "textfield", "title": "ElasticNet Param Grid Search", "description": "ElasticNet Parameters for Grid Search"},
+
+    {"name": "maxIterGrid", "value":"", "widget": "textfield", "title": "MaxIter Param Grid Search", "description": "Maximum iteration Parameters for Grid Search"}
+
+  ]
+}
+
+start-details:
+
+The interface for working with linear regression models and model summaries is similar to the logistic regression case.
+
+When fitting LinearRegressionModel without intercept on dataset with constant nonzero column by “l-bfgs” solver, Spark MLlib outputs zero coefficients for constant nonzero columns. This behavior is the same as R glmnet but different from LIBSVM.
+
+More details are available at : http://spark.apache.org/docs/latest/ml-classification-regression.html#linear-regression
+
+end-details:
+
+start-examples:
+Below example is available at : https://spark.apache.org/docs/latest/ml-classification-regression.html#linear-regression
+
+import org.apache.spark.ml.regression.LinearRegression
+
+// Load training data
+val training = spark.read.format("libsvm")
+  .load("data/mllib/sample_linear_regression_data.txt")
+
+val lr = new LinearRegression()
+  .setMaxIter(10)
+  .setRegParam(0.3)
+  .setElasticNetParam(0.8)
+
+// Fit the model
+val lrModel = lr.fit(training)
+
+// Print the coefficients and intercept for linear regression
+println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
+
+// Summarize the model over the training set and print out some metrics
+val trainingSummary = lrModel.summary
+println(s"numIterations: ${trainingSummary.totalIterations}")
+println(s"objectiveHistory: [${trainingSummary.objectiveHistory.mkString(",")}]")
+trainingSummary.residuals.show()
+println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
+println(s"r2: ${trainingSummary.r2}")
+
+end-examples:

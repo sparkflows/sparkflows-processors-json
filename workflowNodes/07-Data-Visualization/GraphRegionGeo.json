@@ -1,0 +1,74 @@
+{
+  "id": "3",
+  "name": "Geo Chart",
+  
+  "description": "This node maps the values on a Map",
+  "iconImage": "/images/icons/node-icon/Geo_chart.svg",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.graph.NodeGraphRegionGeo",
+  "fields" : [
+    {"name":"title", "value":"Geo Chart", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#27A588", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+      "description": "Maximum number of values to display in result.", "required": true},
+
+    {"name":"groupByColumn1", "value":"country", "widget": "variable", "title": "Group By Column1", "datatypes":["string"], "description":"Group by Group By Column1 & Group By Column2, get a count of the rows in each group and then display the count in a graph"},
+    {"name":"groupByColumn2", "value":"popularity", "widget": "variable", "title": "Group By Column2", "description":"Group by Group By Column1 & Group By Column2, get a count of the rows in each group and then display the count in a graph"},
+
+    {"name":"displayMode", "value":"markers", "widget": "enum", "title": "Display Mode",
+      "optionsMap":{"regions":"regions","markers":"markers","text": "text"}},
+
+    {"name":"resolution", "value":"provinces", "widget": "enum", "title": "Resolution",
+      "optionsMap":{"countries":"countries","provinces":"provinces"}},
+
+    {"name":"region", "value":"US", "widget": "array","optionsArray": ["world", "US","IN","SG","AU","GB","FR","CN","RU"],
+      "title": "Region", "description":"Region of the world to display"}
+  ]
+}
+
+start-details:
+
+h2:Geo Chart Details
+
+*   This node provide an easy way to visualize the data distribution across a geographic area by the help of map of country, a continent, or a region. 
+
+h4:Input
+*   TITLE :- The title of a graph can be set here.
+*   MAX VALUES TO DISPLAY :- The total number of the data points can be selected here.
+*   GROUP BY COLUMN1 :- The column can be selected from the drop-down list to perform group by. 
+*   GROUP BY COLUMN2  :- The column can be selected from the drop-down list to perform group by. 
+*   DISPLAY MODE :- The type of map can we selected from the drop-down list(Region or marker). 
+*   RESOLUTION :- The resolution of a map can be adjusted with the help of given options. 
+*   REGION :- Region can be selected here(World,US and IND).
+
+h4:Output
+*   The trends of data are displayed on maps depending on the display mode.
+*   If the display mode is region mode then it will highlight whole regions, such as countries, provinces, or states.
+*   If the display mode is markers mode then it will use circles to designate regions that are scaled according to a value that you specify.
+
+h4:Example
+*   The node can be used to study different aspects of the data like various of data with respect to a country, a continent or a region wise.
+
+end-details:
+
+start-examples:
+
+Example Scenario:
+
+Let's say you have a dataset of sales figures for different countries.
+
+Configuration:
+
+Group By Column 1: Country
+Y Column: Sales
+Display Mode: Markers
+Resolution: Countries
+Region: World
+Output:
+
+The geo chart will display a world map with markers representing different countries. The size or color of the markers can be used to visualize the sales figures for each country.
+
+end-examples

@@ -1,0 +1,64 @@
+{
+  "id": "6",
+  "name": "Parse XML Col",
+  "description": "Parses XML content in a given column",
+  "type": "transform",
+  "nodeClass": "fire.nodes.etl.NodeParseXMLColumn",
+  "fields" : [
+
+
+    {"name": "stringXmlColNames", "value":"[]", "widget": "variables_list_select",
+      "title": "String XML ColNames", "datatypes":["string"], "description": "Specifies the input column containing the XML data"},
+
+    {"name": "rowTags", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Row Tags", "description": "In XML element that defines each record."},
+
+    {"name": "outputStructColNames", "value":"[]", "widget": "variables_list_textfield",
+      "title": "Output Struct ColNames", "description": "uses the schema from the column you provide and create the new output column."},
+
+    {"name": "outputSchema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Name", "description": "Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Type", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Format", "description": "Format of the Output Columns"}
+
+  ]
+}
+
+start-details:
+
+h2: Parse XML Column Node
+
+h4: Overview:
+
+The Parse XML Column node parses a XML content in a column.
+
+h4: Input:
+
+XML Column Name: The name of the column containing the XML data.
+Root Tag:
+h4: Output:
+
+The node creates new columns for each specified XML field, with rootTag, extracting the relevant data from the XML column.
+
+end-details:
+
+start-examples:
+
+Example:
+
+XML
+<books>
+  <book>
+    <title>Python</title>
+    <author>Guido</author>
+  </book>
+  <book>
+    <title>Scala</title>
+    <author>Martin</author>
+  </book>
+</books>
+
+For above example rowTag field value is books
+
+
+end-examples:

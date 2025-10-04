@@ -1,0 +1,51 @@
+{
+  "id": "11",
+  "name": "InMemoryDataset",
+
+  "description": "Dataset Node for createing the in-memory dataframe from passed data and fieldstr",
+  "input": "Create the in-memory dataframe",
+  "output": "It creates a DataFrame from the dataSte and fieldStr",
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetInMemory",
+  "fields" : [
+
+    {"name": "dataType", "value": "json", "widget": "array_single", "optionsArray": ["json", "comma_delimited"], "title": "Data Type", "description": "Data type"},
+    {"name":"dataStr", "value":"", "widget": "textarea_large","title": "Data Str", "description": "Check the example tab for more details"},
+    {"name":"fieldDefsStr",  "value":"", "widget": "textfield", "title": "Field Defs Str",
+      "description":"Enter the Field Defs Str, name:type. example:id:Integer,name:String,score:Float,signup_date:Date", "wdgtCommon":"dataType", "toggle":"comma_delimited"},
+
+
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the fieldstr", "description": "Output Columns of the Delta"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Delta", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Delta", "description": "Format of the Output Columns"}
+
+  ]
+}
+start-details:
+
+h2: Read InMemoryDataset Node Details
+
+Dataset Node for creating the InMemoryDataset.
+
+end-details:
+
+start-examples:
+
+h2: InMemoryDataset Node Examples
+
+h4: Example of Field Values
+Data Type: json
+Data Str : [
+{"id":1,"name":"Alice","score":85.5},
+{"id":2,"name":"Bob","score":92.3}
+]
+
+Data Type: comma_delimited
+Data Str : 1,John,75.5,2023-05-01,true,2023-05-01T12:34:56
+2,Alice,80.0,2024-01-15,false,2024-01-15 08:00:00
+Field Defs Str: id:Integer,name:String,score:Float,signup_date:Date,active:Boolean,logged_at:Timestamp
+
+end-examples:

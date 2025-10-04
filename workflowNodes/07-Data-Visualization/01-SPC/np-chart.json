@@ -1,0 +1,27 @@
+{
+  "id": "3",
+  "name": "NP Chart",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeSpcNPChart",
+  "description": "This node outputs SPC NP Chart and performs control tests.",
+
+  "fields" : [
+    {"name":"title", "value":"", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#27A588", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"attribute", "value": "[]", "widget": "variables", "title": "Attribute Columns", "description": "Attribute column names", "required": true},
+    {"name":"subgroup", "value": "", "widget": "variable", "title": "Subgroup Column", "description": "Subgroup column name","required": true},
+    {"name":"identifier", "value": "", "widget": "variable", "title": "Identifier Columns", "description": "Identifier column name"},
+
+    {"name":"test1", "value": "false", "widget": "boolean", "title": "point beyond the control limits"},
+    {"name":"test2", "value": "9", "widget": "textfield", "title": "k or more consecutive points are one side of the centerline"},
+    {"name":"test3", "value": "6", "widget": "textfield", "title": "k or more consecutive points are increasing or decreasing"},
+    {"name":"test4", "value": "10", "widget": "textfield", "title": "k consecutive points alternate up or down"}
+  ]
+}
+
+start-details:
+The NP chart in Statistical Process Control (SPC) is used to monitor the number of defective items in a process where the sample size remains constant. It tracks the count of non-conforming units in each sample, making it suitable for processes where defects are classified as pass/fail or defective/non-defective. The NP chart helps detect changes in the process by highlighting trends, shifts, or out-of-control points. By maintaining stability and ensuring the number of defects stays within control limits, the NP chart is useful for quality control in manufacturing and other industries with consistent sample sizes.
+end-details:

@@ -1,0 +1,28 @@
+{
+  "id": "3",
+  "name": "IMR-S Chart",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeSpcIMRSChart",
+  "description": "This node outputs SPC IMR-S Chart and performs control tests.",
+
+  "fields" : [
+    {"name":"title", "value":"", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#27A588", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"measurements", "value": "[]", "widget": "variables", "title": "Measurements Columns", "description": "Measurements column names", "required": true},
+    {"name":"identifier", "value": "", "widget": "variable", "title": "Identifier Columns", "description": "Identifier column names"},
+
+    {"name":"test1", "value": "false", "widget": "boolean", "title": "point beyond the control limits"},
+    {"name":"test2", "value": "9", "widget": "textfield", "title": "k or more consecutive points are one side of the centerline"},
+    {"name":"test3", "value": "6", "widget": "textfield", "title": "k or more consecutive points are increasing or decreasing"},
+    {"name":"test4", "value": "10", "widget": "textfield", "title": "k consecutive points alternate up or down"},
+    {"name":"test5", "value": "14", "widget": "textfield", "title": "k out of k+1 consecutive points are one side of the centerline"},
+    {"name":"test6", "value": "16,20", "widget": "textfield", "title": "k out of n consecutive points are one side of the centerline"}
+  ]
+}
+
+start-details:
+The I-MR-S chart in Statistical Process Control (SPC) is a control chart used to monitor both individual measurements and the variability within subgroups. The "I" chart tracks individual data points over time, the "MR" chart monitors the moving range between consecutive measurements, and the "S" chart measures the standard deviation within subgroups. This chart is ideal for processes with small sample sizes and helps detect shifts in both the process mean and variability. By identifying trends, shifts, or outliers, the I-MR-S chart ensures that a process remains stable and operates within control limits for consistent quality.
+end-details:

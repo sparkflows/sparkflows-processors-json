@@ -1,0 +1,91 @@
+{
+  "id": "3",
+  "name": "Graph Values",
+  "type": "transform",
+  "engine": "all",
+  "iconImage": "/images/icons/node-icon/graph_values.svg",
+  "nodeClass": "fire.nodes.graph.NodeGraphValues",
+  "fields" : [
+    {"name":"title", "value":"Graph Values", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#27A588", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"xlabel", "value":"", "widget": "textfield", "title": "X Label"},
+    {"name":"ylabel", "value":"", "widget": "textfield", "title": "Y Label"},
+    {"name":"maxValuesToDisplay", "value": "20", "widget": "textfield", "title": "Max Values To Display",
+      "description": "Maximum number of values to display in result.", "required": true},
+
+    {"name":"graphType", "value":"COLUMNCHART", "widget": "enum", "title": "Chart Type",
+          "optionsMap":{"LINECHART":"Line Chart","COLUMNCHART":"Column Chart",
+                       "BARCHART":"Bar Chart", "PIE":"Pie Chart", "DONUT ":"Donut Chart", "SCATTERCHART": "Scatter Chart",
+                      "DUALLINECHART":"Dual Line Chart","AREACHART":"Area Chart"}},
+
+    {"name":"chartColors", "value":"", "widget": "colors", "title": "Chart Colors"},
+
+    {"name": "isStreaming", "value":"false", "widget": "array", "title": "Is Streaming?",
+          "optionsArray": ["true","false"], "description": "Whether the Graph is a Streaming Graph or not", "datatypes":["boolean"]},
+
+    {"name":"markerSize", "value":"6", "widget": "textfield", "title": "Marker size"},
+    {"name":"xCol", "value":"", "widget": "variable", "title": "X Column", "required":true},
+    {"name": "xSortCol", "value":"true", "widget": "array", "title": "Sort on X Column?",
+      "optionsArray": ["true","false"], "description": "Whether to Sort on X column or not", "datatypes":["boolean"]},
+
+    {"name":"yCols", "value":"[]", "widget": "variables", "datatypes":["integer", "long", "double", "float"], "title": "Y Columns", "required":true},
+    {"name":"ySortCol", "value":"", "widget": "variable", "datatypes":["integer", "long", "double", "float"], "title": "Y Sort Column"},
+    {"name":"reNameYColumns", "value":"[]", "widget": "variables_selected", "title": "Rename Y Columns"}
+  ]
+}
+
+start-details:
+
+h2:Graph Values Details
+
+This node represents variation between data of various data series in Graphical format.
+
+Multiple numeric columns can be plotted along Y-Coordinate. Only one can be selected along X-Coordinate.
+
+Variation between dataseries is plotted as graph of the selected type such as Line-Chart, Bar-Chart or so on.
+
+h4:Input
+*   TITLE :- The title of a graph can be set here.
+*   X LABEL :- X-axis label can be set here.
+*   Y LABEL :- Y-axis label can be set here.
+*   MAX VALUES TO DISPLAY :- The total number of the data points can be selected here.
+*   CHART TYPE :- The desired chart can be selected from the drop-down list(Line Chart,Side By Side Bar Chart,Pie Chart,Scatter Chart)                                                 
+*   CHART COLORS :- The different types of color can be selected for better visualization.
+*   IS STREAMING? :- If the graph is stream graph set the option as true else false(by default it is false). 
+*   X COLUMN :- Select the column for X-axis.
+*   Y COLUMNS :- Select the colum for Y-axis.
+
+h4:Output
+*   It will plot a graph and will represent the trends between mentioned columns.
+*   The different types of a graph can be plotted between specified columns to check the trends.
+
+h4:Types Of Chart
+*   Line Chart
+*   Side By Side Bar Chart
+*   Stack Bar Chart
+*   Pie Chart
+*   Scatter Chart
+*   Dual Line Chart
+*   Area Chart
+
+h4:Example
+*   A line chart allows us to track the development of several variables at the same time.
+*   Scatter plots are used to determine whether or not two variables have a relationship or correlation.
+*   The main motive of a stacked bar chart is to compare numeric values between levels of a categorical variable.
+
+end-details:
+
+start-examples:
+
+Example:
+
+Let's say you have a dataset with sales figures for different products over time. You can configure the Graph Values node as follows:
+
+X Column: Date
+Y Columns: Sales_ProductA, Sales_ProductB
+Chart Type: Line Chart
+The node will generate a line chart showing the sales trends for both products over time.
+
+end-examples:

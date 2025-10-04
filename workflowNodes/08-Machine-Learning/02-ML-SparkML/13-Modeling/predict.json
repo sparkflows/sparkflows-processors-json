@@ -1,0 +1,28 @@
+{
+  "id": "5",
+  "name": "Spark Predict",
+  
+  "description": "Predict node takes in a DataFrame and Model and makes predictions",
+
+  "input": "It takes in a DataFrame and Model as input",
+  "output": "A new column containing the predictions is added to the input DataFrame",
+  "engine": "all",
+  "type": "ml-predict",
+  "nodeClass": "fire.nodes.ml.NodePredict",
+  "fields" : [
+
+    {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid"},
+
+    {"name": "enablePredictionOverTimeMetrics", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"],
+      "title": "Enable Prediction Over Time Metrics", "description": "enable "},
+
+    {"name":"modelCategory",  "value":"", "widget": "array","optionsArray": ["Regression", "Classification", "Clustering"], "title": "Model Category",
+      "description":"Select the category", "wdgtCommon":"enablePredictionOverTimeMetrics", "toggle":"true"}
+  ]
+}
+
+start-details:
+
+Predict node takes in a DataFrame and Model and makes predictions on the data using the Model.
+
+end-details:

@@ -1,0 +1,97 @@
+{
+  "id": "6",
+  "name": "MultiLayer Perceptron",
+  "description": "It supports creation of full connected neural network.",
+  "type": "ml-estimator",
+  "engine": "all",
+  "nodeClass": "fire.nodes.ml.NodeMultilayerPerceptron",
+  "fields" : [
+
+    {"name": "featuresCol", "value":"", "widget": "variable", "title": "Features Column", "description": "Features column of type vectorUDT for model fitting", "datatypes":["vectorudt"]},
+    {"name": "labelCol", "value":"", "widget": "variable", "title": "Label Column", "description": "The label column for model fitting", "datatypes":["double"]},
+    {"name": "predictionCol", "value":"", "widget": "textfield", "title": "Prediction Column", "description": "The prediction column created during model scoring."},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Split Ratio", "datatypes":["float"]},
+
+    {"name": "layers", "value":"", "widget": "textfield", "title": "Layers - comma separated list of integers", "description": "The integer array specifying the number of activation units in each layer"},
+
+    {"name": "maxIter", "value":100, "widget": "textfield", "title": "Max number of iterations", "description": "Number of iterations to train the Neural network","datatypes":["integer"]},
+
+    {"name": "blockSize", "value":128, "widget": "textfield", "title": "Block Size", "description": "Block size", "datatypes":["integer"]},
+
+    {"name": "seed", "value":1234, "widget": "textfield", "title": "Seed", "description": "The initial seed to initialise the neural network."},
+
+    {"name": "tol", "value":1e-6, "widget": "textfield", "title": "Tol", "description": ""},
+
+    {"name": "solver", "value":"l-bfgs", "widget": "textfield", "title": "Solver", "description": "solver"},
+
+    {"name": "stepSize", "value":0.03, "widget": "textfield", "title": "Step Size", "description": "Step size"},
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": " Description to display in Confusion Matrix CHart"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield", "title": "Confusion Matrix Count Legend", "description": "Legend name to display for Count in Confusion Matrix"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "One can provide the business details of the outcome of the confusion matrix rows"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"}
+
+  ]
+}
+
+start-details:
+Multilayer perceptron classifier (MLPC) is a classifier based on the feedforward artificial neural network. 
+MLPC consists of multiple layers of nodes. Each layer is fully connected to the next layer in the network. Nodes in the input layer represent the input data.
+
+
+end-details:
+
+
+start-examples:
+Below example is available at : https://spark.apache.org/docs/latest/ml-classification-regression.html#multilayer-perceptron-classifier
+
+import org.apache.spark.ml.classification.MultilayerPerceptronClassifier
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+
+// Load the data stored in LIBSVM format as a DataFrame.
+val data = spark.read.format("libsvm")
+  .load("data/mllib/sample_multiclass_classification_data.txt")
+
+// Split the data into train and test
+val splits = data.randomSplit(Array(0.6, 0.4), seed = 1234L)
+val train = splits(0)
+val test = splits(1)
+
+// specify layers for the neural network:
+// input layer of size 4 (features), two intermediate of size 5 and 4
+// and output of size 3 (classes)
+val layers = Array[Int](4, 5, 4, 3)
+
+// create the trainer and set its parameters
+val trainer = new MultilayerPerceptronClassifier()
+  .setLayers(layers)
+  .setBlockSize(128)
+  .setSeed(1234L)
+  .setMaxIter(100)
+
+// train the model
+val model = trainer.fit(train)
+
+// compute accuracy on the test set
+val result = model.transform(test)
+val predictionAndLabels = result.select("prediction", "label")
+val evaluator = new MulticlassClassificationEvaluator()
+  .setMetricName("accuracy")
+
+println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
+
+end-examples:
+

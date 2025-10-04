@@ -1,0 +1,27 @@
+{
+  "id": "3",
+  "name": "P Chart",
+  "type": "SPC-Chart",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.graph.NodeSpcPChart",
+  "description": "This node outputs SPC P Chart and performs control tests.",
+
+  "fields" : [
+    {"name":"title", "value":"", "widget": "textfield", "title": "Title"},
+    {"name":"titleColor", "value":"#27A588", "widget": "textcolors", "title": "Title Color"},
+    {"name":"description", "value":"", "widget": "textareafield", "title": "Description"},
+    {"name":"descriptionColor", "value":"#6D6E70", "widget": "textcolors", "title": "Description Color"},
+    {"name":"attribute", "value": "[]", "widget": "variables", "title": "Attribute Columns", "description": "Attribute column names", "required": true},
+    {"name":"subgroup", "value": "", "widget": "variable", "title": "Subgroup Column", "description": "Subgroup column name","required": true},
+    {"name":"identifier", "value": "", "widget": "variable", "title": "Identifier Columns", "description": "Identifier column name"},
+
+    {"name":"test1", "value": "false", "widget": "boolean", "title": "point beyond the control limits"},
+    {"name":"test2", "value": "9", "widget": "textfield", "title": "k or more consecutive points are one side of the centerline"},
+    {"name":"test3", "value": "6", "widget": "textfield", "title": "k or more consecutive points are increasing or decreasing"},
+    {"name":"test4", "value": "10", "widget": "textfield", "title": "k consecutive points alternate up or down"}
+  ]
+}
+
+start-details:
+The P chart, or Proportion Chart, in Statistical Process Control (SPC) is used to monitor the proportion of defective or non-conforming units in a process. It tracks the percentage of defective items in a sample over time, helping to detect any significant changes in quality. The P chart is ideal for processes where data are categorical (e.g., pass/fail, defective/non-defective) and where sample sizes may vary. By identifying trends, shifts, or out-of-control points, the P chart helps maintain process stability and ensure that the proportion of defects remains within acceptable control limits.
+end-details:

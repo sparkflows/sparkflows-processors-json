@@ -1,0 +1,36 @@
+{
+  "id": "7",
+  "name": "Save Incorta",
+  "description": "",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.incorta.SaveIncortaMV",
+  "fields" : [
+
+    {"name":"dbtable", "value":"", "widget": "textfield", "title": "DB Table", "required":"true",
+      "description": "schema and table name"},
+
+    {"name":"tenant", "value":"default", "widget": "textfield", "title": "Tenant", "required":"true",
+      "description": "tenant name"},
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Chidori Connection",
+      "description": "The Chidori connection to connect to call create MV." ,"required":"true"},
+
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the Parquet files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+    {"name": "isLoadDataInSchema", "value":"false", "widget": "array", "title": "Load Data In Schema", "optionsArray": ["false","true"], "description": "Whether to loadData in schema" ,"datatypes":["boolean"]},
+    {"name": "incortaConnection", "value":"", "widget": "object_array", "title": "Incorta Connection", "description": "The Incorta connection to connect to call schema load.", "wdgtCommon":"isLoadDataInSchema", "toggle":"true"}
+  ]
+}
+
+
+start-details:
+
+end-details:
+
+start-examples:
+
+end-examples:
+

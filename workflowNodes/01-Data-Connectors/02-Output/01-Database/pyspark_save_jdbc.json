@@ -1,0 +1,51 @@
+{
+  "id": "11",
+  "name": "Save JDBC",
+  "description": "This node writes data to databases using JDBC.",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.save.NodeSaveJDBC",
+  "fields" : [
+    {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The JDBC connection to connect" ,"required":"true"},
+
+    {"name":"jdbcDatabase", "value":"", "widget": "textfield", "title": "Database", "description": "Database for connecting to the JDBC" ,"required":"true"},
+    {"name":"jdbctable", "value":"", "widget": "textfield", "title": "Table", "description": "JDBC Table from which to read the data",  "required": "true"},
+
+    {"name":"truncate", "value":"false", "widget": "array","optionsArray": ["false","true"],
+      "title": "Truncate", "description":"Whether to truncate the table in case Save Mode is Overwrite"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the table Exists"},
+
+    {"name": "extraOptions", "value": "", "widget": "tab", "title": "Extra Options"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Extra Options Keys", "description": "Extra options available for JDBC connections"},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Extra Options Values", "description": "Config Values for the Corresponding keys"}
+
+  ]
+}
+start-details:
+
+h2: Save JDBC Node Details
+
+This node writes data to databases using JDBC.
+
+h4: Parameters to be set:
+*OUTPUT STORAGE LEVEL: Keep this as DEFAULT.
+*CONNECTION: Select the desired database connection to use.
+*DB TABLE: Specify the name of the database table where data will be written.
+*TRUNCATE: Choose whether to truncate (delete all existing data from) the table before writing (true or false).
+*SAVE MODE: Choose how to handle existing data in the table (Append, Overwrite, ErrorIfExists, Ignore).
+
+end-details:
+
+start-examples:
+
+h2: Save JDBC Node Examples
+
+h4: Example of Connection Values
+*CONNECTION: MY_POSTGRES_DB
+*DB TABLE: customer_data
+*TRUNCATE: false
+*SAVE MODE: Append
+
+end-examples:

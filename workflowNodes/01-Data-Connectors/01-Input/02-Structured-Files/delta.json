@@ -1,0 +1,46 @@
+{
+  "id": "11",
+  "name": "Read Delta",
+
+  "description": "Dataset Node for reading Apache Delta files",
+  "input": "It reads in Delta files",
+  "output": "It creates a DataFrame from the data read and sends it to its output",
+  "type": "dataset",
+  "engine": "all",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetDelta",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path", "description": "Path of the Delta file/directory" ,"required":"true"},
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names for the Delta", "description": "Output Columns of the Delta"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types for the Delta", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats for the Delta", "description": "Format of the Output Columns"},
+
+    {"name": "properties", "value": "", "widget": "tab", "title": "Properties"},
+    {"name": "extraOptionsKeys", "value":"[]", "widget": "key_array", "title": "Properties Name", "description": "Extra options/properites available while executing in Read Delta."},
+    {"name": "extraOptionsValues", "value":"[]", "widget": "value_array", "title": "Properties Value", "description": "Config Values for the Corresponding properites name"}
+
+  ]
+}
+start-details:
+
+h2: Read Delta Node Details
+
+Dataset Node for reading Apache Delta files.
+
+h4: Parameters to be set:
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* PATH : Specify the path of the delta file.
+* SCHEMA COLUMNS: Refresh the schema for loading column name,column type,column format. 
+
+end-details:
+
+start-examples:
+
+h2: Read Delta Node Examples
+
+h4: Example of Connection Values
+* PATH : Specify the path of the delta file.
+* SCHEMA COLUMNS: Refresh the schema for loading column name,column type,column format. 
+
+end-examples:

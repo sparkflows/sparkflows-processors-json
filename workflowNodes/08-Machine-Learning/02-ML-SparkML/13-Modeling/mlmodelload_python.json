@@ -1,0 +1,42 @@
+{
+  "id": "4",
+  "name": "Spark ML Model Load",
+  "type": "ml-modelload",
+  "nodeClass": "fire.nodes.ml.NodeModelLoad",
+  "engine": "pyspark",
+  "fields" : [
+    {"name":"path", "value":"modelsavepath", "widget": "textfield", "title": "Path"},
+    {"name":"modelType", "value":"", "widget": "array", "title": "Model Type", "description" : "Type of ML model to load",
+     "optionsArray":
+     [
+        "AFTSurvivalRegressionModel",
+        "DecisionTreeClassificationModel",
+        "DecisionTreeRegressionModel",
+        "GBTClassificationModel",
+        "GBTRegressionModel",
+        "KMeansModel",
+        "LinearRegressionModel",
+        "LogisticRegressionModel",
+        "NaiveBayesModel",
+        "RandomForestClassificationModel",
+        "RandomForestRegressionModel",
+        "LDAModel",
+        "StandardScalerModel",
+        "StringIndexerModel",
+        "VectorIndexerModel",
+        "MinMaxScalerModel",
+        "OneHotEncoderModel",
+        "Normalizer",
+        "Bucketizer",
+        "IndexToString",
+        "Interaction",
+        "ImputerModel",
+        "QuantileDiscretizer",
+        "MaxAbsScalerModel",
+        "RobustScalerModel",
+        "FPGrowthModel"
+     ]
+    }
+  ]
+}
+

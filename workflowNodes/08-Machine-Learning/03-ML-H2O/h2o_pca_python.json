@@ -1,0 +1,35 @@
+{
+  "id": "11",
+  "name": "H2O PCA",
+  "description": "PCA is commonly used to model without regularization or perform dimensionality reduction. It can also be useful to carry out as a preprocessing step before distance-based algorithms such as K-Means since PCA guarantees that all dimensions of a manifold are orthogonal.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.h2o.NodeH2OPCA",
+  "fields" : [
+    {"name": "transform", "value":"NONE", "widget": "array", "title": "Transform", "optionsArray": ["NONE","STANDARDIZE", "NORMALIZE", "DEMEAN", "DESCALE"], "description": "Transformation of training data." ,"datatypes":["string"]},
+    {"name": "pcaMethod", "value":"GramSVD", "widget": "array", "title": "PCA Method", "optionsArray": ["GramSVD","Power", "Randomized", "GLRM"], "description": "Specify the algorithm to use for computing the principal components: GramSVD - uses a distributed computation of the Gram matrix, followed by a local SVD; Power - computes the SVD using the power iteration method (experimental); Randomized - uses randomized subspace iteration method; GLRM - fits a generalized low-rank model with L2 loss function and no regularization and solves for the SVD using local matrix algebra (experimental)." ,"datatypes":["string"]},
+    {"name": "inputCols", "value":"[]", "widget": "variables", "title": "Input Columns", "description": "Features to be used for Modelling"},
+    {"name": "pcaImpl", "value":"MTJ_EVD_SYMMMATRIX", "widget": "array", "title": "PCA Implementation", "optionsArray": ["MTJ_EVD_DENSEMATRIX","MTJ_EVD_SYMMMATRIX", "MTJ_SVD_DENSEMATRIX", "JAMA"], "description": "Specify the implementation to use for computing PCA (via SVD or EVD): MTJ_EVD_DENSEMATRIX - eigenvalue decompositions for dense matrix using MTJ; MTJ_EVD_SYMMMATRIX - eigenvalue decompositions for symmetric matrix using MTJ; MTJ_SVD_DENSEMATRIX - singular-value decompositions for dense matrix using MTJ; JAMA - eigenvalue decompositions for dense matrix using JAMA. References: JAMA - http://math.nist.gov/javanumerics/jama/; MTJ - https://github.com/fommil/matrix-toolkits-java/." ,"datatypes":["string"]},
+    {"name": "k", "value":"1", "required":true, "widget": "textfield","title": "K", "description": "Rank of matrix approximation.", "datatypes":["integer"]},
+    {"name": "maxIterations", "value":"1000", "widget": "textfield", "title": "Max Iterations", "description": "Maximum training iterations.", "datatypes":["integer"]},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Split Ratio", "datatypes":["float"]},
+    {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for pseudo random number generator (if applicable).", "datatypes":["Long"]},
+    {"name": "useAllFactorLevels", "value":"false", "widget": "array", "title": "Use All Factor Levels", "optionsArray": ["false","true"], "description": "Whether first factor level is included in each categorical expansion." ,"datatypes":["boolean"]},
+    {"name": "computeMetrics", "value":"true", "widget": "array", "title": "Compute Metrics", "optionsArray": ["false","true"], "description": "Whether to compute metrics on the training data." ,"datatypes":["boolean"]},
+    {"name": "imputeMissing", "value":"false", "widget": "array", "title": "Impute Missing", "optionsArray": ["false","true"], "description": "Whether to impute missing entries with the column mean." ,"datatypes":["boolean"]},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Const Columns", "optionsArray": ["false","true"], "description": "Ignore constant columns." ,"datatypes":["boolean"]},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Whether to score during each iteration of model training." ,"datatypes":["boolean"]},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).", "datatypes":["double"]},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Columns to be Categorical encoded"}
+  ]
+}
+
+start-details:
+
+Principal Components Analysis (PCA) is closely related to Principal Components Regression. The algorithm is carried out on a set of possibly collinear features and performs a transformation to produce a new set of uncorrelated features.
+
+More details are available at : http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/pca.html
+
+end-details:

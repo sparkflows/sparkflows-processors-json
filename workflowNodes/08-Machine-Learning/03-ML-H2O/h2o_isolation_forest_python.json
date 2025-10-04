@@ -1,0 +1,54 @@
+{
+  "id": "6",
+  "name": "H2O Isolation Forest",
+  "description": "Isolation Forest is similar in principle to Random Forest and is built on the basis of decision trees.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.h2o.NodeH2OIsolationForest",
+  "fields" : [
+    {"name": "sampleSize", "value":"256", "widget": "textfield", "title": "Sample Size", "description": "Number of randomly sampled observations used to train each Isolation Forest tree. Only one of parameters sample_size and sample_rate should be defined. If sample_rate is defined, sample_size will be ignored", "datatypes":["long"]},
+    {"name": "featuresCols", "value":"[]", "widget": "variables", "title": "Feature Columns", "description": "Features to be used for Modelling"},
+    {"name": "sampleRate", "value":"-1.0", "widget": "textfield", "title": "Sample Rate", "description": "Row sample rate per tree (from 0.0 to 1.0).", "datatypes":["double"]},
+    {"name": "mtries", "value":"-1", "widget": "textfield", "title": "mtries", "description": "Number of variables randomly sampled as candidates at each split. If set to -1, defaults to sqrt{p} for classification and p/3 for regression (where p is the # of predictors."},
+    {"name": "contamination", "value":"-1.0", "widget": "textfield", "title": "Contamination", "description": "Contamination ratio - the proportion of anomalies in the input dataset. If undefined (-1) the predict function will not mark observations as anomalies and only anomaly score will be returned.", "datatypes":["double"]},
+    {"name": "ntrees", "value":"50", "widget": "textfield", "title": "Number of Trees", "description": "Number of trees.", "datatypes":["integer"]},
+    {"name": "maxDepth", "value":"8", "widget": "textfield", "title": "Max Depth", "description": "Maximum tree depth (0 for unlimited).", "datatypes":["integer"]},
+    {"name": "minRows", "value":"1.0", "widget": "textfield", "title": "Min Rows", "description": "Fewest allowed (weighted) observations in a leaf.","datatypes":["double"]},
+    {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for pseudo random number generator (if applicable).", "datatypes":["Long"]},
+    {"name": "buildTreeOneNode", "value":"false", "widget": "array", "optionsArray": ["false","true"],"title": "Build tree one node","description": "Enables to run on a single node" ,"datatypes":["boolean"]},
+    {"name": "colSampleRatePerTree", "value":"1.0", "widget": "textfield", "title": "Column Sample Rate Per Tree (from 0.0 to 1.0).", "description": "Column sample rate per tree (from 0.0 to 1.0).", "datatypes":["double"]},
+    {"name": "colSampleRateChangePerLevel", "value":"1.0", "widget": "textfield", "title": "Column Sample Rate change Per Level", "description": "Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0).", "datatypes":["double"]},
+    {"name": "scoreTreeInterval", "value":"0", "widget": "textfield", "title": "Score Tree Interval", "description": "Score the model after every so many trees. Disabled if set to 0.", "datatypes":["integer"]},
+    {"name": "categoricalEncoding", "value":"AUTO", "widget": "array", "title": "Categorical Encoding", "optionsArray": ["AUTO","OneHotInternal", "OneHotExplicit", "Enum"," Binary", "Eigen", "LabelEncode", "SortByResponse", "EnumLimited"], "description": "Specify one of the various encoding schemes for handling categorical features" ,"datatypes":["string"]},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Const Columns", "optionsArray": ["false","true"], "description": "Ignore constant columns." ,"datatypes":["boolean"]},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Columns to be Categorical encoded"},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Whether to score during each iteration of model training." ,"datatypes":["boolean"]},
+    {"name": "stoppingRounds", "value":"0", "widget": "textfield", "title": "Stopping Rounds", "description": "Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable).", "datatypes":["integer"]},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).", "datatypes":["double"]},
+    {"name": "stoppingMetric", "value":"AUTO", "widget": "array","optionsArray": ["AUTO","deviance","logloss","MSE", "RMSE", "MAE", "RMSLE", "AUC", "AUCPR","lift_top_group", "misclassification", "mean_per_class_error", "anomaly_score", "custom","custom_increasing"], "title": "StoppingMetric", "description": "Metric to use for early stopping (AUTO: logloss for classification, deviance for regression)"},
+    {"name": "stoppingTolerance", "value":"0.01", "widget": "textfield", "title": "StoppingTolerance", "description": "Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)", "datatypes":["double"]},
+
+    {"name": "Grid Search", "value":"", "widget": "tab", "title": "Grid Search"},
+    {"name": "paramKeys", "value":"[]", "widget": "key_array", "title": "Param Name", "description": "Param Names. eg: maxDepth ,learnRate, nTrees,distribution"},
+    {"name": "paramValues", "value":"[]", "widget": "value_array", "title": "Param Value", "description": "Enter comma separated values.eg: 4,5,6, eg: gaussian, gamma, bernoulli"},
+    {"name":"gridStrategy","value":"Cartesian","widget":"array","optionsArray":["Cartesian","RandomDiscrete"],"title":"Grid Search Strategy","description":"Strategy to use for model hyperparameter search. Cartesian does exhaustive search; RandomDiscrete searches randomly within given time or model limits.","datatypes":["string"]},
+    {"name":"gridMaxModels","value":"0","widget":"textfield","title":"Grid Max Models","description":"Maximum number of models to build in the grid search (0 for unlimited).","datatypes":["integer"]},
+    {"name":"gridMaxRuntimeSecs","value":"0","widget":"textfield","title":"Grid Max Runtime Seconds","description":"Maximum runtime in seconds for the grid search (0 for unlimited).","datatypes":["double"]},
+    {"name":"gridStoppingRounds","value":"3","widget":"textfield","title":"Grid Stopping Rounds","description":"Early stopping based on convergence of the metric during grid search (0 to disable).","datatypes":["integer"]},
+    {"name":"gridStoppingTolerance","value":"0.001","widget":"textfield","title":"Grid Stopping Tolerance","description":"Tolerance for metric-based stopping criterion during grid search.","datatypes":["double"]},
+    {"name":"gridStoppingMetric","value":"AUTO","widget":"array","optionsArray":["AUTO","deviance","logloss","MSE","RMSE","MAE","RMSLE","AUC","AUCPR","lift_top_group","misclassification","mean_per_class_error","anomaly_score","custom","custom_increasing"],"title":"Grid Stopping Metric","description":"Metric to use for early stopping during grid search (AUTO: logloss for classification, deviance for regression).","datatypes":["string"]},
+    {"name":"gridParallelism","value":"2","widget":"textfield","title":"Grid Parallelism","description":"Level of parallelism to use when building models in the grid.","datatypes":["integer"]},
+    {"name":"gridSelectBestModelBy","value":"RMSE","widget":"array","optionsArray":["MSE", "RMSE", "MeanNormalizedScore", "MeanScore"],"title":"Grid Select Best Model By","description":"Metric used to select the best model from the grid.","datatypes":["string"]}
+
+  ]
+}
+
+start-details:
+
+Isolation Forest is similar in principle to Random Forest and is built on the basis of decision trees. Isolation Forest, however, identifies anomalies or outliers rather than profiling normal data points. Isolation Forest isolates observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of that selected feature. This split depends on how long it takes to separate the points.
+
+More details are available at : http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/if.html
+
+end-details:

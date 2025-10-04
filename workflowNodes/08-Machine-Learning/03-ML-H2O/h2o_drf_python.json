@@ -1,0 +1,113 @@
+{
+  "id": "6",
+  "name": "H2O Distributed Random Forest",
+  "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.h2o.NodeH2ODRF",
+  "fields" : [
+    {"name": "isResponseIsCategorical", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Is Response Column Categorical", "description": "Specify a response column type(numeric or categorical). Separates the Classification and Regression"},
+    {"name": "labelCol", "value":"label", "required":"true", "widget": "variable", "title": "Label Column", "description": "Response variable column."},
+    {"name": "featuresCols", "value":"[]", "widget": "variables", "title": "Feature Columns", "description": "Features to be used for Modelling"},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Columns to be Categorical encoded"},
+     {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for pseudo random number generator (if applicable).", "datatypes":["Long"]},
+    {"name": "balanceClasses", "value":"false", "widget": "textfield", "title": "Balance Classes", "description": "Balance training data class counts via over/under-sampling (for imbalanced data).", "datatypes":["boolean"]},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Split Ratio", "datatypes":["float"]},
+    {"name": "nfolds", "value":"0", "widget": "textfield", "title": "Number of Folds", "description": "Number of folds for K-fold cross-validation (0 to disable or >= 2).", "datatypes":["integer"]},
+    {"name": "ntrees", "value":"50", "widget": "textfield", "title": "Number of Trees", "description": "Number of trees.", "datatypes":["integer"]},
+    {"name": "maxDepth", "value":"5", "widget": "textfield", "title": "Max Depth", "description": "Maximum tree depth (0 for unlimited).", "datatypes":["integer"]},
+    {"name": "minRows", "value":"10.0", "widget": "textfield", "title": "Min Rows", "description": "Fewest allowed (weighted) observations in a leaf.","datatypes":["double"]},
+    {"name": "nbins", "value":"20", "widget": "textfield", "title": "Number of Bins", "description": "For numerical columns (real/int), build a histogram of (at least) this many bins, then split at the best point.", "datatypes":["integer"]},
+    {"name": "nbinsTopLevel", "value":"1024", "widget": "textfield", "title": "Number of bins top level", "description": "For numerical columns (real/int), build a histogram of (at most) this many bins at the root level, then decrease by factor of two per level.", "datatypes":["integer"]},
+    {"name": "nbinsCats", "value":"1024", "widget": "textfield", "title": "Number of Bins Categoricals", "description": "For categorical columns (factors), build a histogram of this many bins, then split at the best point. Higher values can lead to more overfitting.", "datatypes":["integer"]},
+    {"name": "categoricalEncoding", "value":"AUTO", "widget": "array", "title": "Categorical Encoding", "optionsArray": ["AUTO","OneHotInternal", "OneHotExplicit", "Enum"," Binary", "Eigen", "LabelEncode", "SortByResponse", "EnumLimited"], "description": "Specify one of the various encoding schemes for handling categorical features" ,"datatypes":["string"]},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Const Columns", "optionsArray": ["false","true"], "description": "Ignore constant columns." ,"datatypes":["boolean"]},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Whether to score during each iteration of model training." ,"datatypes":["boolean"]},
+    {"name": "stoppingRounds", "value":"0", "widget": "textfield", "title": "Stopping Rounds", "description": "Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable).", "datatypes":["integer"]},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).", "datatypes":["double"]},
+    {"name": "stoppingMetric", "value":"AUTO", "widget": "array","optionsArray": ["AUTO","deviance","logloss","MSE", "RMSE", "MAE", "RMSLE", "AUC", "AUCPR","lift_top_group", "misclassification", "mean_per_class_error", "anomaly_score", "custom","custom_increasing"], "title": "StoppingMetric", "description": "Metric to use for early stopping (AUTO: logloss for classification, deviance for regression)"},
+    {"name": "stoppingTolerance", "value":"0.001", "widget": "textfield", "title": "StoppingTolerance", "description": "Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)", "datatypes":["double"]},
+    {"name": "gainsliftBins", "value":"-1", "widget": "textfield", "title": "Gains Lift Bins", "description": "Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning."},
+    {"name": "withContributions", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "With Contributions", "description": "Enables or disables generating a sub-column of detailedPredictionCol containing Shapley values."},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+    {"name": "convertUnknownCategoricalLevelsToNa", "value":"true", "widget": "array", "title": "Convert Unknown Categorical Levels to NA", "optionsArray": ["false","true"], "description": "If set to ‘true’, the model converts unknown categorical levels to NA during making predictions." ,"datatypes":["boolean"]},
+    {"name": "withLeafNodeAssignments", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "With Node Assignments", "description": "Enables or disables computation of leaf node assignments."},
+    {"name": "withStageResults", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "With Stage Results", "description": "Enables or disables computation of stage results."},
+    {"name": "mtries", "value":"-1", "widget": "textfield", "title": "mtries", "description": "Number of variables randomly sampled as candidates at each split. If set to -1, defaults to sqrt{p} for classification and p/3 for regression (where p is the # of predictors."},
+    {"name": "binomialDoubleTrees", "value":"false", "widget": "array", "optionsArray": ["false","true"],"title": "Binomial Double trees", "description": "For binary classification: Build 2x as many trees (one per class) - can lead to higher accuracy."},
+    {"name": "sampleRate", "value":"0.632", "widget": "textfield", "title": "Sample Rate", "description": "Row sample rate per tree (from 0.0 to 1.0).", "datatypes":["double"]},
+    {"name": "maxAfterBalanceSize", "value":"5.0", "widget": "textfield", "title": "Max After Balance Size", "description": "Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.", "datatypes":["double"]},
+    {"name": "maxConfusionMatrixSize", "value":"20", "widget": "textfield", "title": "Max Confusion Matrix Size", "description": "[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs.", "datatypes":["integer"]},
+    {"name": "buildTreeOneNode", "value":"false", "widget": "array", "optionsArray": ["false","true"],"title": "Build tree one node","description": "Enables to run on a single node" ,"datatypes":["boolean"]},
+    {"name": "colSampleRatePerTree", "value":"1.0", "widget": "textfield", "title": "Column Sample Rate Per Tree (from 0.0 to 1.0).", "description": "Column sample rate per tree (from 0.0 to 1.0).", "datatypes":["double"]},
+    {"name": "colSampleRateChangePerLevel", "value":"1.0", "widget": "textfield", "title": "Column Sample Rate change Per Level", "description": "Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0).", "datatypes":["double"]},
+    {"name": "scoreTreeInterval", "value":"0", "widget": "textfield", "title": "Score Tree Interval", "description": "Score the model after every so many trees. Disabled if set to 0.", "datatypes":["integer"]},
+    {"name": "minSplitImprovement", "value":"1.0e-5", "widget": "textfield", "title": "Minimum Split Improvement", ",description": "Minimum relative improvement in squared error reduction for a split to happen.", "datatypes":["double"]},
+    {"name": "histogramType", "value":"AUTO", "widget": "array", "title": "Histogram Type", "optionsArray": ["AUTO","UniformAdaptive", "Random", "QuantilesGlobal", "RoundRobin", "UniformRobust"], "description": "What type of histogram to use for finding optimal split points. Possible values are " ,"datatypes":["string"]},
+    {"name": "calibrateModel", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Calibrate Model", "description": "Use Platt Scaling to calculate calibrated class probabilities. Calibration can provide more accurate estimates of class probabilities."},
+    {"name": "checkConstantResponse", "value":"true", "widget": "array","optionsArray": ["false","true"], "title": "Check Constant Response", "description": "UCheck if response column is constant. If enabled, then an exception is thrown if the response column is a constant value.If disabled, then model will train regardless of the response column being a constant value or not."},
+    {"name": "keepCrossValidationModels", "value":"true", "widget": "array","optionsArray": ["false","true"], "title": "Keep Cross Validation Models", "description": "Whether to keep the cross-validated models. Keeping cross-validation models may consume significantly more memory in the H2O cluster."},
+    {"name": "keepCrossValidationPredictions", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Keep Cross Validation Predictions", "description": "Whether to keep the predictions of the cross-validation predictions. This needs to be set to TRUE if running the same AutoML object for repeated runs because CV predictions are required to build additional Stacked Ensemble models in AutoML."},
+    {"name": "keepCrossValidationFoldAssignment", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Keep Cross Validation Fold Assignment", "description": "Whether to keep cross-validation assignments."},
+    {"name": "distribution", "value":"AUTO", "widget": "array","optionsArray": ["AUTO", "bernoulli", "quasibinomial", "modified_huber", "multinomial", "ordinal", "gaussian", "poisson", "gamma", "tweedie", "huber", "laplace", "quantile", "fractionalbinomial", "negativebinomial", "custom"], "title": "Distribution", "description": "Distribution function used by algorithms that support it; other algorithms use their defaults."},
+    {"name": "weightCol", "value":"", "widget": "variable", "title": "Weight Column", "description": "Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0."},
+    {"name": "offsetCol", "value":"", "widget": "variable", "title": "Offset Column", "description": "Offset column. This will be added to the combination of columns before applying the link function."},
+    {"name": "foldCol", "value":"", "widget": "variable", "title": "Fold Column", "description": "Column with cross-validation fold index assignment per observation."},
+    {"name": "foldAssignment", "value":"AUTO", "widget": "array", "title": "Fold Assignment", "optionsArray": ["AUTO","Random", "Modulo", "Stratified"], "description": "Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems." ,"datatypes":["string"]},
+    {"name": "aucType", "value":"AUTO", "widget": "array","optionsArray": ["AUTO","NONE", "MACRO_OVR", "WEIGHTED_OVR", "MACRO_OVO", "WEIGHTED_OVO"], "title": "AUC Type", "description": "Set default multinomial AUC type."},
+
+    {"name": "confusionMatrix", "value":"", "widget": "tab", "title": "Confusion Matrix"},
+    {"name": "output_confusion_matrix_chart", "value":"false", "widget": "array", "title": "Output Confusion Matrix Chart", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "cm_chart_title", "value":"Confusion Matrix Chart", "widget": "textfield", "title": "Confusion Matrix Chart Title", "description": "Title name to display in Confusion Matrix Chart"},
+    {"name": "cm_chart_description", "value":"Visual Representation of Predicted vs. Actual Classes", "widget": "textfield", "title": "Confusion Matrix Chart Description", "description": " Description to display in Confusion Matrix CHart"},
+    {"name": "confusionMatrixTargetLegend", "value":"Target", "widget": "textfield", "title": "Confusion Matrix Target Legend", "description": "Legend name to display for Target in Confusion Matrix"},
+    {"name": "confusionMatrixPredictedLabelLegend", "value":"PredictedLabel", "widget": "textfield", "title": "Confusion Matrix PredictedLabel Legend", "description": "Legend name to display for Predicted Label in Confusion Matrix"},
+    {"name": "confusionMatrixCountLegend", "value":"Count", "widget": "textfield", "title": "Confusion Matrix Count Legend", "description": "Legend name to display for Count in Confusion Matrix"},
+    {"name":"path", "value":"", "widget": "textfield", "title": "Path", "description": "Save Confusion Matrix to Path"},
+
+    {"name": "Description", "value":"", "widget": "tab", "title": "Confusion Matrix Description"},
+    {"name": "confusionMatrixRowDescription", "value":"", "widget": "textarea_rich", "title": "Confusion Matrix Outcome description", "description": "One can provide the business details of the outcome of the confusion matrix rows"},
+
+    {"name": "ROC Curve", "value":"", "widget": "tab", "title": "ROC Curve"},
+    {"name": "output_roc_curve", "value":"false", "widget": "array", "title": "Output ROC Curve", "optionsArray": ["false","true"], "description": "whether to display confusion matrix chart." ,"datatypes":["boolean"]},
+    {"name": "roc_title", "value":"ROC Curve", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
+    {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
+    {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
+    {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"},
+
+    {"name": "Grid Search", "value":"", "widget": "tab", "title": "Grid Search"},
+    {"name": "paramKeys", "value":"[]", "widget": "key_array", "title": "Param Name", "description": "Param Names. eg: maxDepth ,learnRate, nTrees,distribution"},
+    {"name": "paramValues", "value":"[]", "widget": "value_array", "title": "Param Value", "description": "Enter comma separated values.eg: 4,5,6, eg: gaussian, gamma, bernoulli"},
+    {"name":"gridStrategy","value":"Cartesian","widget":"array","optionsArray":["Cartesian","RandomDiscrete"],"title":"Grid Search Strategy","description":"Strategy to use for model hyperparameter search. Cartesian does exhaustive search; RandomDiscrete searches randomly within given time or model limits.","datatypes":["string"]},
+    {"name":"gridMaxModels","value":"0","widget":"textfield","title":"Grid Max Models","description":"Maximum number of models to build in the grid search (0 for unlimited).","datatypes":["integer"]},
+    {"name":"gridMaxRuntimeSecs","value":"0","widget":"textfield","title":"Grid Max Runtime Seconds","description":"Maximum runtime in seconds for the grid search (0 for unlimited).","datatypes":["double"]},
+    {"name":"gridStoppingRounds","value":"3","widget":"textfield","title":"Grid Stopping Rounds","description":"Early stopping based on convergence of the metric during grid search (0 to disable).","datatypes":["integer"]},
+    {"name":"gridStoppingTolerance","value":"0.001","widget":"textfield","title":"Grid Stopping Tolerance","description":"Tolerance for metric-based stopping criterion during grid search.","datatypes":["double"]},
+    {"name":"gridStoppingMetric","value":"AUTO","widget":"array","optionsArray":["AUTO","deviance","logloss","MSE","RMSE","MAE","RMSLE","AUC","AUCPR","lift_top_group","misclassification","mean_per_class_error","anomaly_score","custom","custom_increasing"],"title":"Grid Stopping Metric","description":"Metric to use for early stopping during grid search (AUTO: logloss for classification, deviance for regression).","datatypes":["string"]},
+    {"name":"gridParallelism","value":"2","widget":"textfield","title":"Grid Parallelism","description":"Level of parallelism to use when building models in the grid.","datatypes":["integer"]},
+    {"name":"gridSelectBestModelBy","value":"AUTO","widget":"array","optionsArray":["AUTO","logloss","MSE","RMSE","MAE","RMSLE","AUC","AUCPR"],"title":"Grid Select Best Model By","description":"Metric used to select the best model from the grid.","datatypes":["string"]}
+
+  ]
+}
+
+tart-details:
+
+Distributed Random Forest (DRF) is a powerful classification and regression tool. When given a set of data, DRF generates a forest of classification or regression trees, rather than a single classification or regression tree. Each of these trees is a weak learner built on a subset of rows and columns. More trees will reduce the variance. Both classification and regression take the average prediction over all of their trees to make a final prediction, whether predicting for a class or numeric value.
+
+More details are available at : http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/drf.html
+
+end-details:
+
+start-examples:
+
+Input:
+Label Column: "HousePrice"
+Feature Columns: ["Bedrooms", "SquareFootage", "Neighborhood"]
+Output:
+A Random Forest model trained to predict house prices.
+The output includes feature importance scores, helping identify the most influential predictors.
+
+end-examples:

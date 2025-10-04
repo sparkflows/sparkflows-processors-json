@@ -1,0 +1,117 @@
+{
+  "id": "7",
+  "name": "Feature Engineering",
+  "description": "This node computes feature engineering tasks such as group by, frequency, recency, average days between purchases, total value of purchases, and customer age. These are computed per user using the selected operations.",
+  "input": "It takes DataFrame(s) as input for processing.",
+  "output": "Returns engineered features as a DataFrame.",
+  "type": "pyspark",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.fe.NodeFeatureEngineering",
+
+  "fields": [
+    {"name": "groupByCols", "value": "[]", "widget": "variables", "title": "Group By Columns", "description": "Columns to group by", "wdgtCommon": "groupBy", "toggle": "true"},
+
+    {"name": "frequency", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Frequency", "description": "Enable frequency count per user ID"},
+
+    {"name": "recency", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Recency", "description": "Enable recency computation (last purchase date) per user ID", "size" : "50%"},
+    {"name": "recencyDateCol", "value": "", "widget": "variable", "title": "Recency Date Column", "description": "Date column to compute recency from", "wdgtCommon": "recency", "toggle": "true", "size" : "50%"},
+
+    {"name": "avgDaysBetween", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Avg Days Between", "description": "Enable computation of average days between purchases", "size" : "50%"},
+    {"name": "avgDaysDateCol", "value": "", "widget": "variable", "title": "Avg Days Date Column", "description": "Date column to compute average days between", "wdgtCommon": "avgDaysBetween", "toggle": "true", "size" : "50%"},
+
+    {"name": "valueOfPurchase", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Value of Purchase", "description": "Enable total value of purchase per user", "size" : "50%"},
+    {"name": "sumCols", "value": "[]", "widget": "variables", "title": "Columns to Sum", "description": "Numeric columns to sum per user", "wdgtCommon": "valueOfPurchase", "toggle": "true", "size" : "50%"},
+
+    {"name": "customerAge", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Enable Customer Age", "description": "Compute age of customer from DOB", "size" : "50%"},
+    {"name": "dobCol", "value": "", "widget": "variable", "title": "Date of Birth Column", "description": "Column containing date of birth", "wdgtCommon": "customerAge", "toggle": "true", "size" : "50%"}
+
+  ]
+}
+start-details:
+
+h2:Feature Engineering Node Details
+
+The Feature Engineering node is designed to compute user-level features by applying various analytical operations such as frequency, recency, average days between events, total value of purchases, and customer age. These features are generated per group (e.g., per user ID) using the selected input columns and operations.
+
+h3:General:
+
+h4:Group By Columns:
+Specifies the column(s) to group the input data by. Typically, this would be a user or customer identifier (e.g., user_id, customer_id). All other feature engineering computations are performed within each group.
+
+h4:Enable Frequency:
+When enabled, computes the frequency (i.e., count) of rows per group. Useful for understanding user activity levels.
+
+h4:Enable Recency:
+When enabled, calculates the number of days since the last recorded activity or event per group. Requires a date column to compute this from.
+
+h4:Recency Date Column:
+Specifies the column containing the date values for recency computation. Recency is calculated as the number of days between the maximum date per group and the current date.
+
+h4:Enable Avg Days Between:
+When enabled, computes the average number of days between consecutive activities or transactions per group.
+
+h4:Avg Days Date Column:
+Specifies the date column to use for computing the average time gap between consecutive records within each group.
+
+h4:Enable Value of Purchase:
+When enabled, computes the total value of purchases per group by summing selected numeric columns.
+
+h4:Columns to Sum:
+Specifies one or more numeric columns whose values are summed per group to calculate total value of purchases.
+
+h4:Enable Customer Age:
+When enabled, calculates the current age of the customer based on their date of birth.
+
+h4:Date of Birth Column:
+Specifies the column containing the customer's date of birth, which is used to compute their current age in years.
+
+h3:Output:
+The node outputs a DataFrame with the group-by columns and one or more additional columns, depending on the selected features:
+- frequency: count
+- recency: recency_days
+- avgDaysBetween: avg_days_between
+- valueOfPurchase: sum_<col_name> for each column selected in Columns to Sum
+- customerAge: customer_age
+
+end-details:
+
+start-examples:
+
+h2:Feature Engineering Node Examples
+
+h3:Input:
+A DataFrame contains the following data:
+- userId: ["U1", "U1", "U2", "U2", "U2"]
+- eventDate: ["2023-01-01", "2023-01-10", "2023-01-05", "2023-01-15", "2023-01-25"]
+- amount: [100, 150, 200, 300, 500]
+- dob: ["1990-04-01", "1990-04-01", "1985-08-20", "1985-08-20", "1985-08-20"]
+
+The Feature Engineering node is configured as follows:
+- Group By Columns: userId
+- Enable Frequency: true
+- Enable Recency: true
+- Recency Date Column: eventDate
+- Enable Avg Days Between: true
+- Avg Days Date Column: eventDate
+- Enable Value of Purchase: true
+- Columns to Sum: amount
+- Enable Customer Age: true
+- Date of Birth Column: dob
+
+h3:Output:
+The node processes the DataFrame and produces the following result:
+- userId: "U1"
+frequency: 2
+recency_days: (based on today - "2023-01-10")
+avg_days_between: 9.0
+sum_amount: 250
+customer_age: 35
+
+- userId: "U2"
+frequency: 3
+recency_days: (based on today - "2023-01-25")
+avg_days_between: 10.0
+sum_amount: 1000
+customer_age: 39
+
+end-examples:

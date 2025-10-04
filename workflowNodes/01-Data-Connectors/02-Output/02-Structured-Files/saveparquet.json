@@ -1,0 +1,52 @@
+{
+  "id": "7",
+  "name": "Save Parquet",
+  "description": "Saves the DataFrame into the specified location in Parquet Format. When running on Hadoop, it is saved onto HDFS.",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.save.NodeSaveParquet",
+  "fields" : [
+    {"name":"path", "display": true, "value":"", "widget": "textfield", "title": "Path",
+      "description":"Path where to save the Parquet files","required":"true"},
+
+    {"name":"saveMode", "value":"Append", "widget": "array","optionsArray": ["Append","Overwrite", "ErrorIfExists", "Ignore"],
+      "title": "Save Mode", "description":"Whether to Append, Overwrite or Error if the path Exists"},
+
+    {"name": "advanced", "value":"", "widget": "tab", "title": "Advanced"},
+
+    {"name":"partitionColNames", "value": "[]", "widget": "variables", "title": "Partition Column Names", "description": "Partition Column Names"},
+
+    {"name":"createDataset", "value":"false", "widget": "array_single", "optionsArray": ["true","false"], "title": "Auto create dataset", "description": "Select Models"},
+    {"name":"datasetName",  "value":"", "widget": "textfield", "title": "Dataset Name",
+      "description":"Dataset Name", "wdgtCommon":"createDataset", "toggle":"true"}
+
+  ]
+}
+start-details:
+
+h2: Save Parquet Node Details
+
+Saves the DataFrame into the specified location in Parquet Format. When running on Hadoop, it is saved onto HDFS.
+
+h4: Parameters to be set:
+General:
+* OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
+* PATH : Specify the path of the Parquet file to be saved.
+* SAVE MODE : Specify the save mode - Append, Overwrite, ErrorIfExists and Ignore.
+Advanced:
+* PARTITION COLUMN NAMES : Specify the columns to be used for partitioning the Parquet files.
+
+end-details:
+
+start-examples:
+
+h2: Save Parquet Node Examples
+
+h4: Example of Values
+General:
+* PATH : /tmp/sample.parquet
+* SAVE MODE : Append
+Advanced:
+* PARTITION COLUMN NAMES : col1,col2
+
+end-examples:

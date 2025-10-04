@@ -1,0 +1,54 @@
+{
+  "id": "11",
+  "name": "H2O K-Means",
+  "description": "K-Means falls in the general category of clustering algorithms.",
+  "input": "It takes in a DataFrame as input",
+  "output": "",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.h2o.NodeH2OKMeans",
+  "fields" : [
+    {"name": "maxIterations", "value":"10", "widget": "textfield", "title": "Max Iterations", "description": "Maximum number of iterations.", "datatypes":["integer"]},
+    {"name": "featuresCols", "value":"[]", "widget": "variables", "title": "Feature Columns", "description": "Features to be used for Modelling"},
+    {"name": "standardize", "value":"true", "widget": "array","optionsArray": ["false","true"], "title": "Standardize", "description": "Standardize numeric columns to have zero mean and unit variance."},
+    {"name": "seed", "value":"-1", "widget": "textfield", "title": "Seed", "description": "Seed for pseudo random number generator (if applicable).", "datatypes":["Long"]},
+    {"name": "init", "value":"Furthest", "widget": "array","optionsArray": ["Furthest","Random", "PlusPlus", "User"], "title": "Initialization mode", "description": "Initialization mode."},
+    {"name": "estimateK", "value":"false", "widget": "array", "title": "Estimate k", "optionsArray": ["false","true"], "description": "iWhether to estimate the number of clusters (<=k) iteratively and deterministically." ,"datatypes":["boolean"]},
+    {"name": "k", "value":"3", "required":true, "widget": "textfield","title": "K", "description": "The max. number of clusters. If estimate_k is disabled, the model will find k centroids, otherwise it will find up to k centroids.", "datatypes":["integer"]},
+    {"name": "saveCentroidsPath", "value":"", "widget": "textfield","title": "Save Centroids Path", "description": "Save Centroids as CSV"},
+    {"name": "splitRatio", "value":1.0, "widget": "textfield", "title": "Split Ratio", "description": "Split Ratio", "datatypes":["float"]},
+    {"name": "clusterSizeConstraints", "value":"", "widget": "textfield","title": "Cluster Size Constraint", "description": "An array specifying the minimum number of points that should be in each cluster. The length of the constraints array has to be the same as the number of clusters.", "datatypes":["string"]},
+    {"name": "nfolds", "value":"0", "widget": "textfield", "title": "Number of Folds", "description": "Number of folds for K-fold cross-validation (0 to disable or >= 2).", "datatypes":["integer"]},
+    {"name": "keepCrossValidationModels", "value":"true", "widget": "array","optionsArray": ["false","true"], "title": "Keep Cross Validation Models", "description": "Whether to keep the cross-validated models. Keeping cross-validation models may consume significantly more memory in the H2O cluster."},
+    {"name": "keepCrossValidationPredictions", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Keep Cross Validation Predictions", "description": "Whether to keep the predictions of the cross-validation predictions. This needs to be set to TRUE if running the same AutoML object for repeated runs because CV predictions are required to build additional Stacked Ensemble models in AutoML."},
+    {"name": "keepCrossValidationFoldAssignment", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Keep Cross Validation Fold Assignment", "description": "Whether to keep cross-validation assignments."},
+    {"name": "foldCol", "value":"", "widget": "variable", "title": "Fold Column", "description": "Column with cross-validation fold index assignment per observation."},
+    {"name": "foldAssignment", "value":"AUTO", "widget": "array", "title": "Fold Assignment", "optionsArray": ["AUTO","Random", "Modulo", "Stratified"], "description": "Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems." ,"datatypes":["string"]},
+    {"name": "categoricalEncoding", "value":"AUTO", "widget": "array", "title": "Categorical Encoding", "optionsArray": ["AUTO","OneHotInternal", "OneHotExplicit", "Enum"," Binary", "Eigen", "LabelEncoder", "SortByResponse", "EnumLimited"], "description": "Specify one of the various encoding schemes for handling categorical features" ,"datatypes":["string"]},
+    {"name": "ignoreConstCols", "value":"true", "widget": "array", "title": "Ignore Const Columns", "optionsArray": ["false","true"], "description": "Ignore constant columns." ,"datatypes":["boolean"]},
+    {"name": "columnsToCategorical", "value":"[]", "widget": "variables", "title": "Columns to Categorical", "description": "Columns to be Categorical encoded"},
+    {"name": "scoreEachIteration", "value":"false", "widget": "array", "title": "Score Each Iteration", "optionsArray": ["false","true"], "description": "Whether to score during each iteration of model training." ,"datatypes":["boolean"]},
+    {"name": "maxRuntimeSecs","value":"0.0", "widget": "textfield", "title": "Max Runtime Secs", "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).", "datatypes":["double"]},
+
+    {"name": "Grid Search", "value":"", "widget": "tab", "title": "Grid Search"},
+    {"name": "paramKeys", "value":"[]", "widget": "key_array", "title": "Param Name", "description": "Param Names. eg: maxDepth ,learnRate, nTrees,distribution"},
+    {"name": "paramValues", "value":"[]", "widget": "value_array", "title": "Param Value", "description": "Enter comma separated values.eg: 4,5,6, eg: gaussian, gamma, bernoulli"},
+    {"name":"gridStrategy","value":"Cartesian","widget":"array","optionsArray":["Cartesian","RandomDiscrete"],"title":"Grid Search Strategy","description":"Strategy to use for model hyperparameter search. Cartesian does exhaustive search; RandomDiscrete searches randomly within given time or model limits.","datatypes":["string"]},
+    {"name":"gridMaxModels","value":"0","widget":"textfield","title":"Grid Max Models","description":"Maximum number of models to build in the grid search (0 for unlimited).","datatypes":["integer"]},
+    {"name":"gridMaxRuntimeSecs","value":"0","widget":"textfield","title":"Grid Max Runtime Seconds","description":"Maximum runtime in seconds for the grid search (0 for unlimited).","datatypes":["double"]},
+    {"name":"gridStoppingRounds","value":"3","widget":"textfield","title":"Grid Stopping Rounds","description":"Early stopping based on convergence of the metric during grid search (0 to disable).","datatypes":["integer"]},
+    {"name":"gridStoppingTolerance","value":"0.001","widget":"textfield","title":"Grid Stopping Tolerance","description":"Tolerance for metric-based stopping criterion during grid search.","datatypes":["double"]},
+    {"name":"gridStoppingMetric","value":"AUTO","widget":"array","optionsArray":["AUTO","deviance","logloss","MSE","RMSE","MAE","RMSLE","AUC","AUCPR","lift_top_group","misclassification","mean_per_class_error","anomaly_score","custom","custom_increasing"],"title":"Grid Stopping Metric","description":"Metric to use for early stopping during grid search (AUTO: logloss for classification, deviance for regression).","datatypes":["string"]},
+    {"name":"gridParallelism","value":"2","widget":"textfield","title":"Grid Parallelism","description":"Level of parallelism to use when building models in the grid.","datatypes":["integer"]},
+    {"name":"gridSelectBestModelBy","value":"AUTO","widget":"array","optionsArray":["AUTO","TotWithinss","Betweenss","Totss"],"title":"Grid Select Best Model By","description":"Metric used to select the best model from the grid.","datatypes":["string"]}
+
+  ]
+}
+
+start-details:
+
+K-Means falls in the general category of clustering algorithms. Clustering is a form of unsupervised learning that tries to find structures in the data without using any labels or target values. Clustering partitions a set of observations into separate groupings such that an observation in a given group is more similar to another observation in the same group than to another observation in a different group.
+
+More details are available at : http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/k-means.html
+
+end-details:

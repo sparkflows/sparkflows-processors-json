@@ -1,0 +1,116 @@
+{
+  "id": "1",
+  "name": "Join On Common Columns",
+  "description": "This node joins the incoming dataframes on 1 or more columns",
+  "input": "It takes in 2 or more DataFrames as input and produces one DataFrame as output by joining on the specified columns",
+  "output": "The output DataFrame produced as a result of joining the incoming DataFrames on the specified columns",
+  "type": "join",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeJoinUsingColumns",
+  "fields" : [
+    {"name":"joinCols", "value":"", "widget": "variables_common", "title": "Common Join Columns", "description": "Space separated list of columns on which to join",  "required": true},
+    {"name":"joinType", "value":"inner", "widget": "array", "optionsArray": ["inner", "outer", "left_outer", "right_outer", "leftsemi"], "title": "Join Type", "description": "Type of Join"},
+
+    {"name":"whereClause", "value":"", "widget": "textarea_small", "title": "Where Clause", "description": "where condition after join function"},
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Names", "description": "Name of the Output Columns"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Output Column Types", "description": "Data Type of the Output Columns"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Output Column Formats", "description": "Format of the Output Columns"}
+
+  ]
+}
+
+start-details:
+
+h2:Join On Common Columns Node Details
+
+This node joins the incoming dataframes using one or more than one common column between the two dataframes. 
+
+Join Types supported by this node are as follows
+* inner : The joined table will have records that have matching values in both tables.
+* outer : The joined table contains either all the records from both the tables or fills in NULL values for missing matches on either side.
+* left_outer  : Even if there are no matches in the right table it returns all the rows from the left table.
+* right_outer : Even if there are no matches in the left table it returns all the rows from the right table.
+* leftsemi : This gives only those rows in the left table that have a matching row in the right table.
+
+The `WHERE CLAUSE` section is used to filter any records once the two or more tables have  been joined.
+
+end-details:
+
+start-examples:
+
+h2:Join On Common Columns Node Example
+
+h4: Incoming Dataframe
+
+1st Incoming dataframe table1 has the following rows:
+
+EMP_CD    |    EMP_NAME    |    DEPT_NO    
+-------------------------------------------
+E01       |    DAVID       |    10         
+E02       |    JOHN        |    20      
+E03       |    MARTIN      |    30  
+E04       |    TONY        |    40  
+
+2nd Incoming dataframe table2 has the following rows:
+
+DEPT_NO    |      DEPT_NAME   |    LOC     |   EMP_CD 
+----------------------------------------------------
+10         |      HR          |    IND     |   E01
+20         |      SALES       |    AUS     |   E02
+40         |      RESEARCH    |    NZ      |   E04
+50         |      ADMIN       |    UK      |   E05
+
+Selected common columns for both the dataframes are following 
+* From table1 is DEPT_NO and EMP_CD
+* From table2 is DEPT_NO and EMP_CD
+
+h4: When the JOIN condition is `inner` with a WHERE clause of `DEPT_NO = 10` we have
+h4: Final Output
+
+EMP_CD    |    EMP_NAME    |    DEPT_NO   |      DEPT_NAME  |    LOC   
+-------------------------------------------------------------------------------------
+E01       |    DAVID       |    10        |      HR         |    IND
+
+h4: When the JOIN condition is `inner` we have
+h4: Final Output
+
+EMP_CD    |    EMP_NAME    |    DEPT_NO   |      DEPT_NAME  |    LOC   
+-------------------------------------------------------------------------------------
+E01       |    DAVID       |    10        |      HR         |    IND
+E02       |    JOHN        |    20        |      SALES      |    AUS
+E04       |    TONY        |    40        |      RESEARCH   |    NZ
+
+h4: When the Joining condition `outer` we have
+h4: Final Output
+
+EMP_CD    |    EMP_NAME    |    DEPT_NO   |   DEPT_NAME  |    LOC           
+--------------------------------------------------------------------------------------
+E01       |    DAVID       |    10        |   HR         |    IND
+E02       |    JOHN        |    20        |   SALES      |    AUS
+E03       |    MARTIN      |    30        |              |    
+E04       |    TONY        |    40        |   RESEARCH   |    NZ
+E05       |                |    50        |   ADMIN      |    UK
+
+h4: When the Joining condition is `left_outer` we have
+h4: Final Output
+
+EMP_CD    |    EMP_NAME    |    DEPT_NO   |   DEPT_NAME  |    LOC           
+--------------------------------------------------------------------------------------
+E01       |    DAVID       |    10        |   HR         |    IND
+E02       |    JOHN        |    20        |   SALES      |    AUS
+E03       |    MARTIN      |    30        |   MARKETING  |    UK
+E04       |    TONY        |    40        |              |    
+
+h4: When the Joining condition `right_outer` we have
+h4: Final Output
+          
+EMP_CD    |    EMP_NAME    |    DEPT_NO   |   DEPT_NAME  |    LOC           
+--------------------------------------------------------------------------------------
+E01       |    DAVID       |    10        |   HR         |    IND
+E02       |    JOHN        |    20        |   SALES      |    AUS
+E04       |    MARTIN      |    30        |   RESEARCH   |    UK
+E05       |                |    50        |   ADMIN      |    NZ
+
+end-examples:

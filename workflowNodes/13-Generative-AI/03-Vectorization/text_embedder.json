@@ -1,0 +1,63 @@
+{
+  "id": "6",
+  "name": "Create Text Embedding",
+  "description": "This node enables the creation of a embedding text data and output as dataframe",
+  "input": "It takes in Dataframe as an input",
+  "output": "Output as dataframe which have extra embedding columns",
+  "type": "transform",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.gai.NodeTextEmbedder",
+
+  "fields": [
+    {"name": "createEmbedding", "value": "", "widget": "tab", "title": "Create Embedding"},
+    {"name": "embeddingMethod", "value": "", "widget": "array", "optionsArray": ["HuggingFace", "OpenAI", "Bedrock"], "title": "Embedding Method", "description": "Select the embedding method."},
+    {"name": "llmConnection", "value": "", "widget": "object_array", "title": "Select Connection", "description": "Select Connection"},
+    {"name": "chunkSize", "value": "1024", "widget": "textfield", "title": "Chunk Size", "description": "Size of each text chunk."},
+    {"name": "chunkOverlap", "value": "100", "widget": "textfield", "title": "Chunk Overlap", "description": "Overlap size between consecutive chunks."},
+    {"name": "contentCol", "value": "", "widget": "variable", "title": "Vector Indexer", "description": "Column name for content."},
+  
+    {"name": "queryEmbedding", "value": "", "widget": "tab", "title": "Query Embedding"},
+    {"name": "userQuery", "value": "", "widget": "textarea_small", "title": "User Query", "description": "User provided query."},
+
+    {"name": "huggingface", "value": "", "widget": "tab", "title": "Hugging Face"},
+    {"name": "hfModelName", "value": "", "widget": "textfield", "title": "Hugging Face Model", "description": "Hugging Face embedding model."}
+  ]
+}
+start-details:
+h2: Text Embedder Node Details
+
+This node enables the creation of a embedding text data further used for indexing it into a vector database using the specified configuration. It supports multiple embedding providers including OpenAI, Bedrock, and HuggingFace.
+
+h4: Parameters to be set:
+
+### General:
+- **Embedding Method**: Choose the embedding method from HuggingFace, OpenAI, or Bedrock.
+- **Chunk Size**: Define the size of text chunks for processing large inputs (default: 1024).
+- **Chunk Overlap**: Set the overlap size between consecutive chunks (default: 100).
+- **Content Column**: Select the column that contains the text content (default: `content`).
+- **File Name Column**: Select the column that contains file names (default: `fileName`).
+- **Page Number Column**: Select the column that contains page numbers (default: `pageNumber`).
+- **Base64 Image Column**: Select the column that contains Base64 encoded images (default: `base64Image`).
+- **User Query**: Provide a user query string for search or processing.
+- **Directory Path Column**: Set the column name for directory paths (default: `directoryPath`).
+
+### Service-Specific Configurations:
+
+#### OpenAI:
+- **API Key**: Provide your OpenAI API key.
+- **Embedding Model**: Specify the OpenAI embedding model.
+- **Max Retries**: Set the maximum number of retries for API calls (default: 6).
+- **Embedding Context Length**: Define the context length for embeddings (default: 8191).
+
+#### Bedrock:
+- **Service Name**: Specify the Bedrock service name.
+- **Region Name**: Provide the AWS region name.
+- **AWS Access Key ID**: Provide your AWS Access Key ID.
+- **AWS Secret Access Key**: Provide your AWS Secret Access Key.
+- **Embedding Model**: Specify the Bedrock embedding model.
+
+#### HuggingFace:
+- **Model Name**: Specify the HuggingFace embedding model (default: `all-MiniLM-L6-v2`).
+
+end-details:
+
