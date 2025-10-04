@@ -1,0 +1,15 @@
+{
+  "id": 3607,
+  "uuid": "5f6c1493-ebbe-4a44-bc62-d20c60320971",
+  "name": "3-DTR to Feeder Mapping Methodologies",
+  "category": "",
+  "projectId": 2310,
+  "content": "<h2><strong>DTR to Feeder Mapping Methodologies</strong></h2><p><br></p><p>For mapping <strong>DTRs to Feeders</strong>, we applied a combination of <strong>temporal event alignment</strong>, <strong>power trend correlation</strong>, and <strong>zero consumption pattern matching</strong> to ensure accuracy even in low-load or outage-heavy scenarios.</p><p><br></p><h3>✅ <strong>A. Zero Consumption Matching</strong></h3><ul><li><strong>Objective:</strong> Capture time windows (hourly) when both DTR and Feeder showed <strong>zero power consumption</strong>, indicating a shared outage or shutdown event.</li><li><strong>Method:</strong></li><li class=\"ql-indent-1\">Identify zero-energy intervals in Feeder and DTR data.</li><li class=\"ql-indent-1\">Align by timestamp at <strong>hourly granularity</strong>.</li><li class=\"ql-indent-1\">Score Feeder-DTR pairs by the number of matching zero consumption windows.</li><li><strong>Purpose:</strong> Especially useful in regions with frequent outages or load shedding, and complements correlation-based methods where load variation is low.</li></ul><p><br></p><h3>✅ <strong>B. Power Event Matching (Hourly)</strong></h3><ul><li><strong>Objective:</strong> Detect OFF/ON power transition events and align between DTR and Feeder.</li><li><strong>Method:</strong></li><li class=\"ql-indent-1\">Extract power-down or power-up timestamps from both Feeder and DTR time series.</li><li class=\"ql-indent-1\">Normalize events at hourly resolution.</li><li class=\"ql-indent-1\">Compute overlap percentage and assign matching scores.</li></ul><p><br></p><h3>✅ <strong>C. Power Consumption Trend Correlation</strong></h3><ul><li><strong>Objective:</strong> Establish connection through weekly or daily energy usage trends.</li><li><strong>Method:</strong></li><li class=\"ql-indent-1\">Aggregate energy data weekly for each DTR and Feeder.</li><li class=\"ql-indent-1\">Calculate <strong>change in energy (ΔkWh)</strong> or moving averages.</li><li class=\"ql-indent-1\">Apply <strong>Pearson or Spearman correlation</strong> to detect similarity.</li><li class=\"ql-indent-1\">Score based on correlation coefficient.</li></ul><p><br></p><h3>🔍 <strong>Final Mapping Output</strong></h3><ul><li>DTRs linked to Feeders with:</li><li class=\"ql-indent-1\"><strong>Event Match Score</strong></li><li class=\"ql-indent-1\"><strong>Zero Consumption Match Score</strong></li><li class=\"ql-indent-1\"><strong>Power Correlation Score</strong></li><li>Highest ranked Feeder per DTR tagged as <strong>Primary Feeder</strong>.</li><li>Alternative close matches marked as <strong>Secondary Candidates</strong> for validation.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "vivek",
+  "dateCreated": "Aug 14, 2025, 2:43:32 PM",
+  "updatedBy": "vivek",
+  "dateLastUpdated": "Aug 14, 2025, 2:45:36 PM"
+}

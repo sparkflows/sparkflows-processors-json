@@ -1,0 +1,15 @@
+{
+  "id": 3612,
+  "uuid": "bcc50794-99d3-4722-868b-6846b69af7df",
+  "name": "4-Energy Auditing",
+  "category": "",
+  "projectId": 2310,
+  "content": "<h2><strong>Energy Auditing Framework (Feeder → DTR → Consumer)</strong></h2><p><br></p><h3><strong>Ideal Principle (No Technical/Commercial Loss):</strong></h3><p>Energy at Feeder&nbsp;&nbsp;</p><p>&nbsp;&nbsp;= ∑ Energy at DTRs (connected to that Feeder)&nbsp;&nbsp;</p><p>&nbsp;&nbsp;= ∑ Energy at Consumers (connected to those DTRs)</p><p><br></p><h3><strong>Auditing Steps:</strong></h3><p><br></p><h4>✅ <strong>Step 1: Feeder-Level Energy Aggregation</strong></h4><ul><li>Extract monthly or weekly energy readings from Feeder meters.</li><li>Normalize for meter resets or missing data.</li></ul><p><br></p><h4>✅ <strong>Step 2: Sum Energy at Connected DTRs</strong></h4><ul><li>Use finalized Feeder-to-DTR mapping.</li><li>Aggregate energy data for all DTRs under each feeder.</li><li>Compare with Feeder readings → Δ indicates <strong>technical loss at 11kV level</strong>.</li></ul><p><br></p><h4>✅ <strong>Step 3: Sum Energy at Connected Consumers</strong></h4><ul><li>Use finalized DTR-to-Consumer mapping.</li><li>Aggregate monthly energy from all consumers under each DTR.</li><li>Compare with DTR readings → Δ indicates <strong>low-voltage technical + commercial losses</strong>.</li></ul><p><br></p><h3><strong>Output:</strong></h3><ul><li>Energy Balance Sheets per feeder:</li><li class=\"ql-indent-1\">Total Received at Feeder</li><li class=\"ql-indent-1\">Total Distributed to DTRs</li><li class=\"ql-indent-1\">Total Billed to Consumers</li><li>Loss Calculations:</li><li class=\"ql-indent-1\"><strong>Feeder to DTR Loss (%)</strong></li><li class=\"ql-indent-1\"><strong>DTR to Consumer Loss (%)</strong></li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "vivek",
+  "dateCreated": "Aug 14, 2025, 2:46:32 PM",
+  "updatedBy": "vivek",
+  "dateLastUpdated": "Aug 14, 2025, 2:48:53 PM"
+}

@@ -1,0 +1,466 @@
+{
+  "name": "Equipment_Predictive_Maintenance_Analysis_Pipeline",
+  "uuid": "54f1e829-e30b-4060-9a74-ec252831187f",
+  "category": "Manufacturing",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/08-Workflow/",
+      "name": "01-EDA",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "170px",
+      "y": "247px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"getStarted\",\"Value\":\"true\"},{\"Key\":\"execute\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "path": "/08-Workflow/",
+      "name": "02-Feature-Building",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "366.575px",
+      "y": "255.569px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "85e2837e-53db-4c63-a78b-8e9466d95d62",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"getStarted\",\"Value\":\"true\"},{\"Key\":\"execute\",\"Value\":\"true\"},{\"Key\":\"workflow_3_featurecolumns1\",\"Value\":\"RPM_RollingMean_3M,Oil_Pressure_RollingMean_3M,Coolant_Temp_RollingMean_3M,Vibration_RollingMean_3M\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"combinedVisual\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "path": "/08-Workflow/",
+      "name": "03-Model-Training",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "270.581px",
+      "y": "252.575px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "87e1e2d9-a12b-403e-acfe-9c3a7ed123f4",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"getStarted\",\"Value\":\"true\"},{\"Key\":\"execute\",\"Value\":\"true\"},{\"Key\":\"workflow_3_featurecolumns1\",\"Value\":\"RPM_RollingMean_3M,Oil_Pressure_RollingMean_3M,Coolant_Temp_RollingMean_3M,Vibration_RollingMean_3M\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"combinedVisual\",\"Value\":\"true\"},{\"Key\":\"modelNametrain\",\"Value\":\"test\"},{\"Key\":\"workflow_3_featurecolumns1\",\"Value\":\"rpm,oilPressure,vibration,coolantTemp,RPM_RollingMean_3M,Oil_Pressure_RollingMean_3M,Coolant_Temp_RollingMean_3M,Vibration_RollingMean_3M,RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"workflow_12_independentvariables1\",\"Value\":\"LOG_PRD_PRICE,EVENT,SVD\"},{\"Key\":\"workflow_12_transformvariables1\",\"Value\":\"PACK_PRICE_COMPETITOR1,PACK_PRICE_COMPETITOR2,PACK_PRICE_COMPETITOR3\"},{\"Key\":\"workflow_12_dependentvariables\",\"Value\":\"LOG_SALES_VOLUME\"},{\"Key\":\"workflow_12_lossfunction\",\"Value\":\"MAPE\"},{\"Key\":\"ValidationWeek\",\"Value\":\"2\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "path": "/08-Workflow/",
+      "name": "03-Model-Prediction-And-Predictive-Analysis",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "468.117px",
+      "y": "259.117px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "87c282c9-ba81-49d2-9607-6be74e5d5371",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"getStarted\",\"Value\":\"true\"},{\"Key\":\"execute\",\"Value\":\"false\"},{\"Key\":\"workflow_3_FEATURECOLUMNS\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,Vibration_RollingMean_6M,Coolant_Temp_RollingMean_6M,Oil_Pressure_RollingMean_6M,RPM_RollingMean_6M\"},{\"Key\":\"trainModel\",\"Value\":\"false\"},{\"Key\":\"modelPredict\",\"Value\":\"test\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,Vibration_RollingMean_6M,Coolant_Temp_RollingMean_6M,Oil_Pressure_RollingMean_6M,RPM_RollingMean_6M\"},{\"Key\":\"runModelValidaion\",\"Value\":\"true\"},{\"Key\":\"destinationPath\",\"Value\":\"/home/sparkflows/fire-data/projects-customers/MANUFACTURING/Demand-Forecasting-Electronics-Production/Processed-Dataset/\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "path": "/08-Workflow/",
+      "name": "03A-RCA",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "566.267px",
+      "y": "265.25px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "928680a3-36e5-4eb9-809d-e90510e3ad2a",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"getStarted\",\"Value\":\"true\"},{\"Key\":\"execute\",\"Value\":\"false\"},{\"Key\":\"workflow_3_featurecolumns1\",\"Value\":\"RPM_RollingMean_3M,Oil_Pressure_RollingMean_3M,Coolant_Temp_RollingMean_3M,Vibration_RollingMean_3M\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"workflow_3_featurecolumns2\",\"Value\":\"rpm,oilPressure,vibration,coolantTemp\"},{\"Key\":\"workflow_12_independentvariables1\",\"Value\":\"LOG_PRD_PRICE,EVENT,SVD\"},{\"Key\":\"workflow_12_transformvariables1\",\"Value\":\"PACK_PRICE_COMPETITOR1,PACK_PRICE_COMPETITOR2,PACK_PRICE_COMPETITOR3\"},{\"Key\":\"workflow_12_dependentvariables\",\"Value\":\"LOG_SALES_VOLUME\"},{\"Key\":\"workflow_12_lossfunction\",\"Value\":\"MAPE\"},{\"Key\":\"combinedVisual\",\"Value\":\"false\"},{\"Key\":\"ValidationWeek\",\"Value\":\"2\"},{\"Key\":\"workflow_3_featurecolumns1\",\"Value\":\"rpm,oilPressure,vibration,coolantTemp,RPM_RollingMean_3M,Oil_Pressure_RollingMean_3M,Coolant_Temp_RollingMean_3M,Vibration_RollingMean_3M,RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"selectRollingAverage\",\"Value\":\"3Month\"},{\"Key\":\"workflow_3_featurecolumns1\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,RPM_RollingMean_3M,Oil_Pressure_RollingMean_3M,Coolant_Temp_RollingMean_3M,Vibration_RollingMean_3M\"},{\"Key\":\"workflow_3_featurecolumns2\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,RPM_RollingMean_6M,Oil_Pressure_RollingMean_6M,Coolant_Temp_RollingMean_6M,Vibration_RollingMean_6M\"},{\"Key\":\"trainModel\",\"Value\":\"false\"},{\"Key\":\"back1\",\"Value\":\"false\"},{\"Key\":\"next1\",\"Value\":\"true\"},{\"Key\":\"workflow_3_featurecolumns\",\"Value\":\"Maintenance_Done,Engine_Runtime_Hours,Time_Since_Last_Maintenance,Vibration_RollingMean_6M,Coolant_Temp_RollingMean_6M,Oil_Pressure_RollingMean_6M,RPM_RollingMean_6M\"},{\"Key\":\"destinationPath\",\"Value\":\"/home/sparkflows/fire-data/projects-customers/MANUFACTURING/Demand-Forecasting-Electronics-Production/Processed-Dataset/\"},{\"Key\":\"GenAIReport\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "1",
+      "target": "3",
+      "id": 5
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "id": 6
+    },
+    {
+      "source": "2",
+      "target": "4",
+      "id": 7
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "uuid": "0b6a6a1c-d858-414e-9a56-a5e36dcd42ce",
+  "name": "Energy-Loss-Data",
+  "header": true,
+  "path": "userdb|Feeder_DTR_Consumer_Energy_Loss",
+  "delimiter": ",",
+  "datasetType": "JDBC",
+  "datasetSchema": "{colNames:[\"fdr_meter_number\",\"Block_Date\",\"FDR_Avg_Daily_Energy_Imported\",\"FDR_Total_Daily_Energy_Imported\",\"FDR_Avg_Monthly_Energy_Imported\",\"FDR_Total_Monthly_Energy_Imported\",\"dtr_meter_number\",\"cons_meter_number\",\"DTR_Avg_Daily_Energy_Imported\",\"DTR_Total_Daily_Energy_Imported\",\"DTR_Avg_Monthly_Energy_Imported\",\"DTR_Total_Monthly_Energy_Imported\",\"Cons_Avg_Daily_Energy_Imported\",\"Cons_Total_Daily_Energy_Imported\",\"Cons_Avg_Monthly_Energy_Imported\",\"Cons_Total_Monthly_Energy_Imported\",\"daily_fdr_to_dtr_loss_kwh\",\"daily_dtr_to_cons_loss_kwh\",\"monthly_fdr_to_dtr_loss_kwh\",\"monthly_dtr_to_cons_loss_kwh\",\"daily_fdr_to_dtr_loss_pct\",\"daily_dtr_to_cons_loss_pct\",\"monthly_fdr_to_dtr_loss_pct\",\"monthly_dtr_to_cons_loss_pct\"],colTypes:[\"STRING\",\"DATE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "fdr_meter_number",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Block_Date",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "FDR_Avg_Daily_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "FDR_Total_Daily_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "FDR_Avg_Monthly_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "FDR_Total_Monthly_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "dtr_meter_number",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "cons_meter_number",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DTR_Avg_Daily_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DTR_Total_Daily_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DTR_Avg_Monthly_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DTR_Total_Monthly_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Cons_Avg_Daily_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Cons_Total_Daily_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Cons_Avg_Monthly_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Cons_Total_Monthly_Energy_Imported",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "daily_fdr_to_dtr_loss_kwh",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "daily_dtr_to_cons_loss_kwh",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "monthly_fdr_to_dtr_loss_kwh",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "monthly_dtr_to_cons_loss_kwh",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "daily_fdr_to_dtr_loss_pct",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "daily_dtr_to_cons_loss_pct",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "monthly_fdr_to_dtr_loss_pct",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "monthly_dtr_to_cons_loss_pct",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

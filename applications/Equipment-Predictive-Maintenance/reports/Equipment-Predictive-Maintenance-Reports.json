@@ -1,0 +1,219 @@
+{
+  "name": "Equipment-Predictive-Maintenance-Reports",
+  "uuid": "23e7d851-db9a-4c09-a72a-2df2145565ae",
+  "icon": {
+    "type": "svg",
+    "icon": "images/report.svg"
+  },
+  "category": "",
+  "description": "EDA-ModelTraining-PredectiveAnalysis",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 4,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "693.778px",
+          "y": "34.7639px",
+          "workflowId": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "workflowName": "01-EDA",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "274.067px",
+          "y": "388.067px",
+          "workflowId": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "workflowName": "01-EDA",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "178px",
+          "y": "189px",
+          "workflowId": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "workflowName": "01-EDA",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "638px",
+          "y": "290px",
+          "workflowId": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "workflowName": "01-EDA",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "723px",
+          "y": "223px",
+          "workflowId": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "workflowName": "01-EDA",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "732px",
+          "y": "124px",
+          "workflowId": "aea0164b-2494-4b82-832b-6aed2208e207",
+          "workflowName": "01-EDA",
+          "nodeId": "19",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Training",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 5,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "685.736px",
+          "y": "409.736px",
+          "workflowId": "87e1e2d9-a12b-403e-acfe-9c3a7ed123f4",
+          "workflowName": "03-Model-Training",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "H2O Generalized Linear Models",
+          "description": "Generalized Linear Models (GLM) estimate regression models for outcomes following exponential distributions",
+          "type": "ml-estimator",
+          "x": "266px",
+          "y": "167px",
+          "workflowId": "87e1e2d9-a12b-403e-acfe-9c3a7ed123f4",
+          "workflowName": "03-Model-Training",
+          "nodeId": "3",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Prediction Validation",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 71,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "700.187px",
+          "y": "614.2px",
+          "workflowId": "44987a92-c790-4c71-b020-486c0d8e4458",
+          "workflowName": "04-Model-Prediction-Business-App",
+          "nodeId": "71",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Output Formatter",
+          "description": "This node formats output from Columns.",
+          "type": "transform",
+          "x": "709.194px",
+          "y": "480.187px",
+          "workflowId": "b4ee0e01-bf43-49d2-a9ac-f21a302a2e8d",
+          "workflowName": "05-RCA",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 66,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1206.78px",
+          "y": "71.775px",
+          "workflowId": "87c282c9-ba81-49d2-9607-6be74e5d5371",
+          "workflowName": "04-Model-Prediction-And-Predictive-Analysis",
+          "nodeId": "66",
+          "grow": 0
+        },
+        {
+          "id": 68,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1231.19px",
+          "y": "438.2px",
+          "workflowId": "87c282c9-ba81-49d2-9607-6be74e5d5371",
+          "workflowName": "04-Model-Prediction-And-Predictive-Analysis",
+          "nodeId": "68",
+          "grow": 0
+        },
+        {
+          "id": 69,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1233.38px",
+          "y": "305.388px",
+          "workflowId": "87c282c9-ba81-49d2-9607-6be74e5d5371",
+          "workflowName": "04-Model-Prediction-And-Predictive-Analysis",
+          "nodeId": "69",
+          "grow": 0
+        },
+        {
+          "id": 70,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1229.76px",
+          "y": "175.769px",
+          "workflowId": "87c282c9-ba81-49d2-9607-6be74e5d5371",
+          "workflowName": "04-Model-Prediction-And-Predictive-Analysis",
+          "nodeId": "70",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 4,
+      "name": "Feature Building",
+      "type": "type",
+      "idx": "4",
+      "items": [
+        {
+          "id": 2,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "572.067px",
+          "y": "284.067px",
+          "workflowId": "85e2837e-53db-4c63-a78b-8e9466d95d62",
+          "workflowName": "02-Feature-Building",
+          "nodeId": "2",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

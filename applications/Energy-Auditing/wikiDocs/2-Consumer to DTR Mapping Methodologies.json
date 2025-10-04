@@ -1,0 +1,15 @@
+{
+  "id": 3606,
+  "uuid": "a9866766-b7ce-4f18-b519-890b02766a72",
+  "name": "2-Consumer to DTR Mapping Methodologies",
+  "category": "",
+  "projectId": 2310,
+  "content": "<h2><strong>Consumer to DTR Mapping Methodologies</strong></h2><p><br></p><p>To map each <strong>consumer meter</strong> to the most probable <strong>DTR</strong>, we used a combination of <strong>event-driven</strong> and <strong>correlation-based</strong> techniques:</p><p><br></p><h3>✅ <strong>A. Zero Consumption Matching</strong></h3><ul><li>Identify timestamps where both the consumer and candidate DTRs had <strong>zero energy usage</strong>.</li><li>Score DTRs based on the number of matching zero-consumption hours.</li></ul><p><br></p><h3>✅ <strong>B. Power Event Matching (Hourly)</strong></h3><ul><li>Detect <strong>distinct power OFF/ON events</strong> in consumer and DTR data.</li><li>Normalize events at an <strong>hourly level</strong>.</li><li>Calculate overlap percentage and score DTRs accordingly.</li></ul><p><br></p><h3>✅ <strong>C. Voltage-Based Correlation</strong></h3><ul><li>Use consumer voltage trend vs DTR phase voltages (L1, L2, L3).</li><li>Apply <strong>Spearman/Pearson correlation</strong> over a week or month.</li><li>Select DTR with highest correlation as the best match.</li></ul><p><br></p><h3>✅ <strong>D. Power-On Duration from Billing Data (Experimental)</strong></h3><ul><li>Extract <strong>active hours</strong> from billing data.</li><li>Compare with DTR uptime durations.</li><li>Dropped due to low uniqueness in high-density areas.</li></ul><p><br></p><h3>🔍 <strong>Final Mapping Output</strong></h3><ul><li>Consumers were classified under:</li><li class=\"ql-indent-1\"><strong>Single Match (High Confidence)</strong></li><li class=\"ql-indent-1\"><strong>Multiple Matches (Close Scores)</strong></li><li class=\"ql-indent-1\"><strong>Unresolved (Ambiguous Duration or No Event Overlap)</strong></li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "vivek",
+  "dateCreated": "Aug 14, 2025, 2:40:39 PM",
+  "updatedBy": "vivek",
+  "dateLastUpdated": "Aug 14, 2025, 2:43:00 PM"
+}
