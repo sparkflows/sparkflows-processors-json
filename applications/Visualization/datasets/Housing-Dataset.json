@@ -1,0 +1,501 @@
+{
+  "uuid": "3918c8ff-2784-43d9-82d5-9062f64ec37d",
+  "name": "Housing-Dataset",
+  "header": true,
+  "path": "data/COMMON/Housing/Housing-Train.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Id\",\"MSSubClass\",\"MSZoning\",\"LotFrontage\",\"LotArea\",\"Street\",\"Alley\",\"LotShape\",\"LandContour\",\"Utilities\",\"LotConfig\",\"LandSlope\",\"Neighborhood\",\"Condition1\",\"Condition2\",\"BldgType\",\"HouseStyle\",\"OverallQual\",\"OverallCond\",\"YearBuilt\",\"YearRemodAdd\",\"RoofStyle\",\"RoofMatl\",\"Exterior1st\",\"Exterior2nd\",\"MasVnrType\",\"MasVnrArea\",\"ExterQual\",\"ExterCond\",\"Foundation\",\"BsmtQual\",\"BsmtCond\",\"BsmtExposure\",\"BsmtFinType1\",\"BsmtFinSF1\",\"BsmtFinType2\",\"BsmtFinSF2\",\"BsmtUnfSF\",\"TotalBsmtSF\",\"Heating\",\"HeatingQC\",\"CentralAir\",\"Electrical\",\"1stFlrSF\",\"2ndFlrSF\",\"LowQualFinSF\",\"GrLivArea\",\"BsmtFullBath\",\"BsmtHalfBath\",\"FullBath\",\"HalfBath\",\"BedroomAbvGr\",\"KitchenAbvGr\",\"KitchenQual\",\"TotRmsAbvGrd\",\"Functional\",\"Fireplaces\",\"FireplaceQu\",\"GarageType\",\"GarageYrBlt\",\"GarageFinish\",\"GarageCars\",\"GarageArea\",\"GarageQual\",\"GarageCond\",\"PavedDrive\",\"WoodDeckSF\",\"OpenPorchSF\",\"EnclosedPorch\",\"3SsnPorch\",\"ScreenPorch\",\"PoolArea\",\"PoolQC\",\"Fence\",\"MiscFeature\",\"MiscVal\",\"MoSold\",\"YrSold\",\"SaleType\",\"SaleCondition\",\"SalePrice\"],colTypes:[\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MSSubClass",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MSZoning",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LotFrontage",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LotArea",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Street",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Alley",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LotShape",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LandContour",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Utilities",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LotConfig",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LandSlope",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Neighborhood",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Condition1",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Condition2",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BldgType",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "HouseStyle",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "OverallQual",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "OverallCond",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "YearBuilt",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "YearRemodAdd",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "RoofStyle",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "RoofMatl",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Exterior1st",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Exterior2nd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "MasVnrType",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "MasVnrArea",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ExterQual",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ExterCond",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Foundation",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BsmtQual",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BsmtCond",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BsmtExposure",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BsmtFinType1",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BsmtFinSF1",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BsmtFinType2",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BsmtFinSF2",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BsmtUnfSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TotalBsmtSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Heating",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "HeatingQC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CentralAir",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Electrical",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "1stFlrSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "2ndFlrSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "LowQualFinSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "GrLivArea",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BsmtFullBath",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BsmtHalfBath",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "FullBath",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "HalfBath",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BedroomAbvGr",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "KitchenAbvGr",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "KitchenQual",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "TotRmsAbvGrd",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Functional",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Fireplaces",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "FireplaceQu",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "GarageType",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "GarageYrBlt",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "GarageFinish",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "GarageCars",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "GarageArea",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "GarageQual",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "GarageCond",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PavedDrive",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "WoodDeckSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "OpenPorchSF",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "EnclosedPorch",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "3SsnPorch",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ScreenPorch",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PoolArea",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PoolQC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Fence",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "MiscFeature",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "MiscVal",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MoSold",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "YrSold",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "SaleType",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SaleCondition",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SalePrice",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

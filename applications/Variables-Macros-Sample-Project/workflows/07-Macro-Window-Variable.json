@@ -1,0 +1,344 @@
+{
+  "name": "07-Macro-Window-Variable",
+  "uuid": "9712b630-4e35-4749-9da9-609cc60ef488",
+  "category": "SAMPLE",
+  "description": "-",
+  "parameters": "--var Window_Variable=demo",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Create Dataset",
+      "description": "Creates a dataset with the specified number of rows and nine pre-defined columns",
+      "details": "This node Creates a dataset with the specified number of rows and nine pre-defined columns.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetCreate",
+      "x": "120.875px",
+      "y": "246.875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "numRows",
+          "value": "100",
+          "widget": "textfield",
+          "title": "Number of Rows",
+          "description": "Number of Rows in the Output Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "2",
+      "name": "Add Column Advanced",
+      "description": "This node allows adding new columns with certain values",
+      "details": "It creates a new DataFrame by adding new columns to the input Dataframe.<br>\n<br>\nNew columns can be created for selected types from dropdown in `Constant Types` field.<br>\n<br>\nIn Output Columns field provide the name of new columns.<br>\n<br>\nIn Constant Values field provide the respective constant value when type is ConstantString or ConstantInt.<br>\n<br>\nWhen type is CurrentDate or CurrentTimeStamp, leave the Constant Values field should be left empty - currentdate and currentimestamp values will be get populated automatically.<br>\n<br>\nThis node supports the multiple add columns - Multiple constant type columns can be added.<br>",
+      "examples": "If option for adding new columns is selected as below with new column names specified in bracket<br>\n<br>\n<ul>\n<li> CurrentDate (Column Name CurrentDate)</li>\n<li> CurrentTimeStamp (Column Name CurrentTimeStamp)</li>\n<li> STRING Column with a value DrillMachine (Column Name MACHINE_NAME)</li>\n<li> INTEGER column with a value 100 (Column Name MACHINE_WEIGHT)</li>\n</ul>\nthen following columns would be added to the output Dataframe with mentioned values:<br>\n<br>\n<ul>\n<li> CURRENT_DATE : 2021-10-22</li>\n<li> CURRENT_TIME : 2021-10-22 04:34:00.532</li>\n<li> MACHINE_NAME : DrillMachine</li>\n<li> MACHINE_WEIGHT : 100</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeAddConstantColumn",
+      "x": "336.547px",
+      "y": "240.516px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "constantTypes",
+          "value": "[\"ConstantString\"]",
+          "widget": "list_array",
+          "title": "Constant Type",
+          "description": "Constant Types",
+          "optionsArray": [
+            "CurrentDate",
+            "CurrentTimeStamp",
+            "ConstantString",
+            "ConstantInt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputCols",
+          "value": "[\"Windows-Variable-Replace\"]",
+          "widget": "list_textfield",
+          "title": "Output Column",
+          "description": "New Output column name.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "constantValues",
+          "value": "[\"${Window_Variable}\"]",
+          "widget": "list_textfield",
+          "title": "Constant Value",
+          "description": "ConstantValues when type is ConstantString and ConstantInt.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "3",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "527.875px",
+      "y": "237.875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "4",
+      "name": "Sticky Note",
+      "iconImage": "fa fa-file-text",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "13px",
+      "y": "36px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "width",
+          "value": "300px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "height",
+          "value": "110px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "comment",
+          "value": "<p><strong>This workflow shows using windows parameters in conjunction with macros to change output at the execution time.</strong></p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [],
+  "engine": "scala"
+}

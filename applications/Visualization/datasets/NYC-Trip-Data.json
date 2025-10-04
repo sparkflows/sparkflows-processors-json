@@ -1,0 +1,100 @@
+{
+  "uuid": "ea29d57f-c268-4c90-a515-99fb7bd6600f",
+  "name": "NYC-Trip-Data",
+  "description": "NYC Trip Data",
+  "header": true,
+  "path": "data/DATA-VISUALIZATION/NYC-Taxi-Data/Trips-Data.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"medallion\",\"hack_license\",\"vendor_id\",\"rate_code\",\"store_and_fwd_flag\",\"pickup_datetime\",\"dropoff_datetime\",\"passenger_count\",\"trip_time_in_secs\",\"trip_distance\",\"pickup_longitude\",\"pickup_latitude\",\"dropoff_longitude\",\"dropoff_latitude\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"TIMESTAMP\",\"TIMESTAMP\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"dd/MM/yyyy HH:mm\",\"dd/MM/yyyy HH:mm\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "medallion",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "hack_license",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "vendor_id",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "rate_code",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "store_and_fwd_flag",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "pickup_datetime",
+        "colType": "TIMESTAMP",
+        "colFormat": "dd/MM/yyyy HH:mm",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "dropoff_datetime",
+        "colType": "TIMESTAMP",
+        "colFormat": "dd/MM/yyyy HH:mm",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "passenger_count",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "trip_time_in_secs",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "trip_distance",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "pickup_longitude",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "pickup_latitude",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "dropoff_longitude",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "dropoff_latitude",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

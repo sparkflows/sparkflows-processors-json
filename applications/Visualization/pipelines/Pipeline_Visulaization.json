@@ -1,0 +1,1570 @@
+{
+  "name": "Pipeline_Visulaization",
+  "uuid": "d153e662-1445-4a6e-a516-191355ff08dd",
+  "category": "",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/08-Workflow/",
+      "name": "Analyzing Housing Data Using Boxplot and Subplots",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "61.0667px",
+      "y": "292.067px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "27a7f995-eb86-4f22-909c-8d13f65bc880",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "path": "/08-Workflow/",
+      "name": "Analyzing Housing Data Using Graph Group by Column",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "144.133px",
+      "y": "145.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "78905fd3-ee2f-4526-834a-5864eba17f75",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "path": "/08-Workflow/",
+      "name": "Analyzing Housing Data Using Line Graph",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "193.133px",
+      "y": "452.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "3c3e3049-3733-41f8-8b5f-052b052fe5b0",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "path": "/08-Workflow/",
+      "name": "Analyzing Telco Customer Churn",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "294.117px",
+      "y": "289.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "19c53267-a64f-428b-8d0d-24284bbdfbab",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "path": "/08-Workflow/",
+      "name": "Boxplot on Housing Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "388.267px",
+      "y": "149.267px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "03708ab0-531e-42fb-8bff-f5892f95536e",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "path": "/08-Workflow/",
+      "name": "Creating Subplots",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "396.133px",
+      "y": "456.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "a9e7dd75-3049-47b1-8cd4-7423ed526b59",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "path": "/08-Workflow/",
+      "name": "Creating Subplots on Housing Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "526.133px",
+      "y": "299.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "284973ed-65a8-4cb8-99b0-efc710eba9be",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "path": "/08-Workflow/",
+      "name": "Documenting Using Print Rich Text Node",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "620.2px",
+      "y": "139.2px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "66db32fa-32e1-481e-8854-8c683d39205e",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "path": "/08-Workflow/",
+      "name": "Exploring NYC Taxi Average Speed",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "644.2px",
+      "y": "459.2px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "57797c29-f870-4609-83e5-bfd6a8f00139",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "path": "/08-Workflow/",
+      "name": "Exploring Yearly Monthly and Weekly Distribution Graphs",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "762.133px",
+      "y": "296.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "774009d4-e8df-4543-bf32-a8b8dc81da2b",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "path": "/08-Workflow/",
+      "name": "Printing Output using PrintNrows node",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "877.133px",
+      "y": "124.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "fdc9df6f-60f9-4038-95d8-a3f59c9220eb",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "path": "/08-Workflow/",
+      "name": "Plotting Bubble Graph on Product Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "910.267px",
+      "y": "440.267px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "bada35a7-bef7-4ca9-9641-67dfd231c9a7",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "path": "/08-Workflow/",
+      "name": "Plotting Gauge & Bubble Graph on NYC Taxi Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "1003.2px",
+      "y": "288.2px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "6de126e7-8505-479d-b991-73a0d5ca8aa5",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "path": "/08-Workflow/",
+      "name": "Plotting Graph Column Values by Count",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "1105.13px",
+      "y": "133.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "400a1d1e-93bf-4740-b194-5be2703f4b34",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "path": "/08-Workflow/",
+      "name": "Plotting Gauge Graph on Product Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "1137.07px",
+      "y": "490.067px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "c73895f6-ce6f-4321-85a9-beedc830f1a3",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "path": "/08-Workflow/",
+      "name": "Plotting Graph Values on Train Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "1254.07px",
+      "y": "298.067px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "e5723254-7bd0-4641-a324-960d870fffd5",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "path": "/08-Workflow/",
+      "name": "Chart Examples",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "1330.13px",
+      "y": "114.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "ebbded46-547d-4e64-98ad-dd83bbb0fe25",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "id": 5
+    },
+    {
+      "source": "6",
+      "target": "7",
+      "id": 6
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 7
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 8
+    },
+    {
+      "source": "9",
+      "target": "10",
+      "id": 9
+    },
+    {
+      "source": "10",
+      "target": "11",
+      "id": 10
+    },
+    {
+      "source": "11",
+      "target": "12",
+      "id": 11
+    },
+    {
+      "source": "12",
+      "target": "13",
+      "id": 12
+    },
+    {
+      "source": "13",
+      "target": "14",
+      "id": 13
+    },
+    {
+      "source": "14",
+      "target": "15",
+      "id": 14
+    },
+    {
+      "source": "15",
+      "target": "16",
+      "id": 15
+    },
+    {
+      "source": "16",
+      "target": "17",
+      "id": 16
+    }
+  ]
+}

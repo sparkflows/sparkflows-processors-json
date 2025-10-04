@@ -1,0 +1,40 @@
+{
+  "uuid": "35125369-16f9-4a19-8059-326aebaff682",
+  "name": "Item-Sales-Data",
+  "description": "Actuals v/s Expected Sales Dataset",
+  "header": true,
+  "path": "data/DATA-VISUALIZATION/Common/Item-Sales.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Product\",\"Month\",\"Actual\",\"Target\"],colTypes:[\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Product",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Month",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Actual",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Target",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}
