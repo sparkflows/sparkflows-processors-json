@@ -1,0 +1,33 @@
+{
+  "uuid": "6a7b3966-6b2d-4d43-8e78-920761895ca3",
+  "name": "Stores",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/kshitiz-test/stores.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Store\",\"Type\",\"Size\"],colTypes:[\"INTEGER\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Store",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Type",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Size",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}
