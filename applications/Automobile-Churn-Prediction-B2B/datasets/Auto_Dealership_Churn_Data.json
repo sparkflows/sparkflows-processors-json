@@ -1,0 +1,81 @@
+{
+  "uuid": "3279f956-263c-47a9-97f4-e5c66dcc9184",
+  "name": "Auto_Dealership_Churn_Data",
+  "header": true,
+  "path": "MUDIT|AUTO_DEALERSHIP_CHURN_DATA|PUBLIC|SNOWFLAKE_LEARNING_WH",
+  "delimiter": ",",
+  "datasetType": "SNOWFLAKE",
+  "datasetSchema": "{colNames:[\"CUSTOMER_ID\",\"BRAND\",\"VEHICLE_MODEL\",\"AGE\",\"YEARS_WITH_DEALER\",\"LAST_SERVICE_DATE\",\"LEASE_END_DATE\",\"SERVICE_VISITS\",\"SATISFACTION_SCORE\",\"MARKETING_RESPONSE\",\"CHURNED\"],colTypes:[\"LONG\",\"STRING\",\"STRING\",\"LONG\",\"LONG\",\"DATE\",\"DATE\",\"LONG\",\"DECIMAL\",\"LONG\",\"LONG\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "CUSTOMER_ID",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BRAND",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "VEHICLE_MODEL",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "AGE",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "YEARS_WITH_DEALER",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "LAST_SERVICE_DATE",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "LEASE_END_DATE",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "SERVICE_VISITS",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "SATISFACTION_SCORE",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MARKETING_RESPONSE",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CHURNED",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

@@ -1,0 +1,81 @@
+{
+  "uuid": "5724a541-61ef-447e-9409-0484b73a668e",
+  "name": "Auto_Dealership_Data",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/data/Subaru-Churn/Raw-Data/Auto_Dealership_Churn_Dataset__2000_Records_.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Customer_ID\",\"Brand\",\"Vehicle_Model\",\"Age\",\"Years_With_Dealer\",\"Last_Service_Date\",\"Lease_End_Date\",\"Service_Visits\",\"Satisfaction_Score\",\"Marketing_Response\",\"Churned\"],colTypes:[\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Customer_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Brand",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Vehicle_Model",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Age",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Years_With_Dealer",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Last_Service_Date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Lease_End_Date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Service_Visits",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Satisfaction_Score",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Marketing_Response",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Churned",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

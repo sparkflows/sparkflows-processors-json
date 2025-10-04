@@ -1,0 +1,33 @@
+{
+  "uuid": "21907c93-aa8c-419f-9b44-c62ae5e6f7d6",
+  "name": "Distributors",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/data/Subaru-Churn/Raw-Data/distributors (2).csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"DISTRIBUTOR_ID\",\"DIST_NAME\",\"COUNTRY_ID\"],colTypes:[\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DISTRIBUTOR_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DIST_NAME",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "COUNTRY_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

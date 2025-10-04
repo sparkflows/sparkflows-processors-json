@@ -1,0 +1,51 @@
+{
+  "uuid": "aa504fd0-38bf-4d8a-88bf-0cecf719faab",
+  "name": "Customer_Delivery_Details_Data",
+  "header": true,
+  "path": "MUDIT|CUSTOMER_DELIVERY_DETAILS|PUBLIC|SNOWFLAKE_LEARNING_WH",
+  "delimiter": ",",
+  "datasetType": "SNOWFLAKE",
+  "datasetSchema": "{colNames:[\"DISTRIBUTOR_ID\",\"CUSTOMER_ID\",\"CUST_NAME\",\"CUST_STARTDT\",\"COUNTRY_ID\",\"PRODUCT_ID\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DISTRIBUTOR_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CUSTOMER_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CUST_NAME",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CUST_STARTDT",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "COUNTRY_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PRODUCT_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

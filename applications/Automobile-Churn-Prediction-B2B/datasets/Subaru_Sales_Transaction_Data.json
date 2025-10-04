@@ -1,0 +1,111 @@
+{
+  "uuid": "ff8cd601-950d-4bef-81f4-1100c13269bd",
+  "name": "Subaru_Sales_Transaction_Data",
+  "header": true,
+  "path": "MUDIT|SUBARU_SALES_TRANSACTIONS_DATA|PUBLIC|SNOWFLAKE_LEARNING_WH",
+  "delimiter": ",",
+  "datasetType": "SNOWFLAKE",
+  "datasetSchema": "{colNames:[\"DISTRIBUTOR_ID\",\"CUSTOMER_ID\",\"INV_DT\",\"INV_NO\",\"INV_NO_KEY\",\"SKUID\",\"QTY\",\"GROSS\",\"UNITPRICE\",\"NET_TOT_TAX\",\"ADJ_AMT\",\"CUST_DISC_AMT\",\"PRODUCT_DISC_AMT\",\"NET\",\"PRODUCT_ID\",\"CATEGORY\"],colTypes:[\"STRING\",\"STRING\",\"DATE\",\"STRING\",\"STRING\",\"STRING\",\"LONG\",\"DECIMAL\",\"DECIMAL\",\"DECIMAL\",\"DECIMAL\",\"DECIMAL\",\"DECIMAL\",\"DECIMAL\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DISTRIBUTOR_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CUSTOMER_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "INV_DT",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "INV_NO",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "INV_NO_KEY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SKUID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "QTY",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "GROSS",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "UNITPRICE",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "NET_TOT_TAX",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ADJ_AMT",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CUST_DISC_AMT",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PRODUCT_DISC_AMT",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "NET",
+        "colType": "DECIMAL",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PRODUCT_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CATEGORY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

@@ -1,0 +1,39 @@
+{
+  "uuid": "bad510d1-f9ee-49de-9057-d4f9212ecb05",
+  "name": "Products_Data",
+  "header": true,
+  "path": "MUDIT|PRODUCTS_DATA|PUBLIC|SNOWFLAKE_LEARNING_WH",
+  "delimiter": ",",
+  "datasetType": "SNOWFLAKE",
+  "datasetSchema": "{colNames:[\"SECTOR\",\"CATEGORY\",\"SUBCATEGPRY\",\"SKUID\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "SECTOR",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CATEGORY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SUBCATEGPRY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SKUID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

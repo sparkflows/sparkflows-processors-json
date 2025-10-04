@@ -1,0 +1,208 @@
+{
+  "name": "Customers - Data Quality",
+  "uuid": "50f29ea4-a0f9-4d67-aa81-ea7f8b0f664c",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "data/CPG/CPG-Churn-Prediction-B2B/Raw-Data/customers.csv",
+      "name": "DatasetStructured",
+      "details": "",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "dataset",
+          "value": "eb70f21e-a80c-4bfa-9eac-c6788d1e627b",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "Is Not Null",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNotNull",
+      "x": "241.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "cols",
+          "value": "[\"DISTRIBUTOR_ID\",\"CUSTOMER_ID\",\"CUST_NAME\",\"CUST_STARTDT\",\"COUNTRY_ID\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "path": "/06-Data-Quality/",
+      "name": "Is Primary Key",
+      "description": "",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPrimaryKey",
+      "x": "321.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"CUST_NAME\",\"CUSTOMER_ID\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "NodeDataQualityCheckAndAlert",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "481.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "emailAddress",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "threshold",
+          "value": "null",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "/home/ec2-user/fire-data/temp/",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    }
+  ],
+  "dataSetDetails": [],
+  "engine": "scala",
+  "workflowType": "DataQuality"
+}

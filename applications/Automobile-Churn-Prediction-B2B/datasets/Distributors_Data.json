@@ -1,0 +1,33 @@
+{
+  "uuid": "7fd599a8-25a0-4b7d-ade1-722b040087f7",
+  "name": "Distributors_Data",
+  "header": true,
+  "path": "MUDIT|DISTRIBUTORS_DATA|PUBLIC|SNOWFLAKE_LEARNING_WH",
+  "delimiter": ",",
+  "datasetType": "SNOWFLAKE",
+  "datasetSchema": "{colNames:[\"DISTRIBUTOR_ID\",\"DIST_NAME\",\"COUNTRY_ID\"],colTypes:[\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DISTRIBUTOR_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DIST_NAME",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "COUNTRY_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}
