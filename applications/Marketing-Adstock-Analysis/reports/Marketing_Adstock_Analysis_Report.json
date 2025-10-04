@@ -1,0 +1,114 @@
+{
+  "name": "Marketing_Adstock_Analysis_Report",
+  "uuid": "955d86f5-bea9-4122-a727-26f91390ac98",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "555.938px",
+          "y": "314.917px",
+          "workflowId": "0f5a216d-0c18-4ab6-9df4-a519c354171e",
+          "workflowName": "05-Media-Mix-Modelling",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "TV Spent",
+          "type": "transform",
+          "x": "423.688px",
+          "y": "0px",
+          "workflowId": "0f5a216d-0c18-4ab6-9df4-a519c354171e",
+          "workflowName": "05-Media-Mix-Modelling",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "SM Spent",
+          "type": "transform",
+          "x": "635.896px",
+          "y": "0px",
+          "workflowId": "0f5a216d-0c18-4ab6-9df4-a519c354171e",
+          "workflowName": "05-Media-Mix-Modelling",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Sales Decomposition",
+          "type": "transform",
+          "x": "1155.94px",
+          "y": "252.938px",
+          "workflowId": "0f5a216d-0c18-4ab6-9df4-a519c354171e",
+          "workflowName": "05-Media-Mix-Modelling",
+          "nodeId": "15",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 19,
+          "name": "TV Spent",
+          "type": "transform",
+          "x": "423.688px",
+          "y": "0px",
+          "workflowId": "e6b213cc-d637-4c45-9a2e-d1775719b573",
+          "workflowName": "06-What-If-Prediction",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "SM Spent",
+          "type": "transform",
+          "x": "635.896px",
+          "y": "0px",
+          "workflowId": "e6b213cc-d637-4c45-9a2e-d1775719b573",
+          "workflowName": "06-What-If-Prediction",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "844.562px",
+          "y": "393.396px",
+          "workflowId": "e6b213cc-d637-4c45-9a2e-d1775719b573",
+          "workflowName": "06-What-If-Prediction",
+          "nodeId": "33",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

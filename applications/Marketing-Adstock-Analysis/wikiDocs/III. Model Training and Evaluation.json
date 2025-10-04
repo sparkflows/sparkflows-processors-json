@@ -1,0 +1,15 @@
+{
+  "id": 4036,
+  "uuid": "d1e9c2ff-c353-47f0-b4ab-a12c99a198ae",
+  "name": "III. Model Training and Evaluation",
+  "category": "",
+  "projectId": 2446,
+  "content": "<h2><strong>Model Used</strong></h2><p>The core model will be a <strong>regression-based approach with adstock transformation</strong>:</p><ul><li><strong>Linear Regression / Regularized Regression (Ridge/Lasso/ElasticNet)</strong> – suitable for interpretability and multicollinearity handling.</li><li>Alternative models: <strong>Random Forest Regressor</strong> or <strong>Gradient Boosting</strong> for capturing non-linear effects.</li></ul><h3><strong>Features Details</strong></h3><ul><li><strong>Adstocked TV Spend</strong></li><li><strong>Adstocked Radio Spend</strong></li><li><strong>Adstocked Newspaper Spend</strong></li><li><strong>Adstocked Digital Spend</strong></li><li><strong>Lag Features</strong> – Spend effects from prior weeks.</li><li><strong>Interaction Features</strong> – Cross-channel synergies (e.g., TV × Digital).</li></ul><h3><strong>Feature Importance</strong></h3><p>Feature importance will be determined using:</p><ul><li><strong>Regression Coefficients</strong> (for linear models, after regularization).</li><li><strong>Permutation Importance or SHAP Values</strong> (for tree-based models).</li><li> This will highlight which channels have the most persistent and powerful effect on sales.</li></ul><h3><strong>Model Metrics</strong></h3><p>Key evaluation metrics:</p><ul><li><strong>R² (Coefficient of Determination):</strong> Measures variance in sales explained by ad spends.</li><li><strong>RMSE (Root Mean Squared Error):</strong> Quantifies prediction error.</li><li><strong>MAE (Mean Absolute Error):</strong> Robustness against large deviations.</li><li><strong>Adjusted R²:</strong> Accounts for multiple predictors and prevents overfitting.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 25, 2025, 7:26:21 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 25, 2025, 7:27:07 AM"
+}

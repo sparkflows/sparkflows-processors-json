@@ -1,0 +1,15 @@
+{
+  "id": 4035,
+  "uuid": "c7279899-2778-4f20-90da-e30f77f8b542",
+  "name": "II. Data Description and Preparation",
+  "category": "",
+  "projectId": 2446,
+  "content": "<h2><strong>Data Description</strong></h2><p>The dataset (<code>adv_Data.csv</code>) typically includes the following features:</p><ul><li><strong>Time Dimension</strong>: Week/Month identifiers (temporal granularity is weekly).</li><li><strong>Advertising Spend Variables</strong>: TV, Radio, Newspaper, Digital, etc. (continuous numerical variables).</li><li><strong>Outcome Variable</strong>: Sales (continuous numerical).</li></ul><p>Granularity: <strong>Weekly ad spends and corresponding sales values</strong> over a multi-period timeframe.</p><p>Variable Types:</p><ul><li><strong>Numerical</strong> – Advertising spends, Sales.</li><li><strong>Categorical/Temporal</strong> – Time periods, campaign IDs (if included).</li></ul><h3><strong>Data Preparation</strong></h3><p>Steps:</p><p>1.<strong> Data Cleaning</strong> – Handle missing values in ad spends or sales data; detect and treat outliers (e.g., unusually high spends).</p><p>2.<strong> Feature Engineering</strong> –</p><ul><li class=\"ql-indent-1\">Create <strong>adstock-transformed variables</strong> (lagged cumulative effects with decay factor).</li><li class=\"ql-indent-1\">Create interaction terms between channels (e.g., TV × Digital).</li></ul><p>3.<strong> Normalization/Scaling</strong> – Standardize spends for comparability across channels.</p><p>4.<strong>Train-Test Split</strong> – Divide dataset into training and validation sets to ensure unbiased model evaluation.</p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 25, 2025, 7:23:30 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 25, 2025, 7:25:39 AM"
+}
