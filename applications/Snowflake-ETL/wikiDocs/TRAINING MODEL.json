@@ -1,0 +1,15 @@
+{
+  "id": 2120,
+  "uuid": "9cfb6b61-4b5e-4eaa-9b20-2f743b9c3650",
+  "name": "TRAINING MODEL",
+  "category": "",
+  "projectId": 1600,
+  "content": "<h2>Fraud Detection Model Training (using H2O DRF)</h2><p><br></p><p><strong>1. Data Ingestion:</strong></p><p><br></p><p>&nbsp;&nbsp;- Read the feature dataset from Snowflake (or other source).&nbsp;The dataset contains relevant features for fraud detection (e.g., `Monthly_Avg_Claim_Amount`, `Policy_Start_Claim_Date_Diff`).</p><p><br></p><p><strong>2. Data Selection:</strong></p><p><br></p><p>&nbsp;&nbsp;- Split data into training, validation, and testing sets (e.g., 70/15/15 split).</p><p>&nbsp;&nbsp;- Ensure the target variable (fraudulent/not fraudulent) is defined.</p><p><br></p><p><strong>3. Model Training:</strong></p><p><br></p><p>&nbsp;&nbsp;- Train an H2O Deep Random Forest (DRF) model on the training data.</p><p>&nbsp;&nbsp;- Tune model hyperparameters using the validation data.</p><p><br></p><p><strong>4. Model Evaluation:</strong></p><p><br></p><p>&nbsp;&nbsp;- Evaluate the model's performance on the testing data using appropriate metrics (e.g., AUC in this case).</p><p>- For fraud detection classification, <strong>AUC </strong>(Area Under the Receiver Operating Characteristic Curve) is an excellent metric because it provides a robust measure of a model's ability to distinguish between fraudulent and non-fraudulent cases across various thresholds, ensuring balanced performance even in imbalanced datasets.</p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "Fraud Detection Model",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "May 5, 2025, 12:53:53 PM",
+  "updatedBy": "saju",
+  "dateLastUpdated": "May 22, 2025, 11:20:31 AM"
+}

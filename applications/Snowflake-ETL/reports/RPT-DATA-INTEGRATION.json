@@ -1,0 +1,118 @@
+{
+  "name": "RPT-DATA-INTEGRATION",
+  "uuid": "a2cf4d9f-261b-44b3-8e86-37bfbe3f5b21",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "category": "REPORTS",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "FEATURE-DATA-PROFILING",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 10,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "371.62px",
+          "y": "2.62268px",
+          "workflowId": "ac6095cc-2ce0-474b-811b-8383a536c3cc",
+          "workflowName": "02-Feature-Data-Profiling",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "380.465px",
+          "y": "90.4792px",
+          "workflowId": "ac6095cc-2ce0-474b-811b-8383a536c3cc",
+          "workflowName": "02-Feature-Data-Profiling",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "447.201px",
+          "y": "277.431px",
+          "workflowId": "ac6095cc-2ce0-474b-811b-8383a536c3cc",
+          "workflowName": "02-Feature-Data-Profiling",
+          "nodeId": "28",
+          "grow": 0
+        },
+        {
+          "id": 32,
+          "name": "Gauge Chart",
+          "type": "transform",
+          "x": "471.296px",
+          "y": "377.012px",
+          "workflowId": "ac6095cc-2ce0-474b-811b-8383a536c3cc",
+          "workflowName": "02-Feature-Data-Profiling",
+          "nodeId": "32",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "DATA-QUALITY-OUTCOMES",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 16,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "963.667px",
+          "y": "171.677px",
+          "workflowId": "b6bb832a-4ed6-4906-9b0d-713932452549",
+          "workflowName": "00-Data-Quality",
+          "nodeId": "16",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "TRAINING-MODEL",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 3,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "626.844px",
+          "y": "22.8439px",
+          "workflowId": "a111560b-9bb6-4a77-a37e-4df42acafd49",
+          "workflowName": "03-Train-Fraud-Model",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "1040.62px",
+          "y": "60.625px",
+          "workflowId": "a111560b-9bb6-4a77-a37e-4df42acafd49",
+          "workflowName": "03-Train-Fraud-Model",
+          "nodeId": "7",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

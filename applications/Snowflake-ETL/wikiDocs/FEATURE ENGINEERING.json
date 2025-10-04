@@ -1,0 +1,15 @@
+{
+  "id": 2122,
+  "uuid": "433ab7bd-e1e2-41e2-bacb-8578c454bae3",
+  "name": "FEATURE ENGINEERING",
+  "category": "",
+  "projectId": 1600,
+  "content": "<h2>Feature Engineering on the Policy Claims Data</h2><p><br></p><p><strong>1. Data Ingestion&nbsp;&nbsp;</strong></p><p>&nbsp;&nbsp;- Read Policy and Claims data.&nbsp;&nbsp;</p><p>&nbsp;&nbsp;- Join to create a Policy Claims dataset.</p><p><br></p><p><strong>2. Date Conversion&nbsp;&nbsp;</strong></p><p>&nbsp;&nbsp;- Convert string-formatted date values to date datatype.</p><p><br></p><p><strong>3. Feature Extraction&nbsp;&nbsp;</strong></p><p>&nbsp;&nbsp;- Extract week, month, and day from Claim Date.&nbsp;&nbsp;</p><p>&nbsp;&nbsp;- Create additional features:&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;- Monthly_Avg_Claim_Amount&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;- Status_Monthly_Avg_Claim_Amount&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;- Policy_Start_Claim_Date_Diff</p><p><br></p><p><strong>4. Fraud Detection&nbsp;&nbsp;</strong></p><p>&nbsp;&nbsp;- Apply business rule of fraud checking. Rule for fraud being if `Policy_Start_Claim_Date_Diff &lt;= 60` AND `Monthly_Avg_Claim_Amount &lt; 1000.0`.</p><p><br></p><p><strong>5. Data Storage&nbsp;&nbsp;</strong></p><p>&nbsp;&nbsp;- Save the processed data to Snowflake.</p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "Steps Involved",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "May 5, 2025, 12:53:53 PM",
+  "updatedBy": "saju",
+  "dateLastUpdated": "May 22, 2025, 11:20:31 AM"
+}
