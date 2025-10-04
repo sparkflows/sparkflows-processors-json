@@ -1,0 +1,15 @@
+{
+  "id": 3832,
+  "uuid": "263b29d5-bdbe-4297-a8a4-a17206410ab4",
+  "name": "02-Data-Preparation",
+  "category": "",
+  "projectId": 2662,
+  "content": "<h1>Data-Definition and Data-Preparation</h1><h1><br></h1><h1>Data Description:-</h1><p>These Datasets are designed to provide information that will help predict whether a given supplier is worthy to be classified as a 'Good' or not.These are the following data sets:-</p><p><br></p><h2>Suppliers:</h2><ul><li>SupplierID :- Provides a ID to identify each Supplier</li><li>SupplierName :- Contains the name of the Supplier</li><li>Region:- Tells Location of the Supplier</li><li>YearsInBusiness:- Tells the number of years the supplier has been in Business</li><li>LeadTime:-It is the time taken to receive supply from Supplier</li><li>PriceIndex:-It is a measure of how prices change over a period of time,</li><li>OrderFulfillmentTime:-Time taken to Fulfil the order</li><li>OverallCost:- Total cost for the transaction with supplier</li><li>OrderCancellations:-No of cancellations with Supplier</li><li>CustomerRating:- Rating of supplier as per Customers</li></ul><p><br></p><h2>Orders:</h2><ul><li>OrderID:-Unique ID of order to identify it among others</li><li>SupplierID:-Provides a ID to identify each Supplier</li><li>OrderQuantity:-Quantity of Orders placed</li><li>OrderLeadTime:-It is&nbsp;the time it takes for the business to receive an order and fulfill it</li><li>OrderCost:- Cost of the Order</li></ul><p><br></p><h2>Parts:</h2><ul><li>PartID:-Unique ID for a given part</li><li>SupplierID:-Provides a ID to identify each Supplier</li><li>PartName:-Name of the Part</li><li>PartCategory:-Category in which the part is classified under</li><li>PartQualityScore:-Score based on the quality of the part</li></ul><p><br></p><h1><br></h1><h1>Data Preparation</h1><p>Steps include:</p><ul><li>Cleaning: Check for duplicates, invalid supplier IDs, or missing values.</li><li>Transformation: Normalize cost- and time-based variables for fair comparison.</li><li>Feature Engineering:</li><li class=\"ql-indent-1\">AverageOrderQuantity per supplier.</li><li class=\"ql-indent-1\">CancellationRate = OrderCancellations / TotalOrders.</li><li class=\"ql-indent-1\">SupplierScore = Weighted combination of cost, quality, fulfillment, and rating.</li><li>Integration: Join datasets on SupplierID to create a unified supplier performance dataset.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Aug 25, 2025, 7:01:28 AM",
+  "updatedBy": "mudit",
+  "dateLastUpdated": "Sep 12, 2025, 6:56:16 AM"
+}

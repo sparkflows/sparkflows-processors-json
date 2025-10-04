@@ -1,0 +1,15 @@
+{
+  "id": 3212,
+  "uuid": "efbd41a3-4fd9-4e99-962a-7831f4470843",
+  "name": "3.Model Classification",
+  "category": "",
+  "projectId": 1616,
+  "content": "<p>The H2O Distributed Random Forest (DRF) algorithm is employed for training the prediction model.</p><p> DRF is a robust machine learning algorithm optimized for large-scale datasets, making it well-suited for predicting HCP engagement using Social Determinants of Health (SDOH) factors.</p><h2><br></h2><h2>Steps for Model Training</h2><h3>1. Initialize H2O Environment</h3><ul><li>Start an H2O cluster.</li><li>Import the SDOH dataset into the H2O environment.</li></ul><h3>2. Data Preparation</h3><ul><li>Train-Test Split: Divide the dataset into training and testing subsets.</li><li>Target Variable: <code>hcp_engagement</code> (numerical score of healthcare provider engagement).</li><li>Feature Set: Include relevant SDOH factors such as:</li><li class=\"ql-indent-1\"><code>emp_cnt</code></li><li class=\"ql-indent-1\"><code>usage_score</code></li><li class=\"ql-indent-1\"><code>days_to_pay</code></li><li class=\"ql-indent-1\">and other socioeconomic indicators.</li></ul><h3>3. Model Training (DRF)</h3><ul><li>Train a Distributed Random Forest model in H2O.</li><li>Specify key hyperparameters:</li><li class=\"ql-indent-1\"><code>ntrees</code> → number of trees</li><li class=\"ql-indent-1\"><code>max_depth</code> → maximum depth of trees</li><li class=\"ql-indent-1\"><code>min_rows</code> → minimum number of rows per leaf</li></ul><h2><br></h2><h2>Model Summary &amp; Outputs</h2><p>After training, H2O generates a detailed model summary, including:</p><ul><li>Performance Metrics: Accuracy, AUC, Precision, Recall, F1-score.</li><li>Feature Importance Rankings: Identify the most influential SDOH factors.</li><li>Visualization Tools: Tree-based variable importance plots and ROC curve outputs.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:07:09 PM",
+  "updatedBy": "mudit",
+  "dateLastUpdated": "Sep 25, 2025, 7:36:44 AM"
+}

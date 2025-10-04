@@ -1,0 +1,15 @@
+{
+  "id": 3368,
+  "uuid": "01fffa08-b8d5-4807-b2f5-ff551c681a15",
+  "name": "02-Dataset Definition and Preparation",
+  "category": "",
+  "projectId": 2468,
+  "content": "<h2>Data Description</h2><p>The dataset, Hackaton_Data, consists of transactional sales data with the following features:</p><ul><li>MONTH – Categorical (e.g., M1, M2), representing monthly sales periods.</li><li>STORECODE – Categorical identifier for individual stores.</li><li>DAY – Numerical, indicating the day of the month of the transaction.</li><li>BILL_ID – Transaction identifier (categorical).</li><li>BILL_AMT – Numerical, total bill amount for the transaction.</li><li>QTY – Numerical, quantity of items purchased.</li><li>VALUE – Numerical, value contribution of a specific item in the bill.</li><li>PRICE – Numerical, price of the product unit.</li><li>GRP / SGRP / SSGRP – Hierarchical product categorization (categorical).</li><li>CMP – Company name (categorical).</li><li>MBRD – Master brand (categorical).</li><li>BRD – Specific brand (categorical).</li></ul><p>Granularity: Each record corresponds to a single product line within a customer bill.</p><p>Time Period: Covers multiple months (transactional at daily level).</p><p>Data Preparation:</p><p>Steps include:</p><p>1.Data Cleaning:</p><ul><li>Handle missing or inconsistent values in product names, prices, or company identifiers.</li><li>Detect and address outliers in BILL_AMT, QTY, and PRICE.</li></ul><p>2.Feature Engineering:</p><ul><li>Derive Revenue per Product = PRICE * QTY.</li><li>Create store-level aggregates (monthly sales, product counts, brand contribution).</li><li>Generate time-based features (weekday vs. weekend, seasonality indicators).</li></ul><p>3.Data Transformation:</p><ul><li>Encode categorical variables (e.g., one-hot encoding for product groups).</li><li>Normalize numerical features where required for modeling.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:34 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 11:12:54 AM"
+}

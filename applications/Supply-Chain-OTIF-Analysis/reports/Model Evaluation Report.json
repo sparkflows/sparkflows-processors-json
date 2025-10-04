@@ -1,0 +1,458 @@
+{
+  "name": "Model Evaluation Report",
+  "uuid": "255ef4dc-3f92-483c-8223-5655814b2d35",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Random Forest Classification",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 11,
+          "name": "Random Forest Classifier",
+          "description": "Supports both binary and multiclass labels, as well as both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "600.889px",
+          "y": "211.889px",
+          "workflowId": "7ee77205-1863-4b50-b068-c9d8685a1758",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-RF-Model-Training",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Multiclass Classification Evaluator",
+          "description": "Evaluator for multiclass classification, which expects two input columns: score and label.",
+          "type": "ml-evaluator",
+          "x": "380.222px",
+          "y": "450.236px",
+          "workflowId": "7ee77205-1863-4b50-b068-c9d8685a1758",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-RF-Model-Training",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1082.38px",
+          "y": "268.328px",
+          "workflowId": "3a83110b-99ba-45a9-9cd6-bc12e29070fe",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-RF-Model-Predictions",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 43,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1096.13px",
+          "y": "475.133px",
+          "workflowId": "3a83110b-99ba-45a9-9cd6-bc12e29070fe",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-RF-Model-Predictions",
+          "nodeId": "43",
+          "grow": 0
+        },
+        {
+          "id": 55,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1071.47px",
+          "y": "32.4141px",
+          "workflowId": "3a83110b-99ba-45a9-9cd6-bc12e29070fe",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-RF-Model-Predictions",
+          "nodeId": "55",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "ReportRF",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "333.778px",
+          "y": "359.778px",
+          "workflowId": "39ca437b-365e-4d2d-9476-946689321722",
+          "workflowName": "08-Classification-Predictive-Analytics-Report",
+          "nodeId": "6",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Decision Tree Classification",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 67,
+          "name": "Decision Tree Classifier",
+          "description": "It supports both binary and multiclass labels, as well as both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "581px",
+          "y": "199px",
+          "workflowId": "5bc2e4ec-99ef-422f-a4d7-a36025abc221",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-DE-Model-Training",
+          "nodeId": "67",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Multiclass Classification Evaluator",
+          "description": "Evaluator for multiclass classification, which expects two input columns: score and label.",
+          "type": "ml-evaluator",
+          "x": "380.222px",
+          "y": "450.236px",
+          "workflowId": "5bc2e4ec-99ef-422f-a4d7-a36025abc221",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-DE-Model-Training",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1082.38px",
+          "y": "268.328px",
+          "workflowId": "80c10f29-5131-465d-b942-fdc5db513cb3",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DE-Model-Predictions",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 43,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1096.13px",
+          "y": "475.133px",
+          "workflowId": "80c10f29-5131-465d-b942-fdc5db513cb3",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DE-Model-Predictions",
+          "nodeId": "43",
+          "grow": 0
+        },
+        {
+          "id": 55,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1071.47px",
+          "y": "32.4141px",
+          "workflowId": "80c10f29-5131-465d-b942-fdc5db513cb3",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DE-Model-Predictions",
+          "nodeId": "55",
+          "grow": 0
+        },
+        {
+          "id": 69,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1211.18px",
+          "y": "630.984px",
+          "workflowId": "80c10f29-5131-465d-b942-fdc5db513cb3",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DE-Model-Predictions",
+          "nodeId": "69",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "668.492px",
+          "y": "393.5px",
+          "workflowId": "5bc2e4ec-99ef-422f-a4d7-a36025abc221",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-DE-Model-Training",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 62,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "122.766px",
+          "y": "342.766px",
+          "workflowId": "5bc2e4ec-99ef-422f-a4d7-a36025abc221",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-DE-Model-Training",
+          "nodeId": "62",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "ReportDE",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "290.889px",
+          "y": "86.8889px",
+          "workflowId": "39ca437b-365e-4d2d-9476-946689321722",
+          "workflowName": "08-Classification-Predictive-Analytics-Report",
+          "nodeId": "4",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Distributed Random Forest Classification",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 3,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "829px",
+          "y": "204px",
+          "workflowId": "1fcd15e6-91b9-47cd-88bc-7c0e6b07b107",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-DRF-Model-Training",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1244.38px",
+          "y": "296.312px",
+          "workflowId": "35b1bd35-3c09-4c8a-88a3-6d756f9f18a1",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DRF-Model-Prediction",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1250.12px",
+          "y": "637.125px",
+          "workflowId": "35b1bd35-3c09-4c8a-88a3-6d756f9f18a1",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DRF-Model-Prediction",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 29,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1229.47px",
+          "y": "442.406px",
+          "workflowId": "35b1bd35-3c09-4c8a-88a3-6d756f9f18a1",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DRF-Model-Prediction",
+          "nodeId": "29",
+          "grow": 0
+        },
+        {
+          "id": 32,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1245.17px",
+          "y": "751.969px",
+          "workflowId": "35b1bd35-3c09-4c8a-88a3-6d756f9f18a1",
+          "workflowName": "05-On-Time-In-Full-(OTIF)-Classification-DRF-Model-Prediction",
+          "nodeId": "32",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "ReportDRF",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "319.889px",
+          "y": "212.889px",
+          "workflowId": "39ca437b-365e-4d2d-9476-946689321722",
+          "workflowName": "08-Classification-Predictive-Analytics-Report",
+          "nodeId": "5",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 4,
+      "name": "Random Forest Regression",
+      "type": "type",
+      "idx": "4",
+      "items": [
+        {
+          "id": 10,
+          "name": "Regression Evaluator",
+          "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+          "type": "ml-evaluator",
+          "x": "1054.53px",
+          "y": "344.528px",
+          "workflowId": "18631172-9c64-4a05-8f1e-e0ed1144b08a",
+          "workflowName": "06-Expected-Days-For-Delivery-Regression-RF-Model-Training",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Random Forest Regression",
+          "description": "It supports both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "786.889px",
+          "y": "128.889px",
+          "workflowId": "18631172-9c64-4a05-8f1e-e0ed1144b08a",
+          "workflowName": "06-Expected-Days-For-Delivery-Regression-RF-Model-Training",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Regression Evaluator",
+          "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+          "type": "ml-evaluator",
+          "x": "603.417px",
+          "y": "123.417px",
+          "workflowId": "52b272c0-75c1-4f64-9ed9-074ca49dabdd",
+          "workflowName": "07-Expected-Days-For-Delivery-Regression-RF-Model-Predictions",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "719.889px",
+          "y": "261.889px",
+          "workflowId": "52b272c0-75c1-4f64-9ed9-074ca49dabdd",
+          "workflowName": "07-Expected-Days-For-Delivery-Regression-RF-Model-Predictions",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "ReportRF",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "482.667px",
+          "y": "398.667px",
+          "workflowId": "5a90039d-ecbc-49b0-9bcb-3eb56a778104",
+          "workflowName": "08-Reggression-Predictive-Analytics-Report",
+          "nodeId": "6",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 5,
+      "name": "Decision Tree Regression",
+      "type": "type",
+      "idx": "5",
+      "items": [
+        {
+          "id": 10,
+          "name": "Regression Evaluator",
+          "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+          "type": "ml-evaluator",
+          "x": "1054.53px",
+          "y": "344.528px",
+          "workflowId": "55862409-068c-4799-add7-3dc170619c27",
+          "workflowName": "06-Expected-Days-For-Delivery-Regression-DE-Model-Training",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Decision Tree Regression",
+          "description": "It supports both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "747px",
+          "y": "160px",
+          "workflowId": "55862409-068c-4799-add7-3dc170619c27",
+          "workflowName": "06-Expected-Days-For-Delivery-Regression-DE-Model-Training",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Regression Evaluator",
+          "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+          "type": "ml-evaluator",
+          "x": "603.417px",
+          "y": "123.417px",
+          "workflowId": "124d7b61-e340-4815-aa10-b1a4eb9b8995",
+          "workflowName": "07-Expected-Days-For-Delivery-Regression-DE-Model-Predictions",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "719.889px",
+          "y": "261.889px",
+          "workflowId": "124d7b61-e340-4815-aa10-b1a4eb9b8995",
+          "workflowName": "07-Expected-Days-For-Delivery-Regression-DE-Model-Predictions",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "ReportDE",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "447.889px",
+          "y": "110.889px",
+          "workflowId": "5a90039d-ecbc-49b0-9bcb-3eb56a778104",
+          "workflowName": "08-Reggression-Predictive-Analytics-Report",
+          "nodeId": "4",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 6,
+      "name": "Distributed Random Forest Regression",
+      "type": "type",
+      "idx": "6",
+      "items": [
+        {
+          "id": 27,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "614px",
+          "y": "183px",
+          "workflowId": "76dcf143-7907-47a1-9a1c-8689cc636b6d",
+          "workflowName": "06-Expected-Days-For-Delivery-Regression-DRF-Model-Training",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "869.875px",
+          "y": "395.875px",
+          "workflowId": "2e90dc23-1c1d-445e-a27c-1c22c4d71a1e",
+          "workflowName": "07-Expected-Days-For-Delivery-Regression-DRF-Model-Predictions",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "ReportDRF",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "478.778px",
+          "y": "243.778px",
+          "workflowId": "5a90039d-ecbc-49b0-9bcb-3eb56a778104",
+          "workflowName": "08-Reggression-Predictive-Analytics-Report",
+          "nodeId": "5",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

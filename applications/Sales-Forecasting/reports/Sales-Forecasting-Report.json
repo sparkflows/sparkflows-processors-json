@@ -1,0 +1,185 @@
+{
+  "name": "Sales-Forecasting-Report",
+  "uuid": "883a3f6c-52a8-489a-825f-9d75f7571c2d",
+  "icon": {
+    "type": "svg",
+    "icon": "images/report.svg"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive-Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 1,
+          "name": "Graph Values - Sales By Size",
+          "type": "transform",
+          "x": "567.198px",
+          "y": "468.191px",
+          "workflowId": "010220f5-a68f-4844-9635-e3ecb187b987",
+          "workflowName": "04- EDA",
+          "nodeId": "1",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Graph Values - Store Avg Weekly Sales",
+          "type": "transform",
+          "x": "965.406px",
+          "y": "189.399px",
+          "workflowId": "010220f5-a68f-4844-9635-e3ecb187b987",
+          "workflowName": "04- EDA",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values - Holiday Sales Analysis",
+          "type": "transform",
+          "x": "1007.2px",
+          "y": "453.188px",
+          "workflowId": "010220f5-a68f-4844-9635-e3ecb187b987",
+          "workflowName": "04- EDA",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 30,
+          "name": "Graph Values - Sales By Type",
+          "type": "transform",
+          "x": "512.295px",
+          "y": "62.2986px",
+          "workflowId": "010220f5-a68f-4844-9635-e3ecb187b987",
+          "workflowName": "04- EDA",
+          "nodeId": "30",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Box plot for Store type vs Size",
+          "description": "",
+          "type": "transform",
+          "x": "596.202px",
+          "y": "807.205px",
+          "workflowId": "010220f5-a68f-4844-9635-e3ecb187b987",
+          "workflowName": "04- EDA",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Pie Chart On Store types vs Count",
+          "type": "transform",
+          "x": "595.629px",
+          "y": "979.58px",
+          "workflowId": "010220f5-a68f-4844-9635-e3ecb187b987",
+          "workflowName": "04- EDA",
+          "nodeId": "38",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Training and Feature Importance",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 7,
+          "name": "Random Forest Regression",
+          "description": "It supports both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "751px",
+          "y": "137.988px",
+          "workflowId": "db01cd2b-ea13-4216-a075-af67bde8d5d1",
+          "workflowName": "05-Machine Learning Model",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Regression Evaluator",
+          "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+          "type": "ml-evaluator",
+          "x": "681.108px",
+          "y": "491.083px",
+          "workflowId": "db01cd2b-ea13-4216-a075-af67bde8d5d1",
+          "workflowName": "05-Machine Learning Model",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "902px",
+          "y": "247.975px",
+          "workflowId": "db01cd2b-ea13-4216-a075-af67bde8d5d1",
+          "workflowName": "05-Machine Learning Model",
+          "nodeId": "11",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Validation",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 6,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1147.52px",
+          "y": "139.517px",
+          "workflowId": "dc8f7633-e6ad-4dd3-9c8c-dfd92dce23d4",
+          "workflowName": "06-Validation",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1145.53px",
+          "y": "541.198px",
+          "workflowId": "dc8f7633-e6ad-4dd3-9c8c-dfd92dce23d4",
+          "workflowName": "06-Validation",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "828.215px",
+          "y": "411.219px",
+          "workflowId": "dc8f7633-e6ad-4dd3-9c8c-dfd92dce23d4",
+          "workflowName": "06-Validation",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "795.104px",
+          "y": "93.1111px",
+          "workflowId": "dc8f7633-e6ad-4dd3-9c8c-dfd92dce23d4",
+          "workflowName": "06-Validation",
+          "nodeId": "25",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

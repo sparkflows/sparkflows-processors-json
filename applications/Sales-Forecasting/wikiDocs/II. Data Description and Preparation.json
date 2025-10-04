@@ -1,0 +1,15 @@
+{
+  "id": 3958,
+  "uuid": "f23e3a9c-5a34-4c60-9262-58247656ec65",
+  "name": "II. Data Description and Preparation",
+  "category": "",
+  "projectId": 2466,
+  "content": "<h3>Data Description</h3><p>The project utilizes four datasets:</p><p>\t1.Stores dataset</p><ul><li>Variables: Store ID, Type (categorical), Size (numerical).</li><li>Provides store-level characteristics.</li></ul><p>\t2.Features dataset</p><ul><li>Variables: Date, Temperature, Fuel Price, MarkDowns (1–5), CPI, Unemployment, IsHoliday.</li><li>Covers economic and environmental factors over time.</li></ul><p>\t3.Train dataset</p><ul><li>Variables: Store, Dept, Date, Weekly_Sales (numerical target), IsHoliday (boolean).</li><li>Weekly granularity with sales outcomes for model training.</li></ul><p>\t4.Test dataset</p><ul><li>Variables: Store, Dept, Date, IsHoliday.</li><li>Holds the future periods for which forecasts need to be generated.</li></ul><p>Granularity: Store–Department–Week level.</p><p> Time period: February 2010 to November 2012 (approx.).</p><p> Data types:</p><ul><li>Categorical: Store ID, Dept ID, Type, IsHoliday.</li><li>Numerical: Weekly_Sales, Size, Temperature, Fuel Price, MarkDowns, CPI, Unemployment.</li><li>Date/Temporal: Date.</li></ul><h3>Data Preparation</h3><p>Key preparation steps include:</p><ul><li>Handling missing values: Imputation strategies for missing MarkDown variables and other gaps.</li><li>Outlier detection: Identifying anomalies in sales (holiday spikes) or incorrect entries.</li><li>Feature engineering:</li><li class=\"ql-indent-1\">Time-based features (month, year, week number).</li><li class=\"ql-indent-1\">Holiday proximity indicators.</li><li class=\"ql-indent-1\">Lagged sales and rolling averages for trend capture.</li><li>Transformation:</li><li class=\"ql-indent-1\">Log transformation for skewed variables like sales.</li><li class=\"ql-indent-1\">Normalization/scaling of continuous features such as fuel price, CPI, and unemployment.</li><li>Encoding: Convert categorical variables (e.g., Store Type, IsHoliday) into machine-readable form.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 15, 2025, 10:51:39 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 15, 2025, 10:53:14 AM"
+}

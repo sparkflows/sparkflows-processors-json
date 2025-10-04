@@ -1,0 +1,15 @@
+{
+  "id": 3827,
+  "uuid": "dda9517b-29cd-4af3-b027-2f5e6c9ebe91",
+  "name": "02-Data Dictionary",
+  "category": "",
+  "projectId": 2566,
+  "content": "<h1>OTIF Dataset Definition:-</h1><p><br></p><ul><li>jobid: Job Identification Number</li><li>PurchaseOrder_Received_Date: The date on which the purchase order was received</li><li>Materials_Availability_Date: The date on which materials were made available for a job</li><li>Production_Started_Date: The date on which production was started for a job</li><li>Production_Completed_Date: The date on which production was completed for a job</li><li>Quantity_Produced: Quantity produced under a job</li><li>Unit_Of_Measure: Unit of measurement for quantity produced</li><li>Shipment_Shipped_Date: The date on which the shipment was shipped</li><li>OTIF: Flag indicating whether a job was completed on time and in full</li><li>Customer: Customer name</li></ul><p><br></p><p><br></p><h1>Data Preparation:-</h1><p><br></p><ul><li>MA_PS_DaysDiff: Difference in days between the materials availability date (materials_availablity_date_dt) and the production started date (production_started_date_dt). It measures the duration between the availability of materials and the commencement of production.</li><li>PO_MA_DaysDiff: Difference in days between the purchase order received date (purchaseorder_received_date_dt) and the materials availability date (materials_availablity_date_dt). It measures the duration between the receipt of a purchase order and the availability of materials for production.</li><li>PS_PC_DaysDiff: Difference in days between the production started date (production_started_date_dt) and the production completed date (production_completed_date_dt). It measures the duration of the production process.</li><li>PC_SS_DaysDiff: Difference in days between the production completed date (production_completed_date_dt) and the shipment shipped date (shipment_shipped_date_dt). It measures the duration between the completion of production and the shipment of products.</li><li>PR_SS_DaysDiff: Difference in days between the purchase order received date (purchaseorder_received_date_dt) and the shipment shipped date (shipment_shipped_date_dt). It measures the duration between the receipt of a purchase order and the shipment of products.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Aug 25, 2025, 7:01:27 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 11:19:47 AM"
+}

@@ -1,0 +1,4187 @@
+{
+  "name": "01-Supply-Chain-Data-Preparation",
+  "uuid": "2d6425cf-0919-4f6d-a8b9-6ebbd074cf83",
+  "category": "Supply Chain Optimization",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "2",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "19px",
+      "y": "45px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "259px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "200px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p>This workflow prepares data and performs following processing:</p><ul><li>Converts date columns to datetime datatype</li><li>Extracts date parts from date columns</li><li>Computes differences between diff date columns</li></ul><p><br></p><p>Reference notebook:</p><p>https://github.com/j2colaco/data_assignment/blob/master/Data%20Assignment.ipynb</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "4",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "637px",
+      "y": "31.9875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "6",
+      "name": "String To Date",
+      "description": "This node converts string columns to date using the specified date/time format",
+      "details": "<h2>String To Date Multi Details</h2>\n<br>\nThis node converts a string column to a date or timestamp datatype column. This node can be used to convert multiple string columns to new Date or Timestmp columns. <br>\n<br>\n<h4>Input</h4>\n<ul>\n<li>   COLUMNS :- Select the String field(s) which needs to be converted.</li>\n<li>   INPUT COLUMN FORMATS :-The format of the input column is specified here.</li>\n<li>   OUTPUT COLUMN NAMES :- Specify the output column name for the converted value. </li>\n<li>   NEW DATA TYPES :- Select the output type as either of DATE or TIMESTAMP datatype.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li>   It will convert all the specified columns into the specified  datatype.</li>\n</ul>\n<h4>Example</h4>\n<ul>\n<li>   Input : 04/13/2019</li>\n<li>   Format : MM/dd/yyyy</li>\n<li>   NEW DATA TYPES : DATE</li>\n</ul>\n<br>\n<ul>\n<li>   Input : 04/13/2019</li>\n<li>   Format : MM/dd/yyyy</li>\n<li>   NEW DATA TYPES : TIMESTAMP</li>\n</ul>",
+      "examples": "<h2>Format Examples</h2>\n<br>\n<ul>\n<li> dd-MM-yy : 31-01-12</li>\n<li> dd-MM-yyyy : 31-01-2012</li>\n<li> MM-dd-yyyy : 01-31-2012</li>\n<li> yyyy-MM-dd : 2012-01-31</li>\n<li> yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59</li>\n<li> yyyy-MM-dd HH:mm:ss.SSS : 2012-01-31 23:59:59.999</li>\n<li> yyyy-MM-dd HH:mm:ss.SSSZ : 2012-01-31 23:59:59.999+0100</li>\n<li> EEEEE MMMMM yyyy HH:mm:ss.SSSZ : Saturday November 2012 10:45:42.720+0100</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeMultiStringToDate",
+      "x": "571px",
+      "y": "139px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputColNames",
+          "value": "[\"purchaseorder_received_date\",\"materials_availablity_date\",\"production_started_date\",\"production_completed_date\",\"shipment_shipped_date\"]",
+          "widget": "variables_list_select",
+          "title": "Columns",
+          "description": "Columns",
+          "datatypes": [
+            "string"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputColFormats",
+          "value": "[\"yyyy-MM-dd HH:mm\",\"yyyy-MM-dd HH:mm\",\"yyyy-MM-dd HH:mm\",\"yyyy-MM-dd HH:mm\",\"yyyy-MM-dd HH:mm\"]",
+          "widget": "variables_list_textfield",
+          "title": "Input Column Formats",
+          "description": "Input Column Formats. eg: yyyy-MM-dd yyyy-MM-dd HH:mm:ss",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"purchaseorder_received_date_dt\",\"materials_availablity_date_dt\",\"production_started_date_dt\",\"production_completed_date_dt\",\"shipment_shipped_date_dt\"]",
+          "widget": "variables_list_textfield",
+          "title": "Output Column Names",
+          "description": "Output Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"TIMESTAMP\",\"TIMESTAMP\",\"TIMESTAMP\",\"TIMESTAMP\",\"TIMESTAMP\"]",
+          "widget": "variables_list_array",
+          "title": "New Data Types",
+          "description": "New data types (DATE, TIMESTAMP)",
+          "optionsArray": [
+            "DATE",
+            "TIMESTAMP"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "8",
+      "name": "Date Difference",
+      "description": "This node finds difference between two dates",
+      "details": "<h2>Date Difference Details</h2>\n<br>\nCalculates the difference between two given date/datetime columns.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li> FROMDATE :- The input column (i.e from which date) is selected here and it should be of Date\\TimeStump datatype. </li>\n<li> TODATE :- The input column (i.e upto which date) is selected here and it should be of Date\\TimeStump datatype.</li>\n<li> USECURRENTDATEASTOCOL :- When set to true, uses current Date as the 'TODATE' value </li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> Difference between the two date fields can be displayed in terms of days, hours, minutes and seconds.</li>\n<li> To enable the new column(s) set the value of the field as true ( By Default, it is set to false )</li>\n</ul>\n<h4>Example</h4>\n<ul>\n<li> Date Difference output when all fields are enabled as true. </li>\n</ul>",
+      "examples": "<h2>Format Examples</h2>\n<br>\n<ul>\n<li> dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :\t743794461 : second</li>\n<li> dd-MM-yyyy : 10-02-1996 to 20-09-2017 diff- 8536 days : 204881 hours : 12292884 min :\t737573070 : second</li>\n<li> MM-dd-yyyy : 19-10-1994 to 06-12-2017 diff- 9015 days : 216377 hours : 12982644 min :\t778958670 : second</li>\n<li> yyyy-MM-dd : 1994-12-25 to 2019-01-16 diff- 8948 days : 214769 hours : 12886164 min :\t773169870 : second</li>\n<li> yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59 to 2010-12-30 22:59:59 diff-397 days: 1 hour: 0 minutes : 0 seconds</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateDiff",
+      "x": "683px",
+      "y": "136px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fromDate",
+          "value": "purchaseorder_received_date_dt",
+          "widget": "variable",
+          "title": "FromDate",
+          "description": "From date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "toDate",
+          "value": "materials_availablity_date_dt",
+          "widget": "variable",
+          "title": "Todate",
+          "description": "To date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "useCurrentDateAsToDateCol",
+          "value": "false",
+          "widget": "array",
+          "title": "Use Current Date As To Date",
+          "description": "Current Date As ToDate",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "days",
+          "value": "true",
+          "widget": "array",
+          "title": "Days",
+          "description": "Days difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "hours",
+          "value": "true",
+          "widget": "array",
+          "title": "Hours",
+          "description": "Hours difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minutes",
+          "value": "true",
+          "widget": "array",
+          "title": "Minutes",
+          "description": "Minutes difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seconds",
+          "value": "false",
+          "widget": "array",
+          "title": "Seconds",
+          "description": "Seconds difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "Columns Rename",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "791.4px",
+      "y": "136.4px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"DaysDiff\",\"HoursDiff\",\"MinutesDiff\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"1_PO_MA_DaysDiff\",\"1_PO_MA_HoursDiff\",\"1_PO_MA_MinsDiff\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "10",
+      "name": "Date Difference",
+      "description": "This node finds difference between two dates",
+      "details": "<h2>Date Difference Details</h2>\n<br>\nCalculates the difference between two given date/datetime columns.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li> FROMDATE :- The input column (i.e from which date) is selected here and it should be of Date\\TimeStump datatype. </li>\n<li> TODATE :- The input column (i.e upto which date) is selected here and it should be of Date\\TimeStump datatype.</li>\n<li> USECURRENTDATEASTOCOL :- When set to true, uses current Date as the 'TODATE' value </li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> Difference between the two date fields can be displayed in terms of days, hours, minutes and seconds.</li>\n<li> To enable the new column(s) set the value of the field as true ( By Default, it is set to false )</li>\n</ul>\n<h4>Example</h4>\n<ul>\n<li> Date Difference output when all fields are enabled as true. </li>\n</ul>",
+      "examples": "<h2>Format Examples</h2>\n<br>\n<ul>\n<li> dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :\t743794461 : second</li>\n<li> dd-MM-yyyy : 10-02-1996 to 20-09-2017 diff- 8536 days : 204881 hours : 12292884 min :\t737573070 : second</li>\n<li> MM-dd-yyyy : 19-10-1994 to 06-12-2017 diff- 9015 days : 216377 hours : 12982644 min :\t778958670 : second</li>\n<li> yyyy-MM-dd : 1994-12-25 to 2019-01-16 diff- 8948 days : 214769 hours : 12886164 min :\t773169870 : second</li>\n<li> yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59 to 2010-12-30 22:59:59 diff-397 days: 1 hour: 0 minutes : 0 seconds</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateDiff",
+      "x": "885.8px",
+      "y": "135.8px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fromDate",
+          "value": "materials_availablity_date_dt",
+          "widget": "variable",
+          "title": "FromDate",
+          "description": "From date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "toDate",
+          "value": "production_started_date_dt",
+          "widget": "variable",
+          "title": "Todate",
+          "description": "To date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "useCurrentDateAsToDateCol",
+          "value": "false",
+          "widget": "array",
+          "title": "Use Current Date As To Date",
+          "description": "Current Date As ToDate",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "days",
+          "value": "true",
+          "widget": "array",
+          "title": "Days",
+          "description": "Days difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "hours",
+          "value": "true",
+          "widget": "array",
+          "title": "Hours",
+          "description": "Hours difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minutes",
+          "value": "true",
+          "widget": "array",
+          "title": "Minutes",
+          "description": "Minutes difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seconds",
+          "value": "false",
+          "widget": "array",
+          "title": "Seconds",
+          "description": "Seconds difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "11",
+      "name": "Columns Rename",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "996px",
+      "y": "132px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"DaysDiff\",\"HoursDiff\",\"MinutesDiff\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"2_MA_PS_DaysDiff\",\"2_MA_PS_HoursDiff\",\"2_MA_PS_MinsDiff\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "12",
+      "name": "Date Difference",
+      "description": "This node finds difference between two dates",
+      "details": "<h2>Date Difference Details</h2>\n<br>\nCalculates the difference between two given date/datetime columns.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li> FROMDATE :- The input column (i.e from which date) is selected here and it should be of Date\\TimeStump datatype. </li>\n<li> TODATE :- The input column (i.e upto which date) is selected here and it should be of Date\\TimeStump datatype.</li>\n<li> USECURRENTDATEASTOCOL :- When set to true, uses current Date as the 'TODATE' value </li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> Difference between the two date fields can be displayed in terms of days, hours, minutes and seconds.</li>\n<li> To enable the new column(s) set the value of the field as true ( By Default, it is set to false )</li>\n</ul>\n<h4>Example</h4>\n<ul>\n<li> Date Difference output when all fields are enabled as true. </li>\n</ul>",
+      "examples": "<h2>Format Examples</h2>\n<br>\n<ul>\n<li> dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :\t743794461 : second</li>\n<li> dd-MM-yyyy : 10-02-1996 to 20-09-2017 diff- 8536 days : 204881 hours : 12292884 min :\t737573070 : second</li>\n<li> MM-dd-yyyy : 19-10-1994 to 06-12-2017 diff- 9015 days : 216377 hours : 12982644 min :\t778958670 : second</li>\n<li> yyyy-MM-dd : 1994-12-25 to 2019-01-16 diff- 8948 days : 214769 hours : 12886164 min :\t773169870 : second</li>\n<li> yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59 to 2010-12-30 22:59:59 diff-397 days: 1 hour: 0 minutes : 0 seconds</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateDiff",
+      "x": "793.2px",
+      "y": "248.2px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fromDate",
+          "value": "production_completed_date_dt",
+          "widget": "variable",
+          "title": "FromDate",
+          "description": "From date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "toDate",
+          "value": "shipment_shipped_date_dt",
+          "widget": "variable",
+          "title": "Todate",
+          "description": "To date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "useCurrentDateAsToDateCol",
+          "value": "false",
+          "widget": "array",
+          "title": "Use Current Date As To Date",
+          "description": "Current Date As ToDate",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "days",
+          "value": "true",
+          "widget": "array",
+          "title": "Days",
+          "description": "Days difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "hours",
+          "value": "true",
+          "widget": "array",
+          "title": "Hours",
+          "description": "Hours difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minutes",
+          "value": "true",
+          "widget": "array",
+          "title": "Minutes",
+          "description": "Minutes difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seconds",
+          "value": "false",
+          "widget": "array",
+          "title": "Seconds",
+          "description": "Seconds difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "13",
+      "name": "Columns Rename",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "686.4px",
+      "y": "247.4px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"DaysDiff\",\"HoursDiff\",\"MinutesDiff\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"4_PC_SS_DaysDiff\",\"4_PC_SS_HoursDiff\",\"4_PC_SS_MinsDiff\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "14",
+      "name": "Date Difference",
+      "description": "This node finds difference between two dates",
+      "details": "<h2>Date Difference Details</h2>\n<br>\nCalculates the difference between two given date/datetime columns.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li> FROMDATE :- The input column (i.e from which date) is selected here and it should be of Date\\TimeStump datatype. </li>\n<li> TODATE :- The input column (i.e upto which date) is selected here and it should be of Date\\TimeStump datatype.</li>\n<li> USECURRENTDATEASTOCOL :- When set to true, uses current Date as the 'TODATE' value </li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> Difference between the two date fields can be displayed in terms of days, hours, minutes and seconds.</li>\n<li> To enable the new column(s) set the value of the field as true ( By Default, it is set to false )</li>\n</ul>\n<h4>Example</h4>\n<ul>\n<li> Date Difference output when all fields are enabled as true. </li>\n</ul>",
+      "examples": "<h2>Format Examples</h2>\n<br>\n<ul>\n<li> dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :\t743794461 : second</li>\n<li> dd-MM-yyyy : 10-02-1996 to 20-09-2017 diff- 8536 days : 204881 hours : 12292884 min :\t737573070 : second</li>\n<li> MM-dd-yyyy : 19-10-1994 to 06-12-2017 diff- 9015 days : 216377 hours : 12982644 min :\t778958670 : second</li>\n<li> yyyy-MM-dd : 1994-12-25 to 2019-01-16 diff- 8948 days : 214769 hours : 12886164 min :\t773169870 : second</li>\n<li> yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59 to 2010-12-30 22:59:59 diff-397 days: 1 hour: 0 minutes : 0 seconds</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateDiff",
+      "x": "1005.4px",
+      "y": "249.4px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fromDate",
+          "value": "production_started_date_dt",
+          "widget": "variable",
+          "title": "FromDate",
+          "description": "From date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "toDate",
+          "value": "production_completed_date_dt",
+          "widget": "variable",
+          "title": "Todate",
+          "description": "To date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "useCurrentDateAsToDateCol",
+          "value": "false",
+          "widget": "array",
+          "title": "Use Current Date As To Date",
+          "description": "Current Date As ToDate",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "days",
+          "value": "true",
+          "widget": "array",
+          "title": "Days",
+          "description": "Days difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "hours",
+          "value": "true",
+          "widget": "array",
+          "title": "Hours",
+          "description": "Hours difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minutes",
+          "value": "true",
+          "widget": "array",
+          "title": "Minutes",
+          "description": "Minutes difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seconds",
+          "value": "false",
+          "widget": "array",
+          "title": "Seconds",
+          "description": "Seconds difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "15",
+      "name": "Columns Rename",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "894.2px",
+      "y": "247.2px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"DaysDiff\",\"HoursDiff\",\"MinutesDiff\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"3_PS_PC_DaysDiff\",\"3_PS_PC_HoursDiff\",\"3_PS_PC_MinsDiff\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "16",
+      "name": "Date Time Field Extract",
+      "description": "It creates a new DataFrame by extracting Date and Time fields.",
+      "details": "<h2>Date Time Field Extract Details</h2>\n<br>\nSpark functions provides hour(), minute(), second() and weekofyear() functions to extract hour, minute, second and week of the year from Timestamp column respectively along with the standard functions of year(), month() and day().<br>\nIt creates a new DataFrame by extracting the Date and Time fields.<br>\n<br>\n<h4>Input</h4>\n  * Column :- The input column is selected here and it should be of Date\\TimeStamp datatype.<br>\n<br>\n<h4>Output</h4>\n<ul>\n<li> The values that can be extracted are YEAR,MONTH,DAY OF MONTH,HOUR,MINUTE,SECOND,WEEKOFYEAR,DAYOFWEEK and MONTHNAME</li>\n<li> The values that need to be extracted have to be set to true (by default it is false).</li>\n</ul>\n<ul>\n<li> Example:- The incoming Dataframe has a Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format</li>\n</ul>",
+      "examples": "If incoming Dataframe has Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format then using datetimeextract node would result in followings <br>\nadded as new columns to the Dataframe:<br>\n<br>\n<ul>\n<li> YEAR : 2022 </li>\n<li> MONTH : 01</li>\n<li> DAY OF MONTH : 01 </li>\n<li> HOUR : 14</li>\n<li> MINUTE : 30</li>\n<li> SECOND : 45</li>\n<li> WEEKOFYEAR : 1</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+      "x": "567.6px",
+      "y": "374.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCol",
+          "value": "purchaseorder_received_date_dt",
+          "widget": "variable",
+          "title": "Column",
+          "description": "The input column name",
+          "datatypes": [
+            "date",
+            "timestamp"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractYear",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Year",
+          "description": "Extract Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Month",
+          "description": "Extract Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Day of Month",
+          "description": "Extract Day of Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractHour",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Hour",
+          "description": "Extract Hour",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMinute",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Minute",
+          "description": "Extract Minute",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractSecond",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Second",
+          "description": "Extract Second",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractWeekOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Week Of Year",
+          "description": "Extract WeekOfYear",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfWeek",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Week",
+          "description": "Extract Day Of Week",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Year",
+          "description": "Extract Day Of Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonthName",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Month Name",
+          "description": "Extract Month Name",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "17",
+      "name": "Date Time Field Extract",
+      "description": "It creates a new DataFrame by extracting Date and Time fields.",
+      "details": "<h2>Date Time Field Extract Details</h2>\n<br>\nSpark functions provides hour(), minute(), second() and weekofyear() functions to extract hour, minute, second and week of the year from Timestamp column respectively along with the standard functions of year(), month() and day().<br>\nIt creates a new DataFrame by extracting the Date and Time fields.<br>\n<br>\n<h4>Input</h4>\n  * Column :- The input column is selected here and it should be of Date\\TimeStamp datatype.<br>\n<br>\n<h4>Output</h4>\n<ul>\n<li> The values that can be extracted are YEAR,MONTH,DAY OF MONTH,HOUR,MINUTE,SECOND,WEEKOFYEAR,DAYOFWEEK and MONTHNAME</li>\n<li> The values that need to be extracted have to be set to true (by default it is false).</li>\n</ul>\n<ul>\n<li> Example:- The incoming Dataframe has a Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format</li>\n</ul>",
+      "examples": "If incoming Dataframe has Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format then using datetimeextract node would result in followings <br>\nadded as new columns to the Dataframe:<br>\n<br>\n<ul>\n<li> YEAR : 2022 </li>\n<li> MONTH : 01</li>\n<li> DAY OF MONTH : 01 </li>\n<li> HOUR : 14</li>\n<li> MINUTE : 30</li>\n<li> SECOND : 45</li>\n<li> WEEKOFYEAR : 1</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+      "x": "688.6px",
+      "y": "374.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCol",
+          "value": "materials_availablity_date_dt",
+          "widget": "variable",
+          "title": "Column",
+          "description": "The input column name",
+          "datatypes": [
+            "date",
+            "timestamp"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractYear",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Year",
+          "description": "Extract Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Month",
+          "description": "Extract Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Day of Month",
+          "description": "Extract Day of Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractHour",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Hour",
+          "description": "Extract Hour",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMinute",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Minute",
+          "description": "Extract Minute",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractSecond",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Second",
+          "description": "Extract Second",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractWeekOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Week Of Year",
+          "description": "Extract WeekOfYear",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfWeek",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Week",
+          "description": "Extract Day Of Week",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Year",
+          "description": "Extract Day Of Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonthName",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Month Name",
+          "description": "Extract Month Name",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "18",
+      "name": "Date Time Field Extract",
+      "description": "It creates a new DataFrame by extracting Date and Time fields.",
+      "details": "<h2>Date Time Field Extract Details</h2>\n<br>\nSpark functions provides hour(), minute(), second() and weekofyear() functions to extract hour, minute, second and week of the year from Timestamp column respectively along with the standard functions of year(), month() and day().<br>\nIt creates a new DataFrame by extracting the Date and Time fields.<br>\n<br>\n<h4>Input</h4>\n  * Column :- The input column is selected here and it should be of Date\\TimeStamp datatype.<br>\n<br>\n<h4>Output</h4>\n<ul>\n<li> The values that can be extracted are YEAR,MONTH,DAY OF MONTH,HOUR,MINUTE,SECOND,WEEKOFYEAR,DAYOFWEEK and MONTHNAME</li>\n<li> The values that need to be extracted have to be set to true (by default it is false).</li>\n</ul>\n<ul>\n<li> Example:- The incoming Dataframe has a Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format</li>\n</ul>",
+      "examples": "If incoming Dataframe has Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format then using datetimeextract node would result in followings <br>\nadded as new columns to the Dataframe:<br>\n<br>\n<ul>\n<li> YEAR : 2022 </li>\n<li> MONTH : 01</li>\n<li> DAY OF MONTH : 01 </li>\n<li> HOUR : 14</li>\n<li> MINUTE : 30</li>\n<li> SECOND : 45</li>\n<li> WEEKOFYEAR : 1</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+      "x": "805.6px",
+      "y": "371.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCol",
+          "value": "production_started_date_dt",
+          "widget": "variable",
+          "title": "Column",
+          "description": "The input column name",
+          "datatypes": [
+            "date",
+            "timestamp"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractYear",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Year",
+          "description": "Extract Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Month",
+          "description": "Extract Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Day of Month",
+          "description": "Extract Day of Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractHour",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Hour",
+          "description": "Extract Hour",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMinute",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Minute",
+          "description": "Extract Minute",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractSecond",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Second",
+          "description": "Extract Second",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractWeekOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Week Of Year",
+          "description": "Extract WeekOfYear",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfWeek",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Week",
+          "description": "Extract Day Of Week",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Year",
+          "description": "Extract Day Of Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonthName",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Month Name",
+          "description": "Extract Month Name",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "19",
+      "name": "Date Time Field Extract",
+      "description": "It creates a new DataFrame by extracting Date and Time fields.",
+      "details": "<h2>Date Time Field Extract Details</h2>\n<br>\nSpark functions provides hour(), minute(), second() and weekofyear() functions to extract hour, minute, second and week of the year from Timestamp column respectively along with the standard functions of year(), month() and day().<br>\nIt creates a new DataFrame by extracting the Date and Time fields.<br>\n<br>\n<h4>Input</h4>\n  * Column :- The input column is selected here and it should be of Date\\TimeStamp datatype.<br>\n<br>\n<h4>Output</h4>\n<ul>\n<li> The values that can be extracted are YEAR,MONTH,DAY OF MONTH,HOUR,MINUTE,SECOND,WEEKOFYEAR,DAYOFWEEK and MONTHNAME</li>\n<li> The values that need to be extracted have to be set to true (by default it is false).</li>\n</ul>\n<ul>\n<li> Example:- The incoming Dataframe has a Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format</li>\n</ul>",
+      "examples": "If incoming Dataframe has Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format then using datetimeextract node would result in followings <br>\nadded as new columns to the Dataframe:<br>\n<br>\n<ul>\n<li> YEAR : 2022 </li>\n<li> MONTH : 01</li>\n<li> DAY OF MONTH : 01 </li>\n<li> HOUR : 14</li>\n<li> MINUTE : 30</li>\n<li> SECOND : 45</li>\n<li> WEEKOFYEAR : 1</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+      "x": "897.6px",
+      "y": "370.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCol",
+          "value": "production_completed_date_dt",
+          "widget": "variable",
+          "title": "Column",
+          "description": "The input column name",
+          "datatypes": [
+            "date",
+            "timestamp"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractYear",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Year",
+          "description": "Extract Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Month",
+          "description": "Extract Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Day of Month",
+          "description": "Extract Day of Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractHour",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Hour",
+          "description": "Extract Hour",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMinute",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Minute",
+          "description": "Extract Minute",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractSecond",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Second",
+          "description": "Extract Second",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractWeekOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Week Of Year",
+          "description": "Extract WeekOfYear",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfWeek",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Week",
+          "description": "Extract Day Of Week",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Year",
+          "description": "Extract Day Of Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonthName",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Month Name",
+          "description": "Extract Month Name",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "20",
+      "name": "Date Time Field Extract",
+      "description": "It creates a new DataFrame by extracting Date and Time fields.",
+      "details": "<h2>Date Time Field Extract Details</h2>\n<br>\nSpark functions provides hour(), minute(), second() and weekofyear() functions to extract hour, minute, second and week of the year from Timestamp column respectively along with the standard functions of year(), month() and day().<br>\nIt creates a new DataFrame by extracting the Date and Time fields.<br>\n<br>\n<h4>Input</h4>\n  * Column :- The input column is selected here and it should be of Date\\TimeStamp datatype.<br>\n<br>\n<h4>Output</h4>\n<ul>\n<li> The values that can be extracted are YEAR,MONTH,DAY OF MONTH,HOUR,MINUTE,SECOND,WEEKOFYEAR,DAYOFWEEK and MONTHNAME</li>\n<li> The values that need to be extracted have to be set to true (by default it is false).</li>\n</ul>\n<ul>\n<li> Example:- The incoming Dataframe has a Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format</li>\n</ul>",
+      "examples": "If incoming Dataframe has Date value as 2022-01-01 14:30:45 in YYYY-MM-DD HH:mm:ss format then using datetimeextract node would result in followings <br>\nadded as new columns to the Dataframe:<br>\n<br>\n<ul>\n<li> YEAR : 2022 </li>\n<li> MONTH : 01</li>\n<li> DAY OF MONTH : 01 </li>\n<li> HOUR : 14</li>\n<li> MINUTE : 30</li>\n<li> SECOND : 45</li>\n<li> WEEKOFYEAR : 1</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateTimeFieldExtract",
+      "x": "1008.4px",
+      "y": "365.4px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCol",
+          "value": "shipment_shipped_date_dt",
+          "widget": "variable",
+          "title": "Column",
+          "description": "The input column name",
+          "datatypes": [
+            "date",
+            "timestamp"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractYear",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Year",
+          "description": "Extract Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Month",
+          "description": "Extract Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfMonth",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Day of Month",
+          "description": "Extract Day of Month",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractHour",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Hour",
+          "description": "Extract Hour",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMinute",
+          "value": "true",
+          "widget": "array",
+          "title": "Extract Minute",
+          "description": "Extract Minute",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractSecond",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Second",
+          "description": "Extract Second",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractWeekOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Week Of Year",
+          "description": "Extract WeekOfYear",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfWeek",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Week",
+          "description": "Extract Day Of Week",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractDayOfYear",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Day Of Year",
+          "description": "Extract Day Of Year",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "extractMonthName",
+          "value": "false",
+          "widget": "array",
+          "title": "Extract Month Name",
+          "description": "Extract Month Name",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "21",
+      "name": "Join Using SQL",
+      "description": "This node registers the incoming DataFrames as temporary tables and executes the SQL provided",
+      "details": "<h2>Join Using SQL Details</h2>\n<br>\n<ul>\n<li> This node receives two or more input data frames and creates the corresponding temporary tables.</li>\n<li> Allows the user to write a SQL query to join these temporary tables.</li>\n<li> The resulting output dataframe contains the output of the SQL execution.</li>\n</ul>",
+      "examples": "<h2>Join Using SQL Examples</h2>\n<br>\n<h4> Two-table joins</h4>\n<br>\nThe following example shows a two-table join:<br>\nSELECT order_num, lname, fname FROM tempTable1, tempTable2<br>\nWHERE tempTable1.customer_num = tempTable2.customer_num<br>\n<br>\n<h4> Multi-table joins</h4>\n<br>\nThe following multiple-table join yields the company name of the customer who ordered an item as well as its stock number and manufacturer code:<br>\nSELECT DISTINCT company, stock_num, manu_code<br>\nFROM tempTable1 c, tempTable2 o, tempTable3 i<br>\nWHERE c.customer_num = o.customer_num<br>\nAND o.order_num = i.order_num;<br>\n<br>\n<h4> LEFT OUTER joins</h4>\n<br>\nThe below table join yields data of all customers irrespective of whether or not they have placed any orders:<br>\nSELECT c.ID, c.NAME, o.AMOUNT, o.DATE<br>\nFROM tempTable1 c<br>\nLEFT OUTER JOIN tempTable2 o<br>\nON (c.ID = o.CUSTOMER_ID)<br>",
+      "type": "join",
+      "nodeClass": "fire.nodes.etl.NodeJoinUsingSQL",
+      "x": "1001.6px",
+      "y": "480.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "tempTables",
+          "value": "[\"tempTable1\",\"tempTable2\"]",
+          "widget": "array_of_values",
+          "title": "Temp Table Names",
+          "description": "Temp Table Name to be used",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "sql",
+          "value": "SELECT a.*,\nCASE\n\tWHEN trim(trim(a.unit_of_measure)) = 'pallets' THEN a.quantity_produced * b.palletstoeachesconversion\n    WHEN trim(trim(a.unit_of_measure)) = 'cases' THEN a.quantity_produced * b.casestoeachesconversion\n    ELSE a.quantity_produced\nEND AS eaches_produced\nFROM tempTable1 a JOIN tempTable2 b ON trim(trim(a.customer)) = trim(trim(b.customer))",
+          "widget": "code_editor",
+          "type": "sql_mysql",
+          "title": "SQL",
+          "description": "SQL to be run",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "schema",
+          "value": "",
+          "widget": "tab",
+          "title": "InferSchema",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"jobid\",\"purchaseorder_received_date\",\"materials_availablity_date\",\"production_started_date\",\"production_completed_date\",\"quantity_produced\",\"unit_of_measure\",\"shipment_shipped_date\",\"OTIF\",\"customer\",\"purchaseorder_received_date_dt\",\"materials_availablity_date_dt\",\"production_started_date_dt\",\"production_completed_date_dt\",\"shipment_shipped_date_dt\",\"1_PO_MA_DaysDiff\",\"1_PO_MA_HoursDiff\",\"1_PO_MA_MinsDiff\",\"2_MA_PS_DaysDiff\",\"2_MA_PS_HoursDiff\",\"2_MA_PS_MinsDiff\",\"3_PS_PC_DaysDiff\",\"3_PS_PC_HoursDiff\",\"3_PS_PC_MinsDiff\",\"4_PC_SS_DaysDiff\",\"4_PC_SS_HoursDiff\",\"4_PC_SS_MinsDiff\",\"4_PR_SS_DaysDiff\",\"purchaseorder_received_date_dt_year\",\"purchaseorder_received_date_dt_month\",\"purchaseorder_received_date_dt_dayofmonth\",\"purchaseorder_received_date_dt_hour\",\"purchaseorder_received_date_dt_minute\",\"materials_availablity_date_dt_year\",\"materials_availablity_date_dt_month\",\"materials_availablity_date_dt_dayofmonth\",\"materials_availablity_date_dt_hour\",\"materials_availablity_date_dt_minute\",\"production_started_date_dt_year\",\"production_started_date_dt_month\",\"production_started_date_dt_dayofmonth\",\"production_started_date_dt_hour\",\"production_started_date_dt_minute\",\"production_completed_date_dt_year\",\"production_completed_date_dt_month\",\"production_completed_date_dt_dayofmonth\",\"production_completed_date_dt_hour\",\"production_completed_date_dt_minute\",\"shipment_shipped_date_dt_year\",\"shipment_shipped_date_dt_month\",\"shipment_shipped_date_dt_dayofmonth\",\"shipment_shipped_date_dt_hour\",\"shipment_shipped_date_dt_minute\",\"eaches_produced\"]",
+          "widget": "schema_col_names",
+          "title": "Column Names for the CSV",
+          "description": "New Output Columns of the SQL",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"TIMESTAMP\",\"TIMESTAMP\",\"TIMESTAMP\",\"TIMESTAMP\",\"TIMESTAMP\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\"]",
+          "widget": "schema_col_types",
+          "title": "Column Types for the CSV",
+          "description": "Data Type of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColFormats",
+          "value": "[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "schema_col_formats",
+          "title": "Column Formats for the CSV",
+          "description": "Format of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "22",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "1186.2px",
+      "y": "354.195px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "25",
+      "name": "Save CSV",
+      "description": "Saves the DataFrame into the specified location in CSV Format",
+      "details": "This node saves incoming Dataframe into the specified location in CSV format.<br>",
+      "examples": "path-folder1/folder2/filename<br>\n<br>\nthe file will be saved under the file name at the path provided<br>\nif folder is not present it will be created and save the file<br>\nif the file already exists selection in save mode determines what happens to the file,append-adds the file data to it overwrite-replaces the file altogether<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.save.NodeSaveCSV",
+      "x": "1308.75px",
+      "y": "517.755px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "data/MANUFACTURING/Supply-Chain-OTIF-Analysis/Prepared-Data",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path where to save the CSV files",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "saveMode",
+          "value": "Overwrite",
+          "widget": "array",
+          "title": "Save Mode",
+          "description": "Whether to Append, Overwrite or Error if the path Exists",
+          "optionsArray": [
+            "Append",
+            "Overwrite",
+            "ErrorIfExists",
+            "Ignore"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "header",
+          "value": "true",
+          "widget": "array",
+          "title": "Header",
+          "description": "Should a Header Row be saved with each File?",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "encoding",
+          "value": "UTF-8",
+          "widget": "textfield",
+          "title": "Encoding",
+          "description": "Decodes the CSV files by the given encoding type",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "quote",
+          "value": "\"",
+          "widget": "textfield",
+          "title": "Quote",
+          "description": "Sets a single character used for escaping quoted values where the separator can be part of the value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "escape",
+          "value": "\\",
+          "widget": "textfield",
+          "title": "Escape",
+          "description": "Sets a single character used for escaping quotes inside an already quoted value.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "Advanced",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "partitionColNames",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Partition Column Names",
+          "description": "Partition Column Names",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "26",
+      "name": "Date Difference",
+      "description": "This node finds difference between two dates",
+      "details": "<h2>Date Difference Details</h2>\n<br>\nCalculates the difference between two given date/datetime columns.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li> FROMDATE :- The input column (i.e from which date) is selected here and it should be of Date\\TimeStump datatype. </li>\n<li> TODATE :- The input column (i.e upto which date) is selected here and it should be of Date\\TimeStump datatype.</li>\n<li> USECURRENTDATEASTOCOL :- When set to true, uses current Date as the 'TODATE' value </li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> Difference between the two date fields can be displayed in terms of days, hours, minutes and seconds.</li>\n<li> To enable the new column(s) set the value of the field as true ( By Default, it is set to false )</li>\n</ul>\n<h4>Example</h4>\n<ul>\n<li> Date Difference output when all fields are enabled as true. </li>\n</ul>",
+      "examples": "<h2>Format Examples</h2>\n<br>\n<ul>\n<li> dd-MM-yy : 30-11-95 to 19-02-18 diff- 8608 days : 206609 hours : 12396574 min :\t743794461 : second</li>\n<li> dd-MM-yyyy : 10-02-1996 to 20-09-2017 diff- 8536 days : 204881 hours : 12292884 min :\t737573070 : second</li>\n<li> MM-dd-yyyy : 19-10-1994 to 06-12-2017 diff- 9015 days : 216377 hours : 12982644 min :\t778958670 : second</li>\n<li> yyyy-MM-dd : 1994-12-25 to 2019-01-16 diff- 8948 days : 214769 hours : 12886164 min :\t773169870 : second</li>\n<li> yyyy-MM-dd HH:mm:ss : 2012-01-31 23:59:59 to 2010-12-30 22:59:59 diff-397 days: 1 hour: 0 minutes : 0 seconds</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDateDiff",
+      "x": "569.85px",
+      "y": "247.85px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fromDate",
+          "value": "purchaseorder_received_date_dt",
+          "widget": "variable",
+          "title": "FromDate",
+          "description": "From date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "toDate",
+          "value": "shipment_shipped_date_dt",
+          "widget": "variable",
+          "title": "Todate",
+          "description": "To date column name",
+          "datatypes": [
+            "timestamp",
+            "date"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "useCurrentDateAsToDateCol",
+          "value": "false",
+          "widget": "array",
+          "title": "Use Current Date As To Date",
+          "description": "Current Date As ToDate",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "days",
+          "value": "true",
+          "widget": "array",
+          "title": "Days",
+          "description": "Days difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "hours",
+          "value": "false",
+          "widget": "array",
+          "title": "Hours",
+          "description": "Hours difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minutes",
+          "value": "false",
+          "widget": "array",
+          "title": "Minutes",
+          "description": "Minutes difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seconds",
+          "value": "false",
+          "widget": "array",
+          "title": "Seconds",
+          "description": "Seconds difference",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "27",
+      "name": "Columns Rename",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "462.862px",
+      "y": "377.85px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"DaysDiff\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"4_PR_SS_DaysDiff\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "28",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "762.8px",
+      "y": "27.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "188.4px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "74.4px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p>Incoming dataset on Jobs and OTIF status</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "29",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "320.067px",
+      "y": "199.867px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "187.4px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "71.4px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p>Converting date columns into Datetime datatype</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "30",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "289.067px",
+      "y": "269.867px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "188.4px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "125.4px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p>Computing date difference between various events such as Purchase Order received, Production Started, Shipped and so on</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "31",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "203.467px",
+      "y": "420.667px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "236.4px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "83.4px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p>Extracting date parts from various date data columns</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "32",
+      "name": "Columns Rename",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "482.2px",
+      "y": "34.3875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"materialsavailablitydate\",\"productioncompleteddate\",\"productionstarteddate\",\"purchaseorderreceiveddate\",\"quantityproduced\",\"shipmentshippeddate\",\"unitofmeasure\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"materials_availablity_date\",\"production_completed_date\",\"production_started_date\",\"purchaseorder_received_date\",\"quantity_produced\",\"shipment_shipped_date\",\"unit_of_measure\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "33",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "454.4px",
+      "y": "475.8px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "281.4px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "77.4px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p>Converting all quantities to eaches and saving prepared data.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "34",
+      "name": "Coalesce",
+      "description": "This node coalesces the DataFrame into specified number of Partitions",
+      "details": "This node coalesces the DataFrame into specified number of Partitions.<br>\n<br>\nIt is specially helpful for the case when too many small files are being created. In such a scenario, the Coalesce node can be used to limit the number of output files produced.<br>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeCoalesce",
+      "x": "1131.75px",
+      "y": "524.155px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "numPartitions",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Number of Partitions",
+          "description": "input for number of partitions",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "35",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "350.133px",
+      "y": "123.133px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "7b773326-fb4c-492d-88c3-9a59acbd22a6",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "36",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "748.067px",
+      "y": "611.067px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "5ed1eee0-cefd-4003-b294-6403f9893d46",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "6",
+      "target": "8",
+      "id": 1
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 2
+    },
+    {
+      "source": "10",
+      "target": "11",
+      "id": 3
+    },
+    {
+      "source": "9",
+      "target": "10",
+      "id": 4
+    },
+    {
+      "source": "14",
+      "target": "15",
+      "id": 5
+    },
+    {
+      "source": "12",
+      "target": "13",
+      "id": 6
+    },
+    {
+      "source": "15",
+      "target": "12",
+      "id": 7
+    },
+    {
+      "source": "11",
+      "target": "14",
+      "id": 8
+    },
+    {
+      "source": "16",
+      "target": "17",
+      "id": 9
+    },
+    {
+      "source": "17",
+      "target": "18",
+      "id": 10
+    },
+    {
+      "source": "18",
+      "target": "19",
+      "id": 11
+    },
+    {
+      "source": "19",
+      "target": "20",
+      "id": 12
+    },
+    {
+      "source": "20",
+      "target": "21",
+      "id": 13
+    },
+    {
+      "source": "21",
+      "target": "22",
+      "id": 15
+    },
+    {
+      "source": "13",
+      "target": "26",
+      "id": 16
+    },
+    {
+      "source": "26",
+      "target": "27",
+      "id": 17
+    },
+    {
+      "source": "27",
+      "target": "16",
+      "id": 18
+    },
+    {
+      "source": "32",
+      "target": "4",
+      "id": 20
+    },
+    {
+      "source": "32",
+      "target": "6",
+      "id": 21
+    },
+    {
+      "source": "21",
+      "target": "34",
+      "id": 22
+    },
+    {
+      "source": "34",
+      "target": "25",
+      "id": 23
+    },
+    {
+      "source": "35",
+      "target": "32",
+      "id": 24
+    },
+    {
+      "source": "36",
+      "target": "21",
+      "id": 25
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 2640,
+      "uuid": "7b773326-fb4c-492d-88c3-9a59acbd22a6",
+      "header": true,
+      "path": "data/MANUFACTURING/Supply-Chain-OTIF-Analysis/Raw-Data/copackager_table.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"jobid\",\"purchaseorderreceiveddate\",\"materialsavailablitydate\",\"productionstarteddate\",\"productioncompleteddate\",\"quantityproduced\",\"unitofmeasure\",\"shipmentshippeddate\",\"OTIF\",\"customer\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}"
+    },
+    {
+      "id": 2641,
+      "uuid": "5ed1eee0-cefd-4003-b294-6403f9893d46",
+      "header": true,
+      "path": "data/MANUFACTURING/Supply-Chain-OTIF-Analysis/Raw-Data/customer_unit_of_measure_conversions.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"customer\",\"casestoeachesconversion\",\"palletstocasesconversion\",\"palletstoeachesconversion\"],\"colTypes\":[\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

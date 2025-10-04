@@ -1,0 +1,33 @@
+{
+  "uuid": "6c70424d-0fc1-46b7-a898-41ea932e0f42",
+  "name": "Customer-Category",
+  "header": true,
+  "path": "data/SALES/Subscription-Renewal-Prediction/Raw-Data/customer_category.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"customer_id\",\"customer_category\",\"risk_score\"],colTypes:[\"INTEGER\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "customer_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "customer_category",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "risk_score",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

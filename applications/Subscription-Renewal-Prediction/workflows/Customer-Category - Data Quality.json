@@ -1,0 +1,328 @@
+{
+  "name": "Customer-Category - Data Quality",
+  "uuid": "0b21bf24-027f-4cf3-af4f-cbd7df308b33",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/home/sparkflows/fire-data/data/CPG/Subscription-Renewal-Predictions/Raw-Data/customer_category.csv",
+      "name": "DatasetStructured",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "dataset",
+          "value": "6c70424d-0fc1-46b7-a898-41ea932e0f42",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "Is Primary Key",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPrimaryKey",
+      "x": "241.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "cols",
+          "value": "[\"customer_id\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "path": "/06-Data-Quality/",
+      "name": "ColumnValuesToBeBetween",
+      "description": "",
+      "details": "<h2> Column Values To Be Between Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Column Values To Be Between node checks if the values in a specific column are within a specified range. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\nMin: The minimum allowed value.<br>\nMax: The maximum allowed value.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column value is outside the defined range.<br>",
+      "examples": "Example:<br>\n<br>\nLet's assume we have a column named age and we want to identify records where the age is less than 0 or greater than 120.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: age<br>\nMin: 0<br>\nMax: 120<br>\nNode Execution:<br>\n<br>\nRecords with an age less than 0 or greater than 120 will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckColumnValuesToBeBetween",
+      "x": "321.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"risk_score\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "min",
+          "value": "[\"1\"]",
+          "widget": "variables_list_textfield",
+          "title": "Min",
+          "description": "The minimum value of column.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "max",
+          "value": "[\"10\"]",
+          "widget": "variables_list_textfield",
+          "title": "Max",
+          "description": " The Maximum value of range",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "path": "/06-Data-Quality/",
+      "name": "IsNonNegative",
+      "description": "Should not contain negative values",
+      "details": "<h2> IsNonNegative Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe IsNonNegative node checks if a specific column in a DataFrame contains only non-negative values. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column contains negative values.<br>",
+      "examples": "<h2>Example:</h2>\n<br>\nLet's assume we have a column named age and we want to identify records where the age is negative.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: age<br>\nNode Execution:<br>\n<br>\nRecords with an age less than 0 will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNonNegative",
+      "x": "401.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"risk_score\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "NodeDataQualityCheckAndAlert",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "561.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "emailAddress",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "threshold",
+          "value": "null",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "/home/sparkflows/fire-data/data/CPG/Subscription-Renewal-Predictions/Customer-Category-Bad-Data",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 990,
+      "uuid": "6c70424d-0fc1-46b7-a898-41ea932e0f42",
+      "header": true,
+      "path": "data/SALES/Subscription-Renewal-Prediction/Raw-Data/customer_category.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"customer_id\",\"customer_category\",\"risk_score\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataQuality"
+}

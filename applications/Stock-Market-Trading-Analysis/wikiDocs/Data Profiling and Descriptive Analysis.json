@@ -1,0 +1,15 @@
+{
+  "id": 3304,
+  "uuid": "26c2fe0f-831b-4696-b55b-c31a38e6f611",
+  "name": "Data Profiling and Descriptive Analysis",
+  "category": "",
+  "projectId": 2457,
+  "content": "<h2>Data Profiling</h2><p>To ensure data quality and reliability, the following checks are performed on the trading dataset:</p><ul><li>Summary Statistics → Assess central tendency, spread, and data distribution.</li><li>Missing Values → Identify and handle gaps in data.</li><li>Outlier Detection → Spot extreme values that may bias analysis or models.</li><li>Consistency Checks → Validate business logic (e.g., no negative prices/volumes).</li><li>Duplicate Records → Detect and resolve duplicate entries.</li></ul><h2>Basic Feature Engineering</h2><p>From raw stock trading data, the following derived features were created for deeper analysis and modeling:</p><ul><li>Daily Change = Close − Open</li><li>High–Low Spread = High − Low</li><li>Daily Returns = (Close − Open) / Open</li><li>Moving Average (5D) = 5-day rolling average of Close price</li><li>Moving Average (10D) = 10-day rolling average of Close price</li><li>Volume Change = Daily change in trading volume</li></ul><h2>Descriptive Analysis</h2><p>The following visualizations are generated to uncover patterns, volatility, and sector-level behaviors:</p><p>\t1.Stock Price Movements (Line Plot)</p><ul><li class=\"ql-indent-1\">Closing prices over time by company.</li><li class=\"ql-indent-1\">Helps detect trends, seasonal cycles, or irregular behaviors.</li></ul><p>\t2.Volume Changes Over Time (Line Plot)</p><ul><li class=\"ql-indent-1\">Trading volume trends per company.</li><li class=\"ql-indent-1\">Identifies spikes or drops linked to events or market activity.</li></ul><p>\t3.Box Plot of Daily Returns by Sector</p><ul><li class=\"ql-indent-1\">Summarizes volatility across sectors.</li><li class=\"ql-indent-1\">Spread and median highlight stability vs risk in Technology, Finance, and Healthcare.</li></ul><p>\t4.Distribution of Daily Changes (Histogram/Density Plot)</p><ul><li class=\"ql-indent-1\">Captures intra-day price movement distribution.</li><li class=\"ql-indent-1\">Reveals volatility patterns across companies.</li></ul><p>\t5.Correlation Heatmap</p><ul><li class=\"ql-indent-1\">Shows interdependence among features.</li><li>Example: Strong correlation between Open &amp; Close → lower volatility;</li><li class=\"ql-indent-1\"> Correlation between Volume &amp; Daily Change → possible volume-driven price movement.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:10:51 PM",
+  "updatedBy": "mudit",
+  "dateLastUpdated": "Sep 25, 2025, 9:52:02 AM"
+}

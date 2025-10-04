@@ -1,0 +1,15 @@
+{
+  "id": 2256,
+  "uuid": "af6ae3b7-b9bb-47de-873d-a0d9e72cbae5",
+  "name": "Dataset Description",
+  "category": "",
+  "projectId": 1678,
+  "content": "<h2><strong style=\"color: rgb(0, 102, 204);\">Data Description:</strong></h2><p>This dataset is designed to support sales forecasting at the store-department-week level, incorporating multiple internal and external factors that influence sales performance. The primary goal is to predict the weekly_sales for each department in each store for a given week.</p><p>The dataset includes the following columns:</p><ul><li><strong>Store</strong> <em>(integer)</em>: Unique identifier for each retail store.</li><li><strong>Date</strong> <em>(string)</em>: The week-ending date for the transaction data.</li><li><strong>IsHoliday</strong> <em>(string)</em>: Indicates whether the week includes a special event or holiday (True or False).</li><li><strong>Type</strong> <em>(string)</em>: Store format category (e.g., A, B, or C) based on size and assortment.</li><li><strong>Size</strong> <em>(integer)</em>: The square footage of the store.</li><li><strong>Dept</strong> <em>(integer)</em>: Unique department number within each store.</li><li><strong>Weekly_Sales</strong> <em>(double)</em>: Total sales for the department in that store during the week (target variable).</li><li><strong>Temperature</strong> <em>(double)</em>: Average weekly temperature in the region (in Fahrenheit).</li><li><strong>Fuel_Price</strong> <em>(double)</em>: Cost of fuel in the store's region.</li><li><strong>MarkDown1-5</strong> <em>(string)</em>: Promotional markdown dollars applied to different product categories (some values missing).</li><li><strong>CPI</strong> <em>(double)</em>: Consumer Price Index, a regional economic indicator.</li><li><strong>Unemployment</strong> <em>(double)</em>: Regional unemployment rate.</li></ul><p><br></p>",
+  "icon": "{\"icon\":\"images/icons/project-icons/Sales_forecasting.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "May 12, 2025, 9:09:20 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "May 12, 2025, 9:40:17 AM"
+}

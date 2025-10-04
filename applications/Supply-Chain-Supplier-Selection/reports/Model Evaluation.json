@@ -1,0 +1,72 @@
+{
+  "name": "Model Evaluation",
+  "uuid": "c57e8fcc-3680-4b4d-a6d3-19a74041cc4c",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Model-Training",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 22,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "551.167px",
+          "y": "344.778px",
+          "workflowId": "0a5e3627-b3e9-4703-b2ff-41247fd1bd36",
+          "workflowName": "03-Supply-Chain-Model-Training",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "462.472px",
+          "y": "194.486px",
+          "workflowId": "0a5e3627-b3e9-4703-b2ff-41247fd1bd36",
+          "workflowName": "03-Supply-Chain-Model-Training",
+          "nodeId": "20",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model-Validation",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 5,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "425.944px",
+          "y": "300.944px",
+          "workflowId": "78da2dc5-bcea-4bf4-8e3c-d09884dea608",
+          "workflowName": "04-Prediction",
+          "nodeId": "5",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

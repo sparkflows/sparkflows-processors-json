@@ -1,0 +1,15 @@
+{
+  "id": 3335,
+  "uuid": "406959fd-96c5-48ea-8dd2-813041c37bbc",
+  "name": "Data Preparation",
+  "category": "",
+  "projectId": 2279,
+  "content": "<h2><strong>Data Preparation Stage -</strong></h2><h3><br></h3><h3><strong>Overview</strong></h3><p>The Data Preparation stage transforms raw transactional and master data into clean, structured datasets required for accurate safety stock computation and visualization. This stage includes data type casting, date parsing, SQL-based transformations, joins, and data enrichment before saving curated outputs.</p><h3><br></h3><h3><strong>Objectives</strong></h3><ul><li>Structure and clean data for weekly demand, material features, and supplier lead times.</li><li>Join relevant datasets to enrich SKU-level information.</li><li>Prepare final outputs in a standardized format for downstream analysis and visualization.</li></ul><h3><br></h3><h3><strong>Key Steps Executed</strong></h3><ol><li><strong>Dataset Structuring</strong></li><li> → Loaded structured input datasets (material, transactions, supplier info).</li><li><strong>Column Type Casting &amp; Date Conversion</strong></li><li> → Casted columns to appropriate types (integer, string, date).</li><li> → Parsed date fields using <code>NodeMultiStringToDate</code>.</li><li><strong>Data Transformation using SQL</strong></li><li> → Applied multiple <code>SQL</code> nodes for:</li></ol><ul><li class=\"ql-indent-1\">Weekly demand computation</li><li class=\"ql-indent-1\">Peak and average demand extraction</li><li class=\"ql-indent-1\">Lead time calculations</li><li class=\"ql-indent-1\">Derived feature creation</li></ul><ol><li><strong>Data Joins</strong></li><li> → Joined datasets (e.g., demand + material + supplier) using <code>JoinUsingSQL</code> for full enrichment.</li><li><strong>Union &amp; Coalesce Operations</strong></li><li> → Combined rows across sources and handled missing values via <code>Coalesce</code>.</li><li><strong>Intermediate Outputs Saved</strong></li></ol><ul><li class=\"ql-indent-1\"><code>weekly-demand.csv</code></li><li class=\"ql-indent-1\"><code>weekly_details.csv</code></li><li class=\"ql-indent-1\"><code>material-features.csv</code></li><li class=\"ql-indent-1\"><code>supplier-lead-time.csv</code></li></ul><p><br></p>",
+  "icon": "{\"icon\":\"images/icons/project-icons/CPG.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:29 PM",
+  "updatedBy": "abhilash",
+  "dateLastUpdated": "Aug 7, 2025, 6:36:20 PM"
+}

@@ -1,0 +1,39 @@
+{
+  "uuid": "00dc7d71-8174-4012-b11f-0a238b9615d0",
+  "name": "Market-Risk-Data",
+  "header": true,
+  "path": "data/MANUFACTURING/Supply-Chain-Route-Optimization/Raw-Data/Market-Risk-Data.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Location\",\"Risk_Type\",\"Risk_Level\",\"Supply_Disruption_Probability\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Location",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Risk_Type",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Risk_Level",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Supply_Disruption_Probability",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

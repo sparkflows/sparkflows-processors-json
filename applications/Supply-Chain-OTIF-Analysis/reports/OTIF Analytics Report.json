@@ -1,0 +1,182 @@
+{
+  "name": "OTIF Analytics Report",
+  "uuid": "d5da6af3-b7bf-4766-897d-57bd966f93f6",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analytics",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 10,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "184.2px",
+          "y": "314.2px",
+          "workflowId": "1c13614e-bdea-4935-9602-2a6cb1e5c482",
+          "workflowName": "02-Supply-Chain-EDA-01",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "712.4px",
+          "y": "463.6px",
+          "workflowId": "1c13614e-bdea-4935-9602-2a6cb1e5c482",
+          "workflowName": "02-Supply-Chain-EDA-01",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 46,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "710.4px",
+          "y": "540.6px",
+          "workflowId": "1c13614e-bdea-4935-9602-2a6cb1e5c482",
+          "workflowName": "02-Supply-Chain-EDA-01",
+          "nodeId": "46",
+          "grow": 0
+        },
+        {
+          "id": 75,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "155.4px",
+          "y": "578.2px",
+          "workflowId": "1c13614e-bdea-4935-9602-2a6cb1e5c482",
+          "workflowName": "02-Supply-Chain-EDA-01",
+          "nodeId": "75",
+          "grow": 0
+        },
+        {
+          "id": 74,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "158.6px",
+          "y": "493.6px",
+          "workflowId": "1c13614e-bdea-4935-9602-2a6cb1e5c482",
+          "workflowName": "02-Supply-Chain-EDA-01",
+          "nodeId": "74",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "650.972px",
+          "y": "341.569px",
+          "workflowId": "6a984624-e41b-436a-9969-03cc7d030231",
+          "workflowName": "03-Supply-Chain-EDA-02",
+          "nodeId": "28",
+          "grow": 0
+        },
+        {
+          "id": 31,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "824.2px",
+          "y": "463.6px",
+          "workflowId": "6a984624-e41b-436a-9969-03cc7d030231",
+          "workflowName": "03-Supply-Chain-EDA-02",
+          "nodeId": "31",
+          "grow": 0
+        },
+        {
+          "id": 36,
+          "name": "Graph Month Distribution",
+          "description": "This node Finds the distribution of months from Date values",
+          "type": "transform",
+          "x": "268px",
+          "y": "226.8px",
+          "workflowId": "6a984624-e41b-436a-9969-03cc7d030231",
+          "workflowName": "03-Supply-Chain-EDA-02",
+          "nodeId": "36",
+          "grow": 0
+        },
+        {
+          "id": 68,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "731.4px",
+          "y": "684.8px",
+          "workflowId": "6a984624-e41b-436a-9969-03cc7d030231",
+          "workflowName": "03-Supply-Chain-EDA-02",
+          "nodeId": "68",
+          "grow": 0
+        },
+        {
+          "id": 72,
+          "name": "Graph SubPlots",
+          "type": "transform",
+          "x": "35.1875px",
+          "y": "552.2px",
+          "workflowId": "6a984624-e41b-436a-9969-03cc7d030231",
+          "workflowName": "03-Supply-Chain-EDA-02",
+          "nodeId": "72",
+          "grow": 0
+        },
+        {
+          "id": 76,
+          "name": "Graph SubPlots",
+          "type": "transform",
+          "x": "36.4px",
+          "y": "886px",
+          "workflowId": "6a984624-e41b-436a-9969-03cc7d030231",
+          "workflowName": "03-Supply-Chain-EDA-02",
+          "nodeId": "76",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "OTIF-Decision Predictive Analytics",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 61,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "232.648px",
+          "y": "471.664px",
+          "workflowId": "5bc2e4ec-99ef-422f-a4d7-a36025abc221",
+          "workflowName": "04-On-Time-In-Full-(OTIF)-Classification-DE-Model-Training",
+          "nodeId": "61",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "719.889px",
+          "y": "261.889px",
+          "workflowId": "52b272c0-75c1-4f64-9ed9-074ca49dabdd",
+          "workflowName": "07-Expected-Days-For-Delivery-Regression-RF-Model-Predictions",
+          "nodeId": "21",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "OTIF-Days Predictive Analytics",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

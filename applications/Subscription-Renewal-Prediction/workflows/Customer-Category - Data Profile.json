@@ -1,0 +1,235 @@
+{
+  "name": "Customer-Category - Data Profile",
+  "uuid": "66e27b07-5803-45aa-8493-59d49bc569c5",
+  "category": "Data Profiling",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/home/sparkflows/fire-data/data/CPG/Subscription-Renewal-Predictions/Raw-Data/customer_category.csv",
+      "name": "DatasetStructured",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "dataset",
+          "value": "6c70424d-0fc1-46b7-a898-41ea932e0f42",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "2",
+      "name": "Summary",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSummary",
+      "x": "502.496px",
+      "y": "227.734px",
+      "fields": [
+        {
+          "name": "colNames",
+          "value": "[\"customer_id\",\"risk_score\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "NullValuesInColumn",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeNullValuesInColumn",
+      "x": "502.496px",
+      "y": "120.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[\"customer_id\",\"customer_category\",\"risk_score\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "DropRowsWithNull",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull",
+      "x": "266.496px",
+      "y": "416.734px",
+      "fields": [],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "Correlation",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "504.496px",
+      "y": "417.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[\"customer_id\",\"risk_score\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "ColumnsCardinality",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeColumnsCardinality",
+      "x": "504.496px",
+      "y": "517.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[\"customer_id\",\"customer_category\",\"risk_score\"]",
+          "widget": "variables",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "7",
+      "name": "MultiFlagOutliers",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeMultiFlagOutliers",
+      "x": "504.496px",
+      "y": "617.734px",
+      "fields": [
+        {
+          "name": "inputCols",
+          "value": "[\"customer_id\",\"risk_score\"]",
+          "widget": "variables_list_select",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "lowerQuantiles",
+          "value": "[\"0.25\",\"0.25\"]",
+          "widget": "variables_list_textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "upperQuantiles",
+          "value": "[\"0.75\",\"0.75\"]",
+          "widget": "variables_list_textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "1",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "id": 5
+    },
+    {
+      "source": "1",
+      "target": "7",
+      "id": 6
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 990,
+      "uuid": "6c70424d-0fc1-46b7-a898-41ea932e0f42",
+      "header": true,
+      "path": "data/SALES/Subscription-Renewal-Prediction/Raw-Data/customer_category.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"customer_id\",\"customer_category\",\"risk_score\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataProfiling"
+}

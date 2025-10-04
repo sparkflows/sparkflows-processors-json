@@ -1,0 +1,263 @@
+{
+  "name": "Customer-Payments - Data Quality",
+  "uuid": "c7b34c68-096a-48bb-b8ef-f8c66f9d3d79",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/home/sparkflows/fire-data/data/CPG/Subscription-Renewal-Predictions/Raw-Data/customer_payments.csv",
+      "name": "DatasetStructured",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "dataset",
+          "value": "180a3e82-2623-46c5-976a-6e87f53354aa",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "path": "/06-Data-Quality/",
+      "name": "Is Not Null",
+      "description": "",
+      "details": "<h2> Is Not Null Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Is Not Null node checks if a specific column in a DataFrame contains null values. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column contains null values.<br>",
+      "examples": "Example:<br>\n<br>\nLet's assume we have a column named name and we want to identify records where the name is null.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: name<br>\nNode Execution:<br>\n<br>\nRecords with a null value in the name column will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNotNull",
+      "x": "241.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"customer_id\",\"subscription_id\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "path": "/06-Data-Quality/",
+      "name": "IsNonNegative",
+      "description": "Should not contain negative values",
+      "details": "<h2> IsNonNegative Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe IsNonNegative node checks if a specific column in a DataFrame contains only non-negative values. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column contains negative values.<br>",
+      "examples": "<h2>Example:</h2>\n<br>\nLet's assume we have a column named age and we want to identify records where the age is negative.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: age<br>\nNode Execution:<br>\n<br>\nRecords with an age less than 0 will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNonNegative",
+      "x": "321.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"invoice_amount\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "NodeDataQualityCheckAndAlert",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "481.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "emailAddress",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "threshold",
+          "value": "null",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "/home/sparkflows/fire-data/data/CPG/Subscription-Renewal-Predictions/Customer-Payment-Bad-Result",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 987,
+      "uuid": "180a3e82-2623-46c5-976a-6e87f53354aa",
+      "header": true,
+      "path": "data/SALES/Subscription-Renewal-Prediction/Raw-Data/customer_payments.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"customer_id\",\"subscription_id\",\"payment_terms\",\"invoice_amount\",\"payment_frequency\"],\"colTypes\":[\"INTEGER\",\"INTEGER\",\"STRING\",\"INTEGER\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataQuality"
+}

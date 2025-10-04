@@ -1,0 +1,274 @@
+{
+  "name": "SuperMarket Sales Analysis",
+  "uuid": "f72bfac6-f456-44c2-b442-e51d752a1f4a",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "374.8px",
+          "y": "91.8px",
+          "workflowId": "08469ddd-89ed-477e-a4f9-ed082d2745ee",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "387.8px",
+          "y": "229.8px",
+          "workflowId": "08469ddd-89ed-477e-a4f9-ed082d2745ee",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "Columns Cardinality",
+          "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+          "type": "transform",
+          "x": "385.6px",
+          "y": "347.6px",
+          "workflowId": "08469ddd-89ed-477e-a4f9-ed082d2745ee",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "383.667px",
+          "y": "471.667px",
+          "workflowId": "08469ddd-89ed-477e-a4f9-ed082d2745ee",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "811.889px",
+          "y": "154.444px",
+          "workflowId": "08469ddd-89ed-477e-a4f9-ed082d2745ee",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "14",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "EDA",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "603.778px",
+          "y": "137.778px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "472.778px",
+          "y": "274.778px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "472.667px",
+          "y": "404.667px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "1079.56px",
+          "y": "496.556px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "1173.99px",
+          "y": "660.778px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "16",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "1396.67px",
+          "y": "182.667px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "1418.67px",
+          "y": "317.667px",
+          "workflowId": "5c551ecf-0b06-428b-b8e7-8dc92d4b160b",
+          "workflowName": "02-EDA",
+          "nodeId": "25",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sales Data Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 4,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "591.083px",
+          "y": "211.083px",
+          "workflowId": "4153c336-dd0b-4439-b58b-9875cd3a2b4f",
+          "workflowName": "03-Sales-Data-Analysis-I",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 56,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "674.399px",
+          "y": "489.42px",
+          "workflowId": "4153c336-dd0b-4439-b58b-9875cd3a2b4f",
+          "workflowName": "03-Sales-Data-Analysis-I",
+          "nodeId": "56",
+          "grow": 0
+        },
+        {
+          "id": 55,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "681.215px",
+          "y": "368.219px",
+          "workflowId": "4153c336-dd0b-4439-b58b-9875cd3a2b4f",
+          "workflowName": "03-Sales-Data-Analysis-I",
+          "nodeId": "55",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1521.07px",
+          "y": "69.2667px",
+          "workflowId": "4153c336-dd0b-4439-b58b-9875cd3a2b4f",
+          "workflowName": "03-Sales-Data-Analysis-I",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1544.18px",
+          "y": "233.333px",
+          "workflowId": "4153c336-dd0b-4439-b58b-9875cd3a2b4f",
+          "workflowName": "03-Sales-Data-Analysis-I",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "978.188px",
+          "y": "192.328px",
+          "workflowId": "d70d27e5-7d2a-40ce-bbe5-6bc708da3640",
+          "workflowName": "03-Sales-Data-Analysis-II",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 30,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "996.125px",
+          "y": "346.266px",
+          "workflowId": "d70d27e5-7d2a-40ce-bbe5-6bc708da3640",
+          "workflowName": "03-Sales-Data-Analysis-II",
+          "nodeId": "30",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "900.469px",
+          "y": "482.188px",
+          "workflowId": "d70d27e5-7d2a-40ce-bbe5-6bc708da3640",
+          "workflowName": "03-Sales-Data-Analysis-II",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "903.516px",
+          "y": "670.266px",
+          "workflowId": "d70d27e5-7d2a-40ce-bbe5-6bc708da3640",
+          "workflowName": "03-Sales-Data-Analysis-II",
+          "nodeId": "35",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

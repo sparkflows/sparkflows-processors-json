@@ -1,0 +1,39 @@
+{
+  "uuid": "5ed1eee0-cefd-4003-b294-6403f9893d46",
+  "name": "Customer-Unit-Of-Measure-Conversions",
+  "header": true,
+  "path": "data/MANUFACTURING/Supply-Chain-OTIF-Analysis/Raw-Data/customer_unit_of_measure_conversions.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"customer\",\"casestoeachesconversion\",\"palletstocasesconversion\",\"palletstoeachesconversion\"],colTypes:[\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "customer",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "casestoeachesconversion",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "palletstocasesconversion",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "palletstoeachesconversion",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

@@ -1,0 +1,185 @@
+{
+  "name": "Safety Stock Optimization Reports",
+  "uuid": "68925a9e-c289-48fd-9767-e0e50c60af6e",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/CPG.svg"
+  },
+  "description": "Visualizes safety stock levels, costs, and demand trends to support inventory optimization decisions.",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 39,
+          "name": "Monthly Demand Trend All Material",
+          "type": "transform",
+          "x": "609.85px",
+          "y": "166.887px",
+          "workflowId": "e9ef3698-7d0d-4258-beae-c9fcfc4d3834",
+          "workflowName": "02-EDA-Prepared-Data-Quantity",
+          "nodeId": "39",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Weekly Demand Distribution",
+          "description": "",
+          "type": "transform",
+          "x": "202.225px",
+          "y": "20.15px",
+          "workflowId": "e9ef3698-7d0d-4258-beae-c9fcfc4d3834",
+          "workflowName": "02-EDA-Prepared-Data-Quantity",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 39,
+          "name": "Monthly Demand Trend per Material",
+          "type": "transform",
+          "x": "609.85px",
+          "y": "166.887px",
+          "workflowId": "e9ef3698-7d0d-4258-beae-c9fcfc4d3834",
+          "workflowName": "02-EDA-Prepared-Data-Quantity",
+          "nodeId": "39",
+          "grow": 0
+        },
+        {
+          "id": 52,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "660.194px",
+          "y": "317.2px",
+          "workflowId": "e9ef3698-7d0d-4258-beae-c9fcfc4d3834",
+          "workflowName": "02-EDA-Prepared-Data-Quantity",
+          "nodeId": "52",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Top Materials by Total Demand × Price",
+          "type": "transform",
+          "x": "452.712px",
+          "y": "633.75px",
+          "workflowId": "e9ef3698-7d0d-4258-beae-c9fcfc4d3834",
+          "workflowName": "02-EDA-Prepared-Data-Quantity",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 44,
+          "name": "Monthly Demand per Materia",
+          "type": "transform",
+          "x": "1027.16px",
+          "y": "483.156px",
+          "workflowId": "e9ef3698-7d0d-4258-beae-c9fcfc4d3834",
+          "workflowName": "02-EDA-Prepared-Data-Quantity",
+          "nodeId": "44",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "SS Optimization",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 59,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "1053.08px",
+          "y": "243.106px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "59",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "758.919px",
+          "y": "243.819px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 64,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1236.3px",
+          "y": "232.337px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "64",
+          "grow": 0
+        },
+        {
+          "id": 48,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1228.92px",
+          "y": "116.887px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "48",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Bubble Chart",
+          "description": "A bubble chart is used to visualize a data set with two to four dimensions",
+          "type": "transform",
+          "x": "1239.97px",
+          "y": "358.975px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 44,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1298.33px",
+          "y": "491.344px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "44",
+          "grow": 0
+        },
+        {
+          "id": 45,
+          "name": "Scatter Cluster Chart",
+          "type": "transform",
+          "x": "1231.38px",
+          "y": "603.331px",
+          "workflowId": "f312ff7e-c063-47f1-9b08-1d052402bb31",
+          "workflowName": "03-SS-CALCULATION-EOQ",
+          "nodeId": "45",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

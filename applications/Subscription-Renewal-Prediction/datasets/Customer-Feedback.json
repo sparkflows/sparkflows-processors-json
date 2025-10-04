@@ -1,0 +1,33 @@
+{
+  "uuid": "f9fd182e-c722-4c0e-bcee-7728060a8680",
+  "name": "Customer-Feedback",
+  "header": true,
+  "path": "data/SALES/Subscription-Renewal-Prediction/Raw-Data/customer_feedback.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"subscription_id\",\"feedback_score\",\"feedback_date\"],colTypes:[\"INTEGER\",\"INTEGER\",\"STRING\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "subscription_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "feedback_score",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "feedback_date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

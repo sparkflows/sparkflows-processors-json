@@ -1,0 +1,159 @@
+{
+  "name": "Supply Chain Route Optimization Report",
+  "uuid": "3d6decde-ecff-4afb-aac5-9dedf2894fc9",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 6,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "309.533px",
+          "y": "383.533px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "286.517px",
+          "y": "508.533px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "476.2px",
+          "y": "122.2px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "786.8px",
+          "y": "158.8px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "715.8px",
+          "y": "206.8px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "638.6px",
+          "y": "550.6px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1071.6px",
+          "y": "293px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1115px",
+          "y": "411.4px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "34",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1071.8px",
+          "y": "547.2px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 40,
+          "name": "Gauge Chart",
+          "type": "transform",
+          "x": "1784.28px",
+          "y": "256.083px",
+          "workflowId": "2b3e8395-b0e7-4568-a8ad-a9774d68170d",
+          "workflowName": "01-Data-Exploration",
+          "nodeId": "40",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Route Optimization Report",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 16,
+          "name": "MultiInputPySpark",
+          "description": "This node runs any given PySpark code. The input dataframes is passed in the variable inDFs. The output dataframe is passed back by registering it as a temporary table.",
+          "type": "pyspark2inputs",
+          "x": "1022.22px",
+          "y": "240.778px",
+          "workflowId": "e31573a2-8fbe-4f82-9214-eee09b9d3902",
+          "workflowName": "03-Route-Optimization",
+          "nodeId": "16",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

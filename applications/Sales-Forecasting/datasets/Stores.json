@@ -1,0 +1,33 @@
+{
+  "uuid": "9f173196-68db-461b-a590-729d92dfac8b",
+  "name": "Stores",
+  "header": true,
+  "path": "data/CPG/CPG-Sales-Forecasting/Sales-Data/stores.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Store\",\"Type\",\"Size\"],colTypes:[\"INTEGER\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Store",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Type",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Size",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

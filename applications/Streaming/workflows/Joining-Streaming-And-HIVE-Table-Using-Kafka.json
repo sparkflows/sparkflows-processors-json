@@ -1,0 +1,722 @@
+{
+  "name": "Joining-Streaming-And-HIVE-Table-Using-Kafka",
+  "uuid": "c4449ebe-d791-4599-9cc3-3790cbc63df8",
+  "category": "HIVE",
+  "description": "Reads from Kafka, parses the record and writes it out to HDFS",
+  "parameters": "-",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "StructuredStreamingKafka",
+      "description": "Reads in streaming text from topics in Apache Kafka",
+      "details": "",
+      "examples": "",
+      "type": "sparkstreaming",
+      "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingKafka",
+      "x": "192.774px",
+      "y": "210.42px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "batchDuration",
+          "value": "30",
+          "widget": "textfield",
+          "title": "Batch Duration in Seconds",
+          "description": "Batch Duration in Seconds",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "brokers",
+          "value": "localhost:9092",
+          "widget": "textfield",
+          "title": "Kafka Brokers",
+          "description": "Kafka Brokers",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "group",
+          "value": "my-consumer-group",
+          "widget": "textfield",
+          "title": "Consumer Group",
+          "description": "Consumer Group",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "topics",
+          "value": "flights",
+          "widget": "textfield",
+          "title": "Kafka Topics",
+          "description": "List of Topics separated by , (comma)",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "autoOffsetReset",
+          "value": "latest",
+          "widget": "textfield",
+          "title": "auto.offset.reset",
+          "description": "Auto Offset Reset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "enableAutoCommit",
+          "value": "true",
+          "widget": "textfield",
+          "title": "enable.auto.commit",
+          "description": "Enable Auto Commit",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "kafkaParamsKeys",
+          "value": "[]",
+          "widget": "key_array",
+          "title": "Params Key/Value Pairs",
+          "description": "More Config Values",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "kafkaParamsValues",
+          "value": "[]",
+          "widget": "value_array",
+          "title": "Parms Key/Value Pairs",
+          "description": "More Config Values",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "FieldSplitter",
+      "description": "This node splits the string of the specified input column using the specified delimiter",
+      "details": "Splits the string of the specified input column using the specified delimiter. The new column names are specified by the user.<br>\n<br>\nThe new dataframe would have the new columns added to it.<br>",
+      "examples": "If a String Column stores values in [PRD_CD]:[PRD_NAME] format and incoming Dataframe has a value as CD01:DrillMachine <br>\nthen using : as Separator to split data into two Columns (Col1, Col2) would result in followings:<br>\n<br>\n<ul>\n<li> Col1 : CD01</li>\n<li> Col2 : DrillMachine</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeFieldSplitter",
+      "x": "445.694px",
+      "y": "222.406px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCol",
+          "value": "value",
+          "widget": "variable",
+          "title": "Input Column",
+          "description": "Input column name",
+          "datatypes": [
+            "string"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCols",
+          "value": "YEAR,MONTH,DAY,DAY_OF_WEEK,airline,FLIGHT_NUMBER,TAIL_NUMBER,ORIGIN_AIRPORT,DESTINATION_AIRPORT,SCHEDULED_DEPARTURE,DEPARTURE_TIME,DEPARTURE_DELAY,TAXI_OUT,WHEELS_OFF,SCHEDULED_TIME,ELAPSED_TIME,AIR_TIME,DISTANCE,WHEELS_ON,TAXI_IN,SCHEDULED_ARRIVAL,ARRIVAL_TIME,ARRIVAL_DELAY,DIVERTED,CANCELLED,CANCELLATION_REASON,AIR_SYSTEM_DELAY,SECURITY_DELAY,AIRLINE_DELAY,LATE_AIRCRAFT_DELAY,WEATHER_DELAY",
+          "widget": "textarea_small",
+          "title": "Output Columns",
+          "description": "New column names separated by comma (eg: col1,co2,col3)",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "sep",
+          "value": ",",
+          "widget": "textfield",
+          "title": "Separator",
+          "description": "Separator to split the input column value (default: space)",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "onError",
+          "value": "ignore",
+          "widget": "array",
+          "title": "On Error",
+          "description": "",
+          "optionsArray": [
+            "die",
+            "ignore"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "StructuredStreamingFileSink",
+      "description": "It writes the DataFrame to files with Structured Streaming",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.structuredstreaming.NodeStructuredStreamingFileSink",
+      "x": "950.785px",
+      "y": "116.458px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "data/COMMON/Flights/Output/HiveJoin",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path where to write the files",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputMode",
+          "value": "complete",
+          "widget": "array",
+          "title": "Output Mode",
+          "description": "Output Mode for saving to Files",
+          "optionsArray": [
+            "append",
+            "complete",
+            "update"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "checkpointLocation",
+          "value": "newflightsDelays_checkpoint",
+          "widget": "textfield",
+          "title": "Checkpoint Location",
+          "description": "Checkpoint Location on HDFS compatible file system for Streaming",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "format",
+          "value": "csv",
+          "widget": "array",
+          "title": "Format",
+          "description": "File Format",
+          "optionsArray": [
+            "csv",
+            "orc",
+            "json",
+            "parquet"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "awaitTermination",
+          "value": "false",
+          "widget": "array",
+          "title": "Await Termination",
+          "description": "",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "triggerIntervalInSeconds",
+          "value": "60",
+          "widget": "textfield",
+          "title": "Trigger Interval In Seconds",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "partitionBy",
+          "value": "",
+          "widget": "textfield",
+          "title": "Partition By Columns",
+          "description": "Partition By Columns separated by space (can be empty in which case partitionBy would not be applied)",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "Read HIVE Table",
+      "description": "This node reads data from Apache HIVE table and creates a DataFrame from it",
+      "details": "This node reads data from the Apache HIVE table and creates a DataFrame from it.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.hive.NodeHIVE",
+      "x": "284.92px",
+      "y": "59.6076px",
+      "hint": "Whenever the table is changed, go to the Schema tab and refresh the Schema",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "MEMORY_AND_DISK",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "db",
+          "value": "flight_delays",
+          "widget": "textfield",
+          "title": "HIVE Database",
+          "description": "HIVE Database",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "table",
+          "value": "airlines",
+          "widget": "textfield",
+          "title": "HIVE Table",
+          "description": "HIVE Table from which to read the data",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "query",
+          "value": "",
+          "widget": "textarea_medium",
+          "title": "HIVE Query (Optional)",
+          "description": "If a separate HIVE query needs to be used for reading from HIVE. This field is optional.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "schema",
+          "value": "",
+          "widget": "tab",
+          "title": "Schema",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"airline\",\"airline_desc\"]",
+          "widget": "schema_col_names",
+          "title": "Column Names of the Database table",
+          "description": "Column Names of the Database table",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"STRING\",\"STRING\"]",
+          "widget": "schema_col_types",
+          "title": "Column Types of the Database table",
+          "description": "Column Types of the Database table",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "12",
+      "name": "Join Using SQL",
+      "description": "This node registers the incoming DataFrames as temporary tables and executes the SQL provided",
+      "details": "<h2>Join Using SQL Details</h2>\n<br>\n<ul>\n<li> This node receives two or more input data frames and creates the corresponding temporary tables.</li>\n<li> Allows the user to write a SQL query to join these temporary tables.</li>\n<li> The resulting output dataframe contains the output of the SQL execution.</li>\n</ul>",
+      "examples": "<h2>Join Using SQL Examples</h2>\n<br>\n<h4> Two-table joins</h4>\n<br>\nThe following example shows a two-table join:<br>\nSELECT order_num, lname, fname FROM tempTable1, tempTable2<br>\nWHERE tempTable1.customer_num = tempTable2.customer_num<br>\n<br>\n<h4> Multi-table joins</h4>\n<br>\nThe following multiple-table join yields the company name of the customer who ordered an item as well as its stock number and manufacturer code:<br>\nSELECT DISTINCT company, stock_num, manu_code<br>\nFROM tempTable1 c, tempTable2 o, tempTable3 i<br>\nWHERE c.customer_num = o.customer_num<br>\nAND o.order_num = i.order_num;<br>\n<br>\n<h4> LEFT OUTER joins</h4>\n<br>\nThe below table join yields data of all customers irrespective of whether or not they have placed any orders:<br>\nSELECT c.ID, c.NAME, o.AMOUNT, o.DATE<br>\nFROM tempTable1 c<br>\nLEFT OUTER JOIN tempTable2 o<br>\nON (c.ID = o.CUSTOMER_ID)<br>",
+      "type": "join",
+      "nodeClass": "fire.nodes.etl.NodeJoinUsingSQL",
+      "x": "622.917px",
+      "y": "108.587px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "tempTables",
+          "value": "[]",
+          "widget": "array_of_values",
+          "title": "Temp Table Names",
+          "description": "Temp Table Name to be used",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "sql",
+          "value": "select a.FLIGHT_NUMBER, a.airline , b.airline_desc from fire_temp_table1 a JOIN  fire_temp_table2 b ON(a.airline=b.airline)",
+          "widget": "textarea_large",
+          "type": "sql",
+          "title": "SQL",
+          "description": "SQL to be run",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "schema",
+          "value": "",
+          "widget": "tab",
+          "title": "Schema",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"FLIGHT_NUMBER\",\"airline\",\"airline_desc\"]",
+          "widget": "schema_col_names",
+          "title": "Column Names for the CSV",
+          "description": "New Output Columns of the SQL",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"STRING\",\"STRING\",\"STRING\"]",
+          "widget": "schema_col_types",
+          "title": "Column Types for the CSV",
+          "description": "Data Type of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColFormats",
+          "value": "[\"\",\"\",\"\"]",
+          "widget": "schema_col_formats",
+          "title": "Column Formats for the CSV",
+          "description": "Format of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "13",
+      "name": "Sticky Note",
+      "iconImage": "fa fa-file-text",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "481px",
+      "y": "300px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "487.47619px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "106.47619px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>This workflow reads from HIVE table the airline master data and joins it with flight data available via Kafka to provide a comprehensive dataset that includes detailed flight information and corresponding airline details for analysis and reporting.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "12",
+      "id": 2
+    },
+    {
+      "source": "12",
+      "target": "3",
+      "id": 3
+    },
+    {
+      "source": "9",
+      "target": "12",
+      "id": 4
+    }
+  ],
+  "dataSetDetails": [],
+  "engine": "scala"
+}

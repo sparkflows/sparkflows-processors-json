@@ -1,0 +1,15 @@
+{
+  "id": 3573,
+  "uuid": "0ada83d5-25e9-4266-b263-2f6dbbce08a1",
+  "name": "02-Data Dictionary",
+  "category": "",
+  "projectId": 2632,
+  "content": "<h3>Data Dictionary</h3><p>The project integrates multiple datasets — <strong>Route Data</strong>, <strong>Weather Data</strong>, and <strong>Market Risk Data</strong> — to evaluate and optimize routing decisions. Together, these datasets provide a comprehensive view of transportation efficiency, cost, and associated risks.</p><p><br></p><h4>1. Route Data</h4><ul><li>Start_Location: Specifies the origin point of a route segment.</li><li>End_Location: Specifies the destination point of a route segment.</li><li>Distance_km: Distance between Start_Location and End_Location, measured in kilometers.</li><li>Travel_Time_hr: Estimated travel time for the route segment, expressed in hours.</li><li>Route_Cost: Total cost of traveling between locations. Includes fuel, tolls, and other expenses.</li></ul><h4>2. Weather Data</h4><ul><li>Start_Weather_Risk: Weather risk score (0–1) at the  Start_Location</li><li class=\"ql-indent-1\">Higher values indicate greater risk from adverse weather (e.g., storms, heavy rainfall).</li><li>End_Weather_Risk: Weather risk score (0–1) at the  End_Location.</li><li class=\"ql-indent-1\">Captures potential delays or hazards due to weather conditions.</li></ul><h4>3. Market Risk Data</h4><ul><li>Start_Market_Risk: Market risk score (0–1) at the Start_Location.</li><li class=\"ql-indent-1\">Represents economic or demand-based risks that could affect supply chain efficiency.</li><li>End_Market_Risk: Market risk score (0–1) at the  End_Location</li><li class=\"ql-indent-1\">Higher values indicate greater market instability or demand fluctuations at the destination.</li></ul><h3> Data Preparation Steps</h3><ol><li>Data Cleaning</li></ol><ul><li class=\"ql-indent-1\">Verify location consistency between Route, Weather, and Market Risk datasets.</li><li class=\"ql-indent-1\">Handle missing or invalid entries (e.g., undefined risk scores).</li></ul><p>       2.Feature Engineering</p><ul><li>Create aggregate risk features, e.g.:</li><li class=\"ql-indent-2\">Avg_Weather_Risk = (Start_Weather_Risk + End_Weather_Risk) / 2.</li><li class=\"ql-indent-1\">Avg_Market_Risk = (Start_Market_Risk + End_Market_Risk) / 2.</li><li class=\"ql-indent-1\">Calculate Cost per Kilometer = Route_Cost / Distance_km</li></ul><p>       3.Integration</p><ul><li class=\"ql-indent-1\">Merge datasets based on Start_Location and End_Location keys.</li><li class=\"ql-indent-1\">Ensure temporal alignment when risk data is time-dependent.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "mudit",
+  "dateCreated": "Aug 12, 2025, 6:44:47 AM",
+  "updatedBy": "mudit",
+  "dateLastUpdated": "Sep 12, 2025, 11:08:29 AM"
+}

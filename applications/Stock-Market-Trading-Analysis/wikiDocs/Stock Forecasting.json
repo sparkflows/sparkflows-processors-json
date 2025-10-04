@@ -1,0 +1,15 @@
+{
+  "id": 3302,
+  "uuid": "b2a7119d-fdc0-409f-ab4f-83df7d978155",
+  "name": "Stock Forecasting",
+  "category": "",
+  "projectId": 2457,
+  "content": "<h1>Stock Forecasting</h1><h2><br></h2><h2>Algorithm: Facebook Prophet</h2><ul><li>Prophet is an open-source forecasting library developed by Facebook.</li><li>Designed for time series with strong seasonality and trend components.</li><li>Decomposes data into Trend + Seasonality + Holidays/Events for accurate, interpretable forecasting.</li><li>Handles missing values and outliers automatically.</li></ul><h2><br></h2><h2>Methodology</h2><p>\t1.Historical Data Preparation</p><ul><li class=\"ql-indent-1\">Collect timestamp and closing price data.</li><li class=\"ql-indent-1\">Clean and reformat for Prophet (<code>ds</code> = date, <code>y</code> = target variable / Close price).</li></ul><p>\t2.Model Training</p><ul><li class=\"ql-indent-1\">Fit Prophet model on historical closing prices.</li><li class=\"ql-indent-1\">Learn underlying trends, cycles, and seasonality.</li></ul><p>\t3.Forecasting</p><ul><li class=\"ql-indent-1\">Specify forecasting horizon (e.g., 30, 60, or 90 days).</li><li class=\"ql-indent-1\">Generate future predictions with uncertainty intervals.</li></ul><p>\t4.Evaluation</p><ul><li class=\"ql-indent-1\">Compare forecasted vs actual prices on a holdout/test period.</li><li class=\"ql-indent-1\">Use MAPE (Mean Absolute Percentage Error) to evaluate accuracy.</li></ul><p>\t5.Visualization</p><ul><li>Prophet provides built-in plots to:</li><li class=\"ql-indent-2\">Overlay forecast vs historical data.</li><li class=\"ql-indent-2\">Display uncertainty bands.</li><li class=\"ql-indent-1\">Break down trend and seasonality effects.</li></ul><h2><br></h2><h2>Insights &amp; Applications</h2><ul><li>Provides short- to medium-term price forecasts.</li><li>Helps investors identify potential upward/downward trends.</li><li>Supports risk management by anticipating volatility shifts.</li><li>Enhances portfolio planning with data-driven foresight.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:10:51 PM",
+  "updatedBy": "mudit",
+  "dateLastUpdated": "Sep 25, 2025, 10:11:57 AM"
+}

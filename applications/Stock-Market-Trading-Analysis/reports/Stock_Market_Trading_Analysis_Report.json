@@ -1,0 +1,158 @@
+{
+  "name": "Stock_Market_Trading_Analysis_Report",
+  "uuid": "d6b5f6e0-b5f3-407f-9bb1-3523f9d230c8",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "477.575px",
+          "y": "61.6px",
+          "workflowId": "9556356a-3af6-46fa-9bc1-28ac71fe4d26",
+          "workflowName": "02-Data-Exploration",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "303.8px",
+          "y": "117.8px",
+          "workflowId": "9556356a-3af6-46fa-9bc1-28ac71fe4d26",
+          "workflowName": "02-Data-Exploration",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "501.375px",
+          "y": "155.387px",
+          "workflowId": "9556356a-3af6-46fa-9bc1-28ac71fe4d26",
+          "workflowName": "02-Data-Exploration",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "514.6px",
+          "y": "254.6px",
+          "workflowId": "9556356a-3af6-46fa-9bc1-28ac71fe4d26",
+          "workflowName": "02-Data-Exploration",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "368.575px",
+          "y": "396.587px",
+          "workflowId": "9556356a-3af6-46fa-9bc1-28ac71fe4d26",
+          "workflowName": "02-Data-Exploration",
+          "nodeId": "9",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Forecasting Report",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1145.25px",
+          "y": "619.25px",
+          "workflowId": "693302e1-4d98-4e87-86a0-686354f768fa",
+          "workflowName": "05-Forecast-Model-Training",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1383px",
+          "y": "434px",
+          "workflowId": "3fd6062a-db3e-46a2-8d3d-518df1565ca0",
+          "workflowName": "06-Stock-Forecasting",
+          "nodeId": "17",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 4,
+      "name": "Anomaly Detection from Stock",
+      "type": "type",
+      "idx": "4",
+      "items": [
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "750px",
+          "y": "450px",
+          "workflowId": "1e5b8381-7347-4273-840f-c36b33de1967",
+          "workflowName": "04-Anomaly-Detection",
+          "nodeId": "15",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 5,
+      "name": "Predictive Analysis (Risk vs Return)",
+      "type": "type",
+      "idx": "5",
+      "items": [
+        {
+          "id": 8,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "746.6px",
+          "y": "140.6px",
+          "workflowId": "1f056c6a-dae0-4158-8693-ab7e54f2622d",
+          "workflowName": "03-Risk-VS-Return-Analysis",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "744px",
+          "y": "420px",
+          "workflowId": "1f056c6a-dae0-4158-8693-ab7e54f2622d",
+          "workflowName": "03-Risk-VS-Return-Analysis",
+          "nodeId": "13",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

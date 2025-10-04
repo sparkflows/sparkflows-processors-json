@@ -1,0 +1,33 @@
+{
+  "uuid": "fc78d13a-cb8d-47f3-b31b-f376e1ef8fcb",
+  "name": "Product-category",
+  "header": true,
+  "path": "data/SALES/Subscription-Renewal-Prediction/Raw-Data/product_category.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"product_id\",\"product_category\",\"product_subcategory\"],colTypes:[\"INTEGER\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "product_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "product_category",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "product_subcategory",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}
