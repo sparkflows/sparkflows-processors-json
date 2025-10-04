@@ -1,0 +1,13 @@
+{
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:13:54 PM",
+  "dateLastUpdated": "Aug 2, 2025, 12:13:54 PM",
+  "uuid": "cbca904a-5421-45b9-907f-eab9b8db6871",
+  "id": 3394,
+  "projectId": 1602,
+  "content": "<h2><strong style=\"color: rgb(0, 71, 178);\">Data Description and Preparation:</strong></h2><p><br></p><h4><strong style=\"color: rgb(0, 102, 204);\">Data Description:</strong></h4><p><span style=\"color: rgb(13, 13, 13);\">The dataset consists of raw audio recordings of conversations between two individuals. This is the link of the Audio data </span><span style=\"color: rgb(11, 83, 148); background-color: transparent;\">https://drive.google.com/file/d/1bM3BUsBO0mxItJkiCPn04vGDW-dGhL1-/view?usp=drive_link</span></p><p><br></p><h4><strong style=\"background-color: transparent; color: rgb(0, 102, 204);\">Data Preparation:</strong></h4><ul><li>Gather raw audio files of conversations between two individuals.</li><li>Optionally compress audio files within a 25 MB limit if required by the OpenAI Whisper-Large model.</li><li>Utilize OpenAI Whisper to transcribe the audio files into textual format.</li><li>Apply GPT-4O for speaker diarization, identifying and segmenting speakers within the transcribed text.</li></ul>",
+  "name": "Data Description and Preparation",
+  "category": "",
+  "description": "",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}"
+}

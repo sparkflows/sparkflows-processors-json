@@ -1,0 +1,104 @@
+{
+  "name": "Audio_Analytics_Report",
+  "uuid": "2ce45839-eb06-42ea-8540-ffe9745c39aa",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Diarization_of_Audio_conversation",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "306.133px",
+          "y": "132.133px",
+          "workflowId": "a3c731fa-c82e-4238-bfe1-b4e1d6c46786",
+          "workflowName": "01-Data-Preparation-Transcript-And-Diarization-New",
+          "nodeId": "2",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Audio_Analysis_Report",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 7,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "901.067px",
+          "y": "197.067px",
+          "workflowId": "8297",
+          "workflowName": "02-Different-Text-Analysis-New",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "914.133px",
+          "y": "327.133px",
+          "workflowId": "8297",
+          "workflowName": "02-Different-Text-Analysis-New",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "922.133px",
+          "y": "476.133px",
+          "workflowId": "8297",
+          "workflowName": "02-Different-Text-Analysis-New",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "542.133px",
+          "y": "65.1333px",
+          "workflowId": "8297",
+          "workflowName": "02-Different-Text-Analysis-New",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Word Cloud Chart",
+          "type": "transform",
+          "x": "1008.13px",
+          "y": "621.133px",
+          "workflowId": "8297",
+          "workflowName": "02-Different-Text-Analysis-New",
+          "nodeId": "28",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
