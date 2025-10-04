@@ -1,0 +1,300 @@
+{
+  "name": "01-FRAUD-DETECTION-ASSESSMENT-REPORT",
+  "uuid": "5c407a21-bb73-4e4b-b6a9-12fde90e7bde",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "296.625px",
+          "y": "115.625px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "292.33px",
+          "y": "215.313px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "294.326px",
+          "y": "333.323px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "284.403px",
+          "y": "454.427px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "883.299px",
+          "y": "103.323px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "879.205px",
+          "y": "203.208px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "875.208px",
+          "y": "301.215px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "876.517px",
+          "y": "401.521px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "868.309px",
+          "y": "498.323px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "861.413px",
+          "y": "601.413px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "860.413px",
+          "y": "693.208px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "859.101px",
+          "y": "787.111px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "856.101px",
+          "y": "878.111px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "857.198px",
+          "y": "971.222px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "859.295px",
+          "y": "1062.44px",
+          "workflowId": "3bccc431-79b3-48ef-bea8-cf8cedff4849",
+          "workflowName": "01A-Data-Profiling",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Skewness And Kurtosis",
+          "description": "",
+          "type": "transform",
+          "x": "545.75px",
+          "y": "775.875px",
+          "workflowId": "f3a1bfe7-d0d9-4e25-b003-08bca3dbc0cd",
+          "workflowName": "01B-Data-Profiling",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "536.778px",
+          "y": "127.667px",
+          "workflowId": "f3a1bfe7-d0d9-4e25-b003-08bca3dbc0cd",
+          "workflowName": "01B-Data-Profiling",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "539.778px",
+          "y": "227.667px",
+          "workflowId": "f3a1bfe7-d0d9-4e25-b003-08bca3dbc0cd",
+          "workflowName": "01B-Data-Profiling",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "542.778px",
+          "y": "348.667px",
+          "workflowId": "f3a1bfe7-d0d9-4e25-b003-08bca3dbc0cd",
+          "workflowName": "01B-Data-Profiling",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "543.556px",
+          "y": "476.444px",
+          "workflowId": "f3a1bfe7-d0d9-4e25-b003-08bca3dbc0cd",
+          "workflowName": "01B-Data-Profiling",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "544.667px",
+          "y": "600.889px",
+          "workflowId": "f3a1bfe7-d0d9-4e25-b003-08bca3dbc0cd",
+          "workflowName": "01B-Data-Profiling",
+          "nodeId": "13",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Data Quality",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 7,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "856.778px",
+          "y": "133.778px",
+          "workflowId": "3757c70d-611b-4303-bcea-31b21ccc031a",
+          "workflowName": "02-Data-Quality-Assessment",
+          "nodeId": "7",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

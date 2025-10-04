@@ -1,0 +1,15 @@
+{
+  "id": 3306,
+  "uuid": "0ed71282-b916-46cd-8b22-22b64612feda",
+  "name": "02-Data Preparation",
+  "category": "",
+  "projectId": 1606,
+  "content": "<h1><strong>Data Profiling and Preparation</strong></h1><h2>Data Description and Preparation</h2><ul><li><strong>Data Description:</strong></li><li>The dataset includes both <strong>continuous</strong> (e.g., available money, credit limit, authorization amount) and <strong>categorical</strong> (e.g., account ID, fraud label) variables. Example fields:</li><li>ACCT_AVL_MONEY_BEFORE_AMT – Available money before transaction.</li><li>ACCT_CL_AMT – Assigned credit limit.</li><li>ACCT_CURR_BAL – Current balance.</li><li>AUTHZN_AMT – Authorized transaction amount.</li><li>FRAUD_LABEL – Binary indicator (0 = genuine, 1 = fraud).</li></ul><p><strong>Data Preparation:</strong></p><p>\tHandling missing values and negative balances (e.g., acct_curr_bal had min value = -863.5)</p><p>\tFeature scaling and normalization for continuous variables.</p><p>\tEncoding categorical values for model input.</p><p>\tDerived features – ratios such as utilization (curr_bal/credit_limit), frequency of high-value transactions, etc.</p><h3><strong>Feature Engineering</strong></h3><p><strong>Steps Performed:</strong></p><ul><li>Cleaned missing and invalid values.</li><li>Normalized continuous variables (balances, credit limits, transaction amounts).</li><li>Encoded categorical values (fraud labels).</li><li>Derived features:</li><li><strong>Utilization Ratio:</strong> acct_curr_bal / acct_cl_amt.</li><li><strong>High-Value Transaction Flag:</strong> Transactions above dynamic thresholds.</li><li><strong>Frequency Features:</strong> Number of transactions per account in defined time windows.</li><li><strong>Outcome:</strong> Ready-to-train dataset with enriched features for detecting fraud patterns.</li></ul>",
+  "icon": "{\"icon\":\"images/icons/project-icons/finance.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:10:51 PM",
+  "updatedBy": "abhilash",
+  "dateLastUpdated": "Sep 17, 2025, 2:43:51 AM"
+}

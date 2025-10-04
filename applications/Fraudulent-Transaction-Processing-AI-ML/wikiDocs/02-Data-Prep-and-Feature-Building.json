@@ -1,0 +1,15 @@
+{
+  "id": 3897,
+  "uuid": "50300f39-e8d3-4c19-b93b-4be7046c96df",
+  "name": "02-Data-Prep-and-Feature-Building",
+  "category": "",
+  "projectId": 2730,
+  "content": "<h1>Data Preparation and Feature Building - </h1><h4><br></h4><h4>﻿Data Description:</h4><p>This dataset corresponds to invoice-level transactions along with master data such as Vendors, Approvers, Bank Accounts, and Items. The classification and anomaly detection goal is to predict whether a transaction is fraudulent (anomaly) or genuine. The dataset comprises of the following:</p><ul><li>Invoice Transactions Dataset – Core invoice and billing details.</li><li>Vendor Information – Vendor identifiers, concentration, and linked accounts.</li><li>Approver Information – Approver patterns across invoices.</li><li>Bank Information – Vendor–bank account linkages.</li><li>Item/Service Information – Quantities, prices, and contract details.</li></ul><p><br></p><p>﻿Data Preparation:</p><p>The above datasets undergo multiple transformations to compute features and target labels. The following key features are engineered during the process:</p><ul><li>Gaps &amp; Ratios:</li><li>qty_gap, qty_gap_ratio → Difference and ratio of billed vs. received quantity.</li><li>hours_gap, hours_gap_ratio → Difference and ratio of billed vs. logged hours.</li><li>Price &amp; Amount Checks:</li><li>price_gap, price_ratio → Difference between billed unit price and contract price.</li><li>amount_minus_expected → Billed amount vs. expected amount.</li><li>Behavioral Indicators:</li><li>is_weekend_invoice, invoice_day, invoice_hour → Detect weekend/odd-hour invoices.</li><li>vendor_day_invoice_count → Frequency of invoices per vendor per day.</li><li>dup_combo_count → Duplicate detection based on vendor/customer/amount.</li><li>Control Metrics:</li><li>bank_vendor_count → Number of vendors linked to the same bank account.</li><li>approver_vendor_count → Number of vendors associated with an approver.</li><li>item_vendor_count → Concentration of vendors linked to an item/service.</li><li>Derived Fields:</li><li>amount_per_unit → Per-unit billing consistency.</li><li>Anomaly label (isolated_prediction) from Isolation Forest (&lt; 6 = anomaly, ≥ 6 = good).</li></ul><p>The combination of these features, along with SHAP values, enables explainable fraud detection by capturing overbilling patterns, ghost hours, price inflation, duplicate invoices, vendor collusion, and unusual transaction behaviors.</p>",
+  "icon": "{\"icon\":\"images/icons/project-icons/Gen_ai_apps.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "abhilash",
+  "dateCreated": "Sep 8, 2025, 12:58:24 AM",
+  "updatedBy": "abhilash",
+  "dateLastUpdated": "Sep 9, 2025, 4:56:38 AM"
+}

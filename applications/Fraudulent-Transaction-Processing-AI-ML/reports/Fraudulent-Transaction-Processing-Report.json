@@ -1,0 +1,143 @@
+{
+  "name": "Fraudulent-Transaction-Processing-Report",
+  "uuid": "3941e8fe-c7be-4820-a033-2f2d28bc3f5a",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/Manufacturing.svg"
+  },
+  "description": "Explore Reports Generated for Fraud Anamolies",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 22,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1200px",
+          "y": "700px",
+          "workflowId": "98603bca-c9b6-4cc2-b45b-b4034b1fc46a",
+          "workflowName": "01-Data-Profiling and EDA",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1725px",
+          "y": "575px",
+          "workflowId": "98603bca-c9b6-4cc2-b45b-b4034b1fc46a",
+          "workflowName": "01-Data-Profiling and EDA",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "1100px",
+          "y": "325px",
+          "workflowId": "98603bca-c9b6-4cc2-b45b-b4034b1fc46a",
+          "workflowName": "01-Data-Profiling and EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "1200px",
+          "y": "825px",
+          "workflowId": "98603bca-c9b6-4cc2-b45b-b4034b1fc46a",
+          "workflowName": "01-Data-Profiling and EDA",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Scatter Chart",
+          "type": "transform",
+          "x": "1375px",
+          "y": "950px",
+          "workflowId": "98603bca-c9b6-4cc2-b45b-b4034b1fc46a",
+          "workflowName": "01-Data-Profiling and EDA",
+          "nodeId": "15",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Training and Validation",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 23,
+          "name": "H2O Score",
+          "description": "",
+          "type": "ml-predict",
+          "x": "418.2px",
+          "y": "96.2px",
+          "workflowId": "a84dd74a-52b4-4ed1-80f5-c80bdf0ea05a",
+          "workflowName": "03A-Classification-Model-Building-Label-Data",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "H2O Gradient Boosting Machine",
+          "description": "Gradient Boosting Machine (for Regression and Classification) is a forward learning ensemble method",
+          "type": "ml-estimator",
+          "x": "255.763px",
+          "y": "89.7562px",
+          "workflowId": "a84dd74a-52b4-4ed1-80f5-c80bdf0ea05a",
+          "workflowName": "03A-Classification-Model-Building-Label-Data",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "913.4px",
+          "y": "300.4px",
+          "workflowId": "1fc367c9-fae0-4250-bf6d-be3f64bf0bf2",
+          "workflowName": "03-Fraud-Detection-Using-Isolation-Forest-Model",
+          "nodeId": "23",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Top 5 Anomaly",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 4,
+          "name": "Output Formatter",
+          "description": "This node formats output from Columns.",
+          "type": "transform",
+          "x": "204.962px",
+          "y": "490.969px",
+          "workflowId": "ca56c22e-fe95-4eaa-9f01-70fd96360526",
+          "workflowName": "05A-Anamoly-Detection-Insights",
+          "nodeId": "4",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}
