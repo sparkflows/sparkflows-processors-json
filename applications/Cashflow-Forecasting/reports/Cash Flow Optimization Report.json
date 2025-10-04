@@ -1,0 +1,171 @@
+{
+  "name": "Cash Flow Optimization Report",
+  "uuid": "a8a17f9d-8b4a-4fc9-a0ab-ab449bfe85a5",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analytics",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 69,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1474.32px",
+          "y": "602.167px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "69",
+          "grow": 0
+        },
+        {
+          "id": 71,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1619.47px",
+          "y": "746.383px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "71",
+          "grow": 0
+        },
+        {
+          "id": 87,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1401.42px",
+          "y": "35.0667px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "87",
+          "grow": 0
+        },
+        {
+          "id": 96,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1403.35px",
+          "y": "146.35px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "96",
+          "grow": 0
+        },
+        {
+          "id": 97,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1504px",
+          "y": "199.6px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "97",
+          "grow": 0
+        },
+        {
+          "id": 98,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1428px",
+          "y": "383.6px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "98",
+          "grow": 0
+        },
+        {
+          "id": 100,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1007.6px",
+          "y": "732.2px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "100",
+          "grow": 0
+        },
+        {
+          "id": 101,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1309.8px",
+          "y": "847.4px",
+          "workflowId": "cadd9caa-a30f-4bea-8aa8-35c11a32b1c7",
+          "workflowName": "02-Exploring-Cashflow-Data",
+          "nodeId": "101",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Performance",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "945.25px",
+          "y": "599.25px",
+          "workflowId": "537b08d0-a874-4a57-a13b-2c60fa179f56",
+          "workflowName": "03A-Training-Prophet-Model",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "599.48px",
+          "y": "644.488px",
+          "workflowId": "537b08d0-a874-4a57-a13b-2c60fa179f56",
+          "workflowName": "03A-Training-Prophet-Model",
+          "nodeId": "20",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Forecasting",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1126.25px",
+          "y": "240.25px",
+          "workflowId": "1198c0e4-ad42-441d-bc45-b37ed4afcab3",
+          "workflowName": "04A-Forecast-Using-Prophet",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "1163px",
+          "y": "375px",
+          "workflowId": "1198c0e4-ad42-441d-bc45-b37ed4afcab3",
+          "workflowName": "04A-Forecast-Using-Prophet",
+          "nodeId": "26",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

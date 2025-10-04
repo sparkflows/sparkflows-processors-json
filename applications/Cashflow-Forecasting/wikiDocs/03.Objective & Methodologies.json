@@ -1,0 +1,15 @@
+{
+  "id": 3307,
+  "uuid": "c9ca90f6-2980-43de-96f1-992357607ee8",
+  "name": "03.Objective & Methodologies",
+  "category": "",
+  "projectId": 1627,
+  "content": "<h2>Objective and Methodologies</h2><h3><br></h3><p>Forecast cash flows by aggregating and analyzing various transactional data like sales revenue, expense, outlays, development costs, investments</p><p><br></p><h3>Cash flow Calculation Formula:</h3><p>Cash Flow for every sale_date_month = Sum(Selling_Price) - Sum(Development_Cost) + Sum(Payment_Due_Amount) - Sum(Investment_Amount) - Sum(Expense) + Sum(Amount_Due) + Sum(Equity_Amount) + Sum(Asset_Amount) – Sum(Liability_Amount)</p><p><br></p><h3>Method:</h3><p>We have to calculate cash-flow for each organisation based on above formula.</p><ol><li>For each organisation we have to calculate month wise total sales, development cost, payment due, investment amount, expenses, equity value, asset value and liability value.</li><li>Calculate cash flow using above formula.</li><li>Prophet and Sarimax model are used for training</li><li>Forecast the future cash flow.</li></ol><h3><br></h3><h3>﻿Features Details</h3><p>Key features used:</p><ul><li>Sales revenue (by product, monthly).</li><li>Development costs.</li><li>Expense breakdown.</li><li>Payment dues.</li><li>Investments, equity, assets, liabilities.</li><li>Derived features: net cashflow, rolling averages, ratios.</li></ul><h3>Feature Importance</h3><ul><li>Concept: Identifies which variables most influence predictions.</li><li>Method: In regression models, coefficients measure importance. In tree-based models, importance scores rank features. In time-series, lagged variables and seasonal effects are analyzed.</li></ul><h3>Model Metrics</h3><ul><li>MAPE (Mean Absolute Percentage Error): To assess forecast accuracy.</li><li>RMSE (Root Mean Square Error): To penalize large errors.</li><li>R² Score: To measure explained variance.</li><li>Directional Accuracy: Whether the model correctly predicts upward/downward cashflow trends.</li></ul><h2>IV. Data Profiling and Analysis</h2><h3>Data Profiling</h3><ul><li>Check missing values per table.</li><li>Distribution of numerical variables (sales, expenses, liabilities).</li><li>Frequency of categorical variables (expense types, equity types).</li><li>Outlier detection (e.g., unusually high expenses).</li></ul><h3>Descriptive Analysis</h3><ul><li>Summary statistics (mean, median, min, max).</li><li>Sales trend visualizations over time.</li><li>Expense category breakdown (pie/bar charts).</li><li>Cashflow heatmaps (monthly inflows/outflows).</li></ul><h3>Predictive Analysis</h3><ul><li>Forecast inflows/outflows using historical data.</li><li>Predict probability of liquidity shortfalls.</li><li>Scenario simulation (e.g., what if liabilities increase by 15%?).</li><li>Sensitivity analysis to determine high-impact drivers.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:10:51 PM",
+  "updatedBy": "abhilash",
+  "dateLastUpdated": "Sep 15, 2025, 8:26:31 AM"
+}

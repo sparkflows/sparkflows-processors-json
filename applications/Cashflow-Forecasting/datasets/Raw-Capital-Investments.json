@@ -1,0 +1,39 @@
+{
+  "uuid": "201ff47e-98e8-4f89-83c5-ef524f4f5030",
+  "name": "Raw-Capital-Investments",
+  "header": true,
+  "path": "data/BFSI/Casflow-Forecasting/Raw-Data/capital_investments.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Investment_Id\",\"Investment_Amount\",\"Date\",\"ORG_ID\"],colTypes:[\"INTEGER\",\"DOUBLE\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Investment_Id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Investment_Amount",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ORG_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

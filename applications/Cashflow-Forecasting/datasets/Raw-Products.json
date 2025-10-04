@@ -1,0 +1,27 @@
+{
+  "uuid": "df388fe8-980e-4b4e-9ee1-cd38e0581871",
+  "name": "Raw-Products",
+  "header": true,
+  "path": "data/BFSI/Casflow-Forecasting/Raw-Data/products.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Product_ID\",\"Product_Name\"],colTypes:[\"INTEGER\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Product_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Product_Name",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

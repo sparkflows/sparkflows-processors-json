@@ -1,0 +1,39 @@
+{
+  "uuid": "31b83521-791e-4145-95c5-1e96ccc0dd01",
+  "name": "Raw-Payment-Due",
+  "header": true,
+  "path": "data/BFSI/Casflow-Forecasting/Raw-Data/payment_due.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Payment_Due_ID\",\"Date\",\"Payment_Due\",\"ORG_ID\"],colTypes:[\"INTEGER\",\"STRING\",\"DOUBLE\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Payment_Due_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Payment_Due",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ORG_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

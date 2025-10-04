@@ -1,0 +1,27 @@
+{
+  "uuid": "c04b3bd0-7994-4c51-8853-59140fdecbfd",
+  "name": "Raw-Org",
+  "header": true,
+  "path": "data/BFSI/Casflow-Forecasting/Raw-Data/org.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"ORG_ID\",\"ORG_Name\"],colTypes:[\"INTEGER\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "ORG_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ORG_Name",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}
