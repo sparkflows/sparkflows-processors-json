@@ -1,0 +1,233 @@
+{
+  "name": "03-Bank-Deposit-Predictive-Analysis",
+  "uuid": "440a5dc6-2c92-424e-83ff-257502348d69",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Model Evaluation",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "406.8px",
+          "y": "307.8px",
+          "workflowId": "a0946fea-1cb6-4c49-b449-3ace3c000f8d",
+          "workflowName": "Model-Performance-Visualisation",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "601.889px",
+          "y": "187.889px",
+          "workflowId": "a0946fea-1cb6-4c49-b449-3ace3c000f8d",
+          "workflowName": "Model-Performance-Visualisation",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "558.8px",
+          "y": "149.8px",
+          "workflowId": "c22dfc67-841d-4f2a-8ddb-aec60d1c6091",
+          "workflowName": "05-Model-Training",
+          "nodeId": "28",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Performance",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 2,
+          "name": "Custom Metrics",
+          "description": "Custom Metrics to check on aggregated field, which expects prediction, label, aggregate column and metrics.",
+          "type": "transform",
+          "x": "436.987px",
+          "y": "147.988px",
+          "workflowId": "40d2cca1-4f5e-4174-9fe8-78ddd40e0b91",
+          "workflowName": "06-Prediction-Performance",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "Custom Metrics",
+          "description": "Custom Metrics to check on aggregated field, which expects prediction, label, aggregate column and metrics.",
+          "type": "transform",
+          "x": "428.587px",
+          "y": "359.6px",
+          "workflowId": "40d2cca1-4f5e-4174-9fe8-78ddd40e0b91",
+          "workflowName": "06-Prediction-Performance",
+          "nodeId": "4",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 4,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "846.8px",
+          "y": "18.8px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "915.8px",
+          "y": "125.8px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "855.8px",
+          "y": "455.8px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "184.188px",
+          "y": "480.2px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "144.388px",
+          "y": "584.4px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "232.588px",
+          "y": "680.6px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "990px",
+          "y": "233px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "996px",
+          "y": "348px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "809.988px",
+          "y": "691.2px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "236.987px",
+          "y": "783.4px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 32,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "848.4px",
+          "y": "589.4px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "32",
+          "grow": 0
+        },
+        {
+          "id": 36,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "677.575px",
+          "y": "765.2px",
+          "workflowId": "24f8bd20-21d7-4b35-be87-2fd311742e61",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "36",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}
