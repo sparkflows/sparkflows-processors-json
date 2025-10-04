@@ -1,0 +1,269 @@
+{
+  "name": "PAYER PAYMENT RATE ANALYSIS",
+  "uuid": "39bab7ea-0cb4-493c-acc7-695c68111a98",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Exploratory Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 4,
+          "name": "AGE WISE PAYER PAYMENT RATE CLASS",
+          "type": "transform",
+          "x": "1404.66px",
+          "y": "665.625px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "HEALTHCARE EXPENSES WISE PAYER PAYMENT RATE CLASS",
+          "type": "transform",
+          "x": "1430.66px",
+          "y": "9.59375px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "INCOME WISE PAYER PAYMENT RATE CLASS",
+          "type": "transform",
+          "x": "1906.25px",
+          "y": "509.25px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "PAYER PAYMENT RATE CLASS AND PATIENT VISIT",
+          "type": "transform",
+          "x": "1990.53px",
+          "y": "134.625px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "PAYER PAYMENT RATE CLASS DISTRIBUTION",
+          "type": "transform",
+          "x": "1625.62px",
+          "y": "601.625px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "MEDICAL DESCRIPTIONS WISE CLAIM",
+          "type": "transform",
+          "x": "961.974px",
+          "y": "701.334px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "ETHNICITY WISE CLAIM",
+          "type": "transform",
+          "x": "1133.62px",
+          "y": "673.625px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "GENDER WISE CLAIM",
+          "type": "transform",
+          "x": "1145.25px",
+          "y": "120.292px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "MEDICAL CATEGORY WISE TOTAL CLAIM COST",
+          "type": "transform",
+          "x": "569.125px",
+          "y": "32.1562px",
+          "workflowId": "4e632fa9-6cdb-48ce-aaa7-6a4916c22bf6",
+          "workflowName": "02-EDA",
+          "nodeId": "16",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Payer Claim Payment Prediction",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 26,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1770.99px",
+          "y": "165.924px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1700.1px",
+          "y": "29.9653px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1620.56px",
+          "y": "241.608px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "28",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1717.01px",
+          "y": "560.003px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1560.14px",
+          "y": "555.142px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1421.28px",
+          "y": "560.281px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1393.67px",
+          "y": "598.764px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1398.67px",
+          "y": "501.111px",
+          "workflowId": "adec241e-ec3a-4a8d-a1f4-cbbab93513f2",
+          "workflowName": "06-Payer-Payment-Rate-Analysis-Prediction-RF",
+          "nodeId": "34",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Payer Cluster Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 15,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "368.542px",
+          "y": "255.542px",
+          "workflowId": "1641d07b-d6c1-4c95-884c-0dc2cf97b1d2",
+          "workflowName": "07-Payer-Data-Clustering",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Scatter Cluster Chart",
+          "type": "transform",
+          "x": "832.292px",
+          "y": "330.292px",
+          "workflowId": "1641d07b-d6c1-4c95-884c-0dc2cf97b1d2",
+          "workflowName": "07-Payer-Data-Clustering",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 30,
+          "name": "Scatter Cluster Chart",
+          "type": "transform",
+          "x": "844.625px",
+          "y": "154.625px",
+          "workflowId": "1641d07b-d6c1-4c95-884c-0dc2cf97b1d2",
+          "workflowName": "07-Payer-Data-Clustering",
+          "nodeId": "30",
+          "grow": 0
+        },
+        {
+          "id": 31,
+          "name": "Scatter Cluster Chart",
+          "type": "transform",
+          "x": "666.625px",
+          "y": "66.625px",
+          "workflowId": "1641d07b-d6c1-4c95-884c-0dc2cf97b1d2",
+          "workflowName": "07-Payer-Data-Clustering",
+          "nodeId": "31",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

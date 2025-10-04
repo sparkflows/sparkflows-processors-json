@@ -1,0 +1,123 @@
+{
+  "uuid": "239d8fff-b1c4-4dac-b007-cf0888ea56d6",
+  "name": "Hospital-Patient-Full-Data",
+  "header": true,
+  "path": "data/HEALTHCARE/Healthcare-Optimize-Hospital-Operation/Raw-Data/Hospital-Patient-Full-Data.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"case_id\",\"Hospital_code\",\"Hospital_type_code\",\"City_Code_Hospital\",\"Hospital_region_code\",\"Available Extra Rooms in Hospital\",\"Department\",\"Ward_Type\",\"Ward_Facility_Code\",\"Bed Grade\",\"patientid\",\"City_Code_Patient\",\"Type of Admission\",\"Severity of Illness\",\"Visitors with Patient\",\"Age\",\"Admission_Deposit\",\"Stay\"],colTypes:[\"INTEGER\",\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"DOUBLE\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "case_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Hospital_code",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Hospital_type_code",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "City_Code_Hospital",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Hospital_region_code",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Available Extra Rooms in Hospital",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Department",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Ward_Type",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Ward_Facility_Code",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Bed Grade",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "patientid",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "City_Code_Patient",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Type of Admission",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Severity of Illness",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Visitors with Patient",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Age",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Admission_Deposit",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Stay",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

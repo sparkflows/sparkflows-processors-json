@@ -1,0 +1,213 @@
+{
+  "uuid": "240e836a-eef9-4849-849f-24b63a72ec98",
+  "name": "Claims-Transactions",
+  "header": true,
+  "path": "data/INSURANCE/Healthcare-Insurance-Claims-Fraud-Analytics/Raw-Data/Claims-Transactions.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"ID\",\"CLAIMID\",\"CHARGEID\",\"PATIENTID\",\"TYPE\",\"AMOUNT\",\"METHOD\",\"FROMDATE\",\"TODATE\",\"PLACEOFSERVICE\",\"PROCEDURECODE\",\"MODIFIER1\",\"MODIFIER2\",\"DIAGNOSISREF1\",\"DIAGNOSISREF2\",\"DIAGNOSISREF3\",\"DIAGNOSISREF4\",\"UNITS\",\"DEPARTMENTID\",\"NOTES\",\"UNITAMOUNT\",\"TRANSFEROUTID\",\"TRANSFERTYPE\",\"PAYMENTS\",\"ADJUSTMENTS\",\"TRANSFERS\",\"OUTSTANDING\",\"APPOINTMENTID\",\"LINENOTE\",\"PATIENTINSURANCEID\",\"FEESCHEDULEID\",\"PROVIDERID\",\"SUPERVISINGPROVIDERID\"],colTypes:[\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CLAIMID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CHARGEID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PATIENTID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "TYPE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "AMOUNT",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "METHOD",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "FROMDATE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "TODATE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PLACEOFSERVICE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PROCEDURECODE",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MODIFIER1",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "MODIFIER2",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DIAGNOSISREF1",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DIAGNOSISREF2",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DIAGNOSISREF3",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DIAGNOSISREF4",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "UNITS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DEPARTMENTID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "NOTES",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "UNITAMOUNT",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TRANSFEROUTID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "TRANSFERTYPE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PAYMENTS",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ADJUSTMENTS",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TRANSFERS",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "OUTSTANDING",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "APPOINTMENTID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "LINENOTE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PATIENTINSURANCEID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "FEESCHEDULEID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PROVIDERID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SUPERVISINGPROVIDERID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

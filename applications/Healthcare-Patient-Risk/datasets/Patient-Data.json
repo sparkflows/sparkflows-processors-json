@@ -1,0 +1,135 @@
+{
+  "uuid": "13251d31-68a6-4741-ad06-194b32f769cd",
+  "name": "Patient-Data",
+  "header": true,
+  "path": "data/HEALTHCARE/Healthcare-Patient-Risk/Raw-Data/Patient-Data-With-Risk-Score.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Patient_ID\",\"Age\",\"BMI\",\"Systolic_BP\",\"Diastolic_BP\",\"Cholesterol_Level\",\"Blood_Sugar_Level\",\"Heart_Rate\",\"Creatinine_Level\",\"Liver_Enzyme_Level\",\"CRP_Level\",\"Oxygen_Saturation\",\"Insulin_Level\",\"Physical_Activity_Level\",\"Smoking_Status\",\"Diabetes\",\"Hypertension\",\"Heart_Disease_History\",\"Risk_Score\",\"Risk_Category\"],colTypes:[\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Patient_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Age",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BMI",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Systolic_BP",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Diastolic_BP",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Cholesterol_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Blood_Sugar_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Heart_Rate",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Creatinine_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Liver_Enzyme_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CRP_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Oxygen_Saturation",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Insulin_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Physical_Activity_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Smoking_Status",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Diabetes",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Hypertension",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Heart_Disease_History",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Risk_Score",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Risk_Category",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

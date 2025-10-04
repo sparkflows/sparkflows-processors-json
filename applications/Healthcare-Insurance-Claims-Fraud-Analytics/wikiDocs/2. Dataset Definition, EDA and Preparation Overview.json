@@ -1,0 +1,14 @@
+{
+  "id": 2109,
+  "uuid": "db2f6ed3-8a61-4b34-8484-31748939cb11",
+  "name": "2. Dataset Definition, EDA and Preparation Overview",
+  "category": "",
+  "projectId": 1596,
+  "content": "<h1><span style=\"color: rgb(0, 71, 178);\">Data Description:</span></h1><p>This solution uses public domain dataset for Health Insurance Claims.</p><p><br></p><p>The input dataset comprises of following data:</p><p><br></p><ul><li>Claims Data<span style=\"color: rgb(102, 185, 102);\"> -&nbsp;</span>Contains info claims id, balance and Diagnosis info</li><li>Claims Transactions Data<span style=\"color: rgb(102, 185, 102);\"> -</span>&nbsp;Contains info regarding Encounters, Procedures, Payment Type, Paid Amount etc</li><li>Providers Data<span style=\"color: rgb(102, 185, 102);\"> -&nbsp;</span>Contains info regarding Provider Organization with location</li></ul><p><br></p><p><br></p><h1><span style=\"color: rgb(0, 71, 178);\">Data Preparation:</span></h1><ul><li><strong>Joining various datasets</strong>: Join Claim and Transaction data on claim id then join providers data on provider id then we can use same data for EDA and Clustering then we will use same for modelling</li></ul><p><br></p><h1><span style=\"color: rgb(0, 71, 178);\">Data Exploration:</span></h1><ul><li>On claim data we are analysing Amount distribution through box plot</li><li>Calculate summary statistics on Numerical columns</li><li>Getting info regarding null values in data frame</li></ul><p><br></p><h1><span style=\"color: rgb(0, 71, 178);\">Data Quality Assessment:</span></h1><p><br></p><ul><li>lengths of different ids</li><li>GENDER Column can contain either M or F</li><li>The first 5 characters of CLAIMID must be a string</li><li>initial character of PATIENT_ID must be numeric</li><li>NAME column should contain only string values</li><li>TYPE column should contain only string values</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "May 5, 2025, 12:53:51 PM",
+  "dateLastUpdated": "May 5, 2025, 12:53:51 PM"
+}

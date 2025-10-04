@@ -1,0 +1,93 @@
+{
+  "uuid": "ca1a6ab2-d221-46df-a591-78a2487465dd",
+  "name": "Providers",
+  "header": true,
+  "path": "data/INSURANCE/Healthcare-Insurance-Claims-Fraud-Analytics/Raw-Data/Providers.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Id\",\"ORGANIZATION\",\"NAME\",\"GENDER\",\"SPECIALITY\",\"ADDRESS\",\"CITY\",\"STATE\",\"ZIP\",\"LAT\",\"LON\",\"ENCOUNTERS\",\"PROCEDURES\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Id",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ORGANIZATION",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "NAME",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "GENDER",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SPECIALITY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ADDRESS",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CITY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "STATE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ZIP",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "LAT",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "LON",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "ENCOUNTERS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PROCEDURES",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

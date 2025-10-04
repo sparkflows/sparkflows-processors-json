@@ -1,0 +1,147 @@
+{
+  "uuid": "76bdd9fd-d98f-43a2-82a9-87b031c4c6c5",
+  "name": "Payers-Data",
+  "header": true,
+  "path": "data/HEALTHCARE/Healthcare-Payer-Payment-Rate-Classification/Raw-Data/Payers.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Id\",\"NAME\",\"OWNERSHIP\",\"ADDRESS\",\"CITY\",\"STATE_HEADQUARTERED\",\"ZIP\",\"PHONE\",\"AMOUNT_COVERED\",\"AMOUNT_UNCOVERED\",\"REVENUE\",\"COVERED_ENCOUNTERS\",\"UNCOVERED_ENCOUNTERS\",\"COVERED_MEDICATIONS\",\"UNCOVERED_MEDICATIONS\",\"COVERED_PROCEDURES\",\"UNCOVERED_PROCEDURES\",\"COVERED_IMMUNIZATIONS\",\"UNCOVERED_IMMUNIZATIONS\",\"UNIQUE_CUSTOMERS\",\"QOLS_AVG\",\"MEMBER_MONTHS\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Id",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "NAME",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "OWNERSHIP",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ADDRESS",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CITY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "STATE_HEADQUARTERED",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ZIP",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PHONE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "AMOUNT_COVERED",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "AMOUNT_UNCOVERED",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "REVENUE",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COVERED_ENCOUNTERS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "UNCOVERED_ENCOUNTERS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COVERED_MEDICATIONS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "UNCOVERED_MEDICATIONS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COVERED_PROCEDURES",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "UNCOVERED_PROCEDURES",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COVERED_IMMUNIZATIONS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "UNCOVERED_IMMUNIZATIONS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "UNIQUE_CUSTOMERS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "QOLS_AVG",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MEMBER_MONTHS",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

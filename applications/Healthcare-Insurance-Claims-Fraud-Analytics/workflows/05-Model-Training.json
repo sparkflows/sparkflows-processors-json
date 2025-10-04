@@ -1,0 +1,1854 @@
+{
+  "name": "05-Model-Training",
+  "uuid": "3d1d6693-c121-48d0-a666-603a7c846ab8",
+  "category": "Model-Training",
+  "description": "-",
+  "parameters": " --var arg_gender='M','F' --var arg_type='PAYMENT','CHARGE','TRANSFERIN','TRANSFEROUT' --var arg_city='SOMERVILLE','Fitchburg','STOUGHTON','WOBURN','BOURNE','NORWOOD','FITCHBURG','Worcester','Lowell','KINGSTON' --var arg_method='ECHECK','COPAY','COPAY','CHECK','CASH','NA' --var workflow_8_featurecolumns=GENDER,CITY,STATE,ENCOUNTERS,METHOD,Duration,TRANSFERS --var modelName=m_7",
+  "nodes": [
+    {
+      "id": "6",
+      "name": "Save CSV",
+      "description": "Saves the DataFrame into the specified location in CSV Format",
+      "details": "This node saves incoming Dataframe into the specified location in CSV format.<br>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.save.NodeSaveCSV",
+      "x": "198.075px",
+      "y": "426.475px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "data/INSURANCE/Healthcare-Insurance-Claims-Fraud-Analytics/Test-Data/",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path where to save the CSV files",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "saveMode",
+          "value": "Overwrite",
+          "widget": "array",
+          "title": "Save Mode",
+          "description": "Whether to Append, Overwrite or Error if the path Exists",
+          "optionsArray": [
+            "Append",
+            "Overwrite",
+            "ErrorIfExists",
+            "Ignore"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "header",
+          "value": "true",
+          "widget": "array",
+          "title": "Header",
+          "description": "Should a Header Row be saved with each File?",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "encoding",
+          "value": "UTF-8",
+          "widget": "textfield",
+          "title": "Encoding",
+          "description": "Decodes the CSV files by the given encoding type",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "quote",
+          "value": "\"",
+          "widget": "textfield",
+          "title": "Quote",
+          "description": "Sets a single character used for escaping quoted values where the separator can be part of the value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "escape",
+          "value": "\\",
+          "widget": "textfield",
+          "title": "Escape",
+          "description": "Sets a single character used for escaping quotes inside an already quoted value.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "Advanced",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "partitionColNames",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Partition Column Names",
+          "description": "Partition Column Names",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "7",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "1.76389px",
+      "y": "26.7639px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "width",
+          "value": "340px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "height",
+          "value": "108px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "comment",
+          "value": "<p><strong>This workflow is employed for training a Distributed Random Forest Model to detect fraudulent insurance claims.</strong></p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "8",
+      "name": "H2O Distributed Random Forest",
+      "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+      "details": "Distributed Random Forest (DRF) is a powerful classification and regression tool. When given a set of data, DRF generates a forest of classification or regression trees, rather than a single classification or regression tree. Each of these trees is a weak learner built on a subset of rows and columns. More trees will reduce the variance. Both classification and regression take the average prediction over all of their trees to make a final prediction, whether predicting for a class or numeric value.<br>\n<br>\nMore details are available at : <a href=\"http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/drf.html\" target=\"_blank\">docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/drf.html</a><br>",
+      "examples": "",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.h2o.NodeH2ODrf",
+      "x": "299.681px",
+      "y": "291.681px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "isResponseIsCategorical",
+          "value": "true",
+          "widget": "array",
+          "title": "Is Response Column Categorical",
+          "description": "Specify a response column type(numeric or categorical). Separates the Classification and Regression",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "labelCol",
+          "value": "Fraud_Flag",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "Response variable column.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "featuresCols",
+          "value": "[\"ORGANIZATION\",\"GENDER\",\"CITY\",\"STATE\",\"ENCOUNTERS\",\"AMOUNT\",\"METHOD\",\"Duration\",\"TRANSFERS\",\"OUTSTANDING\"]",
+          "widget": "variables",
+          "title": "Feature Columns",
+          "description": "Features to be used for Modelling",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Confusion Matrix to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "columnsToCategorical",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Columns to Categorical",
+          "description": "Columns to be Categorical encoded",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seed",
+          "value": "1234",
+          "widget": "textfield",
+          "title": "Seed",
+          "description": "Seed for pseudo random number generator (if applicable).",
+          "datatypes": [
+            "Long"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "balanceClasses",
+          "value": "true",
+          "widget": "textfield",
+          "title": "Balance Classes",
+          "description": "Balance training data class counts via over/under-sampling (for imbalanced data).",
+          "datatypes": [
+            "boolean"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "nfolds",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Number of Folds",
+          "description": "Number of folds for K-fold cross-validation (0 to disable or >= 2).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "ntrees",
+          "value": "50",
+          "widget": "textfield",
+          "title": "Number of Trees",
+          "description": "Number of trees.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "maxDepth",
+          "value": "5",
+          "widget": "textfield",
+          "title": "Max Depth",
+          "description": "Maximum tree depth (0 for unlimited).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minRows",
+          "value": "10.0",
+          "widget": "textfield",
+          "title": "Min Rows",
+          "description": "Fewest allowed (weighted) observations in a leaf.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "nbins",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Number of Bins",
+          "description": "For numerical columns (real/int), build a histogram of (at least) this many bins, then split at the best point.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "nbinsTopLevel",
+          "value": "1024",
+          "widget": "textfield",
+          "title": "Number of bins top level",
+          "description": "For numerical columns (real/int), build a histogram of (at most) this many bins at the root level, then decrease by factor of two per level.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "nbinsCats",
+          "value": "1024",
+          "widget": "textfield",
+          "title": "Number of Bins Categoricals",
+          "description": "For categorical columns (factors), build a histogram of this many bins, then split at the best point. Higher values can lead to more overfitting.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "categoricalEncoding",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "Categorical Encoding",
+          "description": "Specify one of the various encoding schemes for handling categorical features",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "AUTO",
+            "OneHotInternal",
+            "OneHotExplicit",
+            "Enum",
+            " Binary",
+            "Eigen",
+            "LabelEncode",
+            "SortByResponse",
+            "EnumLimited"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "ignoreConstCols",
+          "value": "true",
+          "widget": "array",
+          "title": "Ignore Const Columns",
+          "description": "Ignore constant columns.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "scoreEachIteration",
+          "value": "false",
+          "widget": "array",
+          "title": "Score Each Iteration",
+          "description": "Whether to score during each iteration of model training.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "stoppingRounds",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Stopping Rounds",
+          "description": "Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "maxRuntimeSecs",
+          "value": "0.0",
+          "widget": "textfield",
+          "title": "Max Runtime Secs",
+          "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "stoppingMetric",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "StoppingMetric",
+          "description": "Metric to use for early stopping (AUTO: logloss for classification, deviance for regression)",
+          "optionsArray": [
+            "AUTO",
+            "deviance",
+            "logloss",
+            "MSE",
+            "RMSE",
+            "MAE",
+            "RMSLE",
+            "AUC",
+            "AUCPR",
+            "lift_top_group",
+            "misclassification",
+            "mean_per_class_error",
+            "anomaly_score",
+            "custom",
+            "custom_increasing"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "stoppingTolerance",
+          "value": "0.001",
+          "widget": "textfield",
+          "title": "StoppingTolerance",
+          "description": "Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "gainsliftBins",
+          "value": "-1",
+          "widget": "textfield",
+          "title": "Gains Lift Bins",
+          "description": "Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "withContributions",
+          "value": "false",
+          "widget": "array",
+          "title": "With Contributions",
+          "description": "Enables or disables generating a sub-column of detailedPredictionCol containing Shapley values.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "Advanced",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "convertUnknownCategoricalLevelsToNa",
+          "value": "true",
+          "widget": "array",
+          "title": "Convert Unknown Categorical Levels to NA",
+          "description": "If set to ‘true’, the model converts unknown categorical levels to NA during making predictions.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "predictionCol",
+          "value": "prediction",
+          "widget": "textfield",
+          "title": "Prediction Column",
+          "description": "Prediction column name",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "detailedPredictionCol",
+          "value": "detailed_prediction",
+          "widget": "textfield",
+          "title": "Detailed Prediction column",
+          "description": "Column containing additional prediction details, its content depends on the model type",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "withLeafNodeAssignments",
+          "value": "false",
+          "widget": "array",
+          "title": "With Node Assignments",
+          "description": "Enables or disables computation of leaf node assignments.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "withStageResults",
+          "value": "false",
+          "widget": "array",
+          "title": "With Stage Results",
+          "description": "Enables or disables computation of stage results.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "mtries",
+          "value": "-1",
+          "widget": "textfield",
+          "title": "mtries",
+          "description": "Number of variables randomly sampled as candidates at each split. If set to -1, defaults to sqrt{p} for classification and p/3 for regression (where p is the # of predictors.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "binomialDoubleTrees",
+          "value": "false",
+          "widget": "array",
+          "title": "Binomial Double trees",
+          "description": "For binary classification: Build 2x as many trees (one per class) - can lead to higher accuracy.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "sampleRate",
+          "value": "0.632",
+          "widget": "textfield",
+          "title": "Sample Rate",
+          "description": "Row sample rate per tree (from 0.0 to 1.0).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "maxAfterBalanceSize",
+          "value": "5.0",
+          "widget": "textfield",
+          "title": "Max After Balance Size",
+          "description": "Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "maxConfusionMatrixSize",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Confusion Matrix Size",
+          "description": "[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "buildTreeOneNode",
+          "value": "false",
+          "widget": "array",
+          "title": "Build tree one node",
+          "description": "Enables to run on a single node",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "colSampleRatePerTree",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Column Sample Rate Per Tree (from 0.0 to 1.0).",
+          "description": "Column sample rate per tree (from 0.0 to 1.0).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "colSampleRateChangePerLevel",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Column Sample Rate change Per Level",
+          "description": "Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "scoreTreeInterval",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Score Tree Interval",
+          "description": "Score the model after every so many trees. Disabled if set to 0.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "minSplitImprovement",
+          "value": "1.0e-5",
+          "widget": "textfield",
+          "title": "Minimum Split Improvement",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "histogramType",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "Histogram Type",
+          "description": "What type of histogram to use for finding optimal split points. Possible values are ",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "AUTO",
+            "UniformAdaptive",
+            "Random",
+            "QuantilesGlobal",
+            "RoundRobin",
+            "UniformRobust"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "calibrateModel",
+          "value": "false",
+          "widget": "array",
+          "title": "Calibrate Model",
+          "description": "Use Platt Scaling to calculate calibrated class probabilities. Calibration can provide more accurate estimates of class probabilities.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "checkConstantResponse",
+          "value": "true",
+          "widget": "array",
+          "title": "Check Constant Response",
+          "description": "UCheck if response column is constant. If enabled, then an exception is thrown if the response column is a constant value.If disabled, then model will train regardless of the response column being a constant value or not.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "keepCrossValidationModels",
+          "value": "true",
+          "widget": "array",
+          "title": "Keep Cross Validation Models",
+          "description": "Whether to keep the cross-validated models. Keeping cross-validation models may consume significantly more memory in the H2O cluster.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "keepCrossValidationPredictions",
+          "value": "false",
+          "widget": "array",
+          "title": "Keep Cross Validation Predictions",
+          "description": "Whether to keep the predictions of the cross-validation predictions. This needs to be set to TRUE if running the same AutoML object for repeated runs because CV predictions are required to build additional Stacked Ensemble models in AutoML.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "keepCrossValidationFoldAssignment",
+          "value": "false",
+          "widget": "array",
+          "title": "Keep Cross Validation Fold Assignment",
+          "description": "Whether to keep cross-validation assignments.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "distribution",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "Distribution",
+          "description": "Distribution function used by algorithms that support it; other algorithms use their defaults.",
+          "optionsArray": [
+            "AUTO",
+            "bernoulli",
+            "quasibinomial",
+            "modified_huber",
+            "multinomial",
+            "ordinal",
+            "gaussian",
+            "poisson",
+            "gamma",
+            "tweedie",
+            "huber",
+            "laplace",
+            "quantile",
+            "fractionalbinomial",
+            "negativebinomial",
+            "custom"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "weightCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Weight Column",
+          "description": "Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "offsetCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Offset Column",
+          "description": "Offset column. This will be added to the combination of columns before applying the link function.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "foldCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Fold Column",
+          "description": "Column with cross-validation fold index assignment per observation.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "foldAssignment",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "Fold Assignment",
+          "description": "Cross-validation fold assignment scheme, if fold_column is not specified. The 'Stratified' option will stratify the folds based on the response variable, for classification problems.",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "AUTO",
+            "Random",
+            "Modulo",
+            "Stratified"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "aucType",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "AUC Type",
+          "description": "Set default multinomial AUC type.",
+          "optionsArray": [
+            "AUTO",
+            "NONE",
+            "MACRO_OVR",
+            "WEIGHTED_OVR",
+            "MACRO_OVO",
+            "WEIGHTED_OVO"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "confusionMatrix",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "output_confusion_matrix_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output Confusion Matrix Chart",
+          "description": "whether to display confusion matrix chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "cm_chart_title",
+          "value": "Confusion Matrix Chart",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Title",
+          "description": "Title name to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "cm_chart_description",
+          "value": "Visual Representation of Predicted vs. Actual Classes",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Description",
+          "description": " Description to display in Confusion Matrix CHart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "confusionMatrixTargetLegend",
+          "value": "Target",
+          "widget": "textfield",
+          "title": "Confusion Matrix Target Legend",
+          "description": "Legend name to display for Target in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "confusionMatrixPredictedLabelLegend",
+          "value": "PredictedLabel",
+          "widget": "textfield",
+          "title": "Confusion Matrix PredictedLabel Legend",
+          "description": "Legend name to display for Predicted Label in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "ROC Curve",
+          "value": "",
+          "widget": "tab",
+          "title": "ROC Curve",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "output_roc_curve",
+          "value": "false",
+          "widget": "array",
+          "title": "Output ROC Curve",
+          "description": "Whether to display confusion matrix chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "roc_title",
+          "value": "ROC Curve",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Title",
+          "description": "Title name to display in ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "roc_description",
+          "value": "Receiver operating characteristic (ROC) curve",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Description",
+          "description": "Add Description for ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "xlabel",
+          "value": "False Positive Rate (specificity)",
+          "widget": "textfield",
+          "title": "X Label",
+          "description": "X label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "ylabel",
+          "value": "True Positive Rate (sensitivity)",
+          "widget": "textfield",
+          "title": "Y Label",
+          "description": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "H2O ML Model Save",
+      "description": "Saves an H2O MOJO ML model at the specified path.",
+      "details": "",
+      "examples": "",
+      "type": "ml-modelsave",
+      "nodeClass": "fire.nodes.h2o.NodeH2OMojoSave",
+      "x": "297.278px",
+      "y": "169.264px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "data/INSURANCE/Healthcare-Insurance-Claims-Fraud-Analytics/Model/${modelName}/",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path for saving the H2O MOJO",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fixedPath",
+          "value": "true",
+          "widget": "array",
+          "title": "Static path",
+          "description": "Set this to true if you want model to be saved in a static path. It will overwrite the model in the directory specified.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "10",
+      "name": "H2O Score",
+      "description": "",
+      "details": "",
+      "examples": "",
+      "type": "ml-predict",
+      "nodeClass": "fire.nodes.h2o.NodeH2OScore",
+      "x": "425.069px",
+      "y": "295.083px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "isTestData",
+          "value": "false",
+          "widget": "array",
+          "title": "is Test Data",
+          "description": "To enable the test metrics.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "withContribution",
+          "value": "false",
+          "widget": "array",
+          "title": "Compute Shapley Values",
+          "description": "Compute Shapley Values and it supported for Regression and Binomial Classification problem.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path to save the Shapley contributions for test dataset.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "modelType",
+          "value": "Other",
+          "widget": "array",
+          "title": "Model Type",
+          "description": "Select the type of the model.",
+          "datatypes": [
+            "String"
+          ],
+          "optionsArray": [
+            "Classification",
+            "Regression",
+            "Other"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "11",
+      "name": "Row Filter",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node creates a new DataFrame containing the rows that satisfy the given condition",
+      "details": "<h2>Details</h2>\n<br>\nRow filter allows the user to filter out rows that do not meet a set condition. Rows that meet the condition are passed on to the next node in a new dataframe.<br>",
+      "examples": "<h2>Examples of Conditional Expression</h2>\n<br>\nBelow are some examples of the Conditions Expression which can be used.<br>\n<br>\n<ul>\n<li> col1 > 5 AND col2 > 3</li>\n</ul>\n<ul>\n<li> name is not NULL</li>\n</ul>\n<ul>\n<li> name is NULL</li>\n</ul>\n<ul>\n<li> usd_pledged_real > 0 and (category = \"Narrative Film\" or category == \"Music\") and goal > 100</li>\n</ul>\n<ul>\n<li> dt > '2021-09-03'  (dt column is of type date)</li>\n</ul>\n<ul>\n<li> datetime > '2011-01-01 00:00:00.0'     (datetime column is of type timestamp)</li>\n</ul>\n<ul>\n<li> datetime > '2011-01-01 00:00:00.0' and datetime < '2016-01-01 00:00:00.0'</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeRowFilter",
+      "x": "122.388px",
+      "y": "290.4px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "conditionExpr",
+          "value": "gender in (${arg_gender}) and\ntype in (${arg_type}) and \nmethod in (${arg_method})",
+          "widget": "textarea_small",
+          "title": "Conditional Expression",
+          "description": "The filtering condition. Rows not satisfying given condition will be excluded from output DataFrame. eg: usd_pledged_real > 0 and (category = 1 or category == 2) and goal > 100",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "13",
+      "name": "Split With Stratified Sampling",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data by Stratified Sampling.",
+      "details": "Split With Stratified Sampling, which is the preferred way to sample from populations with varing subpopulation sizes.<br>\n<br>\nReturns a stratified sample without replacement based on the fraction given on each stratum.<br>\n<br>\nMore details are available at : <a href=\"https://spark.apache.org/docs/latest/api/python/_modules/pyspark/sql/dataframe.html#DataFrame.sampleBy\" target=\"_blank\">spark.apache.org/docs/latest/api/python/_modules/pyspark/sql/dataframe.html#DataFrame.sampleBy</a><br>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.SplitWithStratifiedSampling",
+      "x": "206.8px",
+      "y": "287.8px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "keyInputCol",
+          "value": "Fraud_Flag",
+          "widget": "variable",
+          "title": "Column Name",
+          "description": "column that defines strata",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fraction",
+          "value": "0.75",
+          "widget": "textfield",
+          "title": "Fraction",
+          "description": "sampling fraction for each stratum. If a stratum is not specified, we treat its fraction as zero",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "seed",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Seed",
+          "description": "random seed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "14",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "26.8889px",
+      "y": "285.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "db3489f5-8d6e-4e15-9253-5d229c117a6f",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "8",
+      "target": "9",
+      "id": 1
+    },
+    {
+      "source": "8",
+      "target": "10",
+      "id": 2
+    },
+    {
+      "source": "13",
+      "target": "8",
+      "id": 3
+    },
+    {
+      "source": "13",
+      "target": "6",
+      "id": 4
+    },
+    {
+      "source": "11",
+      "target": "13",
+      "id": 5
+    },
+    {
+      "source": "14",
+      "target": "11",
+      "id": 6
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3003,
+      "uuid": "db3489f5-8d6e-4e15-9253-5d229c117a6f",
+      "header": true,
+      "path": "data/INSURANCE/Healthcare-Insurance-Claims-Fraud-Analytics/Raw-Data/Claim-Merged.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"CLAIMID\",\"PATIENT_ID\",\"PROVIDER_ID\",\"ORGANIZATION\",\"NAME\",\"GENDER\",\"SPECIALITY\",\"ADDRESS\",\"CITY\",\"STATE\",\"ZIP\",\"LAT\",\"LON\",\"ENCOUNTERS\",\"PROCEDURES\",\"TYPE\",\"AMOUNT\",\"METHOD\",\"FromDate\",\"ToDate\",\"PLACEOFSERVICE\",\"PAYMENTS\",\"TRANSFERS\",\"OUTSTANDING\",\"To_Date\",\"From_Date\",\"Duration\",\"Fraud_Flag\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

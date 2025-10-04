@@ -1,0 +1,317 @@
+{
+  "name": "Claims-Analytics-Report",
+  "uuid": "965acf28-782a-4b71-b8e3-17ccb3860af5",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Claims Analytics Report",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Claims Amounts Chart",
+          "type": "transform",
+          "x": "667.125px",
+          "y": "189.125px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Claims distribution by Providers",
+          "type": "transform",
+          "x": "678.7625732421875px",
+          "y": "341.7750244140625px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Claims distribution by Organization",
+          "type": "transform",
+          "x": "672.125px",
+          "y": "48.13749694824219px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Claim Distribution by Provider & City",
+          "type": "transform",
+          "x": "414.6px",
+          "y": "621.662px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 36,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "306.388px",
+          "y": "755.6px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "36",
+          "grow": 0
+        },
+        {
+          "id": 37,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "417.388px",
+          "y": "820px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "37",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "442.587px",
+          "y": "936.6px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "38",
+          "grow": 0
+        },
+        {
+          "id": 43,
+          "name": "Skewness And Kurtosis",
+          "description": "",
+          "type": "transform",
+          "x": "304.8px",
+          "y": "1315.4px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "43",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Top 10 Providers By Fraudulent Claims",
+          "type": "transform",
+          "x": "482.125px",
+          "y": "1464.72px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 53,
+          "name": "Top 10 Providers By Fraudulent Payment Amount",
+          "type": "transform",
+          "x": "558.9px",
+          "y": "1616.53px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "53",
+          "grow": 0
+        },
+        {
+          "id": 56,
+          "name": "Top 10 Speciality Having Max Fraudulent Claim Count",
+          "type": "transform",
+          "x": "554.6px",
+          "y": "1762.4px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "56",
+          "grow": 0
+        },
+        {
+          "id": 59,
+          "name": "Top 10 Speciality Having Max Fraudulent Payment Amount",
+          "type": "transform",
+          "x": "558.4px",
+          "y": "1934.4px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "59",
+          "grow": 0
+        },
+        {
+          "id": 78,
+          "name": "Top Payment Methods By Fraudulent Payment Amount",
+          "type": "transform",
+          "x": "594.1px",
+          "y": "2658.52px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "78",
+          "grow": 0
+        },
+        {
+          "id": 81,
+          "name": "Top 10 Cities By Fraudulent Claims",
+          "type": "transform",
+          "x": "457.112px",
+          "y": "2101.71px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "81",
+          "grow": 0
+        },
+        {
+          "id": 82,
+          "name": "Top 10 Cities By Fraudulent Payment Amount",
+          "type": "transform",
+          "x": "556.112px",
+          "y": "2363.71px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "82",
+          "grow": 0
+        },
+        {
+          "id": 90,
+          "name": "Distribution of Payment Amount and Outstanding Amount",
+          "type": "transform",
+          "x": "314.575px",
+          "y": "2846px",
+          "workflowId": "f23b0a6a-fb96-408c-9e02-c3475f006f0c",
+          "workflowName": "04-Claims-Data-Warehouse-Analytics",
+          "nodeId": "90",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Cluster Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 8,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "292.8px",
+          "y": "290.8px",
+          "workflowId": "3d1d6693-c121-48d0-a666-603a7c846ab8",
+          "workflowName": "05-Model-Training",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Fraud Status Distribution",
+          "type": "transform",
+          "x": "898.025px",
+          "y": "108.037px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 41,
+          "name": "City Wise Predicted Fraud",
+          "type": "transform",
+          "x": "1098px",
+          "y": "229.6px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "41",
+          "grow": 0
+        },
+        {
+          "id": 42,
+          "name": "Payment Method wise Predicted Fraud",
+          "type": "transform",
+          "x": "1130.8px",
+          "y": "372.4px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "42",
+          "grow": 0
+        },
+        {
+          "id": 43,
+          "name": "Top 10 organization Wise Expected Avg Amount Fraud",
+          "type": "transform",
+          "x": "1140px",
+          "y": "533.588px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "43",
+          "grow": 0
+        },
+        {
+          "id": 44,
+          "name": "Top 10 Organization based on fraud claim count",
+          "type": "transform",
+          "x": "1047px",
+          "y": "689px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "44",
+          "grow": 0
+        },
+        {
+          "id": 48,
+          "name": "Top 10 Organizations Across Fraudulent Claim Status by Claim Count",
+          "type": "transform",
+          "x": "586.188px",
+          "y": "1020.3px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "48",
+          "grow": 0
+        },
+        {
+          "id": 52,
+          "name": "Top Payment Methods Across Fraudulent Claim Status by Claim Count",
+          "type": "transform",
+          "x": "576.594px",
+          "y": "1286.69px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "52",
+          "grow": 0
+        },
+        {
+          "id": 54,
+          "name": "Distribution of Payments by Fraud Status",
+          "type": "transform",
+          "x": "409.188px",
+          "y": "832.594px",
+          "workflowId": "6b72da19-3dfb-457d-9f47-650d1b96cf85",
+          "workflowName": "06-Fraud-Claim-Prediction",
+          "nodeId": "54",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": 3226,
+  "uuid": "7ecfef68-6903-4287-bea5-54b82c70bad3",
+  "name": "3. Patient Segmentation",
+  "category": "",
+  "projectId": 1615,
+  "content": "<h1>Patient Segmentation</h1><h2>Methodology</h2><p>To better understand patient financial and coverage profiles, we applied K-Means clustering on key features such as:</p><ul><li>Income</li><li>Expense</li><li>Coverage</li></ul><p>This unsupervised learning approach allowed us to group patients into distinct clusters, providing insights into payer-payment dynamics across different income and coverage ranges.</p><p><br></p><h2>Cluster Insights</h2><p>1.Cluster 2 – Low Income Group</p><ul><li class=\"ql-indent-1\">Income: Less than 50K</li><li class=\"ql-indent-1\">Coverage: Up to 2000K</li><li class=\"ql-indent-1\">Represents patients with low income but significant insurance coverage, likely reliant on payer reimbursements.</li></ul><p>2.Cluster 0 – Lower-Middle Income Group</p><ul><li class=\"ql-indent-1\">Income: 50K – 170K</li><li class=\"ql-indent-1\">Coverage: Up to 2000K</li><li class=\"ql-indent-1\">Moderate-income patients with balanced payer support.</li></ul><p>3.Cluster 4 – Upper-Middle Income Group</p><ul><li class=\"ql-indent-1\">Income: 170K – 570K</li><li class=\"ql-indent-1\">Coverage: Up to 2000K</li><li class=\"ql-indent-1\">Higher earning segment with still substantial coverage.</li></ul><p>4.Cluster 1 – High Income Group</p><ul><li class=\"ql-indent-1\">Income: 600K – 1000K</li><li class=\"ql-indent-1\">Coverage: Up to 2000K</li><li class=\"ql-indent-1\">Wealthier patients, though coverage patterns remain consistent.</li></ul><p>5.Cluster 3 – Very High Income Group</p><ul><li class=\"ql-indent-1\">Income: 150K – 7000K</li><li class=\"ql-indent-1\">Coverage: Higher variability, extending significantly beyond other clusters.</li><li class=\"ql-indent-1\">Represents affluent patients with wide-ranging coverage policies.</li></ul><h2>Key Takeaways</h2><ul><li>Most patient clusters (0, 1, 2, 4) have coverage capped at ~2000K, irrespective of income.</li><li>Cluster 3 stands out, covering a broad income spectrum (150K – 7000K) with high coverage variability, indicating payer policies tailored for affluent segments.</li><li>Segmentation highlights payer dependency differences—lower-income clusters rely heavily on payers, while high-income groups show more flexibility.</li><li><br></li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:07:25 PM",
+  "updatedBy": "mudit",
+  "dateLastUpdated": "Sep 22, 2025, 12:44:04 PM"
+}

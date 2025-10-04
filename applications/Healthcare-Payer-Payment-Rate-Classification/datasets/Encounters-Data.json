@@ -1,0 +1,105 @@
+{
+  "uuid": "2acfa804-6021-4202-8cf0-bdcbfa28efb3",
+  "name": "Encounters-Data",
+  "header": true,
+  "path": "data/HEALTHCARE/Healthcare-Payer-Payment-Rate-Classification/Raw-Data/Encounters.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Id\",\"START\",\"STOP\",\"PATIENT\",\"ORGANIZATION\",\"PROVIDER\",\"PAYER\",\"ENCOUNTERCLASS\",\"CODE\",\"DESCRIPTION\",\"BASE_ENCOUNTER_COST\",\"TOTAL_CLAIM_COST\",\"PAYER_COVERAGE\",\"REASONCODE\",\"REASONDESCRIPTION\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Id",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "START",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "STOP",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PATIENT",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ORGANIZATION",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PROVIDER",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PAYER",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ENCOUNTERCLASS",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CODE",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DESCRIPTION",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BASE_ENCOUNTER_COST",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TOTAL_CLAIM_COST",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PAYER_COVERAGE",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "REASONCODE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "REASONDESCRIPTION",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

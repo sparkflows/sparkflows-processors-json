@@ -1,0 +1,69 @@
+{
+  "uuid": "eed0623e-aa72-4fa2-9262-713a1ad38a90",
+  "name": "Observations-Data",
+  "header": true,
+  "path": "data/HEALTHCARE/Healthcare-Payer-Payment-Rate-Classification/Raw-Data/Observations.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"DATE\",\"PATIENT\",\"ENCOUNTER\",\"CATEGORY\",\"CODE\",\"DESCRIPTION\",\"VALUE\",\"UNITS\",\"TYPE\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DATE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "PATIENT",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "ENCOUNTER",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CATEGORY",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CODE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DESCRIPTION",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "VALUE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "UNITS",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "TYPE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}
