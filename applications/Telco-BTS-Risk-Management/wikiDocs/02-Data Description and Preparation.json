@@ -1,0 +1,15 @@
+{
+  "id": 4020,
+  "uuid": "7a37d154-6a01-461a-941d-9b64b0c4bab4",
+  "name": "02-Data Description and Preparation",
+  "category": "",
+  "projectId": 2449,
+  "content": "<h2>Data Description and Preparation</h2><p><strong>Data Description:</strong></p><p>The dataset contains audit, financial, and historical scores for BTS deployment sites.</p><p>Field NameDescription<strong>City</strong>Name of the city where BTS deployment is being evaluated.<strong>Location_Score</strong>Location-based advantage/risk score.<strong>Internal_Audit_Score</strong>Score (0–100) from internal audits on compliance &amp; operational health.<strong>External_Audit_Score</strong>Independent audit score (0–100) on compliance &amp; performance.<strong>Fin_Score</strong>Financial risk score indicating local financial health &amp; stability.<strong>Loss_Score</strong>Score representing expected or actual financial/service losses.<strong>Past_Result</strong>Historical performance score of telecom operations in the location.<strong>BTS_Deploy_Under_Risk</strong>Target variable: 1 = Risky deployment, 0 = Safe deployment.</p><p><strong>Data Preparation Steps:</strong></p><p>\t\t<strong>1.Cleaning:</strong></p><ul><li class=\"ql-indent-1\">Handle missing or inconsistent score entries.</li><li class=\"ql-indent-1\">Normalize numeric values to ensure comparability across audit and financial metrics.</li></ul><p>\t\t<strong>2.Feature Engineering:</strong></p><ul><li class=\"ql-indent-1\">Generate <strong>Composite Risk Index</strong> combining financial and audit scores.</li><li class=\"ql-indent-1\">Apply scaling/standardization for model compatibility.</li></ul><p>\t\t<strong>3.Encoding:</strong></p><ul><li class=\"ql-indent-1\">Encode city or regional identifiers for geographic-level modeling.</li></ul><p>\t\t<strong>4.Splitting:</strong></p><ul><li class=\"ql-indent-1\">Partition dataset into <strong>training (70%)</strong> and <strong>testing (30%)</strong> for model validation.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "abhilash",
+  "dateCreated": "Sep 19, 2025, 2:34:31 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 22, 2025, 9:42:23 AM"
+}

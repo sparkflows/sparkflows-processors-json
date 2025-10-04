@@ -1,0 +1,27 @@
+{
+  "uuid": "bf00e0bf-0646-4c37-bad7-8a9df02f8cdd",
+  "name": "MASTER_DATA_RAW_DATASET",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/data/CPG/Business-File-Loading-And-Validating/raw-data/sample_items_master.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"item_id\",\"item_description\"],colTypes:[\"INTEGER\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "item_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "item_description",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

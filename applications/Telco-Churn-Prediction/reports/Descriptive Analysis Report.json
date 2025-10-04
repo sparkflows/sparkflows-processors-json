@@ -1,0 +1,164 @@
+{
+  "name": "Descriptive Analysis Report",
+  "uuid": "7a65f0f2-0dd0-4ad9-9831-6c675c705241",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Descriptive Analysis Report",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Graph Region Geo",
+          "description": "This node maps the values on a Map",
+          "type": "transform",
+          "x": "203.219px",
+          "y": "618.297px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1055.16px",
+          "y": "589.938px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 42,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1208.75px",
+          "y": "155.766px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "42",
+          "grow": 0
+        },
+        {
+          "id": 46,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1099.52px",
+          "y": "283.5px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "46",
+          "grow": 0
+        },
+        {
+          "id": 51,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1358.97px",
+          "y": "413.531px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "51",
+          "grow": 0
+        },
+        {
+          "id": 55,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1290.34px",
+          "y": "516.375px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "55",
+          "grow": 0
+        },
+        {
+          "id": 59,
+          "name": "GraphGroupByColumn",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "271.938px",
+          "y": "303.938px",
+          "workflowId": "f023274e-02f1-4be2-bdfd-035aa1ae0e79",
+          "workflowName": "01-Exploratory-Data-Analysis",
+          "nodeId": "59",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Data_Profiling",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 5,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "504.496px",
+          "y": "417.734px",
+          "workflowId": "b275012e-6ea2-488a-a603-5b5843ee00dd",
+          "workflowName": "02-Telco-Call-Churn-Dataset - Data Profile",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 2,
+          "name": "Summary",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "502.496px",
+          "y": "227.734px",
+          "workflowId": "b275012e-6ea2-488a-a603-5b5843ee00dd",
+          "workflowName": "02-Telco-Call-Churn-Dataset - Data Profile",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "ColumnsCardinality",
+          "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+          "type": "transform",
+          "x": "504.496px",
+          "y": "517.734px",
+          "workflowId": "b275012e-6ea2-488a-a603-5b5843ee00dd",
+          "workflowName": "02-Telco-Call-Churn-Dataset - Data Profile",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "NullValuesInColumn",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "502.496px",
+          "y": "120.734px",
+          "workflowId": "b275012e-6ea2-488a-a603-5b5843ee00dd",
+          "workflowName": "02-Telco-Call-Churn-Dataset - Data Profile",
+          "nodeId": "3",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Tab3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

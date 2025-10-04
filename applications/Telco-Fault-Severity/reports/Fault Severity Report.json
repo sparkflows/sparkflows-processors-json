@@ -1,0 +1,266 @@
+{
+  "name": "Fault Severity Report",
+  "uuid": "c6d7ad4b-0c5f-4cb1-8658-6b9c1114f848",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Fault Severity EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 32,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "498.889px",
+          "y": "44.8889px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "32",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "121.28305053710938px",
+          "y": "370.7021789550781px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "34",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "774.778px",
+          "y": "189.778px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "771.667px",
+          "y": "304.667px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "756.556px",
+          "y": "90.5556px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "751.667px",
+          "y": "472.667px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "245.444px",
+          "y": "480.444px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "149.444px",
+          "y": "226.444px",
+          "workflowId": "0d45a0a9-b375-4861-b5e9-dd66612f78ec",
+          "workflowName": "02-Telstra-Fault-Severity-EDA",
+          "nodeId": "21",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Fault Severity Classification Model",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 35,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "317.766px",
+          "y": "537.766px",
+          "workflowId": "a14134e8-9b8e-4cb5-bc16-4505a27e8c83",
+          "workflowName": "04-Telstra-Fault-Severity-Spark-Classification-Model-Training",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 36,
+          "name": "Feature Selection With Correlation",
+          "description": "",
+          "type": "transform",
+          "x": "161.422px",
+          "y": "486.422px",
+          "workflowId": "a14134e8-9b8e-4cb5-bc16-4505a27e8c83",
+          "workflowName": "04-Telstra-Fault-Severity-Spark-Classification-Model-Training",
+          "nodeId": "36",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "552.051px",
+          "y": "536.048px",
+          "workflowId": "1a46ce7f-2501-474e-b66e-9466d18bf89d",
+          "workflowName": "05-Telstra-Fault-Severity-Spark-Classification-Model-Predictions",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1000.06px",
+          "y": "542.055px",
+          "workflowId": "1a46ce7f-2501-474e-b66e-9466d18bf89d",
+          "workflowName": "05-Telstra-Fault-Severity-Spark-Classification-Model-Predictions",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1043.67px",
+          "y": "115.667px",
+          "workflowId": "f9cfc226-c598-42ce-9b12-82e07ee63b4a",
+          "workflowName": "06-Predictive-Data-Analysis",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 36,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1117.78px",
+          "y": "93.7778px",
+          "workflowId": "f9cfc226-c598-42ce-9b12-82e07ee63b4a",
+          "workflowName": "06-Predictive-Data-Analysis",
+          "nodeId": "36",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "946.889px",
+          "y": "386.889px",
+          "workflowId": "f9cfc226-c598-42ce-9b12-82e07ee63b4a",
+          "workflowName": "06-Predictive-Data-Analysis",
+          "nodeId": "28",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Data Quality",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 7,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "74.8889px",
+          "y": "155.889px",
+          "workflowId": "4d809fc9-0d95-420b-b8b6-4c3c786be5f1",
+          "workflowName": "03-Great-Expectation-Based-Data-Quality",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "653.889px",
+          "y": "12.8889px",
+          "workflowId": "4d809fc9-0d95-420b-b8b6-4c3c786be5f1",
+          "workflowName": "03-Great-Expectation-Based-Data-Quality",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "890.889px",
+          "y": "217.889px",
+          "workflowId": "4d809fc9-0d95-420b-b8b6-4c3c786be5f1",
+          "workflowName": "03-Great-Expectation-Based-Data-Quality",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "766.889px",
+          "y": "442.889px",
+          "workflowId": "4d809fc9-0d95-420b-b8b6-4c3c786be5f1",
+          "workflowName": "03-Great-Expectation-Based-Data-Quality",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "58.8889px",
+          "y": "417.889px",
+          "workflowId": "4d809fc9-0d95-420b-b8b6-4c3c786be5f1",
+          "workflowName": "03-Great-Expectation-Based-Data-Quality",
+          "nodeId": "11",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

@@ -1,0 +1,442 @@
+{
+  "name": "01-Telco-Dataset-Sample-Data-Profile",
+  "uuid": "4cdc5a72-c049-4e96-98a2-a5fe8145308d",
+  "category": "Data Profiling",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "64.1654px",
+      "y": "126.151px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "e968db06-10e4-4295-a81f-f32e18c7d2b5",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "DropRowsWithNull",
+      "description": "This node creates a new DataFrame by dropping rows containing null values",
+      "details": "This node creates a new DataFrame by dropping rows containing NULL values in any of the columns.<br>",
+      "examples": "Incoming Dataframe has following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    DEPT       |    AGE<br>\n-------------------------------------------------------<br>\nE01       |    DAVID       |    HR         |    25<br>\nE05       |    MARK        |               |    25<br>\nE02       |    JOHN        |    SALES      |    35<br>\nE03       |    TONY        |    MARKETING  |    <br>\nE04       |    MARTIN      |    MARKETING  |    45<br>\n<br>\nIncoming Dataframe has NULL values for two rows. <br>\nUsing DropRowsWithNull node would result in below outgoing Dataframe created by dropping rows having NULL values in any of the columns:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    DEPT       |    AGE<br>\n-------------------------------------------------------<br>\nE01       |    DAVID       |    HR         |    25<br>\nE02       |    JOHN        |    SALES      |    35<br>\nE04       |    MARTIN      |    MARKETING  |    45<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull",
+      "x": "170.665px",
+      "y": "384.904px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "Summary",
+      "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+      "details": "<h2>Summary Statistics Node Details</h2>\n<br>\nThe Summary Statistics node makes it easy to explore the contents of a DataFrame at a high level.<br>\n<br>\nThis node computes specified statistics which includes : - count - mean - stddev - variance - min - max - approximate percentiles specified as a percentage<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : A short description to summarize what the data depicts.</li>\n<li> COLUMN NAMES : </li>\n</ul>\n- Selected : A list of numeric columns for whom the node will compute statistical values.<br>",
+      "examples": "<h2>Summary Statistics Node Example</h2>\n<br>\nConsider the following DataFrame<br>\n<br>\nID  | CODE |<br>\n------------<br>\n1   | aa  |<br>\n2   | aa  |<br>\n9   | bb  |<br>\n5   | cc  |<br>\n<br>\n<h4> If we calculate the summary statistics for all columns in the DataFrame, we get </h4>\n<br>\nsummary|      ID          |  CODE |<br>\n-----------------------------------<br>\n|  count|                4|      4|<br>\n|   mean|             4.25|   null|<br>\n|    min|                1|     aa|<br>\n|    25%|                1|   null|<br>\n|    50%|                2|   null|<br>\n|    75%|                5|   null|<br>\n|    max|                9|     cc|<br>\n| stddev|3.593976442141304|   null|<br>\n|variance|12.916667       |   null|<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSummary",
+      "x": "502.496px",
+      "y": "120.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Summary",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "colNames",
+          "value": "[\"id\",\"fault_severity\",\"volume\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Column Names for Summary",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Summary Statistics to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "NullValuesInColumn",
+      "description": "Number of Null Values in Selected Columns.",
+      "details": "This node identifies number of Null values and its percentage against the total data length in the selected columns.<br>",
+      "examples": "A set of columns can be selected to display count of Null values on.<br>\n<br>\nIf NullValuesInColumn node is configured to display count of Null values in [EMP_CD], [EMP_NAME], [DEPT] and [AGE] columns from the incoming dataset<br>\n<br>\nthen outgoing Dataframe would be created as below displaying count of Null values in each column and it's percentage.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeNullValuesInColumn",
+      "x": "502.496px",
+      "y": "257.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"id\",\"location\",\"fault_severity\",\"severity_type\",\"resource_type\",\"log_feature\",\"volume\",\"event_type\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns for Number of Null Values Check",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "Correlation",
+      "description": "calculates the correlation between two series of data.",
+      "details": "<h2>Correlation Node Details</h2>\n<br>\nCorrelation is to measure if two variables or two feature columns tend to move in together in same or opposite direction. The idea is to detect if one variable or feature column can be predicted by another variable or feature column.<br>\n<br>\nThe Correlation node uses the method of Pearson's correlation for checking correlation between two continuous variables (or feature columns)<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : A short description to summarizes what the data depicts.</li>\n<li> INPUT COLUMN FOR CORRELATION : </li>\n</ul>\n- Selected : A list of numeric columns among which the correlation is to be predicted.<br>",
+      "examples": "<h2>Correlation Node Example</h2>\n<br>\nFor a given dataframe having the below schema:<br>\nCourse  | Amount | Discount| <br>\n(String)| Double | Double  |<br>\n----------------------------<br>\n<br>\nWe can select the <b>Amount</b> and <b>Discount</b> fields for which we need to find the correlation.<br>\n<br>\nThis will yield three separate output sections:<br>\n- A Correlation Table<br>\n- A Correlation Matrix &<br>\n- A sample data values of the input dataframe<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "71.6617px",
+      "y": "454.897px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Correlation Matrix",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"id\",\"fault_severity\",\"volume\"]",
+          "widget": "variables",
+          "title": "Input Column for Correlation",
+          "description": "Column Names to check correlation ",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "ColumnsCardinality",
+      "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+      "details": "This node displays distribution of categorical data. Calculates the count of records for each unique value for the column specified.<br>\n<br>\nThis node facilitates selection of multiple String columns. Distribution of each column is displayed separately.<br>",
+      "examples": "If ColumnsCardinality node is configured to display distribution on two columns i.e. [DEPT] and [SALARY_GRADE] from the incoming dataset <br>\nthen output would be created as below:<br>\n<br>\n<h2> Columns Unique Count </h2>\ndisplaying count of unique values for each column<br>\n<br>\n<br>\nDEPT\t: 3<br>\nSALARY_GRADE\t: 3<br>\n<br>\n<h2> Distribution of first selected column [DEPT]</h2>\n<br>\nHR : 3<br>\nSALES : 3<br>\nMANAGEMENT : 1<br>\n<br>\n<h2> Distribution of second selected column [SALARY_GRADE]</h2>\n<br>\nHIGH : 3<br>\nMID : 2<br>\nLOW : 2<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeColumnsCardinality",
+      "x": "473.375px",
+      "y": "409.5px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"location\",\"severity_type\",\"resource_type\",\"log_feature\",\"event_type\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns for the cardinality data",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "3",
+      "id": 1
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "id": 2
+    },
+    {
+      "source": "1",
+      "target": "2",
+      "id": 3
+    },
+    {
+      "source": "2",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "id": 5
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3078,
+      "uuid": "e968db06-10e4-4295-a81f-f32e18c7d2b5",
+      "header": true,
+      "path": "data/Telco/Telco-Fault-Severity/Raw-Data/Fault_Severity_data_v4.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"id\",\"location\",\"severity_type\",\"resource_type\",\"log_feature\",\"volume\",\"event_type\",\"fault_severity\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

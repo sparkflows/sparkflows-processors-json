@@ -1,0 +1,262 @@
+{
+  "name": "Tensile Strength Analysis",
+  "uuid": "af12b004-5689-4737-87d0-c578ffbdbdd7",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "548px",
+          "y": "88px",
+          "workflowId": "a87afc38-1c58-4be8-b5cc-f7e23510ea60",
+          "workflowName": "00-Data-Profiling",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "558px",
+          "y": "218px",
+          "workflowId": "a87afc38-1c58-4be8-b5cc-f7e23510ea60",
+          "workflowName": "00-Data-Profiling",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "681px",
+          "y": "340px",
+          "workflowId": "a87afc38-1c58-4be8-b5cc-f7e23510ea60",
+          "workflowName": "00-Data-Profiling",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 2,
+          "name": "Skewness And Kurtosis",
+          "description": "",
+          "type": "transform",
+          "x": "693.183px",
+          "y": "459.183px",
+          "workflowId": "a87afc38-1c58-4be8-b5cc-f7e23510ea60",
+          "workflowName": "00-Data-Profiling",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 31,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "939.533px",
+          "y": "28.8px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "31",
+          "grow": 0
+        },
+        {
+          "id": 51,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1046.67px",
+          "y": "103.467px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "51",
+          "grow": 0
+        },
+        {
+          "id": 39,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "935.467px",
+          "y": "146.467px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "39",
+          "grow": 0
+        },
+        {
+          "id": 40,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1082.47px",
+          "y": "177.467px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "40",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1042.47px",
+          "y": "240.467px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 41,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1110.53px",
+          "y": "315.533px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "41",
+          "grow": 0
+        },
+        {
+          "id": 42,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "966.467px",
+          "y": "365.467px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "42",
+          "grow": 0
+        },
+        {
+          "id": 49,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1054.53px",
+          "y": "396.533px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "49",
+          "grow": 0
+        },
+        {
+          "id": 43,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "987.467px",
+          "y": "462.467px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "43",
+          "grow": 0
+        },
+        {
+          "id": 44,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "868.667px",
+          "y": "663.667px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "44",
+          "grow": 0
+        },
+        {
+          "id": 48,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "722.133px",
+          "y": "652.133px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "48",
+          "grow": 0
+        },
+        {
+          "id": 45,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "960.533px",
+          "y": "654.533px",
+          "workflowId": "222bccb1-bef8-43bf-a0aa-7551e6150e6d",
+          "workflowName": "01-Material-Composition-EDA",
+          "nodeId": "45",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "878px",
+          "y": "138px",
+          "workflowId": "651ec1fe-7bd5-4bc2-b9eb-c318c1c1baa7",
+          "workflowName": "05-Tensile-Strength-Prediction-2",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "878px",
+          "y": "138px",
+          "workflowId": "6169513e-4cfe-4dd0-b3a3-3ad488f4151c",
+          "workflowName": "04-Tensile-Strength-Prediction-1",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "DecisionTreeReport",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "501.025px",
+          "y": "421.038px",
+          "workflowId": "d7917f84-7794-41e9-a47c-77bb43c5b2a7",
+          "workflowName": "06-Predictive-Analytics-Report",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "RandomForestReport",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "521.838px",
+          "y": "234.85px",
+          "workflowId": "d7917f84-7794-41e9-a47c-77bb43c5b2a7",
+          "workflowName": "06-Predictive-Analytics-Report",
+          "nodeId": "3",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

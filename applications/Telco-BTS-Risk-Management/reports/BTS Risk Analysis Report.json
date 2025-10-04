@@ -1,0 +1,141 @@
+{
+  "name": "BTS Risk Analysis Report",
+  "uuid": "369c695c-4c98-48ab-8156-516eb66818bf",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/Telco-BTS-Risk-Management.svg"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "BTS Risk Data Exploration",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 17,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "765px",
+          "y": "326px",
+          "workflowId": "e170a277-f6da-4595-9d38-1160fe8519a4",
+          "workflowName": "01-Explore-BTS-Risk-Data",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1068px",
+          "y": "128px",
+          "workflowId": "e170a277-f6da-4595-9d38-1160fe8519a4",
+          "workflowName": "01-Explore-BTS-Risk-Data",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "770px",
+          "y": "235px",
+          "workflowId": "e170a277-f6da-4595-9d38-1160fe8519a4",
+          "workflowName": "01-Explore-BTS-Risk-Data",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "758px",
+          "y": "436px",
+          "workflowId": "e170a277-f6da-4595-9d38-1160fe8519a4",
+          "workflowName": "01-Explore-BTS-Risk-Data",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "757px",
+          "y": "565px",
+          "workflowId": "e170a277-f6da-4595-9d38-1160fe8519a4",
+          "workflowName": "01-Explore-BTS-Risk-Data",
+          "nodeId": "21",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Training Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 3,
+          "name": "H2O Gradient Boosting Machine",
+          "description": "Gradient Boosting Machine (for Regression and Classification) is a forward learning ensemble method",
+          "type": "ml-estimator",
+          "x": "552px",
+          "y": "125px",
+          "workflowId": "b5b9e3df-b4c0-4a6f-b90b-15604cae2c37",
+          "workflowName": "02-Model-Training",
+          "nodeId": "3",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 4,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "425.8px",
+          "y": "91.8px",
+          "workflowId": "e80ea4fa-744a-48cb-b083-d40cee2cf78c",
+          "workflowName": "04-Predictive-Analysis",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "874.6px",
+          "y": "221.6px",
+          "workflowId": "e80ea4fa-744a-48cb-b083-d40cee2cf78c",
+          "workflowName": "04-Predictive-Analysis",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "869.2px",
+          "y": "334px",
+          "workflowId": "e80ea4fa-744a-48cb-b083-d40cee2cf78c",
+          "workflowName": "04-Predictive-Analysis",
+          "nodeId": "13",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

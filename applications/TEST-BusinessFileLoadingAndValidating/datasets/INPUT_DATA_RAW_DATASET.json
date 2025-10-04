@@ -1,0 +1,39 @@
+{
+  "uuid": "50ebc795-692c-452b-a4f0-a35198ccb008",
+  "name": "INPUT_DATA_RAW_DATASET",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/data/CPG/Business-File-Loading-And-Validating/raw-data/sample_input_items.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"item_id\",\"num_items\",\"price\",\"description\"],colTypes:[\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "item_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "num_items",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "price",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "description",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

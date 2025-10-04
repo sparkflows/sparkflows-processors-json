@@ -1,0 +1,14 @@
+{
+  "id": 4041,
+  "uuid": "60d73b58-753d-4208-b0ab-e32fe1148bf5",
+  "name": "04-Model Training And Evaluation",
+  "category": "",
+  "projectId": 2823,
+  "content": "<h1>Model Training and Validation</h1><p><strong>Model Used:</strong></p><ul><li><strong>Linear Optimization Model</strong> â selected to minimize geographic distance while maximizing call success rate and signal quality.</li></ul><p><strong>Features Used:</strong></p><ul><li><code>Distance_to_Neighbor</code></li><li><code>Dropped_Calls</code>, <code>Successful_Calls</code></li><li><code>Signal_Strength</code></li><li><code>Network_Load</code></li><li><strong>Derived ratios (e.g., success rate, weighted connectivity score).</strong></li></ul><p><strong>Feature Importance:</strong></p><ul><li>Determined by optimization weights and contribution to prediction accuracy:</li><li class=\"ql-indent-1\"><strong>Connectivity success ratio</strong> (strongest predictor).</li><li class=\"ql-indent-1\"><strong>Distance</strong> (closer towers preferred, all else equal).</li><li class=\"ql-indent-1\"><strong>Signal strength and load</strong> (key factors in final decision).</li></ul><p><strong>Model Metrics:</strong></p><ul><li><strong>Precision &amp; Recall:</strong> Evaluate accuracy of selecting the correct fallback tower.</li><li><strong>Mean Squared Error (MSE):</strong> Difference between predicted and actual diversion outcomes.</li><li><strong>Call Success Rate Improvement:</strong> Key KPI measuring improvement after diversion.</li></ul><p><strong>Validation Strategy:</strong></p><ul><li>Train/test split (e.g., 80/20).</li><li>Simulated outage scenarios tested with prediction outcomes.</li><li>Comparison against baseline heuristic (nearest tower only).</li></ul>",
+  "icon": "{\"icon\":\"images/icons/project-icons/Telco-Customer-Experience-Improvement.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "abhilash",
+  "dateCreated": "Sep 25, 2025, 10:04:32 AM",
+  "dateLastUpdated": "Sep 25, 2025, 10:04:32 AM"
+}

@@ -1,0 +1,14 @@
+{
+  "id": 4042,
+  "uuid": "8787929f-bc0a-4d4c-88fd-792ab35fa80f",
+  "name": "02-Data Description and Preparation",
+  "category": "",
+  "projectId": 2823,
+  "content": "<h2>Data Description and Preparation</h2><p><strong>Data Description (from dataset):</strong></p><p> Each record corresponds to a cell towerâs attributes and its connectivity with other towers.</p><p>Field NameDescription<strong>Tower_ID</strong>Unique identifier for each cell tower.<strong>Latitude / Longitude</strong>Geographic coordinates of the tower.<strong>Neighbor_Towers</strong>List or count of adjacent towers.<strong>Distance_to_Neighbor</strong>Distance in km/miles between two towers.<strong>Dropped_Calls</strong>Number of dropped calls associated with the tower or neighbor link.<strong>Successful_Calls</strong>Count of successful call connections.<strong>Signal_Strength</strong>Average signal strength rating for the tower.<strong>Network_Load</strong>Current or historical usage load on the tower.<strong>Best_Match_Tower</strong>Target variable indicating the tower selected for diversion.</p><p><strong>Data Preparation Steps:</strong></p><p><strong>Data Cleaning:</strong></p><ul><li class=\"ql-indent-1\">Handle missing coordinates, dropped/failed call counts.</li><li class=\"ql-indent-1\">Normalize signal strength and load metrics.</li></ul><p><strong>Feature Engineering:</strong></p><ul><li class=\"ql-indent-1\">Compute <strong>connectivity success ratio</strong> = Successful Calls / (Successful + Dropped Calls).</li><li class=\"ql-indent-1\">Derive <strong>distance-weighted connectivity score</strong> combining geography and call success.</li><li class=\"ql-indent-1\">Aggregate neighbor statistics (average dropped calls per neighbor).</li></ul><p><strong>Transformation:</strong></p><ul><li class=\"ql-indent-1\">Standardize distance and load features for optimization.</li><li class=\"ql-indent-1\">Encode categorical attributes (e.g., tower IDs).</li></ul><p><strong>Splitting:</strong></p><ul><li class=\"ql-indent-1\">Partition into training and validation datasets for evaluation.</li></ul><p><br></p>",
+  "icon": "{\"icon\":\"images/icons/project-icons/Telco-Customer-Experience-Improvement.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "abhilash",
+  "dateCreated": "Sep 25, 2025, 10:04:32 AM",
+  "dateLastUpdated": "Sep 25, 2025, 10:04:32 AM"
+}

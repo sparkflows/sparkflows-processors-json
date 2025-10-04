@@ -1,0 +1,149 @@
+{
+  "name": "Predictive Analysis Report",
+  "uuid": "68ae7dac-9042-40c7-997c-596cf2617657",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Predictive Analysis Report",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Model Training and Prediction",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 10,
+          "name": "RandomForestClassifier",
+          "description": "Supports both binary and multiclass labels, as well as both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "1279.75px",
+          "y": "239.75px",
+          "workflowId": "63f7ead2-c4df-4421-87bf-ea486f837be8",
+          "workflowName": "06-Churn-Classification-Model-Training",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 1,
+          "name": "H2O Distributed Random Forest",
+          "description": "Distributed Random Forest (DRF) is a powerful classification and regression tool. DRF generates a forest of classification or regression trees.",
+          "type": "ml-estimator",
+          "x": "828.014px",
+          "y": "226.403px",
+          "workflowId": "19ce6371-a748-4d54-a4e0-617e67584f53",
+          "workflowName": "03-Churn-Classification-H2O-Model-Training",
+          "nodeId": "1",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 11,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1013.67px",
+          "y": "51.6667px",
+          "workflowId": "0ae19e08-697f-42a7-8cd8-7a1de26d60da",
+          "workflowName": "04-Churn-Classification-H2O-Model-Prediction",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "724.556px",
+          "y": "24.5556px",
+          "workflowId": "0ae19e08-697f-42a7-8cd8-7a1de26d60da",
+          "workflowName": "04-Churn-Classification-H2O-Model-Prediction",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1063.78px",
+          "y": "286.778px",
+          "workflowId": "0ae19e08-697f-42a7-8cd8-7a1de26d60da",
+          "workflowName": "04-Churn-Classification-H2O-Model-Prediction",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1169.67px",
+          "y": "178.667px",
+          "workflowId": "0ae19e08-697f-42a7-8cd8-7a1de26d60da",
+          "workflowName": "04-Churn-Classification-H2O-Model-Prediction",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "913.667px",
+          "y": "41.6667px",
+          "workflowId": "20e8b37a-8373-4801-bf67-fc0e2b0c9c6b",
+          "workflowName": "07-Churn-Classification-Model-Prediction",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "624.556px",
+          "y": "14.5556px",
+          "workflowId": "20e8b37a-8373-4801-bf67-fc0e2b0c9c6b",
+          "workflowName": "07-Churn-Classification-Model-Prediction",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 30,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "963.778px",
+          "y": "276.778px",
+          "workflowId": "20e8b37a-8373-4801-bf67-fc0e2b0c9c6b",
+          "workflowName": "07-Churn-Classification-Model-Prediction",
+          "nodeId": "30",
+          "grow": 0
+        },
+        {
+          "id": 31,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1069.67px",
+          "y": "168.667px",
+          "workflowId": "20e8b37a-8373-4801-bf67-fc0e2b0c9c6b",
+          "workflowName": "07-Churn-Classification-Model-Prediction",
+          "nodeId": "31",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
