@@ -1,0 +1,615 @@
+{
+  "name": "Cashflow Forecasting Report",
+  "uuid": "fe5d4001-912a-4490-930f-bb13c38b715a",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 7,
+          "name": "Histogram of Receipt Amount",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "619.8px",
+          "y": "624px",
+          "workflowId": "2063f5ec-cc73-4d1a-90a0-1fbe8fe8176c",
+          "workflowName": "02-Data-Profiling-AR",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Year Distribution - Sales Order Date",
+          "description": "This node Finds the distribution of Years from Date values",
+          "type": "transform",
+          "x": "1103.4px",
+          "y": "262.4px",
+          "workflowId": "2063f5ec-cc73-4d1a-90a0-1fbe8fe8176c",
+          "workflowName": "02-Data-Profiling-AR",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "Graph Month Distribution - SO Date",
+          "description": "This node Finds the distribution of months from Date values",
+          "type": "transform",
+          "x": "1104.4px",
+          "y": "398.4px",
+          "workflowId": "2063f5ec-cc73-4d1a-90a0-1fbe8fe8176c",
+          "workflowName": "02-Data-Profiling-AR",
+          "nodeId": "16",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Year Distribution - Invoice Date",
+          "description": "This node Finds the distribution of Years from Date values",
+          "type": "transform",
+          "x": "1100.8px",
+          "y": "523px",
+          "workflowId": "2063f5ec-cc73-4d1a-90a0-1fbe8fe8176c",
+          "workflowName": "02-Data-Profiling-AR",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Month Distribution - Invoice Date",
+          "description": "This node Finds the distribution of months from Date values",
+          "type": "transform",
+          "x": "1098.6px",
+          "y": "634.8px",
+          "workflowId": "2063f5ec-cc73-4d1a-90a0-1fbe8fe8176c",
+          "workflowName": "02-Data-Profiling-AR",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Histogram of Order Amount",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "619.8px",
+          "y": "624px",
+          "workflowId": "e1895aea-30ea-434e-985f-69ac0c75dd4e",
+          "workflowName": "02A-Data-Profiling-AP",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Year Distribution - Ordered Date",
+          "description": "This node Finds the distribution of Years from Date values",
+          "type": "transform",
+          "x": "1103.4px",
+          "y": "262.4px",
+          "workflowId": "e1895aea-30ea-434e-985f-69ac0c75dd4e",
+          "workflowName": "02A-Data-Profiling-AP",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "Graph Month Distribution - Ordered Date",
+          "description": "This node Finds the distribution of months from Date values",
+          "type": "transform",
+          "x": "1104.4px",
+          "y": "398.4px",
+          "workflowId": "e1895aea-30ea-434e-985f-69ac0c75dd4e",
+          "workflowName": "02A-Data-Profiling-AP",
+          "nodeId": "16",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Year Distribution - Invoice Date",
+          "description": "This node Finds the distribution of Years from Date values",
+          "type": "transform",
+          "x": "1100.8px",
+          "y": "523px",
+          "workflowId": "e1895aea-30ea-434e-985f-69ac0c75dd4e",
+          "workflowName": "02A-Data-Profiling-AP",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Month Distribution - Invoice Date",
+          "description": "This node Finds the distribution of months from Date values",
+          "type": "transform",
+          "x": "1098.6px",
+          "y": "634.8px",
+          "workflowId": "e1895aea-30ea-434e-985f-69ac0c75dd4e",
+          "workflowName": "02A-Data-Profiling-AP",
+          "nodeId": "18",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "AR-Exploratory Data Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 4,
+          "name": "Distribution of SO and Invoices count by Customer",
+          "type": "transform",
+          "x": "612.2px",
+          "y": "241.2px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Top 10 Customers having max SO count",
+          "type": "transform",
+          "x": "869.987px",
+          "y": "395.975px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Top 10 Customers having max Invoice count",
+          "type": "transform",
+          "x": "881.8px",
+          "y": "535.8px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Distribution of Sales Order by Receipt Status",
+          "type": "transform",
+          "x": "728.388px",
+          "y": "650.4px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Distribution of Total Invoice Amount by Receipt Status",
+          "type": "transform",
+          "x": "811.6px",
+          "y": "708.6px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Distribution of SO Count by Receipt Status for each Customer",
+          "type": "transform",
+          "x": "712.8px",
+          "y": "822.8px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 29,
+          "name": "Top 10 Customers having max Paid SO count",
+          "type": "transform",
+          "x": "1088.8px",
+          "y": "993.375px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "29",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Top 10 Customers having max Total Paid Invoice Amount",
+          "type": "transform",
+          "x": "1100.4px",
+          "y": "1136.97px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Top 10 Customers having max SO count that were Paid Late",
+          "type": "transform",
+          "x": "1128.4px",
+          "y": "1317.97px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "38",
+          "grow": 0
+        },
+        {
+          "id": 41,
+          "name": "Top 10 Customers having max Total Paid Invoice Amount that were paid late",
+          "type": "transform",
+          "x": "1139.2px",
+          "y": "1470px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "41",
+          "grow": 0
+        },
+        {
+          "id": 47,
+          "name": "Top 10 Customers having max SO count against which Invoice was not generated",
+          "type": "transform",
+          "x": "1088px",
+          "y": "1671.2px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "47",
+          "grow": 0
+        },
+        {
+          "id": 52,
+          "name": "Top 10 Customers having max SO Amount against which Invoice was not generated",
+          "type": "transform",
+          "x": "1085.6px",
+          "y": "1856.8px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "52",
+          "grow": 0
+        },
+        {
+          "id": 63,
+          "name": "Top 10 Customers having max Average Invoice Clearance Duration",
+          "type": "transform",
+          "x": "1861.57px",
+          "y": "263.575px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "63",
+          "grow": 0
+        },
+        {
+          "id": 61,
+          "name": "Top 10 Customers having min Average Invoice Clearance Duration",
+          "type": "transform",
+          "x": "1870.39px",
+          "y": "444.388px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "61",
+          "grow": 0
+        },
+        {
+          "id": 68,
+          "name": "Distribution of Total Invoice Amount by Invoice Month",
+          "type": "transform",
+          "x": "1848.4px",
+          "y": "651px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "68",
+          "grow": 0
+        },
+        {
+          "id": 71,
+          "name": "Distribution of Total Invoice Amount by Invoice Year",
+          "type": "transform",
+          "x": "1843px",
+          "y": "805.6px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "71",
+          "grow": 0
+        },
+        {
+          "id": 77,
+          "name": "Distribution of Sales Order by Billed Status",
+          "type": "transform",
+          "x": "1769.57px",
+          "y": "960.594px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "77",
+          "grow": 0
+        },
+        {
+          "id": 78,
+          "name": "Distribution of Total Invoice Amount by Billed Status",
+          "type": "transform",
+          "x": "1780.59px",
+          "y": "1132.59px",
+          "workflowId": "320ecfbe-837c-47b2-8a63-6e5fe1ec7940",
+          "workflowName": "04-Explore-Data-AR",
+          "nodeId": "78",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "AP-Exploratory Data Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 4,
+          "name": "Distribution of PO and Invoices count by Supplier",
+          "type": "transform",
+          "x": "612.2px",
+          "y": "241.2px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Top 10 Suppliers having max PO count",
+          "type": "transform",
+          "x": "869.987px",
+          "y": "395.975px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Top 10 Suppliers having max Invoice count",
+          "type": "transform",
+          "x": "881.8px",
+          "y": "535.8px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Distribution of Purchase Order by PO Completion Status",
+          "type": "transform",
+          "x": "728.388px",
+          "y": "650.4px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Distribution of Total Invoice Amount by PO Completion Status",
+          "type": "transform",
+          "x": "811.6px",
+          "y": "708.6px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Distribution of PO Count by PO Completed Flag for each Customer",
+          "type": "transform",
+          "x": "712.8px",
+          "y": "822.8px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 29,
+          "name": "Top 10 Suppliers having max Completed PO count",
+          "type": "transform",
+          "x": "1090.6px",
+          "y": "994.175px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "29",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Top 10 Suppliers having max Total Invoice Amount against Completed PO",
+          "type": "transform",
+          "x": "1100.4px",
+          "y": "1136.97px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Top 10 Suppliers having max incomplete PO count",
+          "type": "transform",
+          "x": "1128.4px",
+          "y": "1317.97px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "38",
+          "grow": 0
+        },
+        {
+          "id": 41,
+          "name": "Top 10 Suppliers having max Total Invoice Amount against incomplete PO",
+          "type": "transform",
+          "x": "1139.2px",
+          "y": "1470px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "41",
+          "grow": 0
+        },
+        {
+          "id": 63,
+          "name": "Bottom 5 Suppliers in terms on Slower Order fulfillment",
+          "type": "transform",
+          "x": "1861.57px",
+          "y": "263.575px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "63",
+          "grow": 0
+        },
+        {
+          "id": 61,
+          "name": "Top 5 Suppliers in terms on Faster Order fulfillment",
+          "type": "transform",
+          "x": "1870.39px",
+          "y": "444.388px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "61",
+          "grow": 0
+        },
+        {
+          "id": 68,
+          "name": "Distribution of Total Invoice Amount by Invoice Month",
+          "type": "transform",
+          "x": "1848.4px",
+          "y": "651px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "68",
+          "grow": 0
+        },
+        {
+          "id": 71,
+          "name": "Distribution of Total Invoice Amount by Invoice Year",
+          "type": "transform",
+          "x": "1843px",
+          "y": "805.6px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "71",
+          "grow": 0
+        },
+        {
+          "id": 77,
+          "name": "Distribution of Purchase Order by Invoice Paid Status",
+          "type": "transform",
+          "x": "1769.36px",
+          "y": "962.388px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "77",
+          "grow": 0
+        },
+        {
+          "id": 78,
+          "name": "Distribution of Total Invoice Amount by PO Paid Status",
+          "type": "transform",
+          "x": "1780.59px",
+          "y": "1132.59px",
+          "workflowId": "ecd1b808-436a-4c9c-bcc0-305d332a501b",
+          "workflowName": "04A-Explore-Data-AP",
+          "nodeId": "78",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 4,
+      "name": "Prediction Vs Actual",
+      "type": "type",
+      "idx": "4",
+      "items": [
+        {
+          "id": 22,
+          "name": "Monthly Spends Vs Predicted Value",
+          "type": "transform",
+          "x": "1204.97px",
+          "y": "436.778px",
+          "workflowId": "25f0643e-d206-4835-a6a3-02517dd270c2",
+          "workflowName": "06A-Cashflow-Forecasting-Model-Training-AR",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Monthly Spends Vs Predicted Value",
+          "type": "transform",
+          "x": "1201.4px",
+          "y": "404.889px",
+          "workflowId": "34a2444d-258f-4834-9160-e1c827e4a729",
+          "workflowName": "06B-Cashflow-Forecasting-Model-Training-AP",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Monthly Spends Vs Predicted Value",
+          "type": "transform",
+          "x": "1201.4px",
+          "y": "404.889px",
+          "workflowId": "2445b002-eda4-4332-b295-7b14ee72b5ec",
+          "workflowName": "06C-Cashflow-Forecasting-Model-Training-Payroll",
+          "nodeId": "22",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 5,
+      "name": "Forecasted Cashflow",
+      "type": "type",
+      "idx": "5",
+      "items": [
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "582.667px",
+          "y": "192.667px",
+          "workflowId": "9d617b4e-0838-4565-8059-a71fb25e6f96",
+          "workflowName": "07A-Cashflow-Forecasting-Model-Prediction-AR",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "519.889px",
+          "y": "190.889px",
+          "workflowId": "eed23a9d-0be0-46b1-a453-dc4c3871e26b",
+          "workflowName": "07B-Cashflow-Forecasting-Model-Prediction-AP",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "540.889px",
+          "y": "210.889px",
+          "workflowId": "f7b30b53-7543-4383-a2b5-f2b5447f9a14",
+          "workflowName": "07C-Cashflow-Forecasting-Model-Prediction-Payroll",
+          "nodeId": "6",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

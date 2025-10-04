@@ -1,0 +1,27 @@
+{
+  "uuid": "aed939c8-ec57-428e-a2a7-f41133f21d3c",
+  "name": "Payrolls",
+  "header": true,
+  "path": "data/BFSI/AP-AR-Cashflow-Forecasting/Raw-Data/Payrolls.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Payment_Date\",\"Amount_USD\"],colTypes:[\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Payment_Date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Amount_USD",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}
