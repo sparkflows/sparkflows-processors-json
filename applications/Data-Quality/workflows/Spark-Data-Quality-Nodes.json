@@ -1,0 +1,667 @@
+{
+  "name": "Spark-Data-Quality-Nodes",
+  "uuid": "6754c43a-5335-4db1-8d5c-f8ecf9b4d13a",
+  "category": "SparkDQ",
+  "description": "-",
+  "parameters": "--var CURRENTDATE='21-Jan-2025' --var mailbox=saju@sparkflows.io, sajuks@gmail.com",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "45.5625px",
+      "y": "311.588px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "ac206123-9aaa-4be7-961c-c5abe240de65",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "6",
+      "name": "PatternMatch",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPattern",
+      "x": "191.431px",
+      "y": "400.434px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"postal\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "patterns",
+          "value": "[\"[A-Z0-9 ]{6,7}\"]",
+          "widget": "variables_list_textfield",
+          "title": "Patterns",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "7",
+      "name": "ColumnValuesToBeBetween",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckColumnValuesToBeBetween",
+      "x": "337.608px",
+      "y": "286.616px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"age\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"18\"]",
+          "widget": "variables_list_textfield",
+          "title": "Min",
+          "description": "The minimum value of column.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"100\"]",
+          "widget": "variables_list_textfield",
+          "title": "Max",
+          "description": " The Maximum value of range",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "Is Value In",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsValueIn",
+      "x": "429.614px",
+      "y": "421.611px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"bool\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "values",
+          "value": "[\"true , others\"]",
+          "widget": "variables_list_textfield",
+          "title": "Values",
+          "description": "A set of objects separated by spaces used for comparison..",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "PatternMatch",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPattern",
+      "x": "588.823px",
+      "y": "286.82px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"Date5\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "patterns",
+          "value": "[\"(0[1-9]|[12][0-9]|3[01])-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-\\\\\\\\d{2}\"]",
+          "widget": "variables_list_textfield",
+          "title": "Patterns",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "10",
+      "name": "NodeDataQualityCheckAndAlert",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "883.214px",
+      "y": "267.217px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "emailAddress",
+          "value": "${mailbox}",
+          "widget": "textfield",
+          "title": "Email Address",
+          "description": "Email Address. Add multiple email in comma separated",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "subject",
+          "value": "Data Quality Report for Customer Dataset for the day ${fire.ds}",
+          "widget": "textfield",
+          "title": "Subject",
+          "description": "Subject",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "threshold",
+          "value": "96",
+          "widget": "textfield",
+          "title": "Threshold",
+          "description": "Threshold",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "data/DATA-QUALITY/DQtest2",
+          "widget": "textfield",
+          "title": "Result Path",
+          "description": "Path of the good and bad records",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "11",
+      "name": "Is Primary Key",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPrimaryKey",
+      "x": "733.275px",
+      "y": "424.272px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"id\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "12",
+      "name": "Sticky Note",
+      "iconImage": "fa fa-file-text",
+      "description": "Allows capturing Notes on the Workflow",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "162.2px",
+      "y": "37.2px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "593.6px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "242.6px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<h2><strong><u>Data Quality Nodes</u></strong></h2><ul><li><strong>PatternMatch :-</strong> column postal data follows format given</li><li><strong>ColumnValuestobetween :-</strong> validate Age column value in min and max values</li><li><strong>is Values in :- </strong>Column bool has value true or others</li><li><strong>PatternMatch :-</strong> Column date5 has data in dd-MMM-yy format</li><li><strong>is Primary Key :-</strong> Column Id has unique value or not</li><li><strong>NodeDataQualityCheck :- </strong>makes report based on the Data Quality node results<strong> </strong></li></ul><h2><br></h2><h2><strong><u>Output</u></strong></h2><p>the Workflow will give data quality score based on the conditions in the data quality nodes</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "6",
+      "id": 1
+    },
+    {
+      "source": "6",
+      "target": "7",
+      "id": 2
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 3
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 4
+    },
+    {
+      "source": "9",
+      "target": "11",
+      "id": 5
+    },
+    {
+      "source": "11",
+      "target": "10",
+      "id": 6
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 679,
+      "uuid": "ac206123-9aaa-4be7-961c-c5abe240de65",
+      "header": true,
+      "path": "data/DATA-QUALITY/Customer-Data.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"id\",\"birthday\",\"age\",\"alpha\",\"city\",\"bool\",\"ccnumber\",\"gender\",\"email\",\"postal\",\"yn\",\"Date1\",\"Date2\",\"Date3\",\"Date4\",\"Date5\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}

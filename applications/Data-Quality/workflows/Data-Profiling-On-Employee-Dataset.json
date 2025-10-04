@@ -1,0 +1,766 @@
+{
+  "name": "Data-Profiling-On-Employee-Dataset",
+  "uuid": "388e1c74-012b-40a2-b9b1-8cef1d76370c",
+  "category": "DataProfiling",
+  "nodes": [
+    {
+      "id": "3",
+      "name": "Correlation",
+      "description": "calculates the correlation between two series of data.",
+      "details": "This node calculates the correlation between two series of data in a common operation in Statistics.<br>\n<br>\nMore at Spark MLlib/ML docs page : <a href=\"http://spark.apache.org/docs/latest/mllib-statistics.html#correlations\" target=\"_blank\">spark.apache.org/docs/latest/mllib-statistics.html#correlations</a><br>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "568.7px",
+      "y": "231.188px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Correlation Matrix",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"Salary\",\"AgeinYrs\",\"WeightinKgs\",\"AgeinCompanyYears\"]",
+          "widget": "variables",
+          "title": "Input Column for Correlation",
+          "description": "Column Names to check correlation ",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "handleInvalid",
+          "value": "skip",
+          "widget": "array",
+          "title": "Handle invalid pairs",
+          "description": "Handle invalid pairs.",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "skip",
+            "error",
+            "keep"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "Summary",
+      "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+      "details": "<h2>Summary Statistics Node Details</h2>\n<br>\nThe Summary Statistics node makes it easy to explore the contents of a DataFrame at a high level.<br>\n<br>\nThis node computes specified statistics which includes : - count - mean - stddev - variance - min - max - approximate percentiles specified as a percentage<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : A short description to summarize what the data depicts.</li>\n<li> COLUMN NAMES : </li>\n</ul>\n- Selected : A list of numeric columns for whom the node will compute statistical values.<br>",
+      "examples": "<h2>Summary Statistics Node Example</h2>\n<br>\nConsider the following DataFrame<br>\n<br>\nID  | CODE |<br>\n------------<br>\n1   | aa  |<br>\n2   | aa  |<br>\n9   | bb  |<br>\n5   | cc  |<br>\n<br>\n<h4> If we calculate the summary statistics for all columns in the DataFrame, we get </h4>\n<br>\nsummary|      ID          |  CODE |<br>\n-----------------------------------<br>\n|  count|                4|      4|<br>\n|   mean|             4.25|   null|<br>\n|    min|                1|     aa|<br>\n|    25%|                1|   null|<br>\n|    50%|                2|   null|<br>\n|    75%|                5|   null|<br>\n|    max|                9|     cc|<br>\n| stddev|3.593976442141304|   null|<br>\n|variance|12.916667       |   null|<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSummary",
+      "x": "567.5px",
+      "y": "83px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Summary",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "colNames",
+          "value": "[\"Salary\",\"AgeinYrs\",\"WeightinKgs\",\"AgeinCompanyYears\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Column Names for Summary",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Summary Statistics to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "GraphGroupByColumn",
+      "description": "Groups the data by the given column and plots the number of records in each group",
+      "details": "<h2>Graph Group By Column Details</h2>\n<br>\nThis node represents the distribution/count of a group of data in Graphical format.<br>\n<br>\nA numeric column from the incoming dataset is selected to aggregate data into multiple groups. The count of data points in each group is plotted in the Chart.<br>\n<br>\nThe chart type used to represent data can be selected in the node.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li>   TITLE :- The title of a graph can be set here.</li>\n<li>   X LABEL :- X-axis label can be set here.</li>\n<li>   Y LABEL :- Y-axis label can be set here.</li>\n<li>   MAX VALUES TO DISPLAY :- The total number of data points can be selected here.</li>\n<li>   CHART COLORS :- The different types of color can be selected for better visualization.</li>\n<li>   GROUP BY COLUMN :- A categorical column is selected to show the counts of observations of each category.</li>\n<li>   CHART TYPE :- The desired chart can be selected from the drop-down list(Column chart, Bar Chart, Line Chart)</li>\n</ul>\n<h4> Output</h4>\n<ul>\n<li>   This node is good for comparing between each element in the categories and comparing elements across categories.</li>\n</ul>",
+      "examples": "Example:<br>\n<br>\nLet's say you have a dataset of customer transactions, and you want to visualize the number of transactions for each customer category.<br>\n<br>\nConfiguration:<br>\n<br>\nGroup By Column: CustomerCategory<br>\nChart Type: Column Chart<br>\nOutput:<br>\n<br>\nThe node will generate a bar chart showing the count of transactions for each customer category. The X-axis will display the customer categories, and the Y-axis will display the number of transactions.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.graph.NodeGraphGroupByColumn",
+      "x": "573.45px",
+      "y": "374.95px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Graph of the counts grouped by column",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "titleColor",
+          "value": "#77C27F",
+          "widget": "textcolors",
+          "title": "Title Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textareafield",
+          "title": "Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "descriptionColor",
+          "value": "#808080",
+          "widget": "textcolors",
+          "title": "Description Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "X axis",
+          "widget": "textfield",
+          "title": "X Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "Y axis",
+          "widget": "textfield",
+          "title": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "chartColors",
+          "value": "#BFBF3E,#387Fa3,#F3B25C,#66B4c1,#D9A6A7,#E0786C,#268d6c,#9467bd,#8fd9a8,#aacae4",
+          "widget": "colors",
+          "title": "Chart Colors",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "groupByColumn",
+          "value": "Gender",
+          "widget": "variable",
+          "title": "Group By Column",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "graphType",
+          "value": "BARCHART",
+          "widget": "enum",
+          "title": "Chart Type",
+          "optionsMap": {
+            "COLUMNCHART": "Column Chart",
+            "BARCHART": "Bar Chart",
+            "LINECHART": "Line Chart",
+            "HISTOGRAM": "Histogram Chart"
+          },
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "GraphGroupByColumn",
+      "description": "Groups the data by the given column and plots the number of records in each group",
+      "details": "<h2>Graph Group By Column Details</h2>\n<br>\nThis node represents the distribution/count of a group of data in Graphical format.<br>\n<br>\nA numeric column from the incoming dataset is selected to aggregate data into multiple groups. The count of data points in each group is plotted in the Chart.<br>\n<br>\nThe chart type used to represent data can be selected in the node.<br>\n<br>\n<h4>Input</h4>\n<ul>\n<li>   TITLE :- The title of a graph can be set here.</li>\n<li>   X LABEL :- X-axis label can be set here.</li>\n<li>   Y LABEL :- Y-axis label can be set here.</li>\n<li>   MAX VALUES TO DISPLAY :- The total number of data points can be selected here.</li>\n<li>   CHART COLORS :- The different types of color can be selected for better visualization.</li>\n<li>   GROUP BY COLUMN :- A categorical column is selected to show the counts of observations of each category.</li>\n<li>   CHART TYPE :- The desired chart can be selected from the drop-down list(Column chart, Bar Chart, Line Chart)</li>\n</ul>\n<h4> Output</h4>\n<ul>\n<li>   This node is good for comparing between each element in the categories and comparing elements across categories.</li>\n</ul>",
+      "examples": "Example:<br>\n<br>\nLet's say you have a dataset of customer transactions, and you want to visualize the number of transactions for each customer category.<br>\n<br>\nConfiguration:<br>\n<br>\nGroup By Column: CustomerCategory<br>\nChart Type: Column Chart<br>\nOutput:<br>\n<br>\nThe node will generate a bar chart showing the count of transactions for each customer category. The X-axis will display the customer categories, and the Y-axis will display the number of transactions.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.graph.NodeGraphGroupByColumn",
+      "x": "577.25px",
+      "y": "527.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Graph of the counts grouped by column",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "titleColor",
+          "value": "#77C27F",
+          "widget": "textcolors",
+          "title": "Title Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textareafield",
+          "title": "Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "descriptionColor",
+          "value": "#808080",
+          "widget": "textcolors",
+          "title": "Description Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "X axis",
+          "widget": "textfield",
+          "title": "X Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "Y axis",
+          "widget": "textfield",
+          "title": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "chartColors",
+          "value": "#BFBF3E,#387Fa3,#F3B25C,#66B4c1,#D9A6A7,#E0786C,#268d6c,#9467bd,#8fd9a8,#aacae4",
+          "widget": "colors",
+          "title": "Chart Colors",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "groupByColumn",
+          "value": "City",
+          "widget": "variable",
+          "title": "Group By Column",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "graphType",
+          "value": "BARCHART",
+          "widget": "enum",
+          "title": "Chart Type",
+          "optionsMap": {
+            "COLUMNCHART": "Column Chart",
+            "BARCHART": "Bar Chart",
+            "LINECHART": "Line Chart",
+            "HISTOGRAM": "Histogram Chart"
+          },
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "7",
+      "name": "GraphYearDistribution",
+      "description": "This node Finds the distribution of Years from Date values",
+      "details": "This node plots a graph depicting distribution of dataset against each Year derived from the specified Date column.<br>\n<br>\nGraph can be plotted based on the chart type selected in the node.<br>\n<br>\nKey Configuration Options:<br>\n<br>\n<ul>\n<li> Output Storage Level: Specifies the storage level for the output data.</li>\n<li> Title: Sets the title of the graph.</li>\n<li> Chart Type: Selects the type of chart to be used (e.g., bar chart, line chart).</li>\n<li> Y Columns: Defines the columns to be used for the Y-axis of the graph.</li>\n</ul>",
+      "examples": "Example:<br>\n<br>\nInput Data:<br>\n<br>\n| Timestamp | Value |<br>\n|---|---|<br>\n| 2020-11-27 10:00:00 | 10 |<br>\n| 2021-11-28 12:30:00 | 15 |<br>\n| 2022-11-29 14:15:00 | 8 |<br>\n| ... | ... |<br>\n<br>\nOutput Graph :<br>\n<br>\nThe X-axis of the chart represents the years (2020, 2021, 2022, etc.), and the Y-axis represents the count or sum of values for each year. The height of each bar corresponds to the value associated with that year.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.graph.NodeGraphYearDistribution",
+      "x": "579.494px",
+      "y": "661.269px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Year Distribution",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "graphType",
+          "value": "COLUMNCHART",
+          "widget": "enum",
+          "title": "Chart Type",
+          "description": "input graph type",
+          "optionsMap": {
+            "LINECHART": "Line Chart",
+            "COLUMNCHART": "Side by Side Bar Chart",
+            "BARCHART": "Stacked Bar Chart",
+            "PIE": "Pie Chart"
+          },
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "yCols",
+          "value": "[\"DateofBirth\"]",
+          "widget": "variables",
+          "title": "Y Columns",
+          "description": "input to y axis",
+          "datatypes": [
+            "string",
+            "date",
+            "timestamp"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "Sticky Note",
+      "iconImage": "fa fa-file-text",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "720px",
+      "y": "96px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "403.306878px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "58.306878px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p><strong>Workflow to showcase Data Profiling Options</strong></p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "9",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "82.375px",
+      "y": "241.388px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "9a5ffbc2-cbc3-4966-be69-c0c8bf38d893",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "9",
+      "target": "4",
+      "id": 1
+    },
+    {
+      "source": "9",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "9",
+      "target": "5",
+      "id": 3
+    },
+    {
+      "source": "9",
+      "target": "6",
+      "id": 4
+    },
+    {
+      "source": "9",
+      "target": "7",
+      "id": 5
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 677,
+      "uuid": "9a5ffbc2-cbc3-4966-be69-c0c8bf38d893",
+      "header": true,
+      "path": "data/DATA-QUALITY/1000-Records.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"EmpID\",\"NamePrefix\",\"FirstName\",\"MiddleInitial\",\"LastName\",\"Gender\",\"EMail\",\"FathersName\",\"MothersName\",\"MothersMaidenName\",\"DateofBirth\",\"TimeofBirth\",\"AgeinYrs\",\"WeightinKgs\",\"DateofJoining\",\"QuarterofJoining\",\"HalfofJoining\",\"YearofJoining\",\"MonthofJoining\",\"MonthNameofJoining\",\"ShortMonth\",\"DayofJoining\",\"DOWofJoining\",\"ShortDOW\",\"AgeinCompanyYears\",\"Salary\",\"LastHike\",\"SSN\",\"PhoneNo\",\"PlaceName\",\"County\",\"City\",\"State\",\"Zip\",\"Region\",\"UserName\",\"Password\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"DATE\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"MM/dd/YYYY\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}

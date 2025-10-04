@@ -1,0 +1,424 @@
+{
+  "name": "Housing - Data Quality",
+  "uuid": "39dc3393-a511-4864-ba18-a279ed284243",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "data/COMMON/housing.csv",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "2d613da1-b17d-4dd9-afe0-25d5458a7a01",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "path": "/06-Data-Quality/",
+      "name": "Is Primary Key",
+      "description": "",
+      "details": "<h2> Is Primary Key Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Is Primary Key node checks if a specific column in a DataFrame is a primary key. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column contains duplicate values.<br>",
+      "examples": "<h2>Example:</h2>\n<br>\nLet's assume we have a column named id and we want to ensure it has unique values.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: id<br>\nNode Execution:<br>\n<br>\nRecords with duplicate values in the id column will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPrimaryKey",
+      "x": "241.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"id\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "path": "/06-Data-Quality/",
+      "name": "ColumnValuesToBeBetween",
+      "description": "",
+      "details": "<h2> Column Values To Be Between Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Column Values To Be Between node checks if the values in a specific column are within a specified range. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\nMin: The minimum allowed value.<br>\nMax: The maximum allowed value.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column value is outside the defined range.<br>",
+      "examples": "Example:<br>\n<br>\nLet's assume we have a column named age and we want to identify records where the age is less than 0 or greater than 120.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: age<br>\nMin: 0<br>\nMax: 120<br>\nNode Execution:<br>\n<br>\nRecords with an age less than 0 or greater than 120 will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckColumnValuesToBeBetween",
+      "x": "321.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"bathrms\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"2\"]",
+          "widget": "variables_list_textfield",
+          "title": "Min",
+          "description": "The minimum value of column.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"4\"]",
+          "widget": "variables_list_textfield",
+          "title": "Max",
+          "description": " The Maximum value of range",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "path": "/06-Data-Quality/",
+      "name": "PatternMatch",
+      "description": "",
+      "details": "<h2> Pattern Match Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Pattern Match node allows you to match values in a specific column against predefined patterns. This is useful for filtering data based on regular expressions or specific string patterns.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\nPatterns: A list of patterns to match against.<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column value matches any of the defined patterns.<br>",
+      "examples": "<h2>Example:</h2>\n<br>\nLet's assume we have a column named email and we want to identify invalid email addresses.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: email<br>\nPatterns: [^@]+@[^@]+\\.[^@]+ (matches valid email addresses)<br>\n<br>\nNode Execution:<br>\n<br>\nRecords with email values that do not match the pattern will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckPattern",
+      "x": "401.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"driveway\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "patterns",
+          "value": "[\"[a-zA-Z]{3}\"]",
+          "widget": "variables_list_textfield",
+          "title": "Patterns",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "NodeDataQualityCheckAndAlert",
+      "description": "",
+      "details": "<h2> NodeDataQualityCheckAndAlert</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThis node is used to perform data quality checks on a DataFrame and send alerts based on the results. It allows you to define various checks, such as:<br>\n<br>\nMissing values: Checks for null or empty values in columns.<br>\nInvalid data types: Ensures that data in each column conforms to the expected data type.<br>\nOutliers: Identifies values that deviate significantly from the norm.<br>\nDuplicate values: Detects duplicate records.<br>\nCustom checks: Allows you to define custom checks using expressions.<br>\n<br>\n<h4> Input:</h4>\n<br>\nEmail Address: The email address to send alerts to.<br>\nThreshold: The percentage of records that must fail a check to trigger an alert.<br>\nResult Path: The path to save the detailed report of the data quality checks.<br>\n<h4> Output:</h4>\n<br>\nThe node will send an email alert if the threshold is exceeded and save a detailed report of the checks to the specified path.<br>",
+      "examples": "Example:<br>\n<br>\nLet's say you want to check for missing values and invalid data types in a DataFrame.<br>\n<br>\nConfigure the Node:<br>\n<br>\nEmail Address: [email address removed]<br>\nThreshold: 10 (10% of records must fail)<br>\nResult Path: /path/to/report.csv<br>\nNode Execution:<br>\n<br>\nThe node will check for missing values and invalid data types in each column.<br>\nIf more than 10% of records fail any check, an email alert will be sent.<br>\nA detailed report of the checks will be saved to the specified path.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "561.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "emailAddress",
+          "widget": "textfield",
+          "title": "Email Address",
+          "description": "Email Address. Add multiple email in comma separated",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "subject",
+          "value": "",
+          "widget": "textfield",
+          "title": "Subject",
+          "description": "Subject",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "threshold",
+          "value": "null",
+          "widget": "textfield",
+          "title": "Threshold",
+          "description": "Threshold",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "data/DATA-QUALITY/Housing-DataQuality",
+          "widget": "textfield",
+          "title": "Result Path",
+          "description": "Path of the good and bad records",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 678,
+      "uuid": "2d613da1-b17d-4dd9-afe0-25d5458a7a01",
+      "header": true,
+      "path": "data/COMMON/housing.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{colNames:[\"id\",\"price\",\"lotsize\",\"bedrooms\",\"bathrms\",\"stories\",\"driveway\",\"recroom\",\"fullbase\",\"gashw\",\"airco\",\"garagepl\",\"prefarea\"],colTypes:[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataQuality"
+}

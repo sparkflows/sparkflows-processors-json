@@ -1,0 +1,1209 @@
+{
+  "name": "Using-Great-Expectations-Nodes",
+  "uuid": "ac924e01-4212-4b0c-8d0d-901d43638ae0",
+  "category": "GreatExpectations",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "2",
+      "name": "ExpectColumnValueLengthsToEqual",
+      "description": "",
+      "details": "<h2>Expect Column Values Lengths to Equal</h2>\n<br>\nExpect the column entries to be strings with length equal to the provided value.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nValue (int or None): The expected value for a column entry length.<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Expect Column Value Lengths to Equal Node Examples</h2>\nScenario: You have a dataset with columns column6 and column7 containing string values, and you want to ensure all entries in these columns are exactly 5 characters long.<br>\n<br>\nConfiguration:<br>\n<br>\nColumn Name: column6<br>\nValue: 5<br>\nMostly: 100%<br>\nOutcome:<br>\n<br>\nIf any value in column6 is not exactly 5 characters, it will be flagged, and discrepancies will be listed in the output.<br>\nScenario: You want to check if the numeric columns column1 to column5 have consistent integer values without any floating-point numbers in column2.<br>\n<br>\nConfiguration:<br>\n<br>\nColumn Name: column2<br>\nMostly: 100%<br>\nOutcome:<br>\n<br>\nAny non-integer values in column2 will be flagged, ensuring data type consistency across integer and double columns.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValueLengthsToEqual",
+      "x": "75.5667px",
+      "y": "311.55px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"ccnumber\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "value",
+          "value": "[\"14\"]",
+          "widget": "variables_list_textfield",
+          "title": "value",
+          "description": "The expected value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "3",
+      "name": "ExpectColumnValueLengthToBeInBetween",
+      "description": "",
+      "details": "<h2>Expect Column Value length To be in Between Details</h2>\n<br>\nExpect the column value lengths to be between a minimum value and a maximum value (inclusive).<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMin (comparable type or None): The minimum value for a column entry.<br>\nMax (comparable type or None): The maximum value for a column entry.<br>\n<br>\n<h4>Notes</h4>\n`Min` and `Max` are both inclusive.<br>\nIf `Min` is None, then `Max` is treated as an upper bound, and there is no minimum value checked.<br>\nIf `Max` is None, then `Min` is treated as a lower bound, and there is no maximum value checked.<br>",
+      "examples": "If the incoming DataFrame has the following values in column6:<br>\n<br>\ncolumn6<br>\napple<br>\norange<br>\npineapple<br>\nkiwi<br>\nbanana<br>\nSetting Min to 5 and Max to 7 will yield the following result:<br>\n<br>\nValid values: \"orange\" and \"banana\"<br>\nInvalid values: \"apple\" (too short), \"pineapple\" (too long), \"kiwi\" (too short)<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValueLengthToBeInBetween",
+      "x": "218.467px",
+      "y": "53.4667px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"postal\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"4\"]",
+          "widget": "variables_list_textfield",
+          "title": "Min",
+          "description": "The minimum value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"8\"]",
+          "widget": "variables_list_textfield",
+          "title": "Max",
+          "description": "The maximum value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "4",
+      "name": "ExpectColumnValuesToBeInBetween",
+      "description": "",
+      "details": "<h2>Expect Column Values To Between Details</h2>\n<br>\nExpect the column entries to be between a minimum value and a maximum value (inclusive).<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMin (comparable type or None): The minimum value for a column entry.<br>\nMax (comparable type or None): The maximum value for a column entry.<br>\n<br>\n<h4>Notes</h4>\n`Min` and `Max` are both inclusive.<br>\nIf `Min` is None, then `Max` is treated as an upper bound, and there is no minimum value checked.<br>\nIf `Max` is None, then `Min` is treated as a lower bound, and there is no maximum value checked.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    | Joining AGE   |    Joining Date     |<br>\n-------------------------------------------------<br>\nE01       |    42         | Jan 01 1979 12:00:01<br>\nE02       |    29         | Dec 31 1999 12:00:11<br>\nE03       |    35         | Jan 01 2000 12:03:01<br>\nE04       |    54         | Feb 01 2000 12:00:01\t<br>\n<br>\n<h4>Configuration #1</h4>\n<br>\nColumn Name | Min  | Max  |<br>\n--------------------------<br>\nJoining AGE | 25   | 60   |<br>\n<br>\nThe above setup would result in a status of `success: true` as the condition is satisfied.<br>\n<br>\n<h4>Configuration #2</h4>\n<br>\nColumn Name  |          Min           |          Max           |<br>\n----------------------------------------------------------------<br>\nJoining Date | Jan 01 1990 12:00:00   | Jan 01 2001 12:00:00   |<br>\n<br>\nThe above setup would result in a status of `success: false` as the condition is satisfied.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeInBetween",
+      "x": "279.75px",
+      "y": "282.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"age\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"10\"]",
+          "widget": "variables_list_textfield",
+          "title": "Min",
+          "description": "The minimum value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"80\"]",
+          "widget": "variables_list_textfield",
+          "title": "Max",
+          "description": "The maximum value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "5",
+      "name": "ExpectColumnValuesToBeInSet",
+      "description": "",
+      "details": "<h2> Expect Column Values To Be In Set Details</h2>\n<br>\nThis feature allows users to validate that column values in a DataFrame are within a specified set of values. It helps ensure data quality by restricting column values to predefined acceptable options.<br>\n<br>\n<h4> Input</h4>\n<br>\nColumn Name: Select the column that needs to be validated. The column type should match the expected data type.<br>\nValues: Enter the set of values that are acceptable for the selected column.<br>\nMostly: Specifies the minimum percentage (0.0 - 1.0) of rows that must meet the condition for it to pass validation.<br>\n<h4> Output</h4>\n<br>\nA DataFrame with validation results, indicating whether each row's value in the specified column is within the acceptable set.<br>\nThe validation status can be used to filter or further process data based on quality checks.<br>",
+      "examples": "Example: If a column named \"Status\" in the DataFrame is expected to contain only \"Approved,\" \"Pending,\" or \"Rejected,\" set the Values field to [\"Approved\", \"Pending\", \"Rejected\"]. This configuration ensures that any other value in the \"Status\" column will be flagged for review.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeInSet",
+      "x": "482.75px",
+      "y": "272.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"yn\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "values",
+          "value": "[\"Y;N;SP\"]",
+          "widget": "variables_list_textfield",
+          "title": "values",
+          "description": "A set of objects seperated by spaces used for comparison..",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "6",
+      "name": "ExpectColumnValuesToBeNull",
+      "description": "",
+      "details": "<h2>Expect Column Values To Be Null Details</h2>\n<br>\nExpect the column values to be null.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    DEPT        |<br>\n--------------------------------------<br>\nE01       |                |<br>\nE02       |                |<br>\nE03       |                |<br>\nE04       |                |<br>\n<br>\n<h4>Configuration #1</h4>\n<br>\nColumn Name   | Mostly  |<br>\n-------------------------<br>\nEMP_CD        |         |<br>\n<br>\nThe above setup would result in a status of `success: false` as the condition is not satisfied.<br>\n<br>\n<h4>Configuration #2</h4>\n<br>\nColumn Name   | Mostly  |<br>\n-------------------------<br>\nDEPT        |   0.9     |<br>\n<br>\nThe above setup would result in a status of `success: true` as the condition is satisfied.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeNull",
+      "x": "811.75px",
+      "y": "269.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"email\",\"id\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "7",
+      "name": "ExpectColumnValuesToBeUnique",
+      "description": "",
+      "details": "<h2>Expect Column Values To Be Unique Details</h2>\n<br>\nExpect each column value to be unique.<br>\n<br>\nThis expectation detects duplicates. All duplicated values are counted as exceptions.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    DEPT        |<br>\n--------------------------------------<br>\nE01       |    MARKETING   |<br>\nE02       |    MARKETING   |<br>\nE03       |    SALES       |<br>\nE04       |    ADMIN       |<br>\n<br>\n<h4>Configuration</h4>\n<br>\nColumn Name   | Mostly  |<br>\n-------------------------<br>\nEMP_CD        |         |<br>\nDEPT          | 0.75    |           <br>\n<br>\nThe above setup would result in a status of `success: true` as both conditions are satisfied.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeUnique",
+      "x": "400.75px",
+      "y": "43.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"id\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "8",
+      "name": "ExpectColumnValuesToMatchRegex",
+      "description": "",
+      "details": "<h2> Expect Column Values To Match Regex Details</h2>\n<br>\nThis feature enables validation of column values in a DataFrame to ensure they match a specified regular expression (regex) pattern. It is useful for checking that values in a column adhere to a particular format or structure, such as an email or phone number format.<br>\n<br>\n<h4> Input</h4>\n<br>\nColumn Name: Select the column that needs to be validated. The selected column should be of a type compatible with the regex pattern.<br>\nRegex: Enter the regular expression pattern that the column values should match.<br>\nMostly: Specifies the minimum percentage (0.0 - 1.0) of rows that must meet the condition for the validation to pass.<br>\n<h4> Output</h4>\n<br>\nA DataFrame with validation results, showing whether each row's value in the specified column matches the regex pattern.<br>\nThis validation result can be used to identify rows that do not conform to the expected format for further review or correction.<br>\nExample: If a column named \"Email\" is expected to contain only valid email addresses, set the Regex field to a pattern like ^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,4}$. This configuration ensures that any invalid email addresses in the \"Email\" column will be flagged for further inspection.<br>",
+      "examples": "If an \"ID\" column is expected to contain only numbers with exactly 5 digits, setting the Regex field to ^\\d{5}$ would result in the following outcomes for a sample DataFrame:<br>\n<br>\nID: 12345 - Pass (matches regex)<br>\nID: 1234A - Fail (does not match regex)<br>\nID: 67890 - Pass (matches regex)<br>\nID: 5432 - Fail (does not match regex)<br>\nThis setup helps ensure that only values matching the specified 5-digit format are present in the \"ID\" column.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToMatchRegex",
+      "x": "578.75px",
+      "y": "38.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"city\",\"Date1\",\"ccnumber\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "regex",
+          "value": "[\"\\\\w\",\"\\\\d{2}-\\\\d{2}-\\\\d{2}\",\"\\\\d\"]",
+          "widget": "variables_list_textfield",
+          "title": "Regex",
+          "description": "regex to match",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\",\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "9",
+      "name": "ExpectColumnValuesToNotBeNull",
+      "description": "",
+      "details": "<h2>Expect Column Values To Not Be Null Details</h2>\n<br>\nExpect the column values to not be null.<br>\n<br>\nTo be counted as an exception, values must be explicitly null or missing, such as an np.NaN in pandas. Empty strings don't count as null unless they have been coerced to a null type.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |<br>\n--------------------------------------<br>\nE01       |    DAVID       |<br>\nE02       |                |<br>\nE03       |    MARK        |<br>\nE04       |    JACK        |<br>\n<br>\n<h4>Configuration</h4>\n<br>\nColumn Name   | Mostly  |<br>\n-------------------------<br>\nEMP_CD        |         |<br>\nEMP_NAME      | 0.8     |           <br>\n<br>\nThe above setup would result in a status of `success: false`, as even though the `EMP_CD` column value evaluates to be true it fails for the condition setup for the column `EMP_NAME`.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToNotBeNull",
+      "x": "672.75px",
+      "y": "264.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"birthday\",\"postal\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "11",
+      "name": "ExpectTableRowCountToBeBetween",
+      "description": "",
+      "details": "<h2>Expect Table Row Count To Be Between Details</h2>\n<br>\nExpect the number of rows to be between two values.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nMin Count : The minimum number of rows, inclusive.<br>\nMax Count : The maximum number of rows, inclusive.<br>\n<br>\n<h4> Notes</h4>\n`Min Count` and `Max Count` are both inclusive.<br>\nIf `Min Count` is None, then `Max Count` is treated as an upper bound, and the number of acceptable rows has no minimum.<br>\nIf `Max Count` is None, then `Min Count` is treated as a lower bound, and the number of acceptable rows has no maximum.<br>",
+      "examples": "<h2>Expect Table Row Count To Be Between Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    DEPT<br>\n--------------------------------------<br>\nE01       |    DAVID       |    <br>\nE02       |    JANE        |    <br>\nE03       |    MARK        |<br>\nE04       |    JACK        |<br>\n<br>\n<h4>Expect Table Row Count To Be Between Node Configuration</h4>\n<br>\nMin Count   |    Max Count   <br>\n-----------------------------<br>\n3           |    5          |       <br>\n<br>\nThe above setup would result in a status of `success: true`, as the number of records in the table is 4 which lies between the count of the configured minimum and maximum value.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectTableRowCountToBeBetween",
+      "x": "958.75px",
+      "y": "48.75px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"1\"]",
+          "widget": "key_array",
+          "title": "Min Count",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"50\"]",
+          "widget": "value_array",
+          "title": "Max Count",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "12",
+      "name": "ExpectColumnValueToMatchStrftimeFormat",
+      "description": "",
+      "details": "<h2>Expect Column Values Lengths to Equal</h2>\n<br>\nExpect the column entries to be strings with length equal to the provided value.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nstrftime_format (str): A strftime format string to use for matching<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Example</h2>\n<br>\nLet's assume we have a column named date_of_birth with values like \"1990-12-25\", \"12/25/1990\", and \"25-Dec-1990\".<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: date_of_birth<br>\nStrftime Format: %Y-%m-%d (for the first format)<br>\nMostly: False (all values must match)<br>\nNode Execution:<br>\n<br>\nThe node will flag records with values like \"12/25/1990\" and \"25-Dec-1990\" as they don't match the specified format.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValueToMatchStrftimeFormat",
+      "x": "786.567px",
+      "y": "41.5667px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"Date1\",\"Date2\",\"Date3\",\"Date4\",\"Date5\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "strftime_format",
+          "value": "[\"%Y-%m-%d\",\"%m/%d/%Y\",\"%d.%m.%y\",\"%Y%m%d\",\"%d-%b-%y\"]",
+          "widget": "variables_list_textfield",
+          "title": "Strftime Format",
+          "description": "A strftime format string to use for matching",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"0.8\",\"0.7\",\"\",\"1\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "23",
+      "name": "Create CSV from GE Results",
+      "description": "",
+      "details": "<h2> Create CSV from GE Results Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThis node writes the output of a GE pipeline to a CSV file. It offers flexibility in configuring the output file's path, save mode, and whether to include a header row.<br>\n<br>\n<h4> Input:</h4>\n<br>\nPath: The desired path for the output CSV file.<br>\nSave Mode: Determines how to handle existing files:<br>\nAppend: Appends new data to the end of an existing file.<br>\nOverwrite: Overwrites the file with the new data.<br>\nErrorIfExists: Throws an error if the file already exists.<br>\nHeader: Specifies whether to include a header row with column names.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node writes the output DataFrame to the specified CSV file.<br>",
+      "examples": "Example:<br>\n<br>\nLet's say you have a DataFrame containing customer data and want to save it as a CSV file.<br>\n<br>\nConfigure the Node:<br>\n<br>\nPath: /path/to/output.csv<br>\nSave Mode: Append<br>\nHeader: True<br>\nNode Execution:<br>\n<br>\nThe DataFrame will be written to the specified CSV file, appending new data if the file already exists. The output file will include a header row with column names.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeCreateCsvFromGeResults",
+      "x": "946.2px",
+      "y": "267.2px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "csvPath",
+          "value": "data/DATA-QUALITY/CUSTOMER/OUTPUT",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path to save consolidated Great Expectation results as a CSV",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "saveMode",
+          "value": "Overwrite",
+          "widget": "array",
+          "title": "Save Mode",
+          "description": "Whether to Append, Overwrite or Error if the path Exists",
+          "optionsArray": [
+            "Append",
+            "Overwrite",
+            "ErrorIfExists",
+            "Ignore"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "header",
+          "value": "true",
+          "widget": "array",
+          "title": "Header",
+          "description": "Should a Header Row be saved with each File?",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "Advanced",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "partitionColNames",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Partition Column Names",
+          "description": "Partition Column Names",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "26",
+      "name": "GE Decision",
+      "description": "This Node takes in an expression. It evaluates the expression and based on the results sends the execution to the first or the second output Node",
+      "details": "<h2> GE Decision Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe GE Decision node allows you to create complex decision logic within your data pipeline. It takes in a DataFrame and routes it based on specified conditions. You can use a variety of expressions and functions to define these conditions.<br>\n<br>\n<h4> Input:</h4>\n<br>\nExpression: A boolean expression that determines the output path.<br>\nPath: The path to which the data will be routed if the expression evaluates to true.<br>\n<h4> Output:</h4>\n<br>\nThe data is routed to the specified path based on the evaluation of the expression.<br>",
+      "examples": "<h2>Example</h2>\n<br>\nLet's say you want to split a DataFrame based on a column named is_high_value.<br>\n<br>\nConfigure the Node:<br>\n<br>\nExpression: is_high_value == 1<br>\nPath: /high_value_data<br>\nNode Execution:<br>\n<br>\nRows where is_high_value is 1 will be routed to /high_value_data.<br>\nRows where is_high_value is 0 or null will be routed to the default output path (if not specified).<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeGEDecision",
+      "x": "1074.6px",
+      "y": "133.841px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "expression",
+          "value": "ccnumber,expect_column_value_lengths_to_equal,false,unexpected_percent < 80 && email,expect_column_values_to_be_null,unexpected_percent > 80",
+          "widget": "textarea_medium",
+          "title": "Expression",
+          "description": "Expression to be evaluated. It can use variables computed in the previous Nodes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "status_file_path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path to generate _success and _failed directory.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "27",
+      "name": "Print N Rows",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "1078.68px",
+      "y": "275.69px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Data Quality Rules Summary",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "false",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "28",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "51.3875px",
+      "y": "44.2063px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "ac206123-9aaa-4be7-961c-c5abe240de65",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "29",
+      "name": "Sticky Note",
+      "iconImage": "fa fa-file-text",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "158px",
+      "y": "398px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "860.306878px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "157.306878px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<h1>Data Quality - Great Expectation Packages</h1><p>This workflow applies data quality checks using the Great Expectations framework. It validates the dataset against predefined rules to ensure data integrity and consistency. The node processes the input dataframe and applies the following checks:</p><p><br></p><p>1. ExpectColumnValueLengthsToEqual</p><p>&nbsp;&nbsp;Description: Validates that the length of values in a specific column matches a specified length.</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;ccnumber: Credit card number.</p><p>&nbsp;&nbsp;\tCheck: Ensures all values in ccnumber have the same length (e.g., 16 digits for a standard credit card).</p><p><br></p><p>2. ExpectColumnValueLengthsToBeBetween</p><p>&nbsp;&nbsp;Description: Validates that the length of values in a specific column falls within a specified range.</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;postal: Postal code.</p><p>&nbsp;&nbsp;\tCheck: Ensures the length of postal codes is within a valid range (e.g., 5–10 characters).</p><p><br></p><p>3. ExpectColumnValuesToBeBetween</p><p>&nbsp;&nbsp;Description: Validates that the values in a specific numeric column fall within a specified minimum and maximum range.</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;age: Age of individuals.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures age values are within a reasonable range (e.g., 0–120).</p><p><br></p><p>4. ExpectColumnValuesToBeUnique</p><p>&nbsp;&nbsp;Description: Validates that the values in a specific column are unique (no duplicates).</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;id: Unique identifier for each record.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures all id values are unique.</p><p><br></p><p>5. ExpectColumnValuesToBeInSet</p><p>&nbsp;&nbsp;Description: Validates that the values in a specific column belong to a predefined set of allowed values.</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;yn: Yes/No flag.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures values in yn are either Y (Yes) or N (No).</p><p><br></p><p>6. ExpectColumnValuesToMatchRegex</p><p>&nbsp;&nbsp;Description: Validates that the values in a specific column match a specified regex pattern.</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;city: City names.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures city names follow a valid format (e.g., alphabetic characters only).</p><p><br></p><p>&nbsp;&nbsp;&nbsp;&nbsp;Date1: Date values in yyyy-MM-dd format.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures dates are in the correct format.</p><p><br></p><p>&nbsp;&nbsp;&nbsp;&nbsp;ccnumber: Credit card number.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures credit card numbers follow a valid format (e.g., 16 digits).</p><p><br></p><p>7. ExpectColumnValuesToNotBeNull</p><p>&nbsp;&nbsp;Description: Validates that the values in a specific column are not null (missing).</p><p>&nbsp;&nbsp;Columns Involved:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;birthday: Birthdate of individuals.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures all birthday values are present.</p><p><br></p><p>&nbsp;&nbsp;&nbsp;&nbsp;postal: Postal code.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Check: Ensures all postal values are present.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "2",
+      "target": "3",
+      "id": 1
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 2
+    },
+    {
+      "source": "4",
+      "target": "7",
+      "id": 3
+    },
+    {
+      "source": "7",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "5",
+      "target": "8",
+      "id": 5
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 6
+    },
+    {
+      "source": "9",
+      "target": "12",
+      "id": 7
+    },
+    {
+      "source": "12",
+      "target": "6",
+      "id": 8
+    },
+    {
+      "source": "6",
+      "target": "11",
+      "id": 9
+    },
+    {
+      "source": "11",
+      "target": "23",
+      "id": 10
+    },
+    {
+      "source": "23",
+      "target": "27",
+      "id": 11
+    },
+    {
+      "source": "27",
+      "target": "26",
+      "id": 12
+    },
+    {
+      "source": "28",
+      "target": "2",
+      "id": 13
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 679,
+      "uuid": "ac206123-9aaa-4be7-961c-c5abe240de65",
+      "header": true,
+      "path": "data/DATA-QUALITY/Customer-Data.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"id\",\"birthday\",\"age\",\"alpha\",\"city\",\"bool\",\"ccnumber\",\"gender\",\"email\",\"postal\",\"yn\",\"Date1\",\"Date2\",\"Date3\",\"Date4\",\"Date5\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "pyspark"
+}

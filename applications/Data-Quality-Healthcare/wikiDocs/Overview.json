@@ -1,0 +1,15 @@
+{
+  "id": 2873,
+  "uuid": "8151cda8-9c20-45a8-9ab1-f10a3bdb2607",
+  "name": "Overview",
+  "category": "",
+  "projectId": 2151,
+  "content": "<h1 class=\"ql-align-justify\">Overview</h1><p class=\"ql-align-center\"><br></p><p>This project aims to transform&nbsp;<strong>raw experimental data</strong>&nbsp;into a&nbsp;<strong>clean, consistent, and biologically valid dataset</strong>&nbsp;that is ready for&nbsp;<strong>accurate interpretation</strong>&nbsp;and suitable for downstream analysis such as&nbsp;<strong>machine learning applications, clustering, or visualization</strong>.</p><p><br></p><p>The bioassay dataset comprises&nbsp;<strong>1,000 synthetic records</strong>&nbsp;detailing chemical compound activity across various biological assays. A robust&nbsp;<strong>data quality workflow</strong>&nbsp;is essential to ensure the&nbsp;<strong>integrity and reliability</strong>&nbsp;of such a dataset before it is used in downstream analysis like&nbsp;<strong>predictive modeling</strong>&nbsp;or&nbsp;<strong>structure-activity relationship studies</strong>.</p><p><br></p><p>The workflow would begin by&nbsp;<strong>identifying and flagging missing or empty values</strong>, especially in critical fields such as&nbsp;<strong>SMILES, Activity_Type, and Activity_Value</strong>. It would validate&nbsp;<strong>data types</strong>&nbsp;to ensure numeric fields like&nbsp;<strong>Activity_Value</strong>&nbsp;are correctly formatted and that&nbsp;<strong>date fields follow the standardized YYYY-MM-DD format</strong>.</p><p><br></p><p>The workflow would also check the&nbsp;<strong>syntactic validity of chemical structures</strong>&nbsp;represented in&nbsp;<strong>SMILES format</strong>&nbsp;using&nbsp;<strong>regex</strong>. To ensure&nbsp;<strong>biological plausibility</strong>, it would verify that&nbsp;<strong>Activity_Value falls within expected ranges</strong>&nbsp;based on the&nbsp;<strong>activity type and unit</strong>, and it would normalize units (e.g.,&nbsp;<strong>µM to nM</strong>) where needed.</p><p><br></p><p>Categorical fields such as&nbsp;<strong>Result, Organism, and Assay_Type</strong>&nbsp;would be compared against&nbsp;<strong>predefined vocabularies</strong>&nbsp;to catch inconsistencies or typos.&nbsp;<strong>Duplicate detection, uniqueness enforcement for key identifiers, and logic checks</strong>—such as ensuring that high activity values align with an&nbsp;<strong>\"Inactive\" result</strong>—would further enhance data quality.</p><p class=\"ql-align-justify\"><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "This project performs various data quality checks for bio assay data for drug discovery",
+  "syncedWithGithub": false,
+  "createdBy": "leena1",
+  "dateCreated": "Jul 12, 2025, 2:25:31 AM",
+  "updatedBy": "leena1",
+  "dateLastUpdated": "Jul 22, 2025, 5:35:14 PM"
+}

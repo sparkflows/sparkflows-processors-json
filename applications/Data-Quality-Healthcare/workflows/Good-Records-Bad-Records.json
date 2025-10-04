@@ -1,0 +1,244 @@
+{
+  "name": "Good-Records-Bad-Records",
+  "uuid": "b4e7d55c-9281-4605-abb9-44770468f7f3",
+  "category": "-",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "152px",
+      "y": "144px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataset",
+          "value": "9b1aa488-6564-4a96-801d-88d7042268bf",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "3",
+      "name": "Split By Expression",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node splits the incoming DataFrame into two output DataFrames by applying the conditional logic",
+      "details": "This node splits the incoming DataFrame into two output DataFrames by applying the conditional logic.<br>",
+      "examples": "Incoming Dataframe has following rows:<br>\n<br>\nCUST_CD   |   CUST_NAME   |   AGE   <br>\n------------------------------------<br>\nC01       |   MATT        |   50    <br>\nC02       |   LISA        |   45<br>\nC03       |   ROBIN       |   35<br>\nC04       |   MARCUS      |   30 <br>\n<br>\nIf SplitByExpression node is configured to split the incoming Dataframe into two Dataframes based on Expression [AGE > 40] <br>\nthen two outgoing Dataframes would be created as below:<br>\n<br>\n<h2>First Dataframe where [AGE] is greater than 40</h2>\n<br>\nCUST_CD   |   CUST_NAME   |   AGE   <br>\n------------------------------------<br>\nC01       |   MATT        |   50    <br>\nC02       |   LISA        |   45<br>\n<br>\n<h2>Second Dataframe where [AGE] is less than 40</h2>\n<br>\nCUST_CD   |   CUST_NAME   |   AGE   <br>\n------------------------------------<br>\nC03       |   ROBIN       |   35<br>\nC04       |   MARCUS      |   30<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeSplitByExpression",
+      "x": "350px",
+      "y": "224px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "conditionExpr",
+          "value": "(Assay_Name is not null and (Assay_Name = 'Kinase Inhibition' or Assay_Name = 'Cytotoxicity' or Assay_Name = 'GPCR Binding')) and Assay_ID is not null",
+          "widget": "textfield",
+          "title": "Conditional Expression to split the Data on",
+          "description": "Conditional Expression to be used for Splitting the DataFrame into two. DataFrame which matches the condition will go to the lower edge output. The other would go to the higher edge output.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": true,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "4",
+      "name": "Print N Rows",
+      "iconImage": "/images/icons/node-icon/print_n_rows.svg",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "484px",
+      "y": "223px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "3",
+      "id": 1
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 2762,
+      "uuid": "9b1aa488-6564-4a96-801d-88d7042268bf",
+      "header": true,
+      "path": "/home/sparkflows/fire-data/data/HEALTHCARE/Data-Quality-Bio-Assay/bioassay_dataset_with_few_assay_id_errors.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"Assay_ID\",\"Assay_Name\",\"Target\",\"Compound_ID\",\"SMILES\",\"Activity_Type\",\"Activity_Value\",\"Units\",\"Assay_Type\",\"Organism\",\"Cell_Line\",\"Date\",\"Result\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "pyspark"
+}

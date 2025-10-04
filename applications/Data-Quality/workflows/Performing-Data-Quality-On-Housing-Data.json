@@ -1,0 +1,881 @@
+{
+  "name": "Performing-Data-Quality-On-Housing-Data",
+  "uuid": "ccd68a28-0ec4-4354-9528-ce69a90ba2d5",
+  "category": "GreatExpectations",
+  "nodes": [
+    {
+      "id": "2",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "59px",
+      "y": "25px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "734px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "293px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p><strong>Data Quality - Great Expectation Packages with below checks:</strong></p><p><br></p><ul><li>ExpectTableRowCountToBeBetween: count will be in between.</li><li>ExpectColumnValuesToBeInBetween: validate bedrooms and bathrooms fields with max &amp; min values.</li><li>ExpectColumnValuesToBeUnique: validate id and price colums.</li><li>ExpectColumnValuesToNotBeNull: validate price, lotsize fiedls.</li></ul><p><br></p><p><br></p><p>Output will be</p><ol><li>Original Dataframe</li><li>Summary of Rule also indicating whether the rule passed(True) or failed(False).</li></ol><p><br></p><p>Results will be displayed in Table Format.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "3",
+      "name": "ExpectColumnValuesToBeUnique",
+      "description": "",
+      "details": "<h2>Expect Column Values To Be Unique Details</h2>\n<br>\nExpect each column value to be unique.<br>\n<br>\nThis expectation detects duplicates. All duplicated values are counted as exceptions.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    DEPT        |<br>\n--------------------------------------<br>\nE01       |    MARKETING   |<br>\nE02       |    MARKETING   |<br>\nE03       |    SALES       |<br>\nE04       |    ADMIN       |<br>\n<br>\n<h4>Configuration</h4>\n<br>\nColumn Name   | Mostly  |<br>\n-------------------------<br>\nEMP_CD        |         |<br>\nDEPT          | 0.75    |           <br>\n<br>\nThe above setup would result in a status of `success: true` as both conditions are satisfied.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeUnique",
+      "x": "332.578px",
+      "y": "441.594px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"id\",\"price\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "5",
+      "name": "NodeExpectColumnValuesToBeInBetween",
+      "description": "",
+      "details": "<h2>Expect Column Values To Between Details</h2>\n<br>\nExpect the column entries to be between a minimum value and a maximum value (inclusive).<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMin (comparable type or None): The minimum value for a column entry.<br>\nMax (comparable type or None): The maximum value for a column entry.<br>\n<br>\n<h4>Notes</h4>\n`Min` and `Max` are both inclusive.<br>\nIf `Min` is None, then `Max` is treated as an upper bound, and there is no minimum value checked.<br>\nIf `Max` is None, then `Min` is treated as a lower bound, and there is no maximum value checked.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    | Joining AGE   |    Joining Date     |<br>\n-------------------------------------------------<br>\nE01       |    42         | Jan 01 1979 12:00:01<br>\nE02       |    29         | Dec 31 1999 12:00:11<br>\nE03       |    35         | Jan 01 2000 12:03:01<br>\nE04       |    54         | Feb 01 2000 12:00:01\t<br>\n<br>\n<h4>Configuration #1</h4>\n<br>\nColumn Name | Min  | Max  |<br>\n--------------------------<br>\nJoining AGE | 25   | 60   |<br>\n<br>\nThe above setup would result in a status of `success: true` as the condition is satisfied.<br>\n<br>\n<h4>Configuration #2</h4>\n<br>\nColumn Name  |          Min           |          Max           |<br>\n----------------------------------------------------------------<br>\nJoining Date | Jan 01 1990 12:00:00   | Jan 01 2001 12:00:00   |<br>\n<br>\nThe above setup would result in a status of `success: false` as the condition is satisfied.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToBeInBetween",
+      "x": "510.438px",
+      "y": "435.438px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"bedrooms\",\"bathrms\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"1\",\"1\"]",
+          "widget": "variables_list_textfield",
+          "title": "Min",
+          "description": "The minimum value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"4\",\"3\"]",
+          "widget": "variables_list_textfield",
+          "title": "Max",
+          "description": "The maximum value for a column entry length.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "6",
+      "name": "NodeExpectColumnValuesToNotBeNull",
+      "description": "",
+      "details": "<h2>Expect Column Values To Not Be Null Details</h2>\n<br>\nExpect the column values to not be null.<br>\n<br>\nTo be counted as an exception, values must be explicitly null or missing, such as an np.NaN in pandas. Empty strings don't count as null unless they have been coerced to a null type.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nColumn Name: The column name<br>\nMostly (None or a float between 0 and 1): Return `success`: True if at least mostly fraction of values match the expectation.<br>",
+      "examples": "<h2>Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |<br>\n--------------------------------------<br>\nE01       |    DAVID       |<br>\nE02       |                |<br>\nE03       |    MARK        |<br>\nE04       |    JACK        |<br>\n<br>\n<h4>Configuration</h4>\n<br>\nColumn Name   | Mostly  |<br>\n-------------------------<br>\nEMP_CD        |         |<br>\nEMP_NAME      | 0.8     |           <br>\n<br>\nThe above setup would result in a status of `success: false`, as even though the `EMP_CD` column value evaluates to be true it fails for the condition setup for the column `EMP_NAME`.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectColumnValuesToNotBeNull",
+      "x": "645.406px",
+      "y": "439.438px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cols",
+          "value": "[\"lotsize\",\"price\"]",
+          "widget": "variables_list_select",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "mostly",
+          "value": "[\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Mostly",
+          "description": "Mostly value is between 0 and 1, and evaluates it as a percentage and as long as mostly percent of rows evaluate to True, the expectation returns “success”: True.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "7",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "778.095px",
+      "y": "433.114px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Sample Dataset on Which DQ Rules were applied",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "8",
+      "name": "ExpectTableRowCountToBeBetween",
+      "description": "",
+      "details": "<h2>Expect Table Row Count To Be Between Details</h2>\n<br>\nExpect the number of rows to be between two values.<br>\n<br>\n<h4>Keyword Args</h4>\n<br>\nMin Count : The minimum number of rows, inclusive.<br>\nMax Count : The maximum number of rows, inclusive.<br>\n<br>\n<h4> Notes</h4>\n`Min Count` and `Max Count` are both inclusive.<br>\nIf `Min Count` is None, then `Max Count` is treated as an upper bound, and the number of acceptable rows has no minimum.<br>\nIf `Max Count` is None, then `Min Count` is treated as a lower bound, and the number of acceptable rows has no maximum.<br>",
+      "examples": "<h2>Expect Table Row Count To Be Between Example</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    DEPT<br>\n--------------------------------------<br>\nE01       |    DAVID       |    <br>\nE02       |    JANE        |    <br>\nE03       |    MARK        |<br>\nE04       |    JACK        |<br>\n<br>\n<h4>Expect Table Row Count To Be Between Node Configuration</h4>\n<br>\nMin Count   |    Max Count   <br>\n-----------------------------<br>\n3           |    5          |       <br>\n<br>\nThe above setup would result in a status of `success: true`, as the number of records in the table is 4 which lies between the count of the configured minimum and maximum value.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ge.NodeExpectTableRowCountToBeBetween",
+      "x": "158.266px",
+      "y": "449.281px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "min",
+          "value": "[\"1\",\"1000\"]",
+          "widget": "key_array",
+          "title": "Min Count",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "max",
+          "value": "[\"500\",\"5000\"]",
+          "widget": "value_array",
+          "title": "Max Count",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "9",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "252px",
+      "y": "345px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "ExpectTableRowCountToBeBetween Results",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "10",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "424px",
+      "y": "347px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "ExpectColumnValuesToBeUnique Results",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "11",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "577px",
+      "y": "339px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "ExpectColumnValuesToBeInBetween Result",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "12",
+      "name": "Print N Rows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "722.844px",
+      "y": "343.841px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "ExpectColumnValuesToNotBeNull Result",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "13",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "31.4px",
+      "y": "439.394px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "2d613da1-b17d-4dd9-afe0-25d5458a7a01",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "6",
+      "target": "7",
+      "id": 1
+    },
+    {
+      "source": "8",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 3
+    },
+    {
+      "source": "3",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "3",
+      "target": "10",
+      "id": 5
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "id": 6
+    },
+    {
+      "source": "5",
+      "target": "11",
+      "id": 7
+    },
+    {
+      "source": "6",
+      "target": "12",
+      "id": 8
+    },
+    {
+      "source": "13",
+      "target": "8",
+      "id": 9
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 678,
+      "uuid": "2d613da1-b17d-4dd9-afe0-25d5458a7a01",
+      "header": true,
+      "path": "data/COMMON/housing.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"id\",\"price\",\"lotsize\",\"bedrooms\",\"bathrms\",\"stories\",\"driveway\",\"recroom\",\"fullbase\",\"gashw\",\"airco\",\"garagepl\",\"prefarea\"],\"colTypes\":[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "pyspark"
+}

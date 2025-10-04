@@ -1,0 +1,183 @@
+{
+  "name": "Bio-Assay-Data-With-Errors - Data Quality",
+  "uuid": "3adbb504-bbf1-461e-8611-881144e1c01b",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/home/sparkflows/fire-data/data/HEALTHCARE/Data-Quality-Bio-Assay/bioassay_dataset_with_few_assay_id_errors.csv",
+      "name": "DatasetStructured",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "dataset",
+          "value": "9b1aa488-6564-4a96-801d-88d7042268bf",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "path": "/06-Data-Quality/",
+      "name": "Is Not Null",
+      "description": "",
+      "details": "<h2> Is Not Null Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Is Not Null node checks if a specific column in a DataFrame contains null values. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column contains null values.<br>",
+      "examples": "Example:<br>\n<br>\nLet's assume we have a column named name and we want to identify records where the name is null.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: name<br>\nNode Execution:<br>\n<br>\nRecords with a null value in the name column will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNotNull",
+      "x": "241.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"Assay_Name\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "0.5",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "NodeDataQualityCheckAndAlert",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "401.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "emailAddress",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "threshold",
+          "value": "null",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "/home/sparkflows/fire-data/data/output/Bio_Assay_Err_DQ/jul20",
+          "widget": "textfield",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 2762,
+      "uuid": "9b1aa488-6564-4a96-801d-88d7042268bf",
+      "header": true,
+      "path": "/home/sparkflows/fire-data/data/HEALTHCARE/Data-Quality-Bio-Assay/bioassay_dataset_with_few_assay_id_errors.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"Assay_ID\",\"Assay_Name\",\"Target\",\"Compound_ID\",\"SMILES\",\"Activity_Type\",\"Activity_Value\",\"Units\",\"Assay_Type\",\"Organism\",\"Cell_Line\",\"Date\",\"Result\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataQuality"
+}

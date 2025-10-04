@@ -1,0 +1,704 @@
+{
+  "name": "Performing-Data-Cleaning-And-Data-Quality-On-Employee-Dataset",
+  "uuid": "90816010-7e2d-409d-9564-0c2340391b78",
+  "category": "ValidationNode",
+  "nodes": [
+    {
+      "id": "7",
+      "name": "ValidationMultiple",
+      "description": "Validation Multiple Node",
+      "details": "<h2>Validate Fields Advanced Node Details</h2>\n<br>\nThis node creates two outgoing Dataframes based on the result of Validation Rules on the incoming Dataframe. <br>\nFirst outgoing Dataframe consists of rows that succeeds the Validation Rules and second one consists of failed rows.   <br>\n<br>\nThis node facilitates checking of multiple conditions in each rule joined by AND or OR.<br>\n<br>\nMultiple validation rules can be defined for multiple columns. Succeeded and Failed Dataframes are created by applying all the validation rules on the incoming Dataframes.<br>",
+      "examples": "<h2>Validate Fields Advanced Node Examples</h2>\n<br>\nIncoming Dataframe has following rows:<br>\n<br>\nEMP_CD       |    EMP_NAME       |    DEPT       |    SALARY       |    AGE       |    DATE_OF_JOINING       |    EMAIL<br>\n------------------------------------------------------------------------------------------------------------------------------------<br>\nE01          |    ANTHONY        |    HR         |    50000        |    40        |    2020-12-12            |    anthony@hrdept.com<br>\nE02          |    LISA           |    HR         |    35000        |    35        |    2021-02-30            |    lisa@hrdept.com<br>\nE03          |    MARTIN         |    HR         |    20000        |    25        |    2020-01-01            |    martin@nodept.com<br>\nE04          |    DAVID          |    SALES      |    55000        |    40        |    2021-13-13            |    david@salesdept.com<br>\nE05          |    MARK           |    SALES      |    60000        |    27        |    2020-01-01            |    mark@salesdept.com<br>\nE06          |    JOE            |    SALES      |    40000        |    31        |    2010-01-01            |    joe@salesdept.com<br>\nE07          |    BELLA          |    HR         |    60000        |    24        |    2001-12-12            |    bella@hrdept.com<br>\n<br>\nif following Validation Rules are defined in Validation node:<br>\n<br>\nCOLUMNS       |    FUNCTION             |    VALUES       |    CONDITION    |    FUNCTION               |    VALUES<br>\n------------------------------------------------------------------------------------------------------------------------<br>\nAGE           |    VALUE_GREATER_THAN   |    30           |    AND          |    VALUE_LESS_THAN        |    41<br>\nEMP_NAME      |    LENGTH_GREATER_THAN  |    2            |    AND          |    LENGTH_LESS_THAN       |    5<br>\n<br>\nthen outgoing Dataframes would be created as below:<br>\n<br>\n<h4> Succeeded Dataframe consisting of rows that succeeded Validation Rules:</h4>\n<br>\nEMP_CD    |   EMP_NAME  |    DEPT    |  SALARY  |    AGE   |  DATE_OF_JOINING  |  EMAIL              |  validation_result | validation_result_reason<br>\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>\nE02       |   LISA      |    HR      |  35000   |    35    |  2021-02-30       |  lisa@hrdept.com    |  1                 |<br>\nE06       |   JOE       |    SALES   |  40000   |    31    |  2010-01-01       |  joe@salesdept.com  |  1                 |<br>\n<br>\n<h4> Failed Dataframe consisting of rows that failed Validation Rules:</h4>\n<br>\nEMP_CD    |   EMP_NAME  |    DEPT    |  SALARY  |    AGE   |  DATE_OF_JOINING  |  EMAIL              |  validation_result | validation_result_reason<br>\n-----------------------------------------------------------------------------------------------------------------------------------------------------------<br>\nE01       |   ANTHONY   |    HR      |  50000   |    40    |  2020-12-12       |  anthony@hrdept.com |  0                 | EMP_NAME value length is not less than 5 ,<br>\nE03       |   MARTIN    |    HR      |  20000   |    25    |  2020-01-01       |  martin@nodept.com  |  0                 | AGE is not greater than 30 , EMP_NAME value length is not less than 5 ,<br>\nE04       |   DAVID     |    SALES   |  55000   |    40    |  2021-13-13       |  david@salesdept.com|  0                 | EMP_NAME value length is not less than 5 ,<br>\nE05       |   MARK      |    SALES   |  60000   |    27    |  2020-01-01       |  mark@salesdept.com |  0                 | AGE is not greater than 30 ,<br>\nE07       |   BELLA     |    HR      |  60000   |    24    |  2001-12-12       |  bella@hrdept.com   |  0                 | AGE is not greater than 30 , EMP_NAME value length is not less than 5 ,<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeValidationMultiple",
+      "x": "642.25px",
+      "y": "311px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textfield",
+          "title": "Description",
+          "description": "Validations being Performed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "measureValue",
+          "value": "95.0",
+          "widget": "textfield",
+          "title": "Validation Successful if Percent Good Records >= ",
+          "description": "Condition for Validation Passing",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"EMail\",\"Password\",\"AgeinYrs\",\"gender_validation\",\"dow_of_Joining_validation\"]",
+          "widget": "variables_list_select",
+          "title": "Columns",
+          "description": "Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "functions1",
+          "value": "[\"IS_VALID_EMAIL_ADDRESS\",\"LENGTH_GREATER_THAN\",\"VALUE_GREATER_THAN\",\"VALUE_EQUALS\",\"VALUE_EQUALS\"]",
+          "widget": "variables_list_array",
+          "title": "Function",
+          "description": "Validation Function to apply",
+          "optionsArray": [
+            "NONE",
+            "LENGTH_LESS_THAN",
+            "LENGTH_EQUALS",
+            "LENGTH_GREATER_THAN",
+            "VALUE_LESS_THAN",
+            "VALUE_EQUALS",
+            "VALUE_GREATER_THAN",
+            "IS_NULL",
+            "IS_NOT_NULL",
+            "IS_VALID_EMAIL_ADDRESS",
+            "IS_VALID_DATE_FORMAT"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "values1",
+          "value": "[\"\",\"5\",\"-1\",\"yes\",\"yes\"]",
+          "widget": "variables_list_textfield",
+          "title": "Values",
+          "description": "Values",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "conditions1",
+          "value": "[\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "variables_list_array",
+          "title": "Condition",
+          "description": "Validation Condition to apply",
+          "optionsArray": [
+            "NONE",
+            "AND",
+            "OR"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "functions2",
+          "value": "[\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "variables_list_array",
+          "title": "Function",
+          "description": "Validation Function to apply",
+          "optionsArray": [
+            "NONE",
+            "LENGTH_LESS_THAN",
+            "LENGTH_EQUALS",
+            "LENGTH_GREATER_THAN",
+            "VALUE_LESS_THAN",
+            "VALUE_EQUALS",
+            "VALUE_GREATER_THAN",
+            "IS_NULL",
+            "IS_NOT_NULL",
+            "IS_VALID_EMAIL_ADDRESS",
+            "IS_VALID_DATE_FORMAT"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "values2",
+          "value": "[\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Values",
+          "description": "Values",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "conditions2",
+          "value": "[\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "variables_list_array",
+          "title": "Condition",
+          "description": "Validation Condition to apply",
+          "optionsArray": [
+            "NONE",
+            "AND",
+            "OR"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "functions3",
+          "value": "[\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "variables_list_array",
+          "title": "Function",
+          "description": "Validation Function to apply",
+          "optionsArray": [
+            "NONE",
+            "LENGTH_LESS_THAN",
+            "LENGTH_EQUALS",
+            "LENGTH_GREATER_THAN",
+            "VALUE_LESS_THAN",
+            "VALUE_EQUALS",
+            "VALUE_GREATER_THAN",
+            "IS_NULL",
+            "IS_NOT_NULL",
+            "IS_VALID_EMAIL_ADDRESS",
+            "IS_VALID_DATE_FORMAT"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "values3",
+          "value": "[\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Values",
+          "description": "Values",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "831.25px",
+      "y": "312px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "9",
+      "name": "SQL-Validation",
+      "description": "This node runs the given SQL on the incoming DataFrame",
+      "details": "<h2>SQL Details</h2>\n<br>\nSQL node receives an input data frame. It creates a temporary table on top of that data frame. It executes the provided SQL in the node on the temporary table.<br>\n<br>\nThe resulting data frame of running the SQL is passed on to the next node.<br>",
+      "examples": "<h2>SQL Examples</h2>\n<br>\nBelow are some examples of SQL. <br>\n<br>\nTemporary table name used : tempTable<br>\n<br>\nThe schema of the Input Dataframe is : id, price, lotsize, bedrooms, bathrms, stories, driveway, recroom, fullbase, gashw, airco, garagepl, prefarea<br>\n<br>\n<h4> find the average price of houses</h4>\n<br>\nselect avg(price) as avg_price from tempTable<br>\n<br>\n<br>\n<h4> find bedrooms with avg price greater than 10000</h4>\n<br>\nselect bedrooms, avg_price from<br>\n(select bedrooms, avg(price) as avg_price from tempTable group by bedrooms) as temp where avg_price > 10000<br>\n<br>\n<br>\n<h4> details of houses with bedrooms avg price greater than 10000</h4>\n<br>\nselect tempTable.* , inner_table.avg_price from<br>\n(select bedrooms, avg_price from<br>\n(select bedrooms, avg(price) as avg_price from tempTable group by bedrooms) as temp where avg_price > 10000) as inner_table<br>\nJOIN tempTable ON(inner_table.bedrooms = tempTable.bedrooms)<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeSQL",
+      "x": "455.25px",
+      "y": "311px",
+      "hint": "Whenever the table is changed, go to Schema tab and Refresh the Schema",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "tempTable",
+          "value": "fire_temp_table",
+          "widget": "textfield",
+          "title": "Temp Table",
+          "description": "Temp Table Name to be used",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "sql",
+          "value": "SELECT *, \n       CASE WHEN Gender in ('F', 'M') THEN 'yes' else 'no' end as  gender_validation,\n       CASE WHEN DOWofJoining in ('tuesday', 'monday', 'thursday', 'friday', 'wednesday') THEN 'yes' else 'no' end as  dow_of_Joining_validation\n       from fire_temp_table",
+          "widget": "textarea_large",
+          "type": "sql",
+          "title": "SQL",
+          "description": "SQL to be run",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "schema",
+          "value": "",
+          "widget": "tab",
+          "title": "Schema",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"EmpID\",\"NamePrefix\",\"FirstName\",\"MiddleInitial\",\"LastName\",\"EMail\",\"FathersName\",\"MothersName\",\"MothersMaidenName\",\"DateofBirth\",\"TimeofBirth\",\"AgeinYrs\",\"WeightinKgs\",\"DateofJoining\",\"QuarterofJoining\",\"HalfofJoining\",\"YearofJoining\",\"MonthofJoining\",\"MonthNameofJoining\",\"ShortMonth\",\"DayofJoining\",\"ShortDOW\",\"AgeinCompanyYears\",\"Salary\",\"LastHike\",\"SSN\",\"PhoneNo\",\"PlaceName\",\"County\",\"City\",\"State\",\"Zip\",\"Region\",\"UserName\",\"Password\",\"Gender\",\"DOWofJoining\",\"gender_validation\",\"dow_of_Joining_validation\"]",
+          "widget": "schema_col_names",
+          "title": "Output Column Names",
+          "description": "Name of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"DATE\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"]",
+          "widget": "schema_col_types",
+          "title": "Output Column Types",
+          "description": "Data Type of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColFormats",
+          "value": "[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "schema_col_formats",
+          "title": "Output Column Formats",
+          "description": "Format of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "10",
+      "name": "StringFunctionsMultiple",
+      "description": "String Functions Multiple",
+      "details": "<h2>String Functions Multiple Node Details</h2>\n<br>\nThis node creates a new Dataframe by transforming data of multiple columns using specified string functions. Multiple columns can be selected for transformations. Only one String Function can be selected for each transformation.<br>\n<br>\nIt applies String Function to on Columns to generate a new evaluated column.<br>\n<br>\nChoose whether you want to replace(true) the existing column or create a new column(false) by choosing the value for the field `replaceExistingCols` .<br>\n<br>\nThen the output dataframe will be created with the new column.<br>\n<br>\nOne can choose a column from the dropdown in the field `inputCols`, and then choose one of the function (trim, upper, lower, lefttrim, righttrim, removewhitespace) to apply to the column chosen.<br>\n<br>\nColumn data would be transformed as below based on the function selected:<br>\n<br>\n<h4>Trim</h4>\n<br>\nIt removes leading and trailing blank spaces from values in the selected columns. -> \tExample:\t'  Remove Spaces   ' would be changed to 'Remove Spaces'<br>\n<br>\n<h4>Lower</h4>\n<br>\nIt changes case of the selected columns to lower in the output. -> \tExample:\t'Change Case' would be changed to 'change case'<br>\n\t\t<br>\n<h4>Upper</h4>\n<br>\nIt changes case of the selected columns to upper in the output. -> \tExample:\t'Change Case' would be changed to 'CHANGE CASE'<br>\n<br>\n<h4>LeftTrim</h4>\n<br>\nIt removes leading blank spaces from values in the selected columns. -> \tExample:\t'  Remove Spaces   ' would be changed to 'Remove Spaces   '<br>\n<br>\n<h4>RightTrim</h4>\n<br>\nIt removes trailing blank spaces from values in the selected columns. -> \tExample:\t'  Remove Spaces   ' would be changed to '  Remove Spaces'<br>\n<br>\n<h4>RemoveWhiteSpaces</h4>\n<br>\nIt removes all blank spaces from values in the selected columns. -> \tExample:\t'  Remove Spaces   ' would be changed to 'RemoveSpaces'<br>",
+      "examples": "<h2>String Functions Multiple Node Examples</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered a Incoming Dataframe with following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    DEPT                   <br>\n-------------------------------------------------------<br>\nE01       |    DAVID       |    HUMAN RESOURCE         <br>\nE02       |    JOHN        |    PRODUCT SALES          <br>\nE03       |    MARK        |    MARKETING MANAGEMENT   <br>\n<br>\n<h4>String Functions Multiple Node Configuration</h4>\n<br>\nStringFunctionsMultiple node is configured as below to perform following transformations:<br>\n<br>\nCOLUMNS        |    FUNCTION          |      REPLACE EXISTING COLS \t<br>\n--------------------------------------------------------------------<br>\nEMP_NAME       |    lower             |      false<br>\nDEPT           |    removewhitespace  |      false<br>\n<br>\n<h4>String Functions Multiple Node Output</h4>\n<br>\nOutgoing Dataframe would be created as below after applying above transformations:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    DEPT                   |    EMP_NAME_lower    |    DEPT_removewhitespace             <br>\n-----------------------------------------------------------------------------------------------------------<br>\nE01       |    DAVID       |    HUMAN RESOURCE         |    david             |    HUMANRESOURCE<br>\nE02       |    JOHN        |    PRODUCT SALES          |    john              |    PRODUCTSALES<br>\nE03       |    MARK        |    MARKETING MANAGEMENT   |    mark              |    MARKETINGMANAGEMENT<br>\n<br>\nMultiple transformations can be performed on a column; however, only the last transformation can have [REPLACE EXISTING COLS] option set as [true]<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeStringFunctionsMultiple",
+      "x": "265.25px",
+      "y": "306px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textfield",
+          "title": "Description",
+          "description": "Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"Gender\",\"DOWofJoining\"]",
+          "widget": "variables_list_select",
+          "title": "Columns",
+          "description": "Columns",
+          "datatypes": [
+            "string"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "functions",
+          "value": "[\"upper\",\"lower\"]",
+          "widget": "variables_list_array",
+          "title": "Function",
+          "description": "String Function to apply",
+          "optionsArray": [
+            "trim",
+            "upper",
+            "lower",
+            "lefttrim",
+            "righttrim",
+            "removewhitespace"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "replaceExistingCols",
+          "value": "[\"true\",\"true\"]",
+          "widget": "variables_list_array",
+          "title": "Replace Existing Cols",
+          "description": "Whether to replace the existing columns or create new ones",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "11",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "166.2px",
+      "y": "28.1938px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "588px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "136px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>This workflow reads in the Employee Dataset.</p><p><br></p><p>It cleans a few of the fields and then uses the validation node to validate the records.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "12",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "37.575px",
+      "y": "295.581px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "9a5ffbc2-cbc3-4966-be69-c0c8bf38d893",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "9",
+      "target": "7",
+      "id": 1
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 2
+    },
+    {
+      "source": "10",
+      "target": "9",
+      "id": 3
+    },
+    {
+      "source": "12",
+      "target": "10",
+      "id": 4
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 677,
+      "uuid": "9a5ffbc2-cbc3-4966-be69-c0c8bf38d893",
+      "header": true,
+      "path": "data/DATA-QUALITY/1000-Records.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"EmpID\",\"NamePrefix\",\"FirstName\",\"MiddleInitial\",\"LastName\",\"Gender\",\"EMail\",\"FathersName\",\"MothersName\",\"MothersMaidenName\",\"DateofBirth\",\"TimeofBirth\",\"AgeinYrs\",\"WeightinKgs\",\"DateofJoining\",\"QuarterofJoining\",\"HalfofJoining\",\"YearofJoining\",\"MonthofJoining\",\"MonthNameofJoining\",\"ShortMonth\",\"DayofJoining\",\"DOWofJoining\",\"ShortDOW\",\"AgeinCompanyYears\",\"Salary\",\"LastHike\",\"SSN\",\"PhoneNo\",\"PlaceName\",\"County\",\"City\",\"State\",\"Zip\",\"Region\",\"UserName\",\"Password\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"DATE\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"MM/dd/YYYY\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}

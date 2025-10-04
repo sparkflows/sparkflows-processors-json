@@ -1,0 +1,15 @@
+{
+  "id": 2961,
+  "uuid": "37f6cf1e-ce60-413e-8fe5-54946751e555",
+  "name": "Data Quality Overall Score calculations",
+  "category": "",
+  "projectId": 2151,
+  "content": "<h1 class=\"ql-align-justify\">Overall Score Calculation for Data Quality</h1><p class=\"ql-align-center\"><br></p><ul><li><strong>Pass Percentage</strong></li></ul><p>For a specific check (or node), calculate the % of valid rows:</p><p>passPercentage = (goodcount / totalcount) * 100;</p><ul><li><strong>Total Percentage</strong></li></ul><p>Summing the weighted contribution of each check:</p><p>totalPercentage += passPercentage * weight;</p><ul><li><strong>Total Weight</strong></li></ul><p>Summing the weights across all checks.</p><p>weight1+weight2+weight3</p><ul><li><strong>Overall Score</strong>:</li></ul><p>Computing the weighted average:</p><p>overallScore = totalPercentage / totalWeight;</p><p><br></p><h3><br></h3><p><br></p><p class=\"ql-align-center\"><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "leena1",
+  "dateCreated": "Jul 18, 2025, 5:41:49 PM",
+  "updatedBy": "jayants",
+  "dateLastUpdated": "Jul 21, 2025, 6:01:32 PM"
+}
