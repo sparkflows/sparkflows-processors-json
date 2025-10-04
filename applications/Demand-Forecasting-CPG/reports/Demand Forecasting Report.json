@@ -1,0 +1,152 @@
+{
+  "name": "Demand Forecasting Report",
+  "uuid": "19c8f21c-83e1-42c2-8543-6a768d1503ba",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Exploring Data",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "790.125px",
+          "y": "14.125px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02-Checking-Seasonality-and-Trends",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "901.067px",
+          "y": "176.067px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02-Checking-Seasonality-and-Trends",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "882.4px",
+          "y": "352.375px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02-Checking-Seasonality-and-Trends",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 40,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "748.2px",
+          "y": "494.587px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02-Checking-Seasonality-and-Trends",
+          "nodeId": "40",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "SARIMAX Model Training",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 57,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "856px",
+          "y": "194px",
+          "workflowId": "52f578e7-351c-43ce-b668-117ba734f856",
+          "workflowName": "03-Training-SARIMAX-Timeseries-Models",
+          "nodeId": "57",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "1308.12px",
+          "y": "573.125px",
+          "workflowId": "52f578e7-351c-43ce-b668-117ba734f856",
+          "workflowName": "03-Training-SARIMAX-Timeseries-Models",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 54,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "957.588px",
+          "y": "567.588px",
+          "workflowId": "52f578e7-351c-43ce-b668-117ba734f856",
+          "workflowName": "03-Training-SARIMAX-Timeseries-Models",
+          "nodeId": "54",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "PROPHET Model Training",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "537.125px",
+          "y": "414.175px",
+          "workflowId": "c8d1e055-ed65-42ba-a819-e5b8600d4a5d",
+          "workflowName": "03-Training-Prophet-Timeseries-Models",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 47,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "532.838px",
+          "y": "553.838px",
+          "workflowId": "c8d1e055-ed65-42ba-a819-e5b8600d4a5d",
+          "workflowName": "03-Training-Prophet-Timeseries-Models",
+          "nodeId": "47",
+          "grow": 0
+        },
+        {
+          "id": 53,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "878px",
+          "y": "543px",
+          "workflowId": "c8d1e055-ed65-42ba-a819-e5b8600d4a5d",
+          "workflowName": "03-Training-Prophet-Timeseries-Models",
+          "nodeId": "53",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

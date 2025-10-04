@@ -1,0 +1,163 @@
+{
+  "name": "Demand Forecasting Report",
+  "uuid": "aae2fa84-07b5-46b4-b3a6-0899e28d0223",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Exploratory Analytics",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "790.125px",
+          "y": "14.125px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02 - Checking-Seasonality-and-Trends",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "901.067px",
+          "y": "176.067px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02 - Checking-Seasonality-and-Trends",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "882.4px",
+          "y": "352.375px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02 - Checking-Seasonality-and-Trends",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 40,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "748.2px",
+          "y": "494.587px",
+          "workflowId": "93ac6294-bac2-4bcb-838d-aefc412266f1",
+          "workflowName": "02 - Checking-Seasonality-and-Trends",
+          "nodeId": "40",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "1800px",
+          "y": "325px",
+          "workflowId": "e9cfdd2c-7e7a-4d3e-b758-1e3a8d4b6aeb",
+          "workflowName": "02A-Exploratory Analytics",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "1975px",
+          "y": "450px",
+          "workflowId": "e9cfdd2c-7e7a-4d3e-b758-1e3a8d4b6aeb",
+          "workflowName": "02A-Exploratory Analytics",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "1975px",
+          "y": "200px",
+          "workflowId": "e9cfdd2c-7e7a-4d3e-b758-1e3a8d4b6aeb",
+          "workflowName": "02A-Exploratory Analytics",
+          "nodeId": "35",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Predictive Analytics",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 3,
+          "name": "Bubble Chart",
+          "description": "A bubble chart is used to visualize a data set with two to four dimensions",
+          "type": "transform",
+          "x": "1244.94px",
+          "y": "145.977px",
+          "workflowId": "ad871b30-f203-4bd8-86d2-7a8d47f9c1dc",
+          "workflowName": "07-Predictive Analytics",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Bubble Chart",
+          "description": "A bubble chart is used to visualize a data set with two to four dimensions",
+          "type": "transform",
+          "x": "1348.14px",
+          "y": "492.187px",
+          "workflowId": "ad871b30-f203-4bd8-86d2-7a8d47f9c1dc",
+          "workflowName": "07-Predictive Analytics",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "776.25px",
+          "y": "294.233px",
+          "workflowId": "bde1165b-8489-4740-8176-eba5c50cdbae",
+          "workflowName": "08-Gen-AI-Report",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "PySpark",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "400px",
+          "y": "450px",
+          "workflowId": "bde1165b-8489-4740-8176-eba5c50cdbae",
+          "workflowName": "08-Gen-AI-Report",
+          "nodeId": "5",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Tab 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

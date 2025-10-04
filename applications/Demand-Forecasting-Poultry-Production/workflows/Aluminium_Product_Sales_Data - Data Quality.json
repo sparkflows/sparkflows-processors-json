@@ -1,0 +1,272 @@
+{
+  "name": "Aluminium_Product_Sales_Data - Data Quality",
+  "uuid": "b1f7e686-482d-4dd8-9be3-94edae3c500c",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "4",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "118.067px",
+      "y": "420.067px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataset",
+          "value": "34ab53fc-c21f-42b7-a55b-21ce1851f456",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "5",
+      "name": "Is Not Null",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "details": "<h2> Is Not Null Node</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThe Is Not Null node checks if a specific column in a DataFrame contains null values. This is useful for data quality checks and ensuring data integrity.<br>\n<br>\n<h4> Input:</h4>\n<br>\nColumn Name: The name of the column to check.<br>\n<br>\n<h4> Output:</h4>\n<br>\nThe node will flag records where the specified column contains null values.<br>",
+      "examples": "Example:<br>\n<br>\nLet's assume we have a column named name and we want to identify records where the name is null.<br>\n<br>\nConfigure the Node:<br>\n<br>\nColumn Name: name<br>\nNode Execution:<br>\n<br>\nRecords with a null value in the name column will be flagged.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNotNull",
+      "x": "378.067px",
+      "y": "423.067px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "cols",
+          "value": "[\"date\",\"product_category\",\"item\",\"sales\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "NodeDataQualityCheckAndAlert",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "details": "<h2> NodeDataQualityCheckAndAlert</h2>\n<br>\n<h4> Overview:</h4>\n<br>\nThis node is used to perform data quality checks on a DataFrame and send alerts based on the results. It allows you to define various checks, such as:<br>\n<br>\nMissing values: Checks for null or empty values in columns.<br>\nInvalid data types: Ensures that data in each column conforms to the expected data type.<br>\nOutliers: Identifies values that deviate significantly from the norm.<br>\nDuplicate values: Detects duplicate records.<br>\nCustom checks: Allows you to define custom checks using expressions.<br>\n<br>\n<h4> Input:</h4>\n<br>\nEmail Address: The email address to send alerts to.<br>\nThreshold: The percentage of records that must fail a check to trigger an alert.<br>\nResult Path: The path to save the detailed report of the data quality checks.<br>\n<h4> Output:</h4>\n<br>\nThe node will send an email alert if the threshold is exceeded and save a detailed report of the checks to the specified path.<br>",
+      "examples": "Example:<br>\n<br>\nLet's say you want to check for missing values and invalid data types in a DataFrame.<br>\n<br>\nConfigure the Node:<br>\n<br>\nEmail Address: [email address removed]<br>\nThreshold: 10 (10% of records must fail)<br>\nResult Path: /path/to/report.csv<br>\nNode Execution:<br>\n<br>\nThe node will check for missing values and invalid data types in each column.<br>\nIf more than 10% of records fail any check, an email alert will be sent.<br>\nA detailed report of the checks will be saved to the specified path.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "542px",
+      "y": "300px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "emailAddress",
+          "value": "",
+          "widget": "textfield",
+          "title": "Email Address",
+          "description": "Email Address. Add multiple email in comma separated",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "subject",
+          "value": "",
+          "widget": "textfield",
+          "title": "Subject",
+          "description": "Subject",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": true,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "threshold",
+          "value": "",
+          "widget": "textfield",
+          "title": "Threshold",
+          "description": "Threshold",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "/home/sparkflows/fire-data/data/Poultry_Demand_Forecasting/Data-Quality",
+          "widget": "textfield",
+          "title": "Result Path",
+          "description": "Path of the good and bad records",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "4",
+      "target": "5",
+      "id": 1
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 2818,
+      "uuid": "34ab53fc-c21f-42b7-a55b-21ce1851f456",
+      "header": true,
+      "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+      "path": "data/AGRICULTURE/Demand-Forecasting-Poultry-Production/Raw-Data/Poultry_Demand_Forecasting.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"date\",\"product_category\",\"item\",\"sales\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

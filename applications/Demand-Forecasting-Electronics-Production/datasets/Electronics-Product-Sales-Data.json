@@ -1,0 +1,41 @@
+{
+  "uuid": "34ab53fc-c21f-42b7-a55b-21ce1851f456",
+  "name": "Electronics-Product-Sales-Data",
+  "category": "Electronics",
+  "header": true,
+  "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+  "path": "data/MANUFACTURING/Demand-Forecasting-Electronics-Production/Raw-Data/Electronics-Demand-Forecasting.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"date\",\"product_category\",\"item\",\"sales\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "product_category",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "item",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "sales",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

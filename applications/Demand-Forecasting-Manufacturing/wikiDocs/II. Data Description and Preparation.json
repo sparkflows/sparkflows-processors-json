@@ -1,0 +1,15 @@
+{
+  "id": 3961,
+  "uuid": "649c1148-6506-4b4d-9f99-ff96fcdd347a",
+  "name": "II. Data Description and Preparation",
+  "category": "",
+  "projectId": 301,
+  "content": "<p>Data Description:</p><p> The dataset used for this project is Historical-Product-Demands, which contains:</p><ul><li>date (Temporal, daily granularity)</li><li>product_category (Categorical, e.g., Curtain Wall)</li><li>item (Categorical, specific product identifiers)</li><li>sales (Numerical, daily sales volume)</li></ul><p>Key attributes:</p><ul><li>Features: 4 (date, product_category, item, sales)</li><li>Time Period Covered: Beginning from 2014, daily granularity.</li><li>Variables:</li><li>Categorical: product_category, item</li><li>Temporal: date</li><li>Numerical: sales</li></ul><p>Data Preparation:</p><p> The preparation process will include:</p><p>Data Cleaning:</p><ul><li>Handle duplicate entries for the same date-item combination.</li><li>Address missing or zero sales values where appropriate.</li><li>Detect and treat extreme outliers caused by data entry errors.</li></ul><p>Feature Engineering:</p><ul><li>Derive time-based features (day, month, quarter, year, weekday/weekend, holiday flags).</li><li>Create lag features (previous day/week/month sales).</li><li>Generate rolling averages to capture seasonality and trends.</li></ul><p>Data Transformation:</p><ul><li>Normalize or scale sales values if required for specific algorithms.</li><li>Encode categorical variables (product_category, item) when necessary.</li><li>Split data into training, validation, and test sets ensuring temporal integrity.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 15, 2025, 11:18:56 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 15, 2025, 11:19:51 AM"
+}

@@ -1,0 +1,247 @@
+{
+  "name": "Aluminium_Product_Sales_Data - Data Quality",
+  "uuid": "b1f7e686-482d-4dd8-9be3-94edae3c500c",
+  "category": "Data Quality",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/home/sparkflows/fire-data/data/Symphony_Demand_Forecasting/Raw-Data/Historical Product Demand.csv",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79.000px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "34ab53fc-c21f-42b7-a55b-21ce1851f456",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "path": "/06-Data-Quality/",
+      "name": "Is Not Null",
+      "description": "",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeCheckIsNotNull",
+      "x": "241.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "cols",
+          "value": "[\"date\",\"store\",\"item\",\"sales\"]",
+          "widget": "variables",
+          "title": "Column Name",
+          "description": "The column name.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "weightage",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Weightage",
+          "description": " Weightage",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "NodeDataQualityCheckAndAlert",
+      "description": "",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.quality.NodeDataQualityCheckAndAlert",
+      "x": "401.288px",
+      "y": "160.525px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "emailAddress",
+          "widget": "textfield",
+          "title": "Email Address",
+          "description": "Email Address. Add multiple email in comma separated",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "threshold",
+          "value": "null",
+          "widget": "textfield",
+          "title": "Threshold",
+          "description": "Threshold",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataQualityResultPath",
+          "value": "/home/sparkflows/fire-data/data/manufacturing/items",
+          "widget": "textfield",
+          "title": "Result Path",
+          "description": "Path of the good and bad records",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 535,
+      "uuid": "34ab53fc-c21f-42b7-a55b-21ce1851f456",
+      "header": true,
+      "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+      "path": "/home/sparkflows/fire-data/projects-customers/MANUFACTURING/Demand-Forecasting-Manufacturing/Raw-Data/Historical-Product-Demands.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"date\",\"product_category\",\"item\",\"sales\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala",
+  "workflowType": "DataQuality"
+}

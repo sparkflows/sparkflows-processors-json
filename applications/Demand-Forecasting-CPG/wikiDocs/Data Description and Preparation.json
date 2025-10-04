@@ -1,0 +1,15 @@
+{
+  "id": 3344,
+  "uuid": "580eaa66-2a57-4489-8fe0-6683557b4912",
+  "name": "Data Description and Preparation",
+  "category": "",
+  "projectId": 2464,
+  "content": "<h3>Data Description</h3><p>The dataset consists of transactional records with the following features:</p><ul><li>date (Temporal, Daily granularity) – Represents the transaction date, ranging from 01-01-2013 onwards.</li><li>store (Categorical, Integer ID) – Identifies the store location.</li><li>item (Categorical, Integer ID) – Identifies the product sold.</li><li>sales (Numerical, Continuous) – The quantity of items sold on the given date in a specific store.</li></ul><p>Granularity: Daily sales at the store-item level.</p><p> Coverage: Multiple stores and items across the observed time period.</p><p> Variables: 4 columns – 2 categorical (store, item), 1 temporal (date), 1 numerical (sales).</p><h3>Data Preparation</h3><p>\t\t1.Data Cleaning</p><ul><li>Handle missing dates by imputing with zero sales where applicable.</li><li>Detect and correct anomalies such as unusually high sales spikes.</li></ul><p>\t\t2.Feature Engineering</p><ul><li>Time-based features: day of week, month, year, holidays, seasonality indicators.</li><li>Lag features: previous day/week sales.</li><li>Rolling features: moving averages (7-day, 30-day).</li><li>Store/item attributes: encoding categorical identifiers.</li></ul><p>\t\t3.Data Transformation</p><ul><li>Convert date column to proper datetime format.</li><li>Normalize or scale features (where required for machine learning models).</li><li>Aggregate to weekly/monthly levels for alternative forecasting granularity.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:33 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 8:01:41 AM"
+}
