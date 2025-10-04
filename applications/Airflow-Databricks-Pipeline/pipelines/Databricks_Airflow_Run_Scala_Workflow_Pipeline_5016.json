@@ -1,0 +1,144 @@
+{
+  "name": "Databricks_Airflow_Run_Scala_Workflow_Pipeline",
+  "uuid": "8466ea99-c2fb-4ee0-815c-e566012407da",
+  "category": "airflow_databricks_pipeline",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/13-Databricks/",
+      "name": "scala_wf_for_databricks_pipe",
+      "description": "This node adds the workflow in the project as an databricks step and executes it.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node adds the workflow in the project as an databricks step and executes it.<br>",
+      "examples": "",
+      "type": "databricks",
+      "nodeClass": "fire.pipelineNodes.DatabricksWorkflow",
+      "x": "211.8px",
+      "y": "89.8px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "run_workflow_scala_task",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in Airflow DAG",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ClusterId",
+          "value": "0114-173014-vfypsojs",
+          "widget": "textfield",
+          "title": "Cluster ID",
+          "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create cluster node(task).",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "workflowUUID",
+          "value": "7cd4b18a-203c-4bb5-9f77-644ac9a7643f",
+          "widget": "workflow",
+          "title": "Workflow ID",
+          "description": "Select the appropriate workflow",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "SparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf values in comma separated as key=value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters to be passed to the workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "timeout",
+          "value": "120",
+          "widget": "textfield",
+          "title": "Timeout",
+          "description": "Timeout for your Databricks task in Airflow to give it more time to complete, especially if it's waiting for the cluster to reach the RUNNING state(In seconds).",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "DatabricksConnectionId",
+          "value": "newdatabricks_139",
+          "widget": "connections",
+          "title": "Databricks Connection",
+          "description": "Databricks Connection",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}

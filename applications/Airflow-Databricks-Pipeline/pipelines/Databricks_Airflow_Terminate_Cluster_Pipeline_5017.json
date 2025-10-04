@@ -1,0 +1,88 @@
+{
+  "name": "Databricks_Airflow_Terminate_Cluster_Pipeline",
+  "uuid": "aeb2b5b7-e415-4ec1-a162-c177fd776c02",
+  "category": "airflow_databricks_pipeline",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/13-Databricks/",
+      "name": "Terminate Cluster",
+      "description": "This node terminates Cluster in Databricks.",
+      "details": "<h2>Terminate Cluster</h2>\n<br>\nThis node terminates Cluster in Databricks.<br>",
+      "examples": "",
+      "type": "databricks",
+      "nodeClass": "fire.pipelineNodes.DatabricksTerminateCluster",
+      "x": "232px",
+      "y": "180px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "TerminateClusterTask",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in airflow DAG.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ClusterId",
+          "value": "0114-174246-p6ppxetq",
+          "widget": "textfield",
+          "title": "Cluster ID",
+          "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create cluster node(task).",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "DatabricksConnectionId",
+          "value": "newdatabricks_139",
+          "widget": "connections",
+          "title": "Databricks Connection",
+          "description": "Databricks Connection",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}

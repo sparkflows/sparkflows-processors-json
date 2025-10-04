@@ -1,0 +1,131 @@
+{
+  "name": "Databricks_Run_Existing_PySpark_Notebook",
+  "uuid": "756b3b44-2870-459e-adce-8d834e83c9d7",
+  "category": "airflow_databricks_pipeline",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "2",
+      "path": "/13-Databricks/",
+      "name": "Run Notebook",
+      "description": "This node use to submit a new Databricks job to Cluster by using details in configuration",
+      "details": "<h2>Submit Spark Job to Cluster</h2>\n<br>\nThis node use to submit a new Databricks job to Cluster by using details in configuration.<br>",
+      "examples": "<h2> Submit Spark Job to Cluster Examples</h2>\n<br>\nnew_cluster = {<br>\n  \"spark_version\": \"9.1.x-scala2.12\",<br>\n  \"node_type_id\": \"r3.xlarge\",<br>\n  \"aws_attributes\": {\"availability\": \"ON_DEMAND\"},<br>\n  \"num_workers\": 8,<br>\n}<br>\n<br>\nnotebook_task_params = {<br>\n  \"new_cluster\": new_cluster,<br>\n  \"notebook_task\": {<br>\n    \"notebook_path\": \"/Users/airflow@example.com/PrepareData\",<br>\n  },<br>\n}<br>\n<br>\nnotebook_task = DatabricksSubmitRunOperator(task_id=\"notebook_task\", json=notebook_task_params)<br>",
+      "type": "databricks",
+      "nodeClass": "fire.pipelineNodes.DatabricksSubmitRun",
+      "x": "186.8px",
+      "y": "97.8px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "run_notebook_task_pyspark",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in airflow DAG.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ClusterId",
+          "value": "0114-184514-tvd1qrya",
+          "widget": "textfield",
+          "title": "Cluster Id",
+          "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create cluster node(task).",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "NotebookPath",
+          "value": "/Users/jayant@sparkflows.io/PySparkTest",
+          "widget": "textfield",
+          "title": "Notebook Path",
+          "description": "Notebook Path",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "BaseParameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Base Parameters",
+          "description": "Base Parameters",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "timeout",
+          "value": "120",
+          "widget": "textfield",
+          "title": "Timeout",
+          "description": "Timeout for your Databricks task in Airflow to give it more time to complete, especially if it's waiting for the cluster to reach the RUNNING state(In seconds).",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "DatabricksConnectionId",
+          "value": "newdatabricks_139",
+          "widget": "connections",
+          "title": "Databricks Connection",
+          "description": "Databricks Connection",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}

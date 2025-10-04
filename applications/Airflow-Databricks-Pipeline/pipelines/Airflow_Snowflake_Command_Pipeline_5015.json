@@ -1,0 +1,88 @@
+{
+  "name": "Airflow_Snowflake_Command_Pipeline",
+  "uuid": "ed1df4ce-f4f7-4dc4-9d76-2917efad34d5",
+  "category": "airflow_snowflake_pipeline",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/14-Snowflake/",
+      "name": "Run Snowflake Command",
+      "description": "This node use to run SQL command in snowflake by using details in configuration",
+      "details": "<h2> Run Snowflake Command</h2>\n<br>\nThis node use to run SQL command in snowflake by using details in configuration.<br>\nDesigned to execute Snowflake SQL commands, including stored procedures.<br>",
+      "examples": "<h2> Run Snowflake Command</h2>\n<br>\nStored procedures:<br>\nsql=\"CALL my_database.my_schema.my_procedure('param1', 'param2');\",<br>\n<br>\nsnowflake command:<br>\nsql=CREATE OR REPLACE TABLE my_database.my_schema.my_table (id INT, name STRING);<br>\n<br>\nindeed of SQL query: SQL<br>",
+      "type": "snowflake",
+      "nodeClass": "fire.pipelineNodes.SnowflakeRunSQLCommand",
+      "x": "291px",
+      "y": "118px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "run_snowflake_query",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in airflow DAG.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "SqlQuery",
+          "value": "SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.CUSTOMER LIMIT 10",
+          "widget": "textarea",
+          "title": "SQL Query",
+          "description": "SQL Query",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "SnowflakeConnectionId",
+          "value": "snowflake-test",
+          "widget": "connections",
+          "title": "Select Snowflake Connection",
+          "description": "Select Snowflake Connection",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}
