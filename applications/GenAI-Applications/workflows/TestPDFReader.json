@@ -1,0 +1,95 @@
+{
+  "name": "TestPDFReader",
+  "uuid": "b6f80daa-5197-47ad-9455-b63b69a2415b",
+  "category": "Test",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Binary Files",
+      "description": "Reads in Binary Files from a given path and loads them as FileName/Content",
+      "details": "",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetBinaryFiles",
+      "x": "154.666687px",
+      "y": "163.666672px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "/home/sparkflows/fire-data/genai_files/Certificate-of-Insurance-Sample.pdf",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path of the Binary file/directory",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "fileNameCol",
+          "value": "OutputFileName1",
+          "widget": "textfield",
+          "title": "File Name Column",
+          "description": "File Name Column in the Output DataFrame",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "binaryContentCol",
+          "value": "OutputFileContent1",
+          "widget": "textfield",
+          "title": "Binary File Content Column",
+          "description": "Binary File Content Column in the Output DataFrame",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [],
+  "dataSetDetails": [],
+  "engine": "scala"
+}

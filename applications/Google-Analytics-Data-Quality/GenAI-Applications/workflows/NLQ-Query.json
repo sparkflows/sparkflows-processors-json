@@ -1,0 +1,427 @@
+{
+  "name": "NLQ-Query",
+  "uuid": "eb494bf1-7e9c-43b0-968e-970fb43852b7",
+  "category": "-",
+  "description": "-",
+  "parameters": " --var querystr='\"What is the average salary in the Employees table?\"' --var execute=true",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Gen AI SQL Query",
+      "description": "Query database with natural language.",
+      "type": "pyspark",
+      "nodeClass": "fire.nodes.gai.NodeGenAiSqlQuery",
+      "x": "246.8px",
+      "y": "121.8px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "jdbcConnection",
+          "value": "39",
+          "widget": "object_array",
+          "title": "Connection",
+          "description": "The JDBC connection to connect",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "query",
+          "value": "select all columns from housing table",
+          "widget": "textfield",
+          "title": "Query",
+          "description": "Query from database",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "top_k",
+          "value": "5",
+          "widget": "textfield",
+          "title": "Top_K",
+          "description": "Number of results to return from the query",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "return_sql",
+          "value": "false",
+          "widget": "array",
+          "title": "Return SQL",
+          "description": "Will return sql-command directly without executing it",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "include_tables",
+          "value": "housing",
+          "widget": "textfield",
+          "title": "Include Tables",
+          "description": "Include Tables from database. e.g.: housing, diabetes, ..",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "LLM Connection",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "llmConnection",
+          "value": "open_ai",
+          "widget": "object_array",
+          "title": "Connection",
+          "description": "The LLM connection to connect",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "temperature",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Temperature",
+          "description": "What sampling temperature to use.",
+          "datatypes": [
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "model",
+          "value": "gpt-4o",
+          "widget": "textfield",
+          "title": "Model",
+          "description": "Model name to use.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "max_tokens",
+          "value": "1000",
+          "widget": "textfield",
+          "title": "Max Tokens",
+          "description": "Maximum number of tokens to generate.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "max_retries",
+          "value": "6",
+          "widget": "textfield",
+          "title": "Max Retries",
+          "description": "Maximum number of retries to make when generating.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "n",
+          "value": "1",
+          "widget": "textfield",
+          "title": "N",
+          "description": "Number of chat completions to generate for each prompt.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "streaming",
+          "value": "false",
+          "widget": "array",
+          "title": "streaming",
+          "description": "Whether to stream the results or not",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "OpenAI_organization",
+          "value": "None",
+          "widget": "textfield",
+          "title": "OpenAI Organization",
+          "description": "OpenAI Organization",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "OpenAI_proxy",
+          "value": "None",
+          "widget": "textfield",
+          "title": "OpenAI Proxy",
+          "description": "OpenAI Proxy",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "tiktoken_model_name",
+          "value": "None",
+          "widget": "textfield",
+          "title": "Tiktoken Model Name",
+          "description": "The model name to pass to tiktoken",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "2",
+      "name": "Print N Rows",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "535px",
+      "y": "300px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    }
+  ],
+  "dataSetDetails": [],
+  "engine": "pyspark"
+}

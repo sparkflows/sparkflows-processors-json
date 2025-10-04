@@ -1,0 +1,14 @@
+{
+  "id": 3100,
+  "uuid": "2a63a7ec-ed56-4f9a-9db7-0e2e16ed0bd6",
+  "name": "Overwiew",
+  "category": "",
+  "projectId": 2376,
+  "content": "<h1 class=\"ql-align-center\"><span style=\"color: rgb(0, 102, 204);\">Overview</span></h1><h1><br></h1><p>This project aims to transform raw synthetic Google Analytics tracking data into a clean, consistent dataset suitable for downstream applications such as user segmentation, marketing attribution, and behavior prediction using machine learning.</p><p> The dataset consists of 1,000 synthetic records covering user activity, traffic sources, demographics, and device/browser metadata. To ensure the datasetâs integrity and analytical usefulness, a structured data quality workflow is applied.</p><p>The process begins with the detection of missing or empty values in key fields such as <code>user_id</code>, <code>page_viewed</code>, <code>traffic_source</code>, and <code>location</code>. Data types are then validated to ensure numeric fields like <code>time_on_site_sec</code> and <code>bounce_rate</code> are properly formatted, while categorical fields are checked for string consistency. Range and domain checks are used to flag anomaliesâfor instance, bounce rates exceeding 100% or negative session durations, as well as invalid traffic source labels such as \"Gooogle\" or \"Twiter\". Categorical fields like <code>device_type</code>, <code>browser_type</code>, and <code>location</code> are standardized using controlled vocabularies to eliminate inconsistencies and typos.</p><p>The workflow also includes duplicate detection by checking for exact duplicates and identifying potential duplicate sessions based on combinations of <code>user_id</code>, <code>page_viewed</code>, and other session markers. </p><p>Logical consistency rules ensure that bounce rates and page view counts align appropriately, such as flagging sessions with a <code>bounce_rate</code> of 100% but more than one page view or a session time of zero with a low bounce rate.</p><p>By applying this comprehensive data quality framework, the dataset is made reliable and ready for use in various analytics workflows, including behavioral segmentation, conversion modeling, and personalization strategies based on device or browser types.</p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "This project performs various data quality checks for bio assay data for drug discovery",
+  "syncedWithGithub": false,
+  "createdBy": "leena1",
+  "dateCreated": "Jul 29, 2025, 9:27:24 PM",
+  "dateLastUpdated": "Jul 29, 2025, 9:27:24 PM"
+}

@@ -1,0 +1,395 @@
+{
+  "name": "Generic-Chat-Prompt",
+  "uuid": "af5e604a-aa43-4690-8e00-1640a9a0407c",
+  "category": "-",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Query Document",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Query from large Documents",
+      "details": "",
+      "examples": "",
+      "type": "pyspark",
+      "nodeClass": "fire.nodes.gai.NodeQueryDocument",
+      "x": "197.836px",
+      "y": "170.847px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "inputFilePath",
+          "value": "",
+          "widget": "textfield",
+          "title": "Input File Path",
+          "description": "Enter Input File path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "userQuery",
+          "value": "'Rehire Provision'",
+          "widget": "textfield",
+          "title": "Query",
+          "description": "User Query",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "vectorStorePath",
+          "value": "/home/sparkflows/fire-data/data/genai/chatbot/db/",
+          "widget": "textfield",
+          "title": "Vector Store Path",
+          "description": "Enter Output File Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "outputPath",
+          "value": "/home/sparkflows/fire-data/data/genai/chatbot/response",
+          "widget": "textfield",
+          "title": "Output File Path",
+          "description": "Enter Output File Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "chunk_size",
+          "value": "2000",
+          "widget": "textfield",
+          "title": "Chunk Size",
+          "description": "Enter chunk size",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "chunk_overlap",
+          "value": "100",
+          "widget": "textfield",
+          "title": "Chunk Overlap",
+          "description": "Enter chunk overlap size",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "chain_type",
+          "value": "stuff",
+          "widget": "array",
+          "title": "Chain Type",
+          "description": "Type of document combining chain to use",
+          "optionsArray": [
+            "stuff",
+            "refine",
+            "map_reduce"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "LLM Connection",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "llmConnection",
+          "value": "SnowflakeConnect",
+          "widget": "object_array",
+          "title": "Connection",
+          "description": "The LLM connection to connect",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "temperature",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Temperature",
+          "description": "What sampling temperature to use.",
+          "datatypes": [
+            "float"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "model",
+          "value": "gpt-4o",
+          "widget": "textfield",
+          "title": "Model",
+          "description": "Model name to use.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "top_p",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Top_P",
+          "description": "Total probability mass of tokens to consider at each step.",
+          "datatypes": [
+            "float"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "frequency_penalty",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Frequency Penalty",
+          "description": "Penalizes repeated tokens according to frequency.",
+          "datatypes": [
+            "float"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "presence_penalty",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Presence Penalty",
+          "description": "Penalizes repeated tokens.",
+          "datatypes": [
+            "float"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "max_retries",
+          "value": "6",
+          "widget": "textfield",
+          "title": "Max Retries",
+          "description": "Maximum number of retries to make when generating.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "best_of",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Best of",
+          "description": "Generates best_of completions server-side and returns the \"best\"",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "n",
+          "value": "1",
+          "widget": "textfield",
+          "title": "N",
+          "description": "How many completions to generate for each prompt.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "max_tokens",
+          "value": "256",
+          "widget": "textfield",
+          "title": "Max Tokens",
+          "description": "The maximum number of tokens to generate in the completion",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "OpenAI_organization",
+          "value": "",
+          "widget": "textfield",
+          "title": "OpenAI Organization",
+          "description": "OpenAI Organization",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "tiktoken_model_name",
+          "value": "",
+          "widget": "textfield",
+          "title": "Tiktoken Model Name",
+          "description": "The model name to pass to tiktoken",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "pyspark"
+    }
+  ],
+  "edges": [],
+  "dataSetDetails": [],
+  "engine": "pyspark"
+}
