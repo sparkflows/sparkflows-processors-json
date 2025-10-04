@@ -1,0 +1,29 @@
+{
+  "uuid": "de9b7ec1-e92a-4f58-9a91-c4e379b452f6",
+  "name": "State-Code-Mapper",
+  "category": "Raw",
+  "description": "",
+  "header": true,
+  "path": "data/MANUFACTURING/Procurement-Cost-Optimizer/Raw-Data/USA_State_Code.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"StateName\",\"StateCode\"],colTypes:[\"STRING\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "StateName",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "StateCode",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

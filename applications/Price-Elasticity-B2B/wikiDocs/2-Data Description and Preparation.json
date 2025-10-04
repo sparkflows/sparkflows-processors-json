@@ -1,0 +1,15 @@
+{
+  "id": 3352,
+  "uuid": "9c7c46f3-bbc1-49d7-91d5-8939100f587e",
+  "name": "2-Data Description and Preparation",
+  "category": "",
+  "projectId": 2465,
+  "content": "<p><strong>Data Description:</strong></p><p> The project uses four key datasets:</p><p>\t\t<strong>1.Customers:</strong> Contains distributor-customer relationships with metadata like customer start date and country.</p><ul><li class=\"ql-indent-1\">Variables: Distributor ID, Customer ID, Customer Name, Start Date, Country (categorical).</li></ul><p>\t\t<strong>2.Products:</strong> Contains product hierarchy and SKU details.</p><ul><li class=\"ql-indent-1\">Variables: Sector, Category, Subcategory, SKU ID (categorical).</li></ul><p>\t\t<strong>3.Distributors:</strong> Contains distributor-level information with region.</p><ul><li class=\"ql-indent-1\">Variables: Distributor ID, Distributor Name, Country (categorical).</li></ul><p>\t\t<strong>4.Sales Transactions:</strong> Core transactional dataset capturing weekly invoices, product sales, and pricing details.</p><ul><li class=\"ql-indent-1\">Variables: Invoice Date, SKU ID, Quantity (numerical), Gross, Unit Price (numerical), Week Number, Adjustments, Discounts, Net Value.</li><li class=\"ql-indent-1\">Granularity: Transaction-level at <strong>customer–SKU–week</strong>.</li><li class=\"ql-indent-1\">Time coverage: Example data spans January 2022; in practice, multi-period data will be used for modeling.</li></ul><p><strong>Data Preparation:</strong></p><p> Steps required include:</p><ul><li><strong>Data Cleaning:</strong> Handle missing values, incorrect SKUs, and date formatting. Remove duplicate invoices.</li><li><strong>Feature Engineering:</strong></li><li class=\"ql-indent-1\">Create derived variables such as <strong>discounted price</strong>, <strong>effective margin</strong>, and <strong>log-transformed demand and price</strong> for elasticity modeling.</li><li class=\"ql-indent-1\">Aggregate sales to <strong>customer–SKU–week</strong> level.</li><li><strong>Data Transformation:</strong></li><li class=\"ql-indent-1\">Normalize continuous variables (price, quantity).</li><li class=\"ql-indent-1\">Encode categorical variables (distributor, country, sector).</li><li><strong>Outlier Treatment:</strong> Winsorize extreme values in price and demand to reduce skewness.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "Displaying details of dataset used and also list out additional features that have been computed.",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:33 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 10:04:07 AM"
+}

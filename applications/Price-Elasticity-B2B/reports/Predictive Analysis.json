@@ -1,0 +1,69 @@
+{
+  "name": "Predictive Analysis",
+  "uuid": "74ae2c52-1c6e-484b-af5f-9c733ea37f69",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Predictive Analysis",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Revenue Parabola",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 44,
+          "name": "Price vs Revenue",
+          "type": "transform",
+          "x": "1052.37px",
+          "y": "34.35px",
+          "workflowId": "68dc3ad1-2682-4eb0-9abc-a980a2e4dd1b",
+          "workflowName": "04-Revenue-Parabola-Calculation",
+          "nodeId": "44",
+          "grow": 0
+        },
+        {
+          "id": 45,
+          "name": "Volume vs Revenue",
+          "type": "transform",
+          "x": "1043.22px",
+          "y": "252.203px",
+          "workflowId": "68dc3ad1-2682-4eb0-9abc-a980a2e4dd1b",
+          "workflowName": "04-Revenue-Parabola-Calculation",
+          "nodeId": "45",
+          "grow": 0
+        },
+        {
+          "id": 48,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1570.16px",
+          "y": "292.169px",
+          "workflowId": "520bfa01-4ae1-433d-8b7a-088066f8fc1f",
+          "workflowName": "05-What-If-Forecasting",
+          "nodeId": "48",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

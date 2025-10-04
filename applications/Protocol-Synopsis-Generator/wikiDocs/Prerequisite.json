@@ -1,0 +1,15 @@
+{
+  "id": 3621,
+  "uuid": "207e44bc-94f8-4ae4-b83a-bc5a364e9071",
+  "name": "Prerequisite",
+  "category": "",
+  "projectId": 2668,
+  "content": "<h3>Required Configuration Settings</h3><p>To operate the system as intended, configure the following settings:</p><h4><strong>1. Credential</strong></h4><p>Add the OpenAI API key to the credentials section with the following details:</p><ul><li><strong>Key</strong>:&nbsp;<code>Gemini_API</code>(Fixed value)</li><li><strong>Title</strong>:&nbsp;<code>GOOGLE_API_KEY</code>&nbsp;(Fixed value)</li><li><strong>Value</strong>:&nbsp;<code>[Gemini API key]</code>&nbsp;(Replace this with Gemini API key)</li></ul><p><strong>Path to add credentials</strong>:</p><p>Navigate to&nbsp;<strong>Settings</strong>&nbsp;&gt;&nbsp;<strong>Credentials</strong>&nbsp;&gt;&nbsp;<strong>Add Credentials</strong>.</p><p><br></p><h4><strong>2. Variable</strong></h4><p>Specify the fire-data path in the variables section with the following details:</p><ul><li><strong>Key</strong>:&nbsp;<code>genaiHome</code>&nbsp;(Fixed value)</li><li><strong>Value</strong>:&nbsp;<code>[Path to the fire-data directory from the home]</code>&nbsp;(Example:&nbsp;<code>/home/sparkflows/fire-data</code>&nbsp;)</li></ul><p><strong>Path to add variables</strong>:</p><p>Navigate to&nbsp;<strong>Settings</strong>&nbsp;&gt;&nbsp;<strong>Variables</strong>&nbsp;&gt;&nbsp;<strong>Add Variables</strong>.</p><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "aayush",
+  "dateCreated": "Aug 19, 2025, 6:08:01 PM",
+  "updatedBy": "Aayush",
+  "dateLastUpdated": "Aug 20, 2025, 5:54:28 PM"
+}

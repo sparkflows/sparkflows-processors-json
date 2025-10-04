@@ -1,0 +1,258 @@
+{
+  "name": "Production Water Demand Prediction",
+  "uuid": "933a3e5f-0195-424f-a9e5-cd6a838c5ef6",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/Production-Water-Over-Demand-Prediction.svg"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 10,
+          "name": "Graph SubPlots",
+          "type": "transform",
+          "x": "1377.8px",
+          "y": "1.79997px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "1522.19px",
+          "y": "399.2px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "546.569px",
+          "y": "13.5875px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "807.6px",
+          "y": "244.6px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph SubPlots",
+          "type": "transform",
+          "x": "1000.57px",
+          "y": "585.188px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "875.794px",
+          "y": "357.8px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "953px",
+          "y": "457.987px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 29,
+          "name": "Graph SubPlots",
+          "type": "transform",
+          "x": "1243px",
+          "y": "647.587px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "29",
+          "grow": 0
+        },
+        {
+          "id": 31,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "859.575px",
+          "y": "740.556px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "31",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1486.99px",
+          "y": "767.994px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 36,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "712.05px",
+          "y": "144.05px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "36",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1670.79px",
+          "y": "308.794px",
+          "workflowId": "8d5e0f47-73f3-428a-b7a8-49cf38b35d55",
+          "workflowName": "03-Water-Consumption-Data-EDA",
+          "nodeId": "14",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 27,
+          "name": "Random Forest Regression",
+          "description": "It supports both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "657.703px",
+          "y": "213.688px",
+          "workflowId": "56a02d13-cd23-406f-9612-9025f120fad5",
+          "workflowName": "04-Water-Over-Demand-Modeling-Training",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Feature Selection With Importance",
+          "description": "",
+          "type": "transform",
+          "x": "410.043px",
+          "y": "173.031px",
+          "workflowId": "56a02d13-cd23-406f-9612-9025f120fad5",
+          "workflowName": "04-Water-Over-Demand-Modeling-Training",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "12.3667px",
+          "y": "533.717px",
+          "workflowId": "56a02d13-cd23-406f-9612-9025f120fad5",
+          "workflowName": "04-Water-Over-Demand-Modeling-Training",
+          "nodeId": "34",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Demand Prediction",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 18,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "936px",
+          "y": "71.2344px",
+          "workflowId": "6605bcba-b5ca-4618-a98e-4d77b818d2fb",
+          "workflowName": "05-Water-Over-Demand-Prediction",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "943.25px",
+          "y": "171.25px",
+          "workflowId": "6605bcba-b5ca-4618-a98e-4d77b818d2fb",
+          "workflowName": "05-Water-Over-Demand-Prediction",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 2,
+          "name": "PySpark",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "464.889px",
+          "y": "211.889px",
+          "workflowId": "49072546-a2a4-41d5-bf01-8a3371ec44aa",
+          "workflowName": "06-Predictive-Analytics-Report",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "PySpark",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "396.778px",
+          "y": "306.778px",
+          "workflowId": "49072546-a2a4-41d5-bf01-8a3371ec44aa",
+          "workflowName": "06-Predictive-Analytics-Report",
+          "nodeId": "3",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

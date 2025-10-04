@@ -1,0 +1,414 @@
+{
+  "name": "01-Feature-Data-Profiling",
+  "uuid": "8c14dcd2-0cf2-4aa1-916c-e7ab812795bf",
+  "category": "-",
+  "description": "-",
+  "parameters": " --var execute=true",
+  "nodes": [
+    {
+      "id": "3",
+      "name": "Select Columns",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node creates a new DataFrame that contains only the selected columns",
+      "details": "<h2>Select Columns Node Details</h2>\n<br>\nThis node creates a new DataFrame containing only the selected columns.<br>\n<br>\nIt selects columns that need to be passed to the outgoing Dataframe. <br>\n<br>\nColumns that need to be included in the outgoing Dataframe are to be selected in the 'Selected' list. Multiple columns can be selected in the list.<br>",
+      "examples": "<h2>Select Columns Node Examples</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered an Incoming Dataframe with following rows:<br>\n<br>\nCUST_CD    |    CUST_NAME    |    AGE    |    DATE_OF_JOINING    |    SALARY<br>\n-------------------------------------------------------------------------------------<br>\nC01        |    MATT         |    50     |    12-02-2002         |    USD 200000.00<br>\nC02        |    LISA         |    45     |    15-11-2020         |    GBP 100000.00<br>\nC03        |    ROBIN        |    30     |    10-10-2015         |    EUR 15000.00<br>\nC04        |    MARCUS       |    35     |    01-01-2021         |    AUD 350000.00<br>\n<br>\n<h4>Select Columns Node Configuration And Output</h4>\n<br>\n[CUST_CD], [CUST_NAME] and [SALARY] columns from the incoming Dataframe are selected to be part of the outgoing Dataframe.<br>\nOutgoing Dataframe would be created as below containing only the selected columns:<br>\n<br>\nCUST_CD    |    CUST_NAME    |    SALARY<br>\n-------------------------------------------------<br>\nC01        |    MATT         |    USD 200000.00<br>\nC02        |    LISA         |    GBP 100000.00<br>\nC03        |    ROBIN        |    EUR 15000.00<br>\nC04        |    MARCUS       |    AUD 350000.00<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnFilter",
+      "x": "165.569px",
+      "y": "192.569px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputCols",
+          "value": "[\"YEAR_WEEK\",\"SALES_VOLUME\",\"ITEM\",\"PRD_CATEGORY\"]",
+          "widget": "variables",
+          "title": "Columns",
+          "description": "Columns to be included in the output DataFrame",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "4",
+      "name": "Pivot By",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Pivot Node",
+      "details": "This node creates a Dataframe based on the Pivot table created out of the incoming Dataframe.<br>\n<br>\nPivot table is created by Aggregation of rows by applying the Aggregate functions on the Aggregate Columns against the Grouping and Pivot Columns selected.<br>",
+      "examples": "Incoming Dataframe has following rows:<br>\n<br>\nEMP_CD    |    EMP_NAME    |    LOCATION    |    DEPT         |    SALARY<br>\n-----------------------------------------------------------------------------<br>\nE01       |    DAVID       |    NEW YORK    |    HR           |    10000<br>\nE02       |    JOHN        |    NEW JERSEY  |    SALES        |    11000<br>\nE03       |    MARTIN      |    NEW YORK    |    MARKETING    |    12000<br>\nE04       |    TONY        |    NEW JERSEY  |    MARKETING    |    13000<br>\nE05       |    ROSS        |    NEW YORK    |    FRONT DESK   |    10000<br>\nE06       |    LISA        |    NEW JERSEY  |    FRONT DESK   |    11000<br>\nE07       |    PAUL        |    NEW YORK    |    MAINTENANCE  |    12000<br>\nE08       |    MARK        |    NEW JERSEY  |    MAINTENANCE  |    13000<br>\n<br>\nif PivotBy node is configured as below:<br>\n<br>\nGROUPING COLUMNS      :    DEPT<br>\nPIVOT COLUMNS         :    LOCATION<br>\n<br>\nAGGREGATE COLUMNS    |    AGGREGATE OPERATION<br>\n-------------------------------------------------<br>\nEMP_CD               |    COUNT<br>\n<br>\nthen outgoing Dataframe would be created as below after performing specified aggregation<br>\nCount of Employees for each combination of [DEPT] and [LOCATION] would be listed as below:<br>\n<br>\nDEPT         |    NEW JERSEY       |    NEW YORK<br>\n---------------------------------------------------<br>\nFRONT DESK   |    1                |    1<br>\nMARKETING    |    1                |    1<br>\nHR           |                     |    1<br>\nSALES        |    1                |<br>\nMAINTENANCE  |    1                |    1<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodePivotBy",
+      "x": "292.556px",
+      "y": "194.542px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "aggregate",
+          "value": "",
+          "widget": "tab",
+          "title": "Aggregate",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "groupingCols",
+          "value": "[\"YEAR_WEEK\"]",
+          "widget": "variables",
+          "title": "Grouping Columns",
+          "description": "Grouping Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "aggregateCols",
+          "value": "[\"SALES_VOLUME\"]",
+          "widget": "variables_list_select",
+          "title": "Aggregate Columns",
+          "description": "Aggregate Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "aggregateOperations",
+          "value": "[\"avg\"]",
+          "widget": "variables_list_array",
+          "title": "Aggregate Operation to use",
+          "description": "Aggregate Operation",
+          "optionsArray": [
+            "sum",
+            "avg",
+            "min",
+            "max",
+            "count"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "pivot",
+          "value": "",
+          "widget": "tab",
+          "title": "Pivot",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "pivotCol",
+          "value": "ITEM",
+          "widget": "variable",
+          "title": "Pivot Column",
+          "description": "Pivoting Column",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "uniqueValues",
+          "value": "",
+          "widget": "textfield",
+          "title": "UniqueValues",
+          "description": "Comma separated unique values: Providing Unique values while performing pivot operation improves the performance of the operation since Spark does not have to first compute the list of distinct values of Pivot Column internally.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "schema",
+          "value": "",
+          "widget": "tab",
+          "title": "InferSchema",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"YEAR_WEEK\",\"Cage-Free Eggs\",\"Chicken Breast\",\"Chicken Wings\",\"Free-Range Eggs\",\"Organic Eggs\",\"Whole Chicken\"]",
+          "widget": "schema_col_names",
+          "title": "Column Names of the Table",
+          "description": "Output Columns Names of the Table",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"]",
+          "widget": "schema_col_types",
+          "title": "Column Types of the Table",
+          "description": "Output Column Types of the Table",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputColFormats",
+          "value": "[\"\",\"\",\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "schema_col_formats",
+          "title": "Column Formats",
+          "description": "Output Column Formats",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "Correlation",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "calculates the correlation between two series of data.",
+      "details": "<h2>Correlation Node Details</h2>\n<br>\nCorrelation is to measure if two variables or two feature columns tend to move in together in same or opposite direction. The idea is to detect if one variable or feature column can be predicted by another variable or feature column.<br>\n<br>\nThe Correlation node uses the method of Pearson's correlation for checking correlation between two continuous variables (or feature columns)<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : A short description to summarizes what the data depicts.</li>\n<li> INPUT COLUMN FOR CORRELATION : </li>\n</ul>\n- Selected : A list of numeric columns among which the correlation is to be predicted.<br>",
+      "examples": "<h2>Correlation Node Example</h2>\n<br>\nFor a given dataframe having the below schema:<br>\nCourse  | Amount | Discount| <br>\n(String)| Double | Double  |<br>\n----------------------------<br>\n<br>\nWe can select the <b>Amount</b> and <b>Discount</b> fields for which we need to find the correlation.<br>\n<br>\nThis will yield three separate output sections:<br>\n- A Correlation Table<br>\n- A Correlation Matrix &<br>\n- A sample data values of the input dataframe<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "530.198px",
+      "y": "193.205px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Correlation Matrix",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"Cage-Free Eggs\",\"Chicken Breast\",\"Chicken Wings\",\"Free-Range Eggs\",\"Organic Eggs\",\"Whole Chicken\"]",
+          "widget": "variables",
+          "title": "Input Column for Correlation",
+          "description": "Column Names to check correlation ",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "Dataset Structured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "38px",
+      "y": "313px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "dataset",
+          "value": "51e6b6cd-47c0-45cb-88f8-a7763ec48219",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "3",
+      "target": "4",
+      "id": 1
+    },
+    {
+      "source": "4",
+      "target": "8",
+      "id": 3
+    },
+    {
+      "source": "9",
+      "target": "3",
+      "id": 4
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 2837,
+      "uuid": "51e6b6cd-47c0-45cb-88f8-a7763ec48219",
+      "header": true,
+      "path": "data/AGRICULTURE/Price-Optimization-Poultry/Raw-Data",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"PRD_CATEGORY\",\"ITEM\",\"YEAR_WEEK\",\"SALES_VOLUME\",\"PACK_PRICE_COMPETITOR1\",\"PACK_PRICE_COMPETITOR2\",\"PACK_PRICE_COMPETITOR3\",\"PACK_PRICE_COMPETITOR4\",\"PACK_PRICE_COMPETITOR5\",\"MONTH_WEEK\",\"PACK_PRICE_PRD\",\"ADV_SPEND\",\"BAU\",\"EVENT\",\"FLEETING\",\"SVD\",\"WEEK_MIN_PRD_PACK_PRICE\",\"Q1\",\"Q2\",\"Q3\",\"MIN_PACK_PRICE_COMPETITORS\",\"LOG_SALES_VOLUME\",\"LOG_PRD_PRICE\",\"LOG_WEEK_MIN_PACK_PRICE_PRD\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

@@ -1,0 +1,76 @@
+{
+  "uuid": "88cd0f8c-7b83-461f-84d0-319458271cb5",
+  "name": "Tube-Metadata",
+  "category": "Raw",
+  "header": true,
+  "path": "data/MANUFACTURING/Procurement-Cost-Optimizer/Raw-Data/Tubes_Metadata.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Thk_mm\",\"L_m\",\"Unit_wght_kg\",\"Bundle_weight_kg\",\"Bundle_weight_lbs\",\"Bundle_qty_per_flatbed\",\"Total_bundle_weight_per_flatbed_kg\",\"Total_bundle_weight_per_flatbed_lbs\",\"Balance_weight_for_loose_bundle_kg\",\"Balance_weight_for_loose_bundle_lbs\"],colTypes:[\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Thk_mm",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "L_m",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Unit_wght_kg",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Bundle_weight_kg",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Bundle_weight_lbs",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Bundle_qty_per_flatbed",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Total_bundle_weight_per_flatbed_kg",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Total_bundle_weight_per_flatbed_lbs",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Balance_weight_for_loose_bundle_kg",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Balance_weight_for_loose_bundle_lbs",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

@@ -1,0 +1,33 @@
+{
+  "uuid": "c0a1c178-aa8f-4b1b-9301-0e239ff06f66",
+  "name": "Distributors",
+  "header": true,
+  "path": "data/CPG/Price-Elasticity-B2B/Raw-Data/distributors.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"DISTRIBUTOR_ID\",\"DIST_NAME\",\"COUNTRY_ID\"],colTypes:[\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DISTRIBUTOR_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "DIST_NAME",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "COUNTRY_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

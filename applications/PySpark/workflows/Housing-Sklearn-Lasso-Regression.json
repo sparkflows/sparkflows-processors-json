@@ -1,0 +1,977 @@
+{
+  "name": "Housing-Sklearn-Lasso-Regression",
+  "uuid": "f6f04620-4efc-4ebb-99a1-46b26567c076",
+  "category": "Regression",
+  "description": "-",
+  "parameters": "-",
+  "nodes": [
+    {
+      "id": "9",
+      "name": "Split",
+      "description": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data. For example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).",
+      "details": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data.<br>\n<br>\nFor example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).<br>\n<br>\nThe split node can be used for splitting the DataFrame for training and test datasets used in Machine Learning.<br>",
+      "examples": "lets say you pass a table with 5 rows and the fraction .6(60%),the first and second outcomes of the node will give dataframes as follows<br>\n<br>\nFirst<br>\nPartID\tSupplierID\tPartName\t<br>\nStringType\tStringType\tStringType\t<br>\nP9271\tS798\tPart_D\t<br>\nP523\tS955\tPart_K\t<br>\nP3201\tS332\tPart_M\t<br>\n<br>\n<br>\nSecond<br>\nPartID\tSupplierID\tPartName\t<br>\nStringType\tStringType\tStringType\t<br>\nP9634\tS527\tPart_G\t<br>\nP9345\tS850\tPart_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSplit",
+      "x": "248.976px",
+      "y": "271.979px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "fraction1",
+          "value": ".8",
+          "widget": "textfield",
+          "title": "Fraction 1",
+          "description": "Fraction to be used for Splitting the DataFrame into two. The first DataFrame would go to the lower edge output. The other would go to the higher edge output.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "11",
+      "name": "SklearnPredict",
+      "description": "Predict node takes in a dataframe and model and makes predictions",
+      "details": "",
+      "examples": "",
+      "type": "ml-predict",
+      "nodeClass": "fire.nodes.sklearn.NodeSklearnPredict",
+      "x": "367.971px",
+      "y": "414.969px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "featureCols",
+          "value": "[\"lotsize\",\"bedrooms\",\"bathrms\",\"stories\",\"garagepl\"]",
+          "widget": "variables",
+          "title": "Feature Columns",
+          "description": "Feature columns of type - all numeric, boolean and vector",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "int"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "targetCol",
+          "value": "price",
+          "widget": "variable",
+          "title": "Target Column",
+          "description": "The label column for model fitting",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "int"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "keyCol",
+          "value": "id",
+          "widget": "variable",
+          "title": "Key Column",
+          "description": "The key column to identify the each row/data/sample.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "13",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "when input 5 in no of rows,it will show first 5 rows of the table as follows<br>\n<br>\nPartID\tSupplierID\tPartName\t<br>\n<br>\nP9271\t  S798\t    Part_D\t<br>\nP523\t  S955\t    Part_K\t<br>\nP3201\t  S332\t    Part_M\t<br>\nP9634\t  S527\t    Part_G\t<br>\nP9345\t  S850\t    Part_M<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "570.976px",
+      "y": "406.476px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "17",
+      "name": "StickyNote",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "119.994px",
+      "y": "98.9943px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "width",
+          "value": "399.011364px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "height",
+          "value": "105.011364px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "comment",
+          "value": "<p>House Price Prediction using SkLearn Lasso Regression model and evaluate the model performance</p><p><strong>Features -</strong> bedroom, lotsize, bathrooms, stories, garagepl</p><p><strong>Target variable - </strong>price</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "18",
+      "name": "SklearnRegressionEvaluator",
+      "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+      "details": "",
+      "examples": "",
+      "type": "ml-evaluator",
+      "nodeClass": "fire.nodes.sklearn.NodeSklearnRegressionEvaluator",
+      "x": "477.823px",
+      "y": "478.645px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "targetCol",
+          "value": "price",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting.",
+          "datatypes": [
+            "double",
+            "integer"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "predictCol",
+          "value": "predict",
+          "widget": "variable",
+          "title": "Prediction Column",
+          "description": "The prediction column.",
+          "datatypes": [
+            "double",
+            "integer"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "22",
+      "name": "Read CSV",
+      "description": "It reads in CSV files and creates a DataFrame from it.",
+      "details": "<h2>Read CSV Details</h2>\n<br>\nThis node reads CSV files and creates a DataFrame from them. It can read either a single file or a directory containing multiple files. The user can configure the below fields to parse the file.<br>\n<br>\nThe user can choose the <b>Output storage level</b> from the drop down. The options in the dropdown can be one of the following:<br>\n<ul>\n<li> <b>MEMORY_ONLY</b>          Store RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, some partitions will not be cached and will be recomputed on the fly each time they are needed. This is the default level.</li>\n<li> <b>MEMORY_AND_DISK</b>       Store RDD as deserialized Java objects in the JVM. If the RDD does not fit in memory, store the partitions that do not fit on disk, and read them from there when they are needed.</li>\n<li> <b>MEMORY_ONLY_SER</b>        Store RDD as serialized Java objects (one byte array per partition). This is generally more space-efficient than deserialized objects, especially when using a fast serializer, but more CPU-intensive to read.</li>\n<li> <b>MEMORY_AND_DISK_SER</b>    Similar to MEMORY_ONLY_SER, but spill partitions that do not fit in memory to disk instead of recomputing them on the fly each time they're needed.</li>\n<li> <b>DISK_ONLY</b>              Store the RDD partitions only on disk.</li>\n<li> <b>MEMORY_ONLY_2, MEMORY_AND_DISK_2 others </b> . Same as the levels above, but replicate each partition on two cluster nodes.</li>\n<li> <b>OFF_HEAP</b>               Similar to MEMORY_ONLY_SER, but store the data in off-heap memory. This requires off-heap memory to be enabled.</li>\n</ul>\nThe user needs to provide a data file <b>Path</b> to read the data from. This is a required field.<br>\n<br>\nThe user can choose the <b>Separator</b> used in the data file to parse it. The default separator is <b>( , )</b> comma.<br>\n<br>\nIn the <b>Header</b> field, one can choose:<br>\n<ul>\n<li> <b>true</b> if the data file has a header.</li>\n<li> <b>false</b> Otherwise.</li>\n</ul>\nIn the <b>Drop special character in column name</b> field, one can choose:<br>\n<ul>\n<li> <b>true</b> If you want to remove the special characters from column names.</li>\n<li> <b>false</b> Otherwise.</li>\n</ul>\nIn the <b>Mode</b> field, one can choose from the below options in the dropdown:<br>\n<ul>\n<li> <b>PERMISSIVE</b> When the parser meets a corrupt field in a record, it sets the value of the field to NULL and continues to the next record.</li>\n<li> <b>DROPMALFORMED</b> ignores the whole corrupted record.</li>\n<li> <b>FAILFAST</b> throws an exception when it meets corrupted records.</li>\n</ul>\nIn the <b>Enforce Schema</b> field, one can choose:<br>\n<ul>\n<li> <b>true</b> The specified or inferred schema will be forcibly applied to datasource files, and headers in CSV files will be ignored.</li>\n<li> <b>false</b> The schema will be validated against all headers in CSV files when the header option is set to <b>false</b>.</li>\n</ul>\nIn the <b>Whether to add input file as a column in DataFrame</b> field, one can choose:<br>\n<ul>\n<li> <b>true</b> There will be a new column added to the DataFrame at the end, which can be seen in the schema columns. One can enter the name of this column.</li>\n<li> <b>false</b> This functionality is disabled, and the DataFrame consists of only the columns read from the data file.</li>\n</ul>\nIn the <b>ENCODING</b> field, one can specify the encoding type to be used for reading the files. By default, it is set as <b>UTF-8</b>.<br>\n<br>\nThe <b>QUOTE</b> field sets a single character used for escaping quoted values where the separator can be part of the value. The default value for this is <b>( \" )</b>, a double quote.<br>\n<br>\nThe <b>ESCAPE</b> field sets a single character used for escaping quotes inside an already quoted value. The default value for this is <b>( \\ )</b>, a backslash.\t<br>\n<br>\nAfter the above options are set, one can click on <b>Refresh Schema</b> to see the final columns.<br>\nUsers can still add or delete columns using <b>+</b> button next to the refresh schema and <b>-</b> button next to the column names.<br>",
+      "examples": "<h2> Read CSV Node Example</h2>\n<br>\nGiven a CSV file with the following data:<br>\n<br>\nSupplierID,SupplierName,Region,YearsInBusiness,LeadTime,PriceIndex,OrderFulfillmentTime,OverallCost,OrderCancellations,CustomerRating<br>\nS1,Supplier A,Region 1,10,5,1.2,3,100,2,4<br>\nS2,Supplier B,Region 2,15,7,1.1,4,120,1,5<br>\nIf you configure the Read CSV node as follows:<br>\n<br>\nPath: /path/to/your/file.csv<br>\nSeparator: ,<br>\nHeader: true<br>\nThe output would be a DataFrame with the following schema:<br>\n<br>\nColumn Name\tData Type<br>\nSupplierID\tString<br>\nSupplierName\tString<br>\nRegion\tString<br>\nYearsInBusiness\tInteger<br>\nLeadTime\tInteger<br>\nPriceIndex\tDouble<br>\nOrderFulfillmentTime\tInteger<br>\nOverallCost\tInteger<br>\nOrderCancellations\tInteger<br>\nCustomerRating\tInteger<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetCSV",
+      "x": "47.9661px",
+      "y": "272.969px",
+      "hint": "Refresh the schema when a new file is selected or the file content has changed",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "path",
+          "value": "data/COMMON/housing.csv",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path of the file/directory",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "separator",
+          "value": ",",
+          "widget": "textfield",
+          "title": "Separator",
+          "description": "CSV Separator",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "header",
+          "value": "true",
+          "widget": "array",
+          "title": "Header",
+          "description": "Whether the file has a header row",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "dropSpecialCharacterInColumnName",
+          "value": "false",
+          "widget": "array",
+          "title": "Drop Special Character In ColumnName",
+          "description": "Whether to drop the Special Characters and Spaces in Column Name.",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "mode",
+          "value": "PERMISSIVE",
+          "widget": "array",
+          "title": "Mode",
+          "description": "Mode for dealing with corrupt records during parsing.",
+          "optionsArray": [
+            "PERMISSIVE",
+            "DROPMALFORMED",
+            "FAILFAST"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "enforceSchema",
+          "value": "false",
+          "widget": "array",
+          "title": "Enforce Schema",
+          "description": "If it is set to true, the specified or inferred schema will be forcibly applied to datasource files, and headers in CSV files will be ignored. If the option is set to false, the schema will be validated against all headers in CSV files in the case when the header option is set to true.",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "addInputFileName",
+          "value": "false",
+          "widget": "array",
+          "title": "Whether to Add Input File Name as Column in the Dataframe",
+          "description": "Add the new field:input_file_name",
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "encoding",
+          "value": "UTF-8",
+          "widget": "textfield",
+          "title": "Encoding",
+          "description": "Decodes the CSV files by the given encoding type",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "quote",
+          "value": "\"",
+          "widget": "textfield",
+          "title": "Quote",
+          "description": "Sets a single character used for escaping quoted values where the separator can be part of the value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "escape",
+          "value": "\\",
+          "widget": "textfield",
+          "title": "Escape",
+          "description": "Sets a single character used for escaping quotes inside an already quoted value.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "schema",
+          "value": "",
+          "widget": "tab",
+          "title": "Schema",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"id\",\"price\",\"lotsize\",\"bedrooms\",\"bathrms\",\"stories\",\"driveway\",\"recroom\",\"fullbase\",\"gashw\",\"airco\",\"garagepl\",\"prefarea\"]",
+          "widget": "schema_col_names",
+          "title": "Column Names for the CSV",
+          "description": "New Output Columns of the SQL",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\"]",
+          "widget": "schema_col_types",
+          "title": "Column Types for the CSV",
+          "description": "Data Type of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "outputColFormats",
+          "value": "[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]",
+          "widget": "schema_col_formats",
+          "title": "Column Formats for the CSV",
+          "description": "Format of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "extraOptions",
+          "value": "",
+          "widget": "tab",
+          "title": "Extra Options",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "extraOptionsKeys",
+          "value": "[]",
+          "widget": "key_array",
+          "title": "Extra Options Keys",
+          "description": "Extra options available when reading CSV files. Examples :\n comment --> # (ignore comment lines in the file)\nignoreLeadingWhiteSpace --> false (Ignores leading white spaces in string columns)\nignoreTrailingWhiteSpace --> false (Ignores trailing white spaces in string columns).\nfilterPushdown --> true (Enables filter pushdown to optimize query performance.)\nsamplingRatio --> 1.0 (Specifies the ratio of rows to sample when inferring schema.)\nignoreCorruptFiles --> false (Skips files with corrupt data instead of failing.)\nignoreMissingFiles --> false (Skips missing files instead of failing.)\npathGlobFilter --> *.csv (Filters file paths based on a specified glob pattern.)\nrecursiveFileLookup --> false (Enables recursive file lookup in directories.)",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "Extra Options"
+        },
+        {
+          "name": "extraOptionsValues",
+          "value": "[]",
+          "widget": "value_array",
+          "title": "Extra Options Values",
+          "description": "Config Values for the Corresponding keys",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "23",
+      "name": "SkLearn Lasso Regression",
+      "description": "In Lasso Regression, Linear Model trained with L1 prior as regularizer.",
+      "details": "More details are available at : <a href=\"https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html\" target=\"_blank\">scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html</a><br>",
+      "examples": "",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.sklearn.NodeSklearnLassoRegression",
+      "x": "376.979px",
+      "y": "258.99px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "targetCol",
+          "value": "price",
+          "widget": "variable",
+          "title": "Target Column",
+          "description": "The label column for model fitting",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "int"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "featureCols",
+          "value": "[\"lotsize\",\"bedrooms\",\"bathrms\",\"stories\",\"garagepl\"]",
+          "widget": "variables",
+          "title": "Feature Columns",
+          "description": "Feature columns of type - all numeric, boolean and vector",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "int"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "alpha",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Alpha",
+          "description": "Constant that multiplies the L1 term. Defaults to 1.0. Alpha = 0 is equivalent to an ordinary least square, solved by the LinearRegression object.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "fit_intercept",
+          "value": "true",
+          "widget": "array",
+          "title": "Fit Intercept",
+          "description": "Whether to calculate the intercept for this model. If set to false, no intercept will be used in calculations.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "normalize",
+          "value": "false",
+          "widget": "array",
+          "title": "Normalize",
+          "description": "This parameter is ignored when `fit_intercept` is set to False. If True, the regressors X will be normalized before regression.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "precompute",
+          "value": "false",
+          "widget": "array",
+          "title": "Precompute",
+          "description": "Whether to use a precomputed Gram matrix to speed up calculations.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "max_iter",
+          "value": "2",
+          "widget": "textfield",
+          "title": "Max Iterations",
+          "description": "The maximum number of iterations.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "tol",
+          "value": "0.0001",
+          "widget": "textfield",
+          "title": "Tolerance",
+          "description": "The tolerance for the optimization: if the updates are smaller than `tol`, the optimization code checks the dual gap for optimality and continues until it is smaller than `tol`.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "warm_start",
+          "value": "false",
+          "widget": "array",
+          "title": "Warm Start",
+          "description": "When set to True, reuse the solution of the previous call to fit as initialization, otherwise, just erase the previous solution.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "True",
+            "False"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "positive",
+          "value": "false",
+          "widget": "array",
+          "title": "Positive",
+          "description": "When set to True, forces the coefficients to be positive.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "True",
+            "False"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "random_state",
+          "value": "",
+          "widget": "textfield",
+          "title": "Random State",
+          "description": "The seed of the pseudo random number generator that selects a random feature to update.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "selection",
+          "value": "cyclic",
+          "widget": "textfield",
+          "title": "Selection",
+          "description": "If set to ‘random’, a random coefficient is updated every iteration rather than looping over features sequentially by default. This (setting to ‘random’) often leads to significantly faster convergence especially when tol is higher than 1e-4.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "pyspark"
+    }
+  ],
+  "edges": [
+    {
+      "source": "11",
+      "target": "13",
+      "id": 1
+    },
+    {
+      "source": "9",
+      "target": "11",
+      "id": 2
+    },
+    {
+      "source": "22",
+      "target": "9",
+      "id": 3
+    },
+    {
+      "source": "9",
+      "target": "23",
+      "id": 4
+    },
+    {
+      "source": "23",
+      "target": "11",
+      "id": 5
+    },
+    {
+      "source": "11",
+      "target": "18",
+      "id": 6
+    }
+  ],
+  "dataSetDetails": [],
+  "engine": "pyspark"
+}

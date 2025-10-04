@@ -1,0 +1,40 @@
+{
+  "uuid": "edc80f97-f3e3-4fce-bdc0-8ce525f6e542",
+  "name": "Supplier-Project-Output",
+  "category": "Processed",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/nextracker/Processed-Data/Supplier-Project",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Supplier\",\"Project\",\"CostPerKM\",\"Distance\"],colTypes:[\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Supplier",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Project",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CostPerKM",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Distance",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

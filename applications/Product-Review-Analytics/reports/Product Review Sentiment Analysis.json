@@ -1,0 +1,126 @@
+{
+  "name": "Product Review Sentiment Analysis",
+  "uuid": "44415a7c-e661-47c8-ad96-174e92e61772",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Sentiment Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 21,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "478.6px",
+          "y": "247.8px",
+          "workflowId": "f09bec3e-cd49-4128-9db8-5d6c2a4f62b6",
+          "workflowName": "02 - Sentiment Score Reporting",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 52,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "671.6px",
+          "y": "774px",
+          "workflowId": "f09bec3e-cd49-4128-9db8-5d6c2a4f62b6",
+          "workflowName": "02 - Sentiment Score Reporting",
+          "nodeId": "52",
+          "grow": 0
+        },
+        {
+          "id": 54,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "581.8px",
+          "y": "1064.8px",
+          "workflowId": "f09bec3e-cd49-4128-9db8-5d6c2a4f62b6",
+          "workflowName": "02 - Sentiment Score Reporting",
+          "nodeId": "54",
+          "grow": 0
+        },
+        {
+          "id": 49,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "925.4px",
+          "y": "339.4px",
+          "workflowId": "f09bec3e-cd49-4128-9db8-5d6c2a4f62b6",
+          "workflowName": "02 - Sentiment Score Reporting",
+          "nodeId": "49",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "699.4px",
+          "y": "672.8px",
+          "workflowId": "f09bec3e-cd49-4128-9db8-5d6c2a4f62b6",
+          "workflowName": "02 - Sentiment Score Reporting",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 39,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "720.388px",
+          "y": "835.8px",
+          "workflowId": "f09bec3e-cd49-4128-9db8-5d6c2a4f62b6",
+          "workflowName": "02 - Sentiment Score Reporting",
+          "nodeId": "39",
+          "grow": 0
+        },
+        {
+          "id": 61,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "734.656px",
+          "y": "524.859px",
+          "workflowId": "67c89984-0948-4154-8255-fe0e27069898",
+          "workflowName": "04-Tone-Analysis-Reporting",
+          "nodeId": "61",
+          "grow": 0
+        },
+        {
+          "id": 62,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "701.656px",
+          "y": "283.859px",
+          "workflowId": "67c89984-0948-4154-8255-fe0e27069898",
+          "workflowName": "04-Tone-Analysis-Reporting",
+          "nodeId": "62",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
