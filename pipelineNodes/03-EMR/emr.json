@@ -1,0 +1,165 @@
+{
+  "id": "6",
+  "name": "Create EMR JobFlow",
+  "description": "This node creates a new EMR JobFlow by using details in configuration and passes the EMR ID to the next step.",
+  "type": "emr",
+  "nodeClass": "fire.pipelineNodes.EMR",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in airflow DAG." },
+    {"name": "ClusterName", "value":"", "required":true, "widget": "textfield", "title": "Cluster Name", "description": "Cluster name." },
+	{"name": "ReleaseLabel", "value":"emr-7.4.0", "required":true, "widget": "textfield", "title": "Release Label", "description": "ReleaseLabel like emr-6.2.0 ,emr-6.2.1, emr-6.3.0 etc" },
+    {"name": "LogUri", "value":"s3://aws-logs-us-east-1/elasticmapreduce/", "required":true, "widget": "textfield", "title": "Log URI", "description": "Log URI Path" },
+    {"name": "LogEncryptionKmsKeyId", "value":"", "widget": "textfield", "title": "Log Encryption Kms Key Id", "description": "Log Encryption Kms Key Id" },
+	{"name": "Applications", "value":"Spark", "required":true, "widget": "textfield", "title": "Applications", "description": "Applications Name is Spark" },
+	{"name": "JobFlowRole", "value":"EMR_EC2_DefaultRole", "required":true, "widget": "textfield", "title": "JobFlow Role", "description": "The IAM role that was specified when the JobFlow was created. The EC2 instances of the JobFlow assume this role" },
+	{"name": "ServiceRole", "value":"EMR_DefaultRole", "required":true, "widget": "textfield", "title": "Service Role", "description": "The IAM role that is assumed by the Amazon EMR service to access Amazon Web Services resources on your behalf" },
+    {"name": "SecurityConfiguration", "value":"", "required":false, "widget": "textfield", "title": "Security Configuration", "description": "SecurityConfiguration" },
+    {"name": "CustomAmiId", "value":"", "required":false, "widget": "textfield", "title": "Custom AMI ID", "description": "Custom AMI ID" },
+    {"name": "StepConcurrencyLevel", "value":"", "required":true, "widget": "textfield", "title": "Step Concurrency Level", "description": "Step Concurrency Level" },
+    {"name": "retries", "value":"", "required":false, "widget": "textfield", "title": "Retries", "description": "Retries" },
+    {"name": "retry_delay", "value":"", "required":false, "widget": "textfield", "title": "Retry Delay", "description": "Retry Delay(seconds)" },
+    {"name": "max_retry_delay", "value":"", "required":false, "widget": "textfield", "title": "Max Retry Delay", "description": "Maximum delay interval between retries(seconds)" },
+    {"name": "retry_exponential_backoff", "value":"", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Retry Exponential Backoff", "description": "Allow progressive longer waits between retries by using exponential backoff algorithm on retry delay" },
+    {"name": "aws_conn_id", "value":"", "required":false, "widget": "textfield", "title": "AWS Connection ID", "description": "AWS Connection ID" },
+    {"name": "Instances", "value":"", "widget": "tab", "title": "Instances"},
+    {"name": "Ec2KeyName", "value":"", "required":true, "widget": "textfield", "title": "EC2 Key Name", "description": "EC2 Key Name" },
+    {"name": "ServiceAccessSecurityGroup", "value":"", "required":false, "widget": "textfield", "title": "Service Access Security Group", "description": "Service Access Security Group" },
+    {"name": "Ec2SubnetId", "value":"", "required":true, "widget": "textfield", "title": "EC2 Subnet ID", "description": "EC2 Subnet ID" },
+    {"name": "KeepJobFlowAliveWhenNoSteps", "value":"False", "required":true, "widget": "array", "optionsArray": ["True","False"],"title": "Keep JobFlow Alive When No Steps", "description": "Specifies whether the JobFlow should remain available after completing all steps. Defaults to true" },
+	{"name": "TerminationProtected", "value":"False", "required":true, "widget": "array", "optionsArray": ["True","False"], "title": "Termination Protected", "description": "Indicates whether Amazon EMR will lock the cluster to prevent the EC2 instances from being terminated by an API call or user intervention, or in the event of a cluster error" },
+	{"name": "EmrManagedMasterSecurityGroup", "value":"", "required":true, "widget": "textfield", "title": "EMR Managed Master Security Group", "description": "Parameter to specify a custom managed security group for the master instance" },
+	{"name": "EmrManagedSlaveSecurityGroup", "value":"", "required":true, "widget": "textfield", "title": "EMR Managed Slave Security Group", "description": "Parameter to specify a custom managed security group for core and task instances" },
+	{"name": "InstanceGroups", "value":"[]", "required":true, "widget": "variablesList", "optionsArray": ["Name","Market","InstanceRole","InstanceType","InstanceCount","EbsVolumeSizeInGB","EbsVolumeType","EbsVolumesPerInstance"], "title": "Instance Groups", "description": "InstanceRole: Instance group role in the cluster, InstanceType: EC2 instance type, InstanceCount:Actual count of running instances,VolumeSpecification: Volume Specification,VolumesPerInstance: Volumes Per Instance" },
+    {"name": "EbsRootVolume","value":"","title": "Ebs Root Volume", "description":"EBS root volume applies to the operating systems and applications that you install on the cluster.","widget": "variables","valueArray": [] ,"optionsArray": ["Size(GiB)","IOPS","Throughput(MiB/s)"], "optionArrayDescription":["15 - 100 GiB per volume General Purpose SSD (gp3)", "3000 - 16000 IOPS per volume. Choose a maximum ratio of 500:1 between IOPS and volume size.", "125 - 1000 MiB/s per volume. Choose a maximum ratio of 0.25:1 between throughput and IOPS."]},
+    {"name": "Bootstrapactions", "value":"", "widget": "tab", "title": "Bootstrap Actions"},
+    {"name": "BootstrapActions", "value":"[]", "required":false, "widget": "variablesList", "optionsArray": ["Name","ScriptBootstrapAction","Arguments"], "title": "Bootstrap Actions", "description": "ScriptBootstrapAction: Instance group role in the cluster" ,"expandable":true},
+    {"name": "Advanced", "value":"", "widget": "tab", "title": "Advanced"},
+    {"name": "Tags", "value":"[]", "required":false, "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Tags", "description": "key: Tag Key,Value: Tag Value" },
+    {"name": "Configurations", "value":"[]", "required":false, "widget": "variablesList", "optionsArray": ["classification","propertiesKey","propertiesValue"], "title": "Configurations", "description": "key: Tag Key,Value: Tag Value" }
+  ]
+}
+start-details:
+
+h2:Create EMR cluster
+
+This node creates a new EMR JobFlow by using details in configuration and passes the EMR ID to the next step.
+
+end-details:
+
+start-examples:
+
+h2: Create EMR JobFlow Examples
+
+h4: Example of Instance Groups
+
+{
+"Name": "Master",
+"Market": "ON_DEMAND",
+"InstanceRole": "MASTER",
+"InstanceType": "m5.xlarge",
+"InstanceCount": 1,
+"EbsVolumeSizeInGB": 100,
+"EbsVolumeType": "gp2",
+"EbsVolumesPerInstance": 1
+}
+
+h4: Explanation
+
+* This configuration creates an instance group for the master node with the specified type and count.
+
+h4: Example of Bootstrap Actions
+
+{
+"Name": "Install Spark",
+"ScriptBootstrapAction": {
+"Path": "s3://my-bucket/bootstrap-scripts/install-spark.sh"
+}
+}
+
+h4: Explanation
+
+* This bootstrap action runs a script from S3 to install Spark on the cluster nodes.
+
+h4: Example of Configurations
+
+{
+"classification": "hadoop-env",
+"propertiesKey": "JAVA_HOME",
+"propertiesValue": "/usr/lib/jvm/java-1.8.0"
+}
+
+h4: Explanation
+
+* This configuration sets the JAVA_HOME environment variable for the Hadoop environment.
+
+h4: Usage
+
+* Task ID: "create_emr_jobflow_task"
+
+h4: Example of Task Configuration
+
+{
+"Name": "MyEMRJobFlow",
+"ClusterName": "MyCluster",
+"ReleaseLabel": "emr-6.2.0",
+"LogUri": "s3://aws-logs-us-east-1/elasticmapreduce/",
+"Applications": "Spark",
+"JobFlowRole": "EMR_EC2_DefaultRole",
+"ServiceRole": "EMR_DefaultRole",
+"Ec2KeyName": "my-key-pair",
+"Ec2SubnetId": "subnet-12345678",
+"KeepJobFlowAliveWhenNoSteps": "False",
+"TerminationProtected": "False",
+"EmrManagedMasterSecurityGroup": "sg-12345678",
+"EmrManagedSlaveSecurityGroup": "sg-87654321",
+"Instances": [
+{
+"InstanceGroups": [
+{
+"Name": "Master",
+"Market": "ON_DEMAND",
+"InstanceRole": "MASTER",
+"InstanceType": "m5.xlarge",
+"InstanceCount": 1,
+"EbsVolumeSizeInGB": 100,
+"EbsVolumeType": "gp2",
+"EbsVolumesPerInstance": 1
+},
+{
+"Name": "Core",
+"Market": "SPOT",
+"InstanceRole": "CORE",
+"InstanceType": "m5.xlarge",
+"InstanceCount": 2,
+"EbsVolumeSizeInGB": 100,
+"EbsVolumeType": "gp2",
+"EbsVolumesPerInstance": 1
+}
+]
+}
+],
+"BootstrapActions": [
+{
+"Name": "Install Packages",
+"ScriptBootstrapAction": {
+"Path": "s3://my-bucket/scripts/install_packages.sh",
+"Args": ["arg1", "arg2"]
+}
+}
+],
+"Tags": [
+{
+"Key": "Environment",
+"Value": "Production"
+}
+],
+"Configurations": [
+{
+"classification": "spark-env",
+"propertiesKey": "SPARK_HOME",
+"propertiesValue": "/usr/lib/spark"
+}
+]
+}
+
+end-examples:

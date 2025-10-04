@@ -1,0 +1,34 @@
+{
+  "id": "6",
+  "name": "Run Snowflake Command",
+  "description": "This node use to run SQL command in snowflake by using details in configuration",
+  "type": "snowflake",
+  "nodeClass": "fire.pipelineNodes.SnowflakeRunSQLCommand",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in airflow DAG." },
+    {"name": "SqlQuery", "value":"","required":true, "widget": "textarea", "title": "SQL Query", "description": "SQL Query" },
+    {"name": "SnowflakeConnectionId", "value":"", "required":true, "widget": "connections", "title": "Select Snowflake Connection", "description": "Select Snowflake Connection" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}
+start-details:
+
+h2: Run Snowflake Command
+
+This node use to run SQL command in snowflake by using details in configuration.
+Designed to execute Snowflake SQL commands, including stored procedures.
+
+end-details:
+start-examples:
+
+h2: Run Snowflake Command
+
+Stored procedures:
+sql="CALL my_database.my_schema.my_procedure('param1', 'param2');",
+
+snowflake command:
+sql=CREATE OR REPLACE TABLE my_database.my_schema.my_table (id INT, name STRING);
+
+indeed of SQL query: SQL
+
+end-examples:

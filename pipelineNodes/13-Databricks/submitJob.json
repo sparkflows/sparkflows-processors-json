@@ -1,0 +1,45 @@
+{
+  "id": "6",
+  "name": "Run Notebook",
+  "description": "This node use to submit a new Databricks job to Cluster by using details in configuration",
+  "type": "databricks",
+  "nodeClass": "fire.pipelineNodes.DatabricksSubmitRun",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in airflow DAG." },
+    {"name": "ClusterId", "value":"", "widget": "textfield", "title": "Cluster Id", "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create cluster node(task)." },
+    {"name": "NotebookPath", "value":"", "required":true, "widget": "textfield", "title": "Notebook Path", "description": "Notebook Path" },
+    {"name": "BaseParameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Base Parameters", "description": "Base Parameters" },
+    {"name": "timeout", "value":"120", "required":true, "widget": "textfield", "title": "Timeout", "description": "Timeout for your Databricks task in Airflow to give it more time to complete, especially if it's waiting for the cluster to reach the RUNNING state(In seconds)." },
+    {"name": "DatabricksConnectionId", "value":"", "required":true, "widget": "connections", "title": "Databricks Connection", "description": "Databricks Connection" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}
+start-details:
+
+h2:Submit Spark Job to Cluster
+
+This node use to submit a new Databricks job to Cluster by using details in configuration.
+
+end-details:
+
+start-examples:
+
+h2: Submit Spark Job to Cluster Examples
+
+new_cluster = {
+  "spark_version": "9.1.x-scala2.12",
+  "node_type_id": "r3.xlarge",
+  "aws_attributes": {"availability": "ON_DEMAND"},
+  "num_workers": 8,
+}
+
+notebook_task_params = {
+  "new_cluster": new_cluster,
+  "notebook_task": {
+    "notebook_path": "/Users/airflow@example.com/PrepareData",
+  },
+}
+
+notebook_task = DatabricksSubmitRunOperator(task_id="notebook_task", json=notebook_task_params)
+
+end-examples:

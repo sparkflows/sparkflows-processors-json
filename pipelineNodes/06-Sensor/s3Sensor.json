@@ -1,0 +1,74 @@
+{
+  "id": "6",
+  "name": "S3 Sensor",
+  "description": "This node supports s3 key Sensor operations.",
+  "type": "s3Sensor",
+  "nodeClass": "fire.pipelineNodes.s3Sensor",
+  "fields" : [
+ 	{"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "poke_interval", "value":"", "required":true, "widget": "textfield", "title": "Poke Interval", "description": "Poke Interval in seconds" },
+	{"name": "timeout", "value":"", "required":true, "widget": "textfield", "title": "Timeout", "description": "Timeout in seconds" },
+    {"name": "soft_fail", "value":"False", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Soft Fail", "description": "Soft Fail" },
+    {"name": "retries", "value":"2", "required":false, "widget": "textfield", "title": "Retries", "description": "Retries" },
+    {"name": "wildcard_match", "value":"False", "required":true, "widget": "array", "optionsArray": ["True","False"], "title": "Wildcard Match", "description": "Whether the bucket_key should be interpreted as a Unix wildcard pattern" },
+	{"name": "bucket_key", "value":"", "required":true, "widget": "textfield", "title": "Bucket Key", "description": "The key being waited on. Supports full s3:// style url or relative path from root level." },
+	{"name": "bucket_name", "value":"", "required":true, "widget": "textfield", "title": "Bucket Name", "description": "Name of the S3 bucket" },
+	{"name": "aws_conn_id", "value":"aws_default", "required":true, "widget": "textfield", "title": "AWS Connection ID", "description": "AWS Connection ID" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}
+start-details:
+
+h2:S3 sensor
+
+This node supports s3 key Sensor operations.
+
+end-details:
+
+start-examples:
+
+h2: S3 Sensor Examples
+
+h4: Example of Creating an S3 Sensor Node
+
+{
+"Name": "MyS3Sensor",
+"poke_interval": "30",
+"timeout": "300",
+"soft_fail": "False",
+"retries": "2",
+"wildcard_match": "True",
+"bucket_key": "myfolder/myfile.txt",
+"bucket_name": "my-s3-bucket",
+"aws_conn_id": "my_aws_connection",
+"trigger_rule": "all_success"
+}
+
+h4: Explanation
+* This example demonstrates how to create an S3 Sensor node that checks for the presence of `myfile.txt` in the specified bucket every 30 seconds, with a timeout of 5 minutes and allowing 2 retries.
+
+h4: Usage
+* Task ID: "my_s3_sensor_task"
+
+h4: Additional Example of Creating an S3 Sensor Node with Optional Parameters
+
+{
+"Name": "MyOptionalS3Sensor",
+"poke_interval": "15",
+"timeout": "120",
+"soft_fail": "True",
+"retries": "1",
+"wildcard_match": "False",
+"bucket_key": "logs/*.log",
+"bucket_name": "my-logs-bucket",
+"aws_conn_id": "aws_default",
+"trigger_rule": "one_success"
+}
+
+h4: Explanation
+* This example illustrates how to create an S3 Sensor node that waits for any `.log` file in the `logs` directory of the `my-logs-bucket`, checking every 15 seconds with a 2-minute timeout. The sensor will softly fail if the key is not found, and it allows only one retry.
+
+h4: Usage
+* Task ID: "my_optional_s3_sensor_task"
+
+end-examples:

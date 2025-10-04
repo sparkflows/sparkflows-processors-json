@@ -1,0 +1,50 @@
+{
+  "id": "6",
+  "name": "Empty Operator",
+  "description": "This node creates an Empty Operator",
+  "type": "emptyOperator",
+  "nodeClass": "fire.pipelineNodes.emptyOperator",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG." },
+	{"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}
+start-details:
+
+h2:Empty Operator
+
+This node creates an Empty Operator.
+
+end-details:
+
+start-examples:
+
+h2: Empty Operator Examples
+
+h4: Example of Creating an Empty Operator
+
+{
+"Name": "MyEmptyOperator",
+"trigger_rule": "all_success"
+}
+
+h4: Explanation
+* This example demonstrates how to define an Empty Operator with a specified task name and trigger rule. The operator will execute without any specific task logic.
+
+h4: Usage
+* Task ID: "my_empty_operator_task"
+
+h4: Example of Creating an Empty Operator with a Different Trigger Rule
+
+{
+"Name": "MySecondEmptyOperator",
+"trigger_rule": "one_failed"
+}
+
+h4: Explanation
+* This example shows how to create another Empty Operator with a different trigger rule, indicating that the task should proceed if any upstream task fails.
+
+h4: Usage
+* Task ID: "my_second_empty_operator_task"
+
+end-examples:

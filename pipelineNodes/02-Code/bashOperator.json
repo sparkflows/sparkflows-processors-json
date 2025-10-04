@@ -1,0 +1,61 @@
+{
+  "id": "6",
+  "name": "Bash Operator",
+  "description": "This node executes a Bash script, command or set of commands.",
+  "type": "bashOperator",
+  "nodeClass": "fire.pipelineNodes.bashOperator",
+  "fields" : [
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG"},
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" },
+    {"name": "shellCommand", "widget": "shellcommand","required":true, "title": "Shell Command", "description": "Shell command to be executed"}
+  ]
+}
+start-details:
+
+h2:Bash Operator
+
+This node executes a Bash script, command or set of commands.
+
+end-details:
+
+start-examples:
+
+h2: Bash Operator Examples
+
+h4: Example of a Simple Bash Command
+
+Command: echo 'Hello, World!'
+
+This command prints "Hello, World!" to the console.
+
+h4: Example of Executing a Script
+
+Command: bash my_script.sh
+
+This command runs a Bash script named my_script.sh. Ensure that the script has execute permissions.
+
+h4: Example of Setting Environment Variables
+
+Command:
+export MY_VAR='Hello';
+echo $MY_VAR
+
+This command sets an environment variable MY_VAR and then echoes its value.
+
+h4: Example of Using Conditional Logic
+
+if [ -f /path/to/file ]; then
+echo 'File exists';
+else
+echo 'File does not exist';
+fi
+
+This command checks if a specific file exists and echoes the appropriate message.
+
+h4: Usage
+
+* Task ID: "bash_operator_task"
+* Trigger Rule: all_success
+* Shell Command: echo 'Hello, World!'
+
+end-examples:

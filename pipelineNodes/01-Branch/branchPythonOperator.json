@@ -1,0 +1,47 @@
+{
+  "id": "7",
+  "name": "Branch Python Operator",
+  "description": "This node executes a certain path based on return value from the previous task.",
+  "type": "python",
+  "nodeClass": "fire.pipelineNodes.branchPythonOperator",
+  "fields" : [
+    {"name": "python", "value":"'''\ndef branch_func(ti):\nxcom_value = int(ti.xcom_pull(task_ids=$task_id))","widget": "shellcommand", "title": "Python", "description": "Write Python code here"},
+    {"name": "Name", "value":"", "required":true, "widget": "textfield", "title": "Task Name", "description": "Unique name of the task in Airflow DAG" },
+    {"name": "python_callable", "value":"", "required":true, "widget": "textfield", "title": "Python Callable", "description": "Input name of user defined function name in the Python code" },
+	{"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","all_failed","all_done","all_skipped","one_failed","one_success","none_failed","none_failed_min_one_success","none_skipped","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}
+
+start-details:
+
+h2:Branch Python Operator
+
+This node executes a certain path based on return value from the previous task.
+
+end-details:
+
+start-examples:
+
+h2: Branch Python Operator Examples
+
+h4: Example of Python Code
+Define a branching function based on the value returned by an XCom:
+
+    def branch_func(ti):
+    xcom_value = int(ti.xcom_pull(task_ids='previous_task_id'))
+    if xcom_value > 10:
+    return 'task_a'
+    else:
+    return 'task_b'
+
+h4: Explanation
+* The Python function branch_func pulls an XCom value from a previous task (previous_task_id).
+* Based on the XCom value, the function returns either 'task_a' (if the value is greater than 10) or 'task_b' (if it's less than or equal to 10).
+* Only one of the tasks (task_a or task_b) will be executed, and the other will be skipped.
+
+h4: Usage
+* Task ID: "branch_python_operator_task"
+* Trigger Rule: all_success
+* Python Callable: branch_func
+
+end-examples:

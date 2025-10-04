@@ -1,0 +1,57 @@
+{
+  "id": "1",
+  "name": "Workflow",
+  "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+  "type": "workflow",
+  "nodeClass": "fire.pipelineNodes.Workflow",
+  "fields" : [
+
+    {"name": "workflowUUID", "value":"", "required":true, "widget": "workflow", "title": "Workflow", "description": "List of Workflows" },
+    {"name": "sparkConf", "value":"", "required":false, "widget": "textfield", "title": "Spark Conf", "description": "Add spark conf", "expandable": true },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" },
+    {"name": "notes", "value":"", "widget": "textfield", "title": "Notes", "description": "Notes"},
+	{"name": "wf_parameters", "value":"[]",  "widget": "variablesList", "optionsArray": ["Key","Value"], "title": "Parameters", "description": "List of parameters from selected workflow", "editable": false }
+    
+  ]
+}
+start-details:
+
+h2:Workflow
+
+This node allows user to select the list of workflows in the project to create a pipeline.
+
+end-details:
+
+start-examples:
+
+h2: Workflow Examples
+
+h4: Example of Creating a Workflow Node
+
+{
+"workflowUUID": "12345-abcde-67890-fghij",
+"sparkConf": "",
+"notes": ""
+}
+
+h4: Explanation
+* This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.
+
+h4: Usage
+* Task ID: "workflow_task"
+
+h4: Example of Creating a Workflow Node with Spark Configuration and Notes
+
+{
+"workflowUUID": "12345-abcde-67890-fghij",
+"sparkConf": "spark.executor.memory=4g,spark.driver.memory=2g",
+"notes": "This workflow processes data for the quarterly report."
+}
+
+h4: Explanation
+* This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.
+
+h4: Usage
+* Task ID: "workflow_with_spark_conf_task"
+
+end-examples:

@@ -1,0 +1,92 @@
+{
+  "id": "12",
+  "name": "Add YAML Configuration",
+  "description": "Add YAML Configuration files. Can add multiple YAML configuration files.",
+  "type": "configuration",
+  "nodeClass": "fire.pipelineNodes.addConfiguration",
+  "engine": "all",
+  "fields" : [
+    {"name": "configFilePath", "value":"", "required":false, "widget": "multiTextfield", "title": "Config File Path", "description": "Path of configuration files" },
+    {"name": "airflowConfigKey", "value":"", "required":false, "widget": "multiTextfield", "title": "Airflow Config Key", "description": "Airflow Config key in JSON format" },
+    {"name": "userDefinedVariables", "value":"[]", "required":true, "widget": "variablesList", "optionsArray": ["Variable Name","Variable Value"], "title": "Variables", "description": "Add Variable Names and Values" }
+
+  ]
+}
+
+
+start-details:
+
+h2:Configuration Details
+
+In <b>configFilePath</b>, add the names of the config yaml files.
+In <b>airflowConfigKey</b>, add the variable key name defined in airflow.The variables from airflowConfigKey gets the higher precedence.
+
+In <b>variablesList</b>, add the variable names and variable values.
+
+Below is an example of yaml file and variables.
+yaml file:
+dev:
+  input:
+    bucketname: fire-sample-data
+    keyname: inputlocation
+  output:
+    bucketname: fire-sample-data
+    keyname: outputlocation
+prod:
+  input:
+    bucketname: fire-sample-data
+    keyname: inputlocation
+  output:
+    bucketname: fire-sample-data
+    keyname: outputlocation
+
+
+In below examples ENV = dev, INPUTPATH = input  and OUTPUTPATH = output variables should be defined in airflow.
+
+<b>input_bucketname</b>  {{ENV}}.{{INPUTPATH}}.bucketname
+<b>output_bucketname</b> {{ENV}}.{{OUTPUTPATH}}.bucketname
+
+Now input_bucketname and output_bucketname variables can be used with single curly braces to define the complete paths.
+
+end-details:
+
+start-examples:
+
+h2: Add YAML Configuration Examples
+
+h4: Example of YAML File Structure
+
+dev:
+input:
+bucketname: fire-sample-data
+keyname: inputlocation
+output:
+bucketname: fire-sample-data
+keyname: outputlocation
+
+prod:
+input:
+bucketname: fire-sample-data
+keyname: inputlocation
+output:
+bucketname: fire-sample-data
+keyname: outputlocation
+
+h4: Environment and Variable Definitions
+
+In the above example, you can define the following variables in Airflow:
+
+* ENV: dev or prod
+* INPUTPATH: input
+* OUTPUTPATH: output
+
+h4: Example Variable Definitions in Airflow
+
+* input_bucketname: {{ENV}}.{{INPUTPATH}}.bucketname
+
+* output_bucketname: {{ENV}}.{{OUTPUTPATH}}.bucketname
+
+h4: Usage
+* These variables can be used with single curly braces to define the complete paths dynamically based on the environment.
+
+end-examples:

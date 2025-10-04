@@ -1,0 +1,66 @@
+{
+  "id": "7",
+  "name": "Add DAG Arguments",
+  "description": "This node is used to add DAG arguments.",
+  "type": "DAGArguments",
+  "nodeClass": "fire.pipelineNodes.addDAGArguments",
+  "fields" : [
+    {"name": "email", "value":"", "required":false, "widget": "textfield", "title": "Email", "description": "Add email where notification of failure or retry will be send depending upon email of failure or retry boolean value"},
+    {"name": "email_on_failure", "value":"False", "required":false, "widget": "array", "optionsArray": ["True","False"] ,"title": "Email on failure", "description": "Set True if notification needs to be send to specified email when airflow DAG fails"},
+    {"name": "email_on_retry", "value":"False", "required":false, "widget": "array", "optionsArray": ["True","False"], "title": "Email on retry", "description": "Set True if notification needs to be send to specified email when airflow DAG retry"},
+    {"name": "retries", "value":"1", "required":true, "widget": "textfield", "title": "Retries", "description": "Add number of retries count"},
+    {"name": "retry_delay", "value":"5", "required":true, "widget": "textfield", "title": "Retry delay time in minutes", "description": "Add retry delay time in minutes"},
+    {"name": "dagrun_timeout", "value":"", "required":false, "widget": "textfield", "title": "DAG Run Timeout", "description": "Add DAG run timeout in minutes"},
+    {"name": "tags", "value":"", "required":false, "widget": "textfield","title": "Tags", "description": "Add tags of airflow DAG in comma separated" }
+  ]
+}
+start-details:
+
+h2:Add DAG Arguments
+
+One can configure custom arguments via this node as <key, value> to be used in the DAG of this pipeline.
+The added values in each variable will be used in DAG arguments while generating script on execute.
+
+end-details:
+
+start-examples:
+
+h2: Add DAG Arguments Examples
+
+h4: Example of Adding Basic DAG Arguments
+
+{
+"email": "user@example.com",
+"email_on_failure": "True",
+"email_on_retry": "False",
+"retries": "3",
+"retry_delay": "10",
+"dagrun_timeout": "120",
+"tags": "example,dag,notification"
+}
+
+h4: Explanation
+* This example demonstrates how to add basic DAG arguments, including the email for notifications, retry settings, and DAG timeout.
+
+h4: Usage
+* Task ID: "add_dag_arguments_task"
+
+h4: Example of Adding DAG Arguments with Custom Settings
+
+{
+"email": "admin@example.com",
+"email_on_failure": "True",
+"email_on_retry": "True",
+"retries": "5",
+"retry_delay": "15",
+"dagrun_timeout": "60",
+"tags": "alert,critical"
+}
+
+h4: Explanation
+* This example shows how to configure DAG arguments with notifications for both failures and retries, increasing the number of retries and the delay time.
+
+h4: Usage
+* Task ID: "custom_dag_arguments_task"
+
+end-examples:

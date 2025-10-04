@@ -1,0 +1,48 @@
+{
+  "id": "6",
+  "name": "Trigger Next Pipeline",
+  "description": "This node triggers the next pipeline to run.",
+  "type": "TriggerNextPipeline",
+  "nodeClass": "fire.pipelineNodes.TriggerNextPipeline",
+  "fields" : [
+    {"name": "Select Pipeline", "value":"", "required":true, "widget": "pipeline", "title": "Select Pipeline", "description": "Select pipeline to trigger next" },
+    {"name": "trigger_rule", "value":"all_success", "required":true, "widget": "array", "optionsArray": ["all_success","always"], "title": "Trigger Rule", "description": "Trigger Rule to be used" }
+  ]
+}
+start-details:
+
+h2:Trigger next Pipeline
+
+This node triggers the next pipeline to run.
+
+end-details:
+
+start-examples:
+
+h2: Trigger Next Pipeline Examples
+
+h4: Example of Creating a Trigger Next Pipeline Node
+
+{
+"Select Pipeline": "DataProcessingPipeline"
+}
+
+h4: Explanation
+* This example demonstrates how to create a Trigger Next DAG node that triggers the `DataProcessingPipeline` as the next pipeline to run.
+
+h4: Usage
+* Task ID: "trigger_next_pipeline_task"
+
+h4: Additional Example of Creating a Trigger Next Pipeline Node with a Different Pipeline
+
+{
+"Select Pipeline": "ReportingPipeline"
+}
+
+h4: Explanation
+* This example illustrates how to create a Trigger Next Pipeline node that triggers the `ReportingPipeline` instead, allowing for flexibility in the next pipeline execution.
+
+h4: Usage
+* Task ID: "trigger_another_pipeline_task"
+
+end-examples:
