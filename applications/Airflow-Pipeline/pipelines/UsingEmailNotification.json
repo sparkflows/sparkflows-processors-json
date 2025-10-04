@@ -1,0 +1,391 @@
+{
+  "name": "UsingEmailNotification",
+  "uuid": "06d31c0e-b3cd-4ed3-9b69-2b60d541db27",
+  "category": "Utilities",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/11-Util/",
+      "name": "EmailNotification",
+      "description": "This node sends notification to given email address with given content",
+      "details": "<h2> Email Notification Configuration Details</h2>\n<br>\nThis node allows you to set up an email notification within a pipeline.<br>\n<br>\n<ul>\n<li> Task Name: Provide a unique name for this task to track it in the Airflow DAG.</li>\n<li> Email Address: Specify the email address where notifications should be sent.</li>\n<li> Subject: Define the subject of the email to describe the purpose or content.</li>\n<li> Content: Add the body of the email message. You can also reference dynamic parameters.</li>\n<li> ClusterId: The unique identifier for the cluster associated with this task. If the preceding node is 'Create EMR JobFlow,' the ClusterId will be automatically set to the newly created cluster ID from the 'Create EMR JobFlow' step, unless specified otherwise. If not, the ClusterId must be provided explicitly.</li>\n</ul>\nThe notification can be triggered based on specific events or statuses by using the Trigger Rule and Action on Failure settings.<br>",
+      "examples": "<h2> Email Notification Node Configuration Examples</h2>\n<br>\n<h4> Example 1 - Error Notification with Detailed Log</h4>\n<br>\n<ul>\n<li> Task Name: 'ErrorNotification'</li>\n<li> ClusterId: 'j-1234567890ABCDE'</li>\n<li> Email Address: 'admin@example.com'</li>\n<li> Subject: 'Error in Data Processing Workflow'</li>\n<li> Content: 'An error occurred during the data processing workflow. Please review the attached logs or visit the monitoring dashboard for further details.'</li>\n<li> Action on Failure: 'CONTINUE'</li>\n<li> Trigger Rule: 'one_failed'</li>\n</ul>\nThis example sends an error notification to an admin if any task in the workflow fails, providing a quick alert to address the issue.<br>\n<br>\n<h4> Example 2 - Completion Notification for Stakeholders</h4>\n<br>\n<ul>\n<li> Task Name: 'DataPipelineCompletionNotification'</li>\n<li> ClusterId: 'j-1234567890ABCDE'</li>\n<li> Email Address: 'team@example.com, manager@example.com'</li>\n<li> Subject: 'Data Pipeline Execution Completed Successfully'</li>\n<li> Content: 'The scheduled data pipeline has successfully completed. Data is now available for analysis in the database. No action is required at this time.'</li>\n<li> Action on Failure: 'CONTINUE'</li>\n<li> Trigger Rule: 'all_success'</li>\n</ul>\nThis setup sends a completion email to the team and the manager when all tasks in the data pipeline complete successfully. The workflow will continue even if the email fails to send.<br>",
+      "type": "Node",
+      "nodeClass": "fire.nodes.util.NodeEmailNotification",
+      "x": "474px",
+      "y": "210px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "EmailNotify",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in Airflow DAG",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ClusterId",
+          "value": "j-10N9TVRG81WOU",
+          "widget": "textfield",
+          "title": "Cluster ID",
+          "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create EMR node(task)",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ActionOnFailure",
+          "value": "CONTINUE",
+          "widget": "array",
+          "title": "Action On Failure",
+          "description": "Action to be taken on Failure",
+          "optionsArray": [
+            "CANCEL_AND_WAIT",
+            "CONTINUE",
+            "TERMINATE_JOB_FLOW",
+            "TERMINATE_CLUSTER"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "SparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf values in comma separated as key=value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "aws_conn_id",
+          "value": "",
+          "widget": "textfield",
+          "title": "AWS Connection ID",
+          "description": "AWS Connection ID",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "deploy-mode",
+          "value": "cluster",
+          "widget": "array",
+          "title": "Deploy Mode",
+          "description": "Whether to deploy your driver on the worker nodes (cluster) or locally as an external client (client)",
+          "optionsArray": [
+            "cluster",
+            "client"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "nodeconfiguration",
+          "value": "",
+          "widget": "tab",
+          "title": "NodeConfiguration",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "emailAddress",
+          "value": "rajesh@sparkflows.io",
+          "widget": "textfield",
+          "title": "Email Address",
+          "description": "Email Address (Add multiple email as comma separated)",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "subject",
+          "value": "Subject of Pipeline Email Notification Node",
+          "widget": "textfield",
+          "title": "Subject",
+          "description": "Subject",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "content",
+          "value": "Content of Testing Pipeline Email Notification Node",
+          "widget": "textarea",
+          "title": "Content",
+          "description": "Content",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "path": "/02-Code/",
+      "name": "Bash Operator",
+      "description": "This node executes a Bash script, command or set of commands.",
+      "details": "<h2>Bash Operator</h2>\n<br>\nThis node executes a Bash script, command or set of commands.<br>",
+      "examples": "<h2> Bash Operator Examples</h2>\n<br>\n<h4> Example of a Simple Bash Command</h4>\n<br>\nCommand: echo 'Hello, World!'<br>\n<br>\nThis command prints \"Hello, World!\" to the console.<br>\n<br>\n<h4> Example of Executing a Script</h4>\n<br>\nCommand: bash my_script.sh<br>\n<br>\nThis command runs a Bash script named my_script.sh. Ensure that the script has execute permissions.<br>\n<br>\n<h4> Example of Setting Environment Variables</h4>\n<br>\nCommand:<br>\nexport MY_VAR='Hello';<br>\necho $MY_VAR<br>\n<br>\nThis command sets an environment variable MY_VAR and then echoes its value.<br>\n<br>\n<h4> Example of Using Conditional Logic</h4>\n<br>\nif [ -f /path/to/file ]; then<br>\necho 'File exists';<br>\nelse<br>\necho 'File does not exist';<br>\nfi<br>\n<br>\nThis command checks if a specific file exists and echoes the appropriate message.<br>\n<br>\n<h4> Usage</h4>\n<br>\n<ul>\n<li> Task ID: \"bash_operator_task\"</li>\n<li> Trigger Rule: all_success</li>\n<li> Shell Command: echo 'Hello, World!'</li>\n</ul>",
+      "type": "bashOperator",
+      "nodeClass": "fire.pipelineNodes.bashOperator",
+      "x": "165px",
+      "y": "230px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "BashOperatorPipeline",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in Airflow DAG",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "shellCommand",
+          "value": "ls",
+          "widget": "shellcommand",
+          "title": "Shell Command",
+          "description": "Shell command to be executed",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "path": "/09-Documentation/",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes",
+      "details": "<h2>Sticky Note</h2>\n<br>\nAllows capturing Notes.<br>",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.pipelineNodes.doc.NodeStickyNote",
+      "x": "151px",
+      "y": "28px",
+      "fields": [
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "width",
+          "value": "730.306878px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "height",
+          "value": "80.306878px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of the note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "comment",
+          "value": "<h3>Email Notification Node</h3><ul><li><strong>Purpose</strong>: Sends an email notification to designated recipient.</li></ul><p><br></p><h3>Example Configuration</h3><p>\t<strong>Error Notification</strong>:</p><ul><li class=\"ql-indent-1\"><strong>Trigger Rule</strong>: <code>one_failed</code>—send if any task fails.</li><li class=\"ql-indent-1\"><strong>Recipients</strong>: <code>admin@example.com</code></li><li class=\"ql-indent-1\"><strong>Subject</strong>: \"Error in Data Processing Workflow\"</li><li class=\"ql-indent-1\"><strong>Content</strong>: \"An error occurred. Review logs for details.\"</li></ul><p>\t<strong>Completion Notification</strong>:</p><ul><li class=\"ql-indent-1\"><strong>Trigger Rule</strong>: <code>all_success</code>—send upon successful completion of all tasks.</li><li class=\"ql-indent-1\"><strong>Recipients</strong>: <code>team@example.com</code></li><li class=\"ql-indent-1\"><strong>Subject</strong>: \"Data Pipeline Execution Completed Successfully\"</li><li class=\"ql-indent-1\"><strong>Content</strong>: \"Data pipeline has successfully completed.\"</li></ul><p><br></p><p><br></p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Pipeline",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "path": "/09-Documentation/",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes",
+      "details": "<h2>Sticky Note</h2>\n<br>\nAllows capturing Notes.<br>",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.pipelineNodes.doc.NodeStickyNote",
+      "x": "55.8439px",
+      "y": "349.847px",
+      "fields": [
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "width",
+          "value": "300px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "height",
+          "value": "110px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of the note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "comment",
+          "value": "<h3>Bash Operator Node</h3><p><strong>Purpose</strong>: Executes a Bash script or command in the workflow.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Pipeline",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "2",
+      "target": "1",
+      "id": 1
+    }
+  ]
+}

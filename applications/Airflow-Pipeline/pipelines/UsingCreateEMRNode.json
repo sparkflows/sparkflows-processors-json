@@ -1,0 +1,259 @@
+{
+  "name": "UsingCreateEMRNode",
+  "uuid": "a37bdb22-7cdd-411c-ae6b-b337d40bec0a",
+  "category": "EMR",
+  "description": "-",
+  "parameters": "--var sparkJarLocation=s3://sparkflows-release/fire/library-jar/livy-jar/fire-spark_3.3.0-core-3.1.0-jar-with-dependencies.jar --var hour=5",
+  "nodes": [
+    {
+      "id": "2",
+      "path": "/09-Documentation/",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes",
+      "details": "<h2>Sticky Note</h2>\n<br>\nAllows capturing Notes.<br>",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.pipelineNodes.doc.NodeStickyNote",
+      "x": "55px",
+      "y": "30px",
+      "fields": [
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "width",
+          "value": "817.306878px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "height",
+          "value": "95.306878px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of the note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "comment",
+          "value": "<p><strong>EMR Workflow</strong>&nbsp;node can be used to allow the user to add the workflow in a project to an EMR step to execute.</p><p><br></p><p><strong>Documentation</strong>: https://docs.sparkflows.io/en/latest/user-guide/pipeline-development/nodes/emr-workflow-operator.html</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Pipeline",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "path": "/03-EMR/",
+      "name": "Read-And-Display-Data",
+      "description": "This node adds the workflow in the project as an EMR step and executes it.",
+      "details": "<h2>EMR Workflow</h2>\n<br>\nThis node adds the workflow in the project as an EMR step and executes it.<br>",
+      "examples": "<h2> EMR Workflow Examples</h2>\n<br>\n<h4> Example of Adding an EMR Workflow</h4>\n<br>\n{<br>\n\"Name\": \"MyEMRWorkflow\",<br>\n\"ClusterId\": \"j-1234567890ABCDE\",<br>\n\"ActionOnFailure\": \"CONTINUE\",<br>\n\"SparkConf\": \"spark.executor.instances=2,spark.executor.memory=4g\",<br>\n\"Jars\": \"s3://my-bucket/my-jar.jar,s3://my-bucket/my-other-jar.jar\",<br>\n\"workflowUUID\": \"123e4567-e89b-12d3-a456-426614174000\",<br>\n\"aws_conn_id\": \"aws_default\",<br>\n\"deploy-mode\": \"client\",<br>\n\"parameters\": [<br>\n{\"Key\": \"inputPath\", \"Value\": \"s3://my-bucket/input/\"},<br>\n{\"Key\": \"outputPath\", \"Value\": \"s3://my-bucket/output/\"}<br>\n],<br>\n\"trigger_rule\": \"all_success\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to define an EMR workflow with specific parameters, including the task name, action on failure, Spark configurations, and the workflow UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"emr_workflow_task\"</li>\n<li> Workflow ID: 123e4567-e89b-12d3-a456-426614174000</li>\n</ul>\n<h4> Example of Adding an EMR Workflow with Specified Cluster ID</h4>\n<br>\n{<br>\n\"Name\": \"DataProcessingWorkflow\",<br>\n\"ClusterId\": \"j-0987654321XYZ\",<br>\n\"ActionOnFailure\": \"TERMINATE_JOB_FLOW\",<br>\n\"SparkConf\": \"spark.executor.instances=4,spark.executor.memory=8g\",<br>\n\"Jars\": \"s3://my-bucket/data-processing-jar.jar\",<br>\n\"workflowUUID\": \"987e6543-e21b-43d3-a654-426614174111\",<br>\n\"aws_conn_id\": \"my_aws_connection\",<br>\n\"deploy-mode\": \"cluster\",<br>\n\"parameters\": [<br>\n{\"Key\": \"inputPath\", \"Value\": \"s3://my-bucket/data/\"},<br>\n{\"Key\": \"outputPath\", \"Value\": \"s3://my-bucket/data/output/\"}<br>\n],<br>\n\"trigger_rule\": \"one_success\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example adds an EMR workflow with a specified cluster ID and a different action on failure. It demonstrates how to adjust parameters for different use cases.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"data_processing_workflow_task\"</li>\n<li> Workflow ID: 987e6543-e21b-43d3-a654-426614174111</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.EMRWorkflow",
+      "x": "219.64px",
+      "y": "187.635px",
+      "fields": [
+        {
+          "name": "Name",
+          "value": "EMR_Example",
+          "widget": "textfield",
+          "title": "Task Name",
+          "description": "Unique name of the task in Airflow DAG",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ClusterId",
+          "value": "j-UBK58YW9L15G",
+          "widget": "textfield",
+          "title": "Cluster ID",
+          "description": "If Cluster ID is empty, the step tries to pick the cluster ID from previous create EMR node(task)",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "ActionOnFailure",
+          "value": "CONTINUE",
+          "widget": "array",
+          "title": "Action On Failure",
+          "description": "Action to be taken on Failure",
+          "optionsArray": [
+            "CANCEL_AND_WAIT",
+            "CONTINUE",
+            "TERMINATE_JOB_FLOW",
+            "TERMINATE_CLUSTER"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "SparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf values in comma separated as key=value",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "Jars",
+          "value": "",
+          "widget": "textfield",
+          "title": "JARS",
+          "description": "Comma seperated list of Jars",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "Packages",
+          "value": "",
+          "widget": "textfield",
+          "title": "Packages",
+          "description": "Comma seperated list of Packages",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "workflowUUID",
+          "value": "1c30fe75-8c4b-4d06-8f0e-900577aa6c48",
+          "widget": "workflow",
+          "title": "Workflow ID",
+          "description": "Select the appropriate workflow",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "aws_conn_id",
+          "value": "",
+          "widget": "textfield",
+          "title": "AWS Connection ID",
+          "description": "AWS Connection ID",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "deploy-mode",
+          "value": "client",
+          "widget": "array",
+          "title": "Deploy Mode",
+          "description": "Whether to deploy your driver on the worker nodes (cluster) or locally as an external client (client)",
+          "optionsArray": [
+            "cluster",
+            "client"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters to be passed to the workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "all_failed",
+            "all_done",
+            "all_skipped",
+            "one_failed",
+            "one_success",
+            "none_failed",
+            "none_failed_min_one_success",
+            "none_skipped",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": []
+}
