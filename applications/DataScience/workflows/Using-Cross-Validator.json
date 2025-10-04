@@ -1,0 +1,1610 @@
+{
+  "name": "Using-Cross-Validator",
+  "uuid": "b229b5d5-68bf-4ee0-9635-7bc05dc5e942",
+  "category": "CrossValidator",
+  "description": "Cross Validator",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "106.688px",
+      "y": "292.675px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "6be87dab-55ab-4738-9fa6-97d8de4bd5f3",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "LogisticRegression",
+      "description": "Logistic regression. Currently, this class only supports binary classification.",
+      "details": "Logistic regression is a popular method to predict a categorical response. <br>\n<br>\nIt is a special case of Generalized Linear models that predicts the probability of the outcomes. <br>\nIn spark.ml logistic regression can be used to predict a binary outcome by using binomial logistic regression, or it can be used to predict a multiclass outcome by using multinomial logistic regression.<br>\n<br>\nMore details are available at:<br>\n<br>\n<a href=\"http://spark.apache.org/docs/latest/ml-classification-regression.html#logistic-regression\" target=\"_blank\">spark.apache.org/docs/latest/ml-classification-regression.html#logistic-regression</a><br>",
+      "examples": "<h2>The below example is available at : <a href=\"https://spark.apache.org/docs/2.3.0/ml-classification-regression.html#logistic-regression\" target=\"_blank\">spark.apache.org/docs/2.3.0/ml-classification-regression.html#logistic-regression</a></h2>\n<br>\n<br>\nimport org.apache.spark.ml.classification.LogisticRegression<br>\n<br>\n// Load training data<br>\nval training = spark.read.format(\"libsvm\").load(\"data/mllib/sample_libsvm_data.txt\")<br>\n<br>\nval lr = new LogisticRegression()<br>\n  .setMaxIter(10)<br>\n  .setRegParam(0.3)<br>\n  .setElasticNetParam(0.8)<br>\n<br>\n// Fit the model<br>\nval lrModel = lr.fit(training)<br>\n<br>\n// Print the coefficients and intercept for logistic regression<br>\nprintln(s\"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}\")<br>\n<br>\n// We can also use the multinomial family for binary classification<br>\nval mlr = new LogisticRegression()<br>\n  .setMaxIter(10)<br>\n  .setRegParam(0.3)<br>\n  .setElasticNetParam(0.8)<br>\n  .setFamily(\"multinomial\")<br>\n<br>\nval mlrModel = mlr.fit(training)<br>\n<br>\n// Print the coefficients and intercepts for logistic regression with multinomial family<br>\nprintln(s\"Multinomial coefficients: ${mlrModel.coefficientMatrix}\")<br>\nprintln(s\"Multinomial intercepts: ${mlrModel.interceptVector}\")<br>",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.ml.NodeLogisticRegression",
+      "x": "484.963px",
+      "y": "232.962px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "featuresCol",
+          "value": "features",
+          "widget": "variable",
+          "title": "Features Column",
+          "description": "Features column of type vectorUDT for model fitting",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "labelCol",
+          "value": "label",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting",
+          "datatypes": [
+            "double"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "predictionCol",
+          "value": "",
+          "widget": "textfield",
+          "title": "Prediction Column",
+          "description": "The prediction column created during model scoring",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Confusion Matrix to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxIter",
+          "value": "100",
+          "widget": "textfield",
+          "title": "Maximum Iterations",
+          "description": "Maximum number of iterations (>= 0)",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "fitIntercept",
+          "value": "true",
+          "widget": "array",
+          "title": "Fit Intercept",
+          "description": "Whether to fit an intercept term",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "regParam",
+          "value": "0.01",
+          "widget": "textfield",
+          "title": "Regularization Param",
+          "description": "The regularization parameter",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "standardization",
+          "value": "true",
+          "widget": "array",
+          "title": "Standardization",
+          "description": "Whether to standardize the training features before fitting the model",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "threshold",
+          "value": "0.5",
+          "widget": "textfield",
+          "title": "Threshold",
+          "description": "The threshold in binary classification prediction",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "tol",
+          "value": "1E-6",
+          "widget": "textfield",
+          "title": "Tolerance",
+          "description": "The convergence tolerance for iterative algorithms",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "elasticNetParam",
+          "value": "0.0",
+          "widget": "textfield",
+          "title": "ElasticNet Param",
+          "description": "The ElasticNet mixing parameter. For alpha = 0, the penalty is an L2 penalty. For alpha = 1, it is an L1 penalty",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Weight Column",
+          "description": "If the 'weight column' is not specified, all instances are treated equally with a weight 1.0",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "aggregationDepth",
+          "value": "2",
+          "widget": "textfield",
+          "title": "Aggregation Depth",
+          "description": "Param for suggested depth for treeAggregate (>= 2)",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "family",
+          "value": "auto",
+          "widget": "array",
+          "title": "Family",
+          "description": "Param for the name of family which is a description of the label distribution to be used in the model",
+          "optionsArray": [
+            "auto",
+            "binomial",
+            "multinomial"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "gridSearch",
+          "value": "",
+          "widget": "tab",
+          "title": "Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "regParamGrid",
+          "value": "0.1 0.01",
+          "widget": "textfield",
+          "title": "Regularization Param Grid Search",
+          "description": "Regularization Parameters for Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "elasticNetGrid",
+          "value": "",
+          "widget": "textfield",
+          "title": "ElasticNet Param Grid Search",
+          "description": "ElasticNet Parameters for Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrix",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_confusion_matrix_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output Confusion Matrix Chart",
+          "description": "Whether to display Confusion Matrix Chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartTitle",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Title",
+          "description": "Title name to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartDescription",
+          "value": "Visual Representation of Predicted vs. Actual Classes",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Description",
+          "description": "Description to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixTargetLegend",
+          "value": "Target",
+          "widget": "textfield",
+          "title": "Confusion Matrix Target Legend",
+          "description": "Legend name to display for Target in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixPredictedLabelLegend",
+          "value": "PredictedLabel",
+          "widget": "textfield",
+          "title": "Confusion Matrix PredictedLabel Legend",
+          "description": "Legend name to display for Predicted Label in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Description",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixRowDescription",
+          "value": "",
+          "widget": "textarea_rich",
+          "title": "Confusion Matrix Outcome description",
+          "description": "Add the business details of the outcome of the confusion matrix rows",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ROC Curve",
+          "value": "",
+          "widget": "tab",
+          "title": "ROC Curve",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_roc_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output ROC Curve",
+          "description": "Whether to display confusion matrix chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "roc_title",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Title",
+          "description": "Title name to display in ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "roc_description",
+          "value": "Receiver operating characteristic (ROC) curve",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Description",
+          "description": "Add Description for ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "False Positive Rate (specificity)",
+          "widget": "textfield",
+          "title": "X Label",
+          "description": "X label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "True Positive Rate (sensitivity)",
+          "widget": "textfield",
+          "title": "Y Label",
+          "description": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "HashingTF",
+      "description": "Maps a sequence of terms to term frequencies using the hashing trick.",
+      "details": "<h2> Hashing TF Node Details</h2>\n<br>\nThe Hashing TF Node maps a sequence of terms to their term frequencies using the hashing trick. Currently we use Austin Appleby’s MurmurHash 3 algorithm (MurmurHash3_x86_32) to calculate the hash code value for the term object.<br>\n<br>\nHashing TF converts documents to vectors of fixed size. The default feature dimension is 262,144. The terms are mapped to indices using a Hash Function. The term frequencies are computed with respect to the mapped indices.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> INPUT COLUMN : Select the input token column from the incoming schema. </li>\n<li> OUTPUT COLUMN : Set a name of the output transformed column.</li>\n</ul>",
+      "examples": "<h2> Hashing TF Node Example</h2>\n<br>\nConsider the below <b>Hashing TF</b> vector output for the <b>tokenizer</b> column.<br>\n<br>\n|-----------------------------------------------------------------------------|<br>\n|       Title         |       tokenizer         |           hashTF            |<br>\n|-----------------------------------------------------------------------------|<br>\n| Learning Sparkflows | (learning, sparkflows)  |   (1000,[72,990],[1.0,1.0]) |<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeHashingTF",
+      "x": "364.725px",
+      "y": "136.338px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCol",
+          "value": "words",
+          "widget": "variable",
+          "title": "Input Column",
+          "description": "Contains sets of terms. In text processing, a 'set of terms' might be a bag of words",
+          "datatypes": [
+            "array"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "features",
+          "widget": "textfield",
+          "title": "Output Column",
+          "description": "Output column name",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "10",
+      "name": "Tokenizer",
+      "description": "A tokenizer that converts the input string to lowercase and then splits it by white spaces.",
+      "details": "<h2> Tokenizer Node Details</h2>\n<br>\nTokenization is essentially splitting a phrase, sentence, paragraph, or an entire text document into smaller units, such as individual words or terms. Each of these smaller units are called tokens. The Tokenizer node accepts an string input and breaks the string into an array of tokens.<br>\n                                                                        <br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> INPUT COLUMN : Select the required string column for whom tokenization has to be done . </li>\n<li> OUTPUT COLUMN : The name of the output tokenized column.</li>\n</ul>",
+      "examples": "<h2> Tokenizer Node Example</h2>\n<br>\nAssume that we have a DataFrame with the column <b>strText<b>:<br>\n<br>\n          strText             | <br>\n----------------------------- |<br>\n Sparkflows is cool to learn. |<br>\n <br>\n If we set Tokenizer's <b>INPUT COLUMN</b> to strText and <b>OUTPUT COLUMN</b> to tokens, after transformation we should get the following DataFrame:<br>\n<br>\n                  tokens                       | <br>\n---------------------------------------------- |<br>\nWrappedArray(sparkflows, is, cool, to, learn.) |<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeTokenizer",
+      "x": "239.963px",
+      "y": "136.6px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCol",
+          "value": "message",
+          "widget": "variable",
+          "title": "Input Column",
+          "description": "Column containing text (such as sentence)",
+          "datatypes": [
+            "string"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "words",
+          "widget": "textfield",
+          "title": "Output Column",
+          "description": "Output column name",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "14",
+      "name": "Pipeline",
+      "description": "This node represents Pipeline from Spark ML",
+      "details": "This node represents Pipeline from Spark ML.<br>\n<br>\nIn machine learning, it is common to run a sequence of algorithms to process and learn from data. <br>\nE.g., a simple text document processing workflow might include several stages:<br>\n<br>\n<ul>\n<li> Split each document’s text into words.</li>\n<li> Convert each document’s words into a numerical feature vector.</li>\n<li> Learn a prediction model using the feature vectors and labels.</li>\n</ul>\nMLlib represents such a workflow as a Pipeline, which consists of a sequence of PipelineStages (Transformers and Estimators) to be run in a specific order. <br>\n<br>\nMore at Spark MLlib/ML docs page : <a href=\"http://spark.apache.org/docs/latest/ml-pipeline.html#pipeline\" target=\"_blank\">spark.apache.org/docs/latest/ml-pipeline.html#pipeline</a><br>",
+      "examples": "",
+      "type": "ml-pipeline",
+      "nodeClass": "fire.nodes.ml.NodePipeline",
+      "x": "612.713px",
+      "y": "236.325px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "15",
+      "name": "BinaryClassificationEvaluator",
+      "description": "Evaluator for binary classification, which expects two input columns: rawPrediction and label.",
+      "details": "Evaluator for binary classification, which expects two input columns: rawPrediction and label.<br>\n<br>\n<br>\nMore at Spark MLlib/ML docs page : <a href=\"http://spark.apache.org/docs/latest/mllib-evaluation-metrics.html#binary-classification\" target=\"_blank\">spark.apache.org/docs/latest/mllib-evaluation-metrics.html#binary-classification</a><br>",
+      "examples": "<h2>Below example is available at : <a href=\"https://spark.apache.org/docs/latest/mllib-evaluation-metrics.html#binary-classification\" target=\"_blank\">spark.apache.org/docs/latest/mllib-evaluation-metrics.html#binary-classification</a></h2>\n<br>\nimport org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS<br>\nimport org.apache.spark.mllib.evaluation.BinaryClassificationMetrics<br>\nimport org.apache.spark.mllib.regression.LabeledPoint<br>\nimport org.apache.spark.mllib.util.MLUtils<br>\n<br>\n// Load training data in LIBSVM format<br>\nval data = MLUtils.loadLibSVMFile(sc, \"data/mllib/sample_binary_classification_data.txt\")<br>\n<br>\n// Split data into training (60%) and test (40%)<br>\nval Array(training, test) = data.randomSplit(Array(0.6, 0.4), seed = 11L)<br>\ntraining.cache()<br>\n<br>\n// Run training algorithm to build the model<br>\nval model = new LogisticRegressionWithLBFGS()<br>\n  .setNumClasses(2)<br>\n  .run(training)<br>\n<br>\n// Clear the prediction threshold so the model will return probabilities<br>\nmodel.clearThreshold<br>\n<br>\n// Compute raw scores on the test set<br>\nval predictionAndLabels = test.map { case LabeledPoint(label, features) =><br>\n  val prediction = model.predict(features)<br>\n  (prediction, label)<br>\n}<br>\n<br>\n// Instantiate metrics object<br>\nval metrics = new BinaryClassificationMetrics(predictionAndLabels)<br>\n<br>\n// Precision by threshold<br>\nval precision = metrics.precisionByThreshold<br>\nprecision.collect.foreach { case (t, p) =><br>\n  println(s\"Threshold: $t, Precision: $p\")<br>\n}<br>\n<br>\n// Recall by threshold<br>\nval recall = metrics.recallByThreshold<br>\nrecall.collect.foreach { case (t, r) =><br>\n  println(s\"Threshold: $t, Recall: $r\")<br>\n}<br>\n<br>\n// Precision-Recall Curve<br>\nval PRC = metrics.pr<br>\n<br>\n// F-measure<br>\nval f1Score = metrics.fMeasureByThreshold<br>\nf1Score.collect.foreach { case (t, f) =><br>\n  println(s\"Threshold: $t, F-score: $f, Beta = 1\")<br>\n}<br>\n<br>\nval beta = 0.5<br>\nval fScore = metrics.fMeasureByThreshold(beta)<br>\nfScore.collect.foreach { case (t, f) =><br>\n  println(s\"Threshold: $t, F-score: $f, Beta = 0.5\")<br>\n}<br>\n<br>\n// AUPRC<br>\nval auPRC = metrics.areaUnderPR<br>\nprintln(s\"Area under precision-recall curve = $auPRC\")<br>\n<br>\n// Compute thresholds used in ROC and PR curves<br>\nval thresholds = precision.map(_._1)<br>\n<br>\n// ROC Curve<br>\nval roc = metrics.roc<br>\n<br>\n// AUROC<br>\nval auROC = metrics.areaUnderROC<br>\nprintln(s\"Area under ROC = $auROC\")<br>",
+      "type": "ml-evaluator",
+      "nodeClass": "fire.nodes.ml.NodeBinaryClassificationEvaluator",
+      "x": "757.963px",
+      "y": "144.588px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "labelCol",
+          "value": "label",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting.",
+          "datatypes": [
+            "double"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "predictionCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Prediction Column",
+          "description": "The prediction column.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Confusion Matrix to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrix",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_confusion_matrix_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output Confusion Matrix Chart",
+          "description": "Whether to display Confusion Matrix Chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartTitle",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Title",
+          "description": "Title name to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartDescription",
+          "value": "Visual Representation of Predicted vs. Actual Classes",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Description",
+          "description": "Description to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixTargetLegend",
+          "value": "Target",
+          "widget": "textfield",
+          "title": "Confusion Matrix Target Legend",
+          "description": "Legend name to display for Target in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixPredictedLabelLegend",
+          "value": "PredictedLabel",
+          "widget": "textfield",
+          "title": "Confusion Matrix PredictedLabel Legend",
+          "description": "Legend name to display for Predicted Label in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Description",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixRowDescription",
+          "value": "",
+          "widget": "textarea_rich",
+          "title": "Confusion Matrix Outcome description",
+          "description": "Add the business details of the outcome of the confusion matrix rows",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ROC Curve",
+          "value": "",
+          "widget": "tab",
+          "title": "ROC Curve",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_roc_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output ROC Curve",
+          "description": "Whether to display confusion matrix chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "roc_title",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Title",
+          "description": "Title name to display in ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "roc_description",
+          "value": "Receiver operating characteristic (ROC) curve",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Description",
+          "description": "Add Description for ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "False Positive Rate (specificity)",
+          "widget": "textfield",
+          "title": "X Label",
+          "description": "X label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "True Positive Rate (sensitivity)",
+          "widget": "textfield",
+          "title": "Y Label",
+          "description": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "16",
+      "name": "Cross Validator",
+      "description": "This node represents Cross Validator from Spark ML",
+      "details": "This node represents Cross Validator from Spark ML.<br>\n<br>\nCrossValidator begins by splitting the dataset into a set of folds which are used as separate training and test datasets. E.g., with k=3 folds, CrossValidator will generate 3 (training, test) dataset pairs, each of which uses 2/3 of the data for training and 1/3 for testing. To evaluate a particular ParamMap, <br>\nCrossValidator computes the average evaluation metric for the 3 Models produced by fitting the Estimator on the 3 different (training, test) dataset pairs.<br>\n<br>\nAfter identifying the best ParamMap, CrossValidator finally re-fits the Estimator using the best ParamMap and the entire dataset.<br>\n<br>\nMore at Spark MLlib/ML docs page : <a href=\"https://spark.apache.org/docs/latest/ml-tuning.html#cross-validation\" target=\"_blank\">spark.apache.org/docs/latest/ml-tuning.html#cross-validation</a><br>",
+      "examples": "<h2>Below example is available at : <a href=\"https://spark.apache.org/docs/latest/ml-tuning.html#cross-validation\" target=\"_blank\">spark.apache.org/docs/latest/ml-tuning.html#cross-validation</a></h2>\n<br>\nimport org.apache.spark.ml.Pipeline<br>\nimport org.apache.spark.ml.classification.LogisticRegression<br>\nimport org.apache.spark.ml.evaluation.BinaryClassificationEvaluator<br>\nimport org.apache.spark.ml.feature.{HashingTF, Tokenizer}<br>\nimport org.apache.spark.ml.linalg.Vector<br>\nimport org.apache.spark.ml.tuning.{CrossValidator, ParamGridBuilder}<br>\nimport org.apache.spark.sql.Row<br>\n<br>\n// Prepare training data from a list of (id, text, label) tuples.<br>\nval training = spark.createDataFrame(Seq(<br>\n  (0L, \"a b c d e spark\", 1.0),<br>\n  (1L, \"b d\", 0.0),<br>\n  (2L, \"spark f g h\", 1.0),<br>\n  (3L, \"hadoop mapreduce\", 0.0),<br>\n  (4L, \"b spark who\", 1.0),<br>\n  (5L, \"g d a y\", 0.0),<br>\n  (6L, \"spark fly\", 1.0),<br>\n  (7L, \"was mapreduce\", 0.0),<br>\n  (8L, \"e spark program\", 1.0),<br>\n  (9L, \"a e c l\", 0.0),<br>\n  (10L, \"spark compile\", 1.0),<br>\n  (11L, \"hadoop software\", 0.0)<br>\n)).toDF(\"id\", \"text\", \"label\")<br>\n<br>\n// Configure an ML pipeline, which consists of three stages: tokenizer, hashingTF, and lr.<br>\nval tokenizer = new Tokenizer()<br>\n  .setInputCol(\"text\")<br>\n  .setOutputCol(\"words\")<br>\nval hashingTF = new HashingTF()<br>\n  .setInputCol(tokenizer.getOutputCol)<br>\n  .setOutputCol(\"features\")<br>\nval lr = new LogisticRegression()<br>\n  .setMaxIter(10)<br>\nval pipeline = new Pipeline()<br>\n  .setStages(Array(tokenizer, hashingTF, lr))<br>\n<br>\n// We use a ParamGridBuilder to construct a grid of parameters to search over.<br>\n// With 3 values for hashingTF.numFeatures and 2 values for lr.regParam,<br>\n// this grid will have 3 x 2 = 6 parameter settings for CrossValidator to choose from.<br>\nval paramGrid = new ParamGridBuilder()<br>\n  .addGrid(hashingTF.numFeatures, Array(10, 100, 1000))<br>\n  .addGrid(lr.regParam, Array(0.1, 0.01))<br>\n  .build()<br>\n<br>\n// We now treat the Pipeline as an Estimator, wrapping it in a CrossValidator instance.<br>\n// This will allow us to jointly choose parameters for all Pipeline stages.<br>\n// A CrossValidator requires an Estimator, a set of Estimator ParamMaps, and an Evaluator.<br>\n// Note that the evaluator here is a BinaryClassificationEvaluator and its default metric<br>\n// is areaUnderROC.<br>\nval cv = new CrossValidator()<br>\n  .setEstimator(pipeline)<br>\n  .setEvaluator(new BinaryClassificationEvaluator)<br>\n  .setEstimatorParamMaps(paramGrid)<br>\n  .setNumFolds(2)  // Use 3+ in practice<br>\n  .setParallelism(2)  // Evaluate up to 2 parameter settings in parallel<br>\n<br>\n// Run cross-validation, and choose the best set of parameters.<br>\nval cvModel = cv.fit(training)<br>\n<br>\n// Prepare test documents, which are unlabeled (id, text) tuples.<br>\nval test = spark.createDataFrame(Seq(<br>\n  (4L, \"spark i j k\"),<br>\n  (5L, \"l m n\"),<br>\n  (6L, \"mapreduce spark\"),<br>\n  (7L, \"apache hadoop\")<br>\n)).toDF(\"id\", \"text\")<br>\n<br>\n// Make predictions on test documents. cvModel uses the best model found (lrModel).<br>\ncvModel.transform(test)<br>\n  .select(\"id\", \"text\", \"probability\", \"prediction\")<br>\n  .collect()<br>\n  .foreach { case Row(id: Long, text: String, prob: Vector, prediction: Double) =><br>\n    println(s\"($id, $text) --> prob=$prob, prediction=$prediction\")<br>\n  }<br>",
+      "type": "ml-crossvalidator",
+      "nodeClass": "fire.nodes.ml.NodeCrossValidator",
+      "x": "771.225px",
+      "y": "295.85px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "numFolds",
+          "value": "3",
+          "widget": "textfield",
+          "title": "Num Folds",
+          "description": "The number of folds",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "parallelism",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Parallelism",
+          "description": "The number of threads to use when running parallel algorithms.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "collectSubModels",
+          "value": "false",
+          "widget": "array",
+          "title": "Collect SubModels",
+          "description": "Param for whether to collect a list of sub-models trained during tuning.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "seed",
+          "value": "",
+          "widget": "textfield",
+          "title": "Seed",
+          "description": "Random Seed.",
+          "datatypes": [
+            "long"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "19",
+      "name": "Predict",
+      "description": "Predict node takes in a DataFrame and Model and makes predictions",
+      "details": "Predict node takes in a DataFrame and Model and makes predictions on the data using the Model.<br>",
+      "examples": "",
+      "type": "ml-predict",
+      "nodeClass": "fire.nodes.ml.NodePredict",
+      "x": "534.487px",
+      "y": "422.125px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "20",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "716.738px",
+      "y": "416.775px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Prediction Output",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "21",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "200px",
+      "y": "27px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "218px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "92px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>Split text into separate words and convert text into numeric values for modelling</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "22",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "491px",
+      "y": "96px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "212px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "79px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>Build a classification model to predict spam using SparkML</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "23",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "537px",
+      "y": "507px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "248px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "76px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>Predict values based on model and print results</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "24",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "847px",
+      "y": "198px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "165px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "92px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>Evaluate model using performance metrics and cross validation</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "10",
+      "id": 1
+    },
+    {
+      "source": "10",
+      "target": "8",
+      "id": 2
+    },
+    {
+      "source": "6",
+      "target": "14",
+      "id": 3
+    },
+    {
+      "source": "14",
+      "target": "15",
+      "id": 4
+    },
+    {
+      "source": "15",
+      "target": "16",
+      "id": 5
+    },
+    {
+      "source": "16",
+      "target": "19",
+      "id": 6
+    },
+    {
+      "source": "1",
+      "target": "19",
+      "id": 7
+    },
+    {
+      "source": "8",
+      "target": "6",
+      "id": 8
+    },
+    {
+      "source": "19",
+      "target": "20",
+      "id": 9
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3054,
+      "uuid": "6be87dab-55ab-4738-9fa6-97d8de4bd5f3",
+      "header": true,
+      "path": "data/DATA-SCIENCE/Spam/Spam.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"label\",\"message\",\"id\"],\"colTypes\":[\"DOUBLE\",\"STRING\",\"DOUBLE\"],\"colFormats\":[\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

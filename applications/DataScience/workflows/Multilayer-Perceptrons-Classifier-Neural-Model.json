@@ -1,0 +1,1018 @@
+{
+  "name": "Multilayer-Perceptrons-Classifier-Neural-Model",
+  "uuid": "9391bf62-7435-496a-9485-c65f9f2c4f69",
+  "category": "Prediction",
+  "description": "Predicts Iris using Multi Layer Perceptron",
+  "nodes": [
+    {
+      "id": "3",
+      "name": "VectorAssembler",
+      "description": "Merges multiple columns into a vector column.",
+      "details": "",
+      "examples": "<h2> h2: VectorAssembler Node Example</h2>\n<br>\nAssume that we have a DataFrame with the columns id, hour, mobile, userFeatures, and clicked:<br>\n<br>\n id | hour | mobile | userFeatures     | clicked<br>\n----|------|--------|------------------|---------<br>\n 0  | 18   | 1.0    | [0.0, 10.0, 0.5] | 1.0<br>\n<br>\n If we set VectorAssembler's <b>input Selected columns</b> to hour, mobile, and userFeatures and <b>output column</b> to features, after transformation we should get the following DataFrame:<br>\n<br>\n id | hour | mobile | userFeatures     | clicked | features<br>\n----|------|--------|------------------|---------|-----------------------------<br>\n 0  | 18   | 1.0    | [0.0, 10.0, 0.5] | 1.0     | [18.0, 1.0, 0.0, 10.0, 0.5]<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeVectorAssembler",
+      "x": "150px",
+      "y": "289.625px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"C0\",\"C1\",\"C2\",\"C3\"]",
+          "widget": "variables",
+          "title": "Input Columns",
+          "description": "Input column of type - all numeric, boolean and vector",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "vectorudt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "features",
+          "widget": "textfield",
+          "title": "Output Column",
+          "description": "Output column name",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "handleInvalid",
+          "value": "error",
+          "widget": "array",
+          "title": "Handle Invalid",
+          "description": "How to handle invalid data (NULL values). Options are 'skip' (filter out rows with invalid data), 'error' (throw an error), or 'keep' (return relevant number of NaN in the output).",
+          "optionsArray": [
+            "error",
+            "skip",
+            "keep"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "StringIndexer",
+      "description": "StringIndexer encodes a string column of labels to a column of label indices",
+      "details": "<h2> String Indexer Node Details</h2>\n<br>\nThe String Indexer node encodes a string column of labels to a column of label indices. The indices are in [0, numLabels).<br>\n<br>\nBy default, this is ordered by label frequencies so the most frequent label gets index 0. The ordering behavior is controlled by setting <b>STRING ORDER TYPE</b>. Its default value is ‘frequencyDesc’. In case of equal frequency when under frequencyDesc/Asc, the strings are further sorted alphabetically<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> HANDLE INVALID : Specifies how to handle invalid data (unseen or NULL values) in features and label column of string type. Options are 'skip' (filter out rows with invalid data), or error (throw an error).</li>\n<li> VARIABLES : Allows multiple string columns to be selected for conversion.</li>\n<li> Input Columns : Select the column which needs to be converted.</li>\n<li> Output Columns : The name of the output converted column.</li>\n<li> STRING ORDER TYPE : Specifies how to order labels of string column. (default = \"frequencyDesc\")</li>\n</ul>\n    \"frequencyDesc\": descending order by label frequency (most frequent label assigned 0)<br>\n    \"frequencyAsc\": ascending order by label frequency (least frequent label assigned 0)<br>\n    \"alphabetDesc\": descending alphabetical order<br>\n    \"alphabetAsc\": ascending alphabetical order<br>",
+      "examples": "<h2> String Indexer Node Example</h2>\n<br>\nAssume that we have the following DataFrame with columns id and category:<br>\n<br>\n id | category<br>\n----|----------<br>\n 0  | a<br>\n 1  | b<br>\n 2  | c<br>\n 3  | a<br>\n 4  | a<br>\n 5  | c<br>\ncategory is a string column with three labels: \"a\", \"b\", and \"c\". Applying <b>StringIndexer</b> with <b>category</b> as the input column and <b>categoryIndex</b> as the output column, we should get the following:<br>\n<br>\n id | category | categoryIndex<br>\n----|----------|---------------<br>\n 0  | a        | 0.0<br>\n 1  | b        | 2.0<br>\n 2  | c        | 1.0<br>\n 3  | a        | 0.0<br>\n 4  | a        | 0.0<br>\n 5  | c        | 1.0<br>\n\"a\" gets index 0 because it is the most frequent, followed by \"c\" with index 1 and \"b\" with index 2.<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeStringIndexer",
+      "x": "275.25px",
+      "y": "288.844px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "handleInvalid",
+          "value": "error",
+          "widget": "array",
+          "title": "Handle Invalid",
+          "description": "Invalid entries to be skipped or thrown error",
+          "optionsArray": [
+            "skip",
+            "error"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"C4\"]",
+          "widget": "variables_list_select",
+          "title": "Input Columns",
+          "description": "Input columns for encoding",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCols",
+          "value": "[\"label\"]",
+          "widget": "variables_list_textfield",
+          "title": "Output Columns",
+          "description": "Output columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "stringOrderType",
+          "value": "frequencyDesc",
+          "widget": "array",
+          "title": "String Order Type",
+          "description": "Param for how to order labels of string column",
+          "optionsArray": [
+            "frequencyDesc",
+            "frequencyAsc",
+            "alphabetDesc",
+            "alphabetAsc"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "7",
+      "name": "VectorIndexer",
+      "description": "Vector Indexer indexes categorical features inside of a Vector. It decides which features are categorical and converts them to category indices. The decision is based on the number of distinct values of a feature.",
+      "details": "<h2> Vector Indexer Node Details</h2>\n<br>\nThe Vector Indexer Node is used to index categorical features inside of a Vector. It converts categorical features to category indices by deciding which features are categorical based on the number of distinct values of a feature.<br>\n<br>\nIt takes in the common parameters inputCol, outputCol, and maxCategories. The input column should be in the format of VectorUDT. The output column will also be in the format of VectorUDT.<br>\n<br>\nThe inputCol is the name of the feature column to be transformed. The outputCol is the name of the new column containing the indexed features. The maxCategories parameter is a threshold for the number of values a categorical feature can take. If a feature is found to have more than maxCategories values, it is declared continuous. It must be >= 2.<br>\n<br>\n<h4>Input Parameters</h4>\n<br>\nINPUT COLUMN : Select the required column for which indexing has to be done.<br>\nOUTPUT COLUMN : The name of the output column after indexing.<br>\nMAX CATEGORIES : Threshold for the number of values a categorical feature can take. If a feature is found to have > maxCategories values, then it is declared continuous. Must be >= 2.<br>",
+      "examples": "<h2> Vector Indexer Node Example</h2>\n<br>\nConsider the below <b>Vector Indexer</b> output for the <b>features</b> column<br>\n<br>\nid features indexed_features<br>\n0 [1.0, 2.0, 3.0, 4.0] [0.0, 1.0, 2.0, 3.0]<br>\n1 [-1.0, -2.0, -3.0, -4.0] [0.0, 1.0, 2.0, 3.0]<br>\nIn this example, the input column is features and the output column is indexed_features. The vector indexer indexes the categorical features in the features column by considering them as categorical features and converting them to category indices. Here the maxCategories parameter is set to 4, so all 4 values in the feature column are considered as categorical and are indexed as 0,1,2,3.<br>",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.ml.NodeVectorIndexer",
+      "x": "406px",
+      "y": "287.625px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCol",
+          "value": "features",
+          "widget": "variable",
+          "title": "Input Column",
+          "description": "The Input column name",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "indexedFeatures",
+          "widget": "textfield",
+          "title": "Output Column",
+          "description": "Output column name",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxCategories",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Maximum Categories",
+          "description": "Threshold for the number of values a categorical feature can take. If a feature is found to have > maxCategories values, then it is declared continuous. Must be >= 2",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "Split",
+      "description": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data. For example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).",
+      "details": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data.<br>\n<br>\nFor example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).<br>\n<br>\nThe split node can be used for splitting the DataFrame for training and test datasets used in Machine Learning.<br>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSplit",
+      "x": "526.219px",
+      "y": "287.875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "fraction1",
+          "value": ".7",
+          "widget": "textfield",
+          "title": "Fraction 1",
+          "description": "Fraction to be used for Splitting the DataFrame into two. The first DataFrame would go to the lower edge output. The other would go to the higher edge output.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "9",
+      "name": "MultiLayerPerceptron",
+      "description": "It supports creation of full connected neural network.",
+      "details": "Multilayer perceptron classifier (MLPC) is a classifier based on the feedforward artificial neural network. <br>\nMLPC consists of multiple layers of nodes. Each layer is fully connected to the next layer in the network. Nodes in the input layer represent the input data.<br>",
+      "examples": "Below example is available at : <a href=\"https://spark.apache.org/docs/latest/ml-classification-regression.html#multilayer-perceptron-classifier\" target=\"_blank\">spark.apache.org/docs/latest/ml-classification-regression.html#multilayer-perceptron-classifier</a><br>\n<br>\nimport org.apache.spark.ml.classification.MultilayerPerceptronClassifier<br>\nimport org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator<br>\n<br>\n// Load the data stored in LIBSVM format as a DataFrame.<br>\nval data = spark.read.format(\"libsvm\")<br>\n  .load(\"data/mllib/sample_multiclass_classification_data.txt\")<br>\n<br>\n// Split the data into train and test<br>\nval splits = data.randomSplit(Array(0.6, 0.4), seed = 1234L)<br>\nval train = splits(0)<br>\nval test = splits(1)<br>\n<br>\n// specify layers for the neural network:<br>\n// input layer of size 4 (features), two intermediate of size 5 and 4<br>\n// and output of size 3 (classes)<br>\nval layers = Array[Int](4, 5, 4, 3)<br>\n<br>\n// create the trainer and set its parameters<br>\nval trainer = new MultilayerPerceptronClassifier()<br>\n  .setLayers(layers)<br>\n  .setBlockSize(128)<br>\n  .setSeed(1234L)<br>\n  .setMaxIter(100)<br>\n<br>\n// train the model<br>\nval model = trainer.fit(train)<br>\n<br>\n// compute accuracy on the test set<br>\nval result = model.transform(test)<br>\nval predictionAndLabels = result.select(\"prediction\", \"label\")<br>\nval evaluator = new MulticlassClassificationEvaluator()<br>\n  .setMetricName(\"accuracy\")<br>\n<br>\nprintln(s\"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}\")<br>",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.ml.NodeMultilayerPerceptron",
+      "x": "656.219px",
+      "y": "107.844px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "featuresCol",
+          "value": "indexedFeatures",
+          "widget": "variable",
+          "title": "Features Column",
+          "description": "Features column of type vectorUDT for model fitting",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "labelCol",
+          "value": "label",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "predictionCol",
+          "value": "",
+          "widget": "textfield",
+          "title": "Prediction Column",
+          "description": "The prediction column created during model scoring.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "layers",
+          "value": "4,5,5,3",
+          "widget": "textfield",
+          "title": "Layers - comma separated list of integers",
+          "description": "The integer array specifying the number of activation units in each layer",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxIter",
+          "value": "100",
+          "widget": "textfield",
+          "title": "Max number of iterations",
+          "description": "Number of iterations to train the Neural network",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "blockSize",
+          "value": "128",
+          "widget": "textfield",
+          "title": "Block Size",
+          "description": "Block size",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "seed",
+          "value": "123",
+          "widget": "textfield",
+          "title": "Seed",
+          "description": "The initial seed to initialise the neural network.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "tol",
+          "value": "1e-6",
+          "widget": "textfield",
+          "title": "Tol",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "solver",
+          "value": "l-bfgs",
+          "widget": "textfield",
+          "title": "Solver",
+          "description": "solver",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "stepSize",
+          "value": "0.03",
+          "widget": "textfield",
+          "title": "Step Size",
+          "description": "Step size",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "10",
+      "name": "Predict",
+      "description": "Predict node takes in a DataFrame and Model and makes predictions",
+      "details": "Predict node takes in a DataFrame and Model and makes predictions on the data using the Model.<br>",
+      "examples": "",
+      "type": "ml-predict",
+      "nodeClass": "fire.nodes.ml.NodePredict",
+      "x": "660.25px",
+      "y": "288.875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "11",
+      "name": "MulticlassClassificationEvaluator",
+      "description": "Evaluator for multiclass classification, which expects two input columns: score and label.",
+      "details": "Evaluator for multiclass classification, which expects two input columns: score and label.<br>\n<br>\nMore at Spark MLlib/ML docs page :<a href=\"https://spark.apache.org/docs/1.6.0/mllib-evaluation-metrics.html#multiclass-classification\" target=\"_blank\">spark.apache.org/docs/1.6.0/mllib-evaluation-metrics.html#multiclass-classification</a><br>",
+      "examples": "<h2>Below example is available at : <a href=\"https://spark.apache.org/docs/latest/mllib-evaluation-metrics.html#multiclass-classification\" target=\"_blank\">spark.apache.org/docs/latest/mllib-evaluation-metrics.html#multiclass-classification</a></h2>\n<br>\nimport org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS<br>\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics<br>\nimport org.apache.spark.mllib.regression.LabeledPoint<br>\nimport org.apache.spark.mllib.util.MLUtils<br>\n<br>\n// Load training data in LIBSVM format<br>\nval data = MLUtils.loadLibSVMFile(sc, \"data/mllib/sample_multiclass_classification_data.txt\")<br>\n<br>\n// Split data into training (60%) and test (40%)<br>\nval Array(training, test) = data.randomSplit(Array(0.6, 0.4), seed = 11L)<br>\ntraining.cache()<br>\n<br>\n// Run training algorithm to build the model<br>\nval model = new LogisticRegressionWithLBFGS()<br>\n  .setNumClasses(3)<br>\n  .run(training)<br>\n<br>\n// Compute raw scores on the test set<br>\nval predictionAndLabels = test.map { case LabeledPoint(label, features) =><br>\n  val prediction = model.predict(features)<br>\n  (prediction, label)<br>\n}<br>\n<br>\n// Instantiate metrics object<br>\nval metrics = new MulticlassMetrics(predictionAndLabels)<br>\n<br>\n// Confusion matrix<br>\nprintln(\"Confusion matrix:\")<br>\nprintln(metrics.confusionMatrix)<br>\n<br>\n// Overall Statistics<br>\nval accuracy = metrics.accuracy<br>\nprintln(\"Summary Statistics\")<br>\nprintln(s\"Accuracy = $accuracy\")<br>\n<br>\n// Precision by label<br>\nval labels = metrics.labels<br>\nlabels.foreach { l =><br>\n  println(s\"Precision($l) = \" + metrics.precision(l))<br>\n}<br>\n<br>\n// Recall by label<br>\nlabels.foreach { l =><br>\n  println(s\"Recall($l) = \" + metrics.recall(l))<br>\n}<br>\n<br>\n// False positive rate by label<br>\nlabels.foreach { l =><br>\n  println(s\"FPR($l) = \" + metrics.falsePositiveRate(l))<br>\n}<br>\n<br>\n// F-measure by label<br>\nlabels.foreach { l =><br>\n  println(s\"F1-Score($l) = \" + metrics.fMeasure(l))<br>\n}<br>\n<br>\n// Weighted stats<br>\nprintln(s\"Weighted precision: ${metrics.weightedPrecision}\")<br>\nprintln(s\"Weighted recall: ${metrics.weightedRecall}\")<br>\nprintln(s\"Weighted F1 score: ${metrics.weightedFMeasure}\")<br>\nprintln(s\"Weighted false positive rate: ${metrics.weightedFalsePositiveRate}\")<br>",
+      "type": "ml-evaluator",
+      "nodeClass": "fire.nodes.ml.NodeMulticlassClassificationEvaluator",
+      "x": "823.219px",
+      "y": "284.875px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "labelCol",
+          "value": "label",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting.",
+          "datatypes": [
+            "double"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "predictionCol",
+          "value": "prediction",
+          "widget": "variable",
+          "title": "Prediction Column",
+          "description": "The prediction column.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Confusion Matrix to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrix",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_confusion_matrix_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output Confusion Matrix Chart",
+          "description": "Whether to display Confusion Matrix Chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartTitle",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Title",
+          "description": "Title name to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartDescription",
+          "value": "Visual Representation of Predicted vs. Actual Classes",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Description",
+          "description": "Description to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixTargetLegend",
+          "value": "Target",
+          "widget": "textfield",
+          "title": "Confusion Matrix Target Legend",
+          "description": "Legend name to display for Target in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixPredictedLabelLegend",
+          "value": "PredictedLabel",
+          "widget": "textfield",
+          "title": "Confusion Matrix PredictedLabel Legend",
+          "description": "Legend name to display for Predicted Label in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Description",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixRowDescription",
+          "value": "",
+          "widget": "textarea_rich",
+          "title": "Confusion Matrix Outcome description",
+          "description": "Add the business details of the outcome of the confusion matrix rows",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "12",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "660.203px",
+      "y": "436.312px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Multilayer Perceptrons Results",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "100",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "13",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "71px",
+      "y": "67px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "476px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "59px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<h4><span style=\"color: rgb(0, 0, 0);\">IRIS Classification Using </span>Multilayer perceptron classifier</h4>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "14",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "34.8466px",
+      "y": "282.847px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "84fe83cb-7347-4cdc-bbc1-fc5390a75ee9",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "3",
+      "target": "5",
+      "id": 2
+    },
+    {
+      "source": "5",
+      "target": "7",
+      "id": 3
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 4
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 5
+    },
+    {
+      "source": "8",
+      "target": "10",
+      "id": 6
+    },
+    {
+      "source": "9",
+      "target": "10",
+      "id": 7
+    },
+    {
+      "source": "10",
+      "target": "11",
+      "id": 8
+    },
+    {
+      "source": "10",
+      "target": "12",
+      "id": 9
+    },
+    {
+      "source": "14",
+      "target": "3",
+      "id": 10
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3232,
+      "uuid": "84fe83cb-7347-4cdc-bbc1-fc5390a75ee9",
+      "header": false,
+      "path": "data/DATA-SCIENCE/IRIS/iris.data.txt",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"C0\",\"C1\",\"C2\",\"C3\",\"C4\"],\"colTypes\":[\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}

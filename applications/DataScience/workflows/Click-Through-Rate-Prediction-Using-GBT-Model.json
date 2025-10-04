@@ -1,0 +1,1608 @@
+{
+  "name": "Click-Through-Rate-Prediction-Using-GBT-Model",
+  "uuid": "55cdb466-bdf4-4868-b36f-50cd11e614c4",
+  "category": "Prediction",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "106.667px",
+      "y": "198.653px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "7fff0810-eb50-4b7e-8c9a-a55dcc2578f3",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "2",
+      "name": "Concat Columns",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node creates a new DataFrame by concatenating the specified columns of the input DataFrame",
+      "details": "<h2>Concat Columns Node Details</h2>\n<br>\nIt adds a new column to the dataframe created by concatenating multiple columns and separated by the specified separator. <br>\n<br>\n<h4>Input</h4>\n<ul>\n<li>   COLUMNS :- Select columns that need to be concatenated. Multiple columns can be selected for concatenation.</li>\n<li>   CONCATENATED COLUMN NAME :- Enter name of the column to list the concatenated values in the outgoing Dataframe.</li>\n<li>\t  SEPARATOR :- Enter a Separator value to separate values from different columns in the output. It can be a multi-character value. Common Separator values used are as follows:</li>\n</ul>\n  b. *<br>\n  c. -<br>\n  d. :<br>\n  e. [Blank Space]<br>\n<br>\n<h4>Output</h4>\n<ul>\n<li>   New concatenated column would be added to the Outgoing Dataframe listing the concatenated values.</li>\n</ul>",
+      "examples": "<h2>Concat Columns Examples</h2>\n<br>\n<h4>Incoming Dataframe</h4>\n<br>\nIn this example we have considered an Incoming Dataframe with following rows:<br>\n<br>\nCUST_CD    |    CUST_NAME    |    AGE    |    DATE_OF_JOINING    |    SALARY<br>\n-------------------------------------------------------------------------------------<br>\nC01        |    MATT         |    50     |    12-02-2002         |    USD 200000.00<br>\nC02        |    LISA         |    45     |    15-11-2020         |    GBP 100000.00<br>\nC03        |    ROBIN        |    30     |    10-10-2015         |    EUR 15000.00<br>\nC04        |    MARCUS       |    35     |    01-01-2021         |    AUD 350000.00<br>\n<br>\n<h4>Concat Columns Node Configuration and Output </h4>\n<br>\nConcat Columns Node is configured to concatenate two columns [CUST_CD] and [CUST_NAME] from the incoming Dataframe into a new column [CUST_IDENTIFIER] using separator [-].<br>\nOutput Dataframe would be created as below:<br>\n<br>\nCUST_CD    |    CUST_NAME    |    AGE    |    DATE_OF_JOINING    |    SALARY         |    CUST_IDENTIFIER<br>\n----------------------------------------------------------------------------------------------------------<br>\nC01        |    MATT         |    50     |    12-02-2002         |    USD 200000.00  |    C01-MATT<br>\nC02        |    LISA         |    45     |    15-11-2020         |    GBP 100000.00  |    C02-LISA<br>\nC03        |    ROBIN        |    30     |    10-10-2015         |    EUR 15000.00   |    C03-ROBIN<br>\nC04        |    MARCUS       |    35     |    01-01-2021         |    AUD 350000.00  |    C04-MARCUS<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeConcatColumns",
+      "x": "111.889px",
+      "y": "357.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"site_id\",\"app_id\"]",
+          "widget": "variables",
+          "title": "Columns",
+          "description": "Columns to be concatenated",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "site_app_id",
+          "widget": "textfield",
+          "title": "Concatenated Column Name",
+          "description": "Column name for the concatenated columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "sep",
+          "value": "|",
+          "widget": "textfield",
+          "title": "Separator",
+          "description": "Separator to be used when concatenating the columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "3",
+      "name": "Print N Rows",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "293.778px",
+      "y": "363.778px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Sample Dataset Output",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "4",
+      "name": "String Indexer",
+      "iconImage": "fa fa-qrcode",
+      "description": "StringIndexer encodes a string column of labels to a column of label indices",
+      "details": "<h2> String Indexer Node Details</h2>\n<br>\nThe String Indexer node encodes a string column of labels to a column of label indices. The indices are in [0, numLabels).<br>\n<br>\nBy default, this is ordered by label frequencies so the most frequent label gets index 0. The ordering behavior is controlled by setting <b>STRING ORDER TYPE</b>. Its default value is ‘frequencyDesc’. In case of equal frequency when under frequencyDesc/Asc, the strings are further sorted alphabetically<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> HANDLE INVALID : Specifies how to handle invalid data (unseen or NULL values) in features and label column of string type. Options are 'skip' (filter out rows with invalid data), or error (throw an error).</li>\n<li> VARIABLES : Allows multiple string columns to be selected for conversion.</li>\n<li> Input Columns : Select the column which needs to be converted.</li>\n<li> Output Columns : The name of the output converted column.</li>\n<li> STRING ORDER TYPE : Specifies how to order labels of string column. (default = \"frequencyDesc\")</li>\n</ul>\n    \"frequencyDesc\": descending order by label frequency (most frequent label assigned 0)<br>\n    \"frequencyAsc\": ascending order by label frequency (least frequent label assigned 0)<br>\n    \"alphabetDesc\": descending alphabetical order<br>\n    \"alphabetAsc\": ascending alphabetical order<br>",
+      "examples": "<h2> String Indexer Node Example</h2>\n<br>\nAssume that we have the following DataFrame with columns id and category:<br>\n<br>\n id | category<br>\n----|----------<br>\n 0  | a<br>\n 1  | b<br>\n 2  | c<br>\n 3  | a<br>\n 4  | a<br>\n 5  | c<br>\ncategory is a string column with three labels: \"a\", \"b\", and \"c\". Applying <b>StringIndexer</b> with <b>category</b> as the input column and <b>categoryIndex</b> as the output column, we should get the following:<br>\n<br>\n id | category | categoryIndex<br>\n----|----------|---------------<br>\n 0  | a        | 0.0<br>\n 1  | b        | 2.0<br>\n 2  | c        | 1.0<br>\n 3  | a        | 0.0<br>\n 4  | a        | 0.0<br>\n 5  | c        | 1.0<br>\n\"a\" gets index 0 because it is the most frequent, followed by \"c\" with index 1 and \"b\" with index 2.<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeStringIndexer",
+      "x": "287.889px",
+      "y": "191.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "handleInvalid",
+          "value": "error",
+          "widget": "array",
+          "title": "Handle Invalid",
+          "description": "Invalid entries to be skipped or thrown error",
+          "optionsArray": [
+            "skip",
+            "error"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"site_app_id\"]",
+          "widget": "variables_list_select",
+          "title": "Input Columns",
+          "description": "Input columns for encoding",
+          "datatypes": [
+            "string"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCols",
+          "value": "[\"site_app_id_index\"]",
+          "widget": "variables_list_textfield",
+          "title": "Output Columns",
+          "description": "Output columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "stringOrderType",
+          "value": "frequencyDesc",
+          "widget": "array",
+          "title": "String Order Type",
+          "description": "Param for how to order labels of string column",
+          "optionsArray": [
+            "frequencyDesc",
+            "frequencyAsc",
+            "alphabetDesc",
+            "alphabetAsc"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "One Hot Encoder",
+      "iconImage": "fa fa-qrcode",
+      "description": "Maps a column of label indices to a column of binary vectors, with at most a single one-value",
+      "details": "<h2> One Hot Encoder Node Details</h2>\n<br>\nOne-hot encoding is a process by which categorical data (such as nominal data) are converted into numerical features of a dataset. This is often a required preprocessing step since machine learning models require numerical data.<br>\n<br>\nOne Hot Encoder Node maps a column of label indices to a column of binary vectors, with at most a single one-value.This encoding allows algorithms which expect continuous features, such as Logistic Regression, to use categorical features.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> VARIABLES : Add the columns to be one-hot encoded</li>\n<li> Input Columns : Select the categorical field in the input schema for one-hot encoding. </li>\n<li> Output Columns : Set the name of the field in the output schema that contains the binary vector result.</li>\n</ul>",
+      "examples": "<h2> One Hot Encoder Node Example</h2>\n<br>\nAssume that we have the following DataFrame with column v1 as integer data type:<br>\nv1 |<br>\n---|<br>\n1  |<br>\n2  |<br>\n3  |<br>\n4  |<br>\n5  |<br>\n<br>\nThe output dataframe that will be obtained by selecting <b>v1</b> as the Input columns and <b>vecOut</b> as the Output column name will be :<br>\n<br>\n v1 |     vecOut    |<br>\n----|---------------|<br>\n 1  | (5,[1],[1.0]) |<br>\n 2  | (5,[2],[1.0]) |<br>\n 3  | (5,[3],[1.0]) |<br>\n 4  | (5,[4],[1.0]) |<br>\n 5  | (5,[],[])     |<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeOneHotEncoder",
+      "x": "470.778px",
+      "y": "194.778px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"site_app_id_index\"]",
+          "widget": "variables_list_select",
+          "title": "Input Columns",
+          "description": "Input columns for encoding",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCols",
+          "value": "[\"site_app_id_nohe\"]",
+          "widget": "variables_list_textfield",
+          "title": "Output Columns",
+          "description": "Output columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "Vector Assembler",
+      "iconImage": "fa fa-qrcode",
+      "description": "Merges multiple columns into a vector column.",
+      "details": "",
+      "examples": "<h2> h2: VectorAssembler Node Example</h2>\n<br>\nAssume that we have a DataFrame with the columns id, hour, mobile, userFeatures, and clicked:<br>\n<br>\n id | hour | mobile | userFeatures     | clicked<br>\n----|------|--------|------------------|---------<br>\n 0  | 18   | 1.0    | [0.0, 10.0, 0.5] | 1.0<br>\n<br>\n If we set VectorAssembler's <b>input Selected columns</b> to hour, mobile, and userFeatures and <b>output column</b> to features, after transformation we should get the following DataFrame:<br>\n<br>\n id | hour | mobile | userFeatures     | clicked | features<br>\n----|------|--------|------------------|---------|-----------------------------<br>\n 0  | 18   | 1.0    | [0.0, 10.0, 0.5] | 1.0     | [18.0, 1.0, 0.0, 10.0, 0.5]<br>",
+      "type": "ml-transformer",
+      "nodeClass": "fire.nodes.ml.NodeVectorAssembler",
+      "x": "473.889px",
+      "y": "358.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"hour\",\"C1\",\"banner_pos\",\"device_type\",\"device_conn_type\",\"site_app_id_nohe\",\"C16\",\"C17\",\"C18\",\"C19\",\"C20\",\"C21\",\"C22\",\"C23\"]",
+          "widget": "variables",
+          "title": "Input Columns",
+          "description": "Input column of type - all numeric, boolean and vector",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "vectorudt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "features",
+          "widget": "textfield",
+          "title": "Output Column",
+          "description": "Output column name",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "handleInvalid",
+          "value": "error",
+          "widget": "array",
+          "title": "Handle Invalid",
+          "description": "How to handle invalid data (NULL values). Options are 'skip' (filter out rows with invalid data), 'error' (throw an error), or 'keep' (return relevant number of NaN in the output).",
+          "optionsArray": [
+            "error",
+            "skip",
+            "keep"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "7",
+      "name": "Vector Indexer",
+      "iconImage": "fa fa-qrcode",
+      "description": "Vector Indexer indexes categorical features inside of a Vector. It decides which features are categorical and converts them to category indices. The decision is based on the number of distinct values of a feature.",
+      "details": "<h2> Vector Indexer Node Details</h2>\n<br>\nThe Vector Indexer Node is used to index categorical features inside of a Vector. It converts categorical features to category indices by deciding which features are categorical based on the number of distinct values of a feature.<br>\n<br>\nIt takes in the common parameters inputCol, outputCol, and maxCategories. The input column should be in the format of VectorUDT. The output column will also be in the format of VectorUDT.<br>\n<br>\nThe inputCol is the name of the feature column to be transformed. The outputCol is the name of the new column containing the indexed features. The maxCategories parameter is a threshold for the number of values a categorical feature can take. If a feature is found to have more than maxCategories values, it is declared continuous. It must be >= 2.<br>\n<br>\n<h4>Input Parameters</h4>\n<br>\nINPUT COLUMN : Select the required column for which indexing has to be done.<br>\nOUTPUT COLUMN : The name of the output column after indexing.<br>\nMAX CATEGORIES : Threshold for the number of values a categorical feature can take. If a feature is found to have > maxCategories values, then it is declared continuous. Must be >= 2.<br>",
+      "examples": "<h2> Vector Indexer Node Example</h2>\n<br>\nConsider the below <b>Vector Indexer</b> output for the <b>features</b> column<br>\n<br>\nid features indexed_features<br>\n0 [1.0, 2.0, 3.0, 4.0] [0.0, 1.0, 2.0, 3.0]<br>\n1 [-1.0, -2.0, -3.0, -4.0] [0.0, 1.0, 2.0, 3.0]<br>\nIn this example, the input column is features and the output column is indexed_features. The vector indexer indexes the categorical features in the features column by considering them as categorical features and converting them to category indices. Here the maxCategories parameter is set to 4, so all 4 values in the feature column are considered as categorical and are indexed as 0,1,2,3.<br>",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.ml.NodeVectorIndexer",
+      "x": "673.778px",
+      "y": "357.778px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCol",
+          "value": "features",
+          "widget": "variable",
+          "title": "Input Column",
+          "description": "The Input column name",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputCol",
+          "value": "features_index_vec",
+          "widget": "textfield",
+          "title": "Output Column",
+          "description": "Output column name",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxCategories",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Maximum Categories",
+          "description": "Threshold for the number of values a categorical feature can take. If a feature is found to have > maxCategories values, then it is declared continuous. Must be >= 2",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "8",
+      "name": "Split",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data. For example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).",
+      "details": "This node splits the incoming DataFrame into 2. It takes in the fraction to use in splitting the data.<br>\n<br>\nFor example, if the fraction is .7, it would split the data into 2 DataFrames, one containing 70% of the rows(passed from lower edge id to next node) and the other containing the remaining 30%(passed from higher edge id to next node).<br>\n<br>\nThe split node can be used for splitting the DataFrame for training and test datasets used in Machine Learning.<br>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSplit",
+      "x": "660.889px",
+      "y": "196.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "fraction1",
+          "value": ".8",
+          "widget": "textfield",
+          "title": "Fraction 1",
+          "description": "Fraction to be used for Splitting the DataFrame into two. The first DataFrame would go to the lower edge output. The other would go to the higher edge output.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "9",
+      "name": "GBT Classifier",
+      "iconImage": "fa fa-qrcode",
+      "description": "Gradient-Boosted Trees (GBTs) is a learning algorithm for classification. It supports binary labels, as well as both continuous and categorical features. Note: Multiclass labels are not currently supported.",
+      "details": "Gradient-boosted trees (GBTs) are a popular classification and regression method using ensembles of decision trees. <br>\n<br>\nMore details are available at : <a href=\"http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-tree-classifier\" target=\"_blank\">spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-tree-classifier</a><br>",
+      "examples": "Below example is available at :<a href=\"https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-tree-classifier\" target=\"_blank\">spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-tree-classifier</a><br>\n<br>\nimport org.apache.spark.ml.Pipeline<br>\nimport org.apache.spark.ml.classification.{GBTClassificationModel, GBTClassifier}<br>\nimport org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator<br>\nimport org.apache.spark.ml.feature.{IndexToString, StringIndexer, VectorIndexer}<br>\n<br>\n// Load and parse the data file, converting it to a DataFrame.<br>\nval data = spark.read.format(\"libsvm\").load(\"data/mllib/sample_libsvm_data.txt\")<br>\n<br>\n// Index labels, adding metadata to the label column.<br>\n// Fit on whole dataset to include all labels in index.<br>\nval labelIndexer = new StringIndexer()<br>\n  .setInputCol(\"label\")<br>\n  .setOutputCol(\"indexedLabel\")<br>\n  .fit(data)<br>\n// Automatically identify categorical features, and index them.<br>\n// Set maxCategories so features with > 4 distinct values are treated as continuous.<br>\nval featureIndexer = new VectorIndexer()<br>\n  .setInputCol(\"features\")<br>\n  .setOutputCol(\"indexedFeatures\")<br>\n  .setMaxCategories(4)<br>\n  .fit(data)<br>\n<br>\n// Split the data into training and test sets (30% held out for testing).<br>\nval Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3))<br>\n<br>\n// Train a GBT model.<br>\nval gbt = new GBTClassifier()<br>\n  .setLabelCol(\"indexedLabel\")<br>\n  .setFeaturesCol(\"indexedFeatures\")<br>\n  .setMaxIter(10)<br>\n  .setFeatureSubsetStrategy(\"auto\")<br>\n<br>\n// Convert indexed labels back to original labels.<br>\nval labelConverter = new IndexToString()<br>\n  .setInputCol(\"prediction\")<br>\n  .setOutputCol(\"predictedLabel\")<br>\n  .setLabels(labelIndexer.labelsArray(0))<br>\n<br>\n// Chain indexers and GBT in a Pipeline.<br>\nval pipeline = new Pipeline()<br>\n  .setStages(Array(labelIndexer, featureIndexer, gbt, labelConverter))<br>\n<br>\n// Train model. This also runs the indexers.<br>\nval model = pipeline.fit(trainingData)<br>\n<br>\n// Make predictions.<br>\nval predictions = model.transform(testData)<br>\n<br>\n// Select example rows to display.<br>\npredictions.select(\"predictedLabel\", \"label\", \"features\").show(5)<br>\n<br>\n// Select (prediction, true label) and compute test error.<br>\nval evaluator = new MulticlassClassificationEvaluator()<br>\n  .setLabelCol(\"indexedLabel\")<br>\n  .setPredictionCol(\"prediction\")<br>\n  .setMetricName(\"accuracy\")<br>\nval accuracy = evaluator.evaluate(predictions)<br>\nprintln(s\"Test Error = ${1.0 - accuracy}\")<br>\n<br>\nval gbtModel = model.stages(2).asInstanceOf[GBTClassificationModel]<br>\nprintln(s\"Learned classification GBT model:\\n ${gbtModel.toDebugString}\")<br>",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.ml.NodeGBTClassifier",
+      "x": "859.889px",
+      "y": "188.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "featuresCol",
+          "value": "features_index_vec",
+          "widget": "variable",
+          "title": "Features Column",
+          "description": "Features column of type vectorUDT for model fitting",
+          "datatypes": [
+            "vectorudt"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "labelCol",
+          "value": "click",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "predictionCol",
+          "value": "",
+          "widget": "textfield",
+          "title": "Prediction Column",
+          "description": "The prediction column created during model scoring.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Confusion Matrix to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "impurity",
+          "value": "gini",
+          "widget": "array",
+          "title": "Impurity",
+          "description": "The Criterion used for information gain calculation",
+          "optionsArray": [
+            "gini",
+            "entropy"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "lossType",
+          "value": "logistic",
+          "widget": "array",
+          "title": "Loss Function",
+          "description": "The Loss function which GBT tries to minimize",
+          "optionsArray": [
+            "logistic"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxBins",
+          "value": "32",
+          "widget": "textfield",
+          "title": "Max Bins",
+          "description": "The maximum number of bins used for discretizing continuous features.Must be >= 2 and >= number of categories in any categorical feature.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxDepth",
+          "value": "5",
+          "widget": "textfield",
+          "title": "Max Depth",
+          "description": "The Maximum depth of a tree",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxIter",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Iterations",
+          "description": "The maximum number of iterations(>=0)(a.k.a numtrees)",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "minInfoGain",
+          "value": "0.0",
+          "widget": "textfield",
+          "title": "Min Information Gain",
+          "description": "The Minimum information gain for a split to be considered at a tree node",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "minInstancesPerNode",
+          "value": "1",
+          "widget": "textfield",
+          "title": "Min Instances Per Node",
+          "description": "The Minimum number of instances each child must have after split",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "subsamplingRate",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Subsampling Rate",
+          "description": "The fraction of the training data used for learning each decision tree.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "seed",
+          "value": "",
+          "widget": "textfield",
+          "title": "Seed",
+          "description": "The random seed",
+          "datatypes": [
+            "long"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "stepSize",
+          "value": "0.1",
+          "widget": "textfield",
+          "title": "Step Size",
+          "description": "Step size (a.k.a. learning rate), The step size to be used for each iteration of optimization.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cacheNodeIds",
+          "value": "false",
+          "widget": "array",
+          "title": "Cache Node Ids",
+          "description": "The caching nodes IDs. Can speed up training of deeper trees.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "checkpointInterval",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Checkpoint Interval",
+          "description": "The checkpoint interval. E.g. 10 means that the cache will get checkpointed every 10 iterations.Set checkpoint interval (>= 1) or disable checkpoint (-1)",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxMemoryInMB",
+          "value": "256",
+          "widget": "textfield",
+          "title": "Max memory",
+          "description": "Maximum memory in MB allocated to histogram aggregation.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "validationIndicatorCol",
+          "value": "",
+          "widget": "textfield",
+          "title": "Validation Indicator Column",
+          "description": "Param for name of the column that indicates whether each row is for training or for validation.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "featureSubsetStrategy",
+          "value": "auto",
+          "widget": "array",
+          "title": "Feature Subset Strategy",
+          "description": "The number of features to consider for splits at each tree node",
+          "optionsArray": [
+            "auto",
+            "all",
+            "onethird",
+            "sqrt",
+            "log2",
+            "n"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "minWeightFractionPerNode",
+          "value": "0.0",
+          "widget": "textfield",
+          "title": "Min Weight Fraction per Node",
+          "description": "Minimum fraction of the weighted sample count that each child must have after split.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "weightCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Weight Column",
+          "description": "Param for weight column name. If this is not set or empty, we treat all instance weights as 1.0.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "gridSearch",
+          "value": "",
+          "widget": "tab",
+          "title": "Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "minInfoGainGrid",
+          "value": "",
+          "widget": "textfield",
+          "title": "Min Information Gain Param Grid Search",
+          "description": "Min Information Gain Parameters for Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxBinsGrid",
+          "value": "",
+          "widget": "textfield",
+          "title": "Max Bins Param Grid Search",
+          "description": "Max Bins Parameters for Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxDepthGrid",
+          "value": "",
+          "widget": "textfield",
+          "title": "Max Depth Param Grid Search",
+          "description": "Max Depth Parameters for Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxIterGrid",
+          "value": "",
+          "widget": "textfield",
+          "title": "Max Iteration Param Grid Search",
+          "description": "Max Iteration Parameters for Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrix",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_confusion_matrix_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output Confusion Matrix Chart",
+          "description": "Whether to display Confusion Matrix Chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartTitle",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Title",
+          "description": "Title name to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartDescription",
+          "value": "Visual Representation of Predicted vs. Actual Classes",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Description",
+          "description": "Description to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixTargetLegend",
+          "value": "Target",
+          "widget": "textfield",
+          "title": "Confusion Matrix Target Legend",
+          "description": "Legend name to display for Target in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixPredictedLabelLegend",
+          "value": "PredictedLabel",
+          "widget": "textfield",
+          "title": "Confusion Matrix PredictedLabel Legend",
+          "description": "Legend name to display for Predicted Label in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Description",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixRowDescription",
+          "value": "",
+          "widget": "textarea_rich",
+          "title": "Confusion Matrix Outcome description",
+          "description": "Add the business details of the outcome of the confusion matrix rows",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ROC Curve",
+          "value": "",
+          "widget": "tab",
+          "title": "ROC Curve",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_roc_chart",
+          "value": "false",
+          "widget": "array",
+          "title": "Output ROC Curve",
+          "description": "Whether to display confusion matrix chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "roc_title",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Title",
+          "description": "Title name to display in ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "roc_description",
+          "value": "Receiver operating characteristic (ROC) curve",
+          "widget": "textfield",
+          "title": "ROC Curve Chart Description",
+          "description": "Add Description for ROC Curve Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "False Positive Rate (specificity)",
+          "widget": "textfield",
+          "title": "X Label",
+          "description": "X label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "True Positive Rate (sensitivity)",
+          "widget": "textfield",
+          "title": "Y Label",
+          "description": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "10",
+      "name": "Spark Predict",
+      "iconImage": "fa fa-qrcode",
+      "description": "Predict node takes in a DataFrame and Model and makes predictions",
+      "details": "Predict node takes in a DataFrame and Model and makes predictions on the data using the Model.<br>",
+      "examples": "",
+      "type": "ml-predict",
+      "nodeClass": "fire.nodes.ml.NodePredict",
+      "x": "867.778px",
+      "y": "365.778px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "11",
+      "name": "Multiclass Classification Evaluator",
+      "iconImage": "fa fa-qrcode",
+      "description": "Evaluator for multiclass classification, which expects two input columns: score and label.",
+      "details": "Evaluator for multiclass classification, which expects two input columns: score and label.<br>\n<br>\nMore at Spark MLlib/ML docs page :<a href=\"https://spark.apache.org/docs/1.6.0/mllib-evaluation-metrics.html#multiclass-classification\" target=\"_blank\">spark.apache.org/docs/1.6.0/mllib-evaluation-metrics.html#multiclass-classification</a><br>",
+      "examples": "<h2>Below example is available at : <a href=\"https://spark.apache.org/docs/latest/mllib-evaluation-metrics.html#multiclass-classification\" target=\"_blank\">spark.apache.org/docs/latest/mllib-evaluation-metrics.html#multiclass-classification</a></h2>\n<br>\nimport org.apache.spark.mllib.classification.LogisticRegressionWithLBFGS<br>\nimport org.apache.spark.mllib.evaluation.MulticlassMetrics<br>\nimport org.apache.spark.mllib.regression.LabeledPoint<br>\nimport org.apache.spark.mllib.util.MLUtils<br>\n<br>\n// Load training data in LIBSVM format<br>\nval data = MLUtils.loadLibSVMFile(sc, \"data/mllib/sample_multiclass_classification_data.txt\")<br>\n<br>\n// Split data into training (60%) and test (40%)<br>\nval Array(training, test) = data.randomSplit(Array(0.6, 0.4), seed = 11L)<br>\ntraining.cache()<br>\n<br>\n// Run training algorithm to build the model<br>\nval model = new LogisticRegressionWithLBFGS()<br>\n  .setNumClasses(3)<br>\n  .run(training)<br>\n<br>\n// Compute raw scores on the test set<br>\nval predictionAndLabels = test.map { case LabeledPoint(label, features) =><br>\n  val prediction = model.predict(features)<br>\n  (prediction, label)<br>\n}<br>\n<br>\n// Instantiate metrics object<br>\nval metrics = new MulticlassMetrics(predictionAndLabels)<br>\n<br>\n// Confusion matrix<br>\nprintln(\"Confusion matrix:\")<br>\nprintln(metrics.confusionMatrix)<br>\n<br>\n// Overall Statistics<br>\nval accuracy = metrics.accuracy<br>\nprintln(\"Summary Statistics\")<br>\nprintln(s\"Accuracy = $accuracy\")<br>\n<br>\n// Precision by label<br>\nval labels = metrics.labels<br>\nlabels.foreach { l =><br>\n  println(s\"Precision($l) = \" + metrics.precision(l))<br>\n}<br>\n<br>\n// Recall by label<br>\nlabels.foreach { l =><br>\n  println(s\"Recall($l) = \" + metrics.recall(l))<br>\n}<br>\n<br>\n// False positive rate by label<br>\nlabels.foreach { l =><br>\n  println(s\"FPR($l) = \" + metrics.falsePositiveRate(l))<br>\n}<br>\n<br>\n// F-measure by label<br>\nlabels.foreach { l =><br>\n  println(s\"F1-Score($l) = \" + metrics.fMeasure(l))<br>\n}<br>\n<br>\n// Weighted stats<br>\nprintln(s\"Weighted precision: ${metrics.weightedPrecision}\")<br>\nprintln(s\"Weighted recall: ${metrics.weightedRecall}\")<br>\nprintln(s\"Weighted F1 score: ${metrics.weightedFMeasure}\")<br>\nprintln(s\"Weighted false positive rate: ${metrics.weightedFalsePositiveRate}\")<br>",
+      "type": "ml-evaluator",
+      "nodeClass": "fire.nodes.ml.NodeMulticlassClassificationEvaluator",
+      "x": "1069.89px",
+      "y": "360.889px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "labelCol",
+          "value": "click",
+          "widget": "variable",
+          "title": "Label Column",
+          "description": "The label column for model fitting.",
+          "datatypes": [
+            "double"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "predictionCol",
+          "value": "prediction",
+          "widget": "variable",
+          "title": "Prediction Column",
+          "description": "The prediction column.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Confusion Matrix to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrix",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "output_confusion_matrix_chart",
+          "value": "true",
+          "widget": "array",
+          "title": "Output Confusion Matrix Chart",
+          "description": "Whether to display Confusion Matrix Chart.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartTitle",
+          "value": "Title",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Title",
+          "description": "Title name to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "cmChartDescription",
+          "value": "Visual Representation of Predicted vs. Actual Classes",
+          "widget": "textfield",
+          "title": "Confusion Matrix Chart Description",
+          "description": "Description to display in Confusion Matrix Chart",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixTargetLegend",
+          "value": "Target",
+          "widget": "textfield",
+          "title": "Confusion Matrix Target Legend",
+          "description": "Legend name to display for Target in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixPredictedLabelLegend",
+          "value": "PredictedLabel",
+          "widget": "textfield",
+          "title": "Confusion Matrix PredictedLabel Legend",
+          "description": "Legend name to display for Predicted Label in Confusion Matrix",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Description",
+          "value": "",
+          "widget": "tab",
+          "title": "Confusion Matrix Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "confusionMatrixRowDescription",
+          "value": "",
+          "widget": "textarea_rich",
+          "title": "Confusion Matrix Outcome description",
+          "description": "Add the business details of the outcome of the confusion matrix rows",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "12",
+      "name": "Sticky Note",
+      "iconImage": "fa fa-file-text",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "79.6389px",
+      "y": "489.111px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "823.222222px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "337.222222px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<h1><strong>Click-Through Rate Prediction</strong></h1><p>Predict whether a mobile ad will be clicked</p><p>Reference\" https://www.kaggle.com/c/avazu-ctr-prediction</p><p><br></p><h2>Goal</h2><p><br></p><p>Create a model for predicting clicks on banner ads.</p><p><br></p><h2>Solution</h2><p><br></p><p>This workflow uses GBTClassifier. It creates a label column to determine if the click happened. It collects the features using a VectorAssembler.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "id": 5
+    },
+    {
+      "source": "6",
+      "target": "7",
+      "id": 6
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 7
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 8
+    },
+    {
+      "source": "9",
+      "target": "10",
+      "id": 9
+    },
+    {
+      "source": "8",
+      "target": "10",
+      "id": 10
+    },
+    {
+      "source": "10",
+      "target": "11",
+      "id": 11
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3062,
+      "uuid": "7fff0810-eb50-4b7e-8c9a-a55dcc2578f3",
+      "header": false,
+      "path": "data/DATA-SCIENCE/CTR-Prediction/Click-Through-Rate-Dataset.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"id\",\"click\",\"hour\",\"C1\",\"banner_pos\",\"site_id\",\"site_domain\",\"site_category\",\"app_id\",\"app_domain\",\"app_category\",\"device_id\",\"device_ip\",\"device_model\",\"device_type\",\"device_conn_type\",\"C16\",\"C17\",\"C18\",\"C19\",\"C20\",\"C21\",\"C22\",\"C23\"],\"colTypes\":[\"STRING\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

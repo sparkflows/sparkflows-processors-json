@@ -1,0 +1,33 @@
+{
+  "uuid": "b4a7dc88-5ce0-41d9-bac0-93caa08b98e7",
+  "name": "DateTime-Dataset",
+  "header": false,
+  "path": "data/COMMON/Date/Datetimesample.csv",
+  "delimiter": "\\t",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"id\",\"trans_dt\",\"val\"],colTypes:[\"INTEGER\",\"STRING\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "trans_dt",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "val",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

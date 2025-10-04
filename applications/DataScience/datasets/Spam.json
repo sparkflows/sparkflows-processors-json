@@ -1,0 +1,34 @@
+{
+  "uuid": "6be87dab-55ab-4738-9fa6-97d8de4bd5f3",
+  "name": "Spam",
+  "description": "Column Names Added",
+  "header": true,
+  "path": "data/DATA-SCIENCE/Spam/Spam.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"label\",\"message\",\"id\"],colTypes:[\"DOUBLE\",\"STRING\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "label",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "message",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "id",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

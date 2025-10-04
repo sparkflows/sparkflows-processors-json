@@ -1,0 +1,535 @@
+{
+  "name": "Email-Validation",
+  "uuid": "51e5b0de-7c2d-4fe8-9642-0a0228f0450b",
+  "category": "DataValidation",
+  "description": "Performs few validations on the input data",
+  "nodes": [
+    {
+      "id": "2",
+      "name": "Validation",
+      "description": "Validation Node",
+      "details": "<h2>Validate Fields Simple Node Details</h2>\n<br>\nThis node creates two outgoing Dataframes based on the result of Validation Rules on the incoming Dataframe. <br>\nFirst outgoing Dataframe consists of rows that succeeds the Validation Rules and second one consists of failed rows.   <br>\n<br>\nThis node facilitates checking of one condition in each rule.<br>\n<br>\nMultiple validation rules can be defined for multiple columns. Succeeded and Failed Dataframes are created by applying all the validation rules on the incoming Dataframes.<br>",
+      "examples": "<h2>Validate Fields Simple Node Examples</h2>\n<br>\nIncoming Dataframe has following rows:<br>\n<br>\nEMP_CD       |    EMP_NAME       |    DEPT       |    SALARY       |    AGE       |    DATE_OF_JOINING       |    EMAIL<br>\n------------------------------------------------------------------------------------------------------------------------------------<br>\nE01          |    ANTHONY        |    HR         |    50000        |    40        |    2020-12-12            |    anthony@hrdept.com<br>\nE02          |    LISA           |    HR         |    35000        |    35        |    2021-02-30            |    lisa@hrdept.com<br>\nE03          |    MARTIN         |    HR         |    20000        |    25        |    2020-01-01            |    martin@nodept.com<br>\nE04          |    DAVID          |    SALES      |    55000        |    40        |    2021-13-13            |    david@salesdept.com<br>\nE05          |    MARK           |    SALES      |    60000        |    27        |    2020-01-01            |    mark@salesdept.com<br>\nE06          |    JOE            |    SALES      |    40000        |    31        |    2010-01-01            |    joe@salesdept.com<br>\nE07          |    BELLA          |    HR         |    60000        |    24        |    2001-12-12            |    bella@hrdept.com<br>\n<br>\nif following Validation Rules are defined in Validation node:<br>\n<br>\nCOLUMNS           |    FUNCTION                 |    VALUES \t<br>\n--------------------------------------------------------------------------<br>\nDATE_OF_JOINING   |    IS_VALID_DATE_FORMAT     |    yyyy-MM-dd<br>\nAGE               |    VALUE_LESS_THAN          |    36<br>\n<br>\nthen outgoing Dataframes would be created as below:<br>\n<br>\n<h4> Succeeded Dataframe consisting of rows that succeeded Validation Rules:</h4>\n<br>\nEMP_CD       |    EMP_NAME       |    DEPT       |    SALARY       |    AGE       |    DATE_OF_JOINING       |    EMAIL<br>\n------------------------------------------------------------------------------------------------------------------------------------<br>\nE03          |    MARTIN         |    HR         |    20000        |    25        |    2020-01-01            |    martin@nodept.com<br>\nE05          |    MARK           |    SALES      |    60000        |    27        |    2020-01-01            |    mark@salesdept.com<br>\nE06          |    JOE            |    SALES      |    40000        |    31        |    2010-01-01            |    joe@salesdept.com<br>\nE07          |    BELLA          |    HR         |    60000        |    24        |    2001-12-12            |    bella@hrdept.com<br>\n<br>\n<h4> Failed Dataframe consisting of rows that failed Validation Rules:</h4>\n<br>\nEMP_CD       |    EMP_NAME       |    DEPT       |    SALARY       |    AGE       |    DATE_OF_JOINING       |    EMAIL<br>\n------------------------------------------------------------------------------------------------------------------------------------<br>\nE01          |    ANTHONY        |    HR         |    50000        |    40        |    2020-12-12            |    anthony@hrdept.com<br>\nE02          |    LISA           |    HR         |    35000        |    35        |    2021-02-30            |    lisa@hrdept.com<br>\nE04          |    DAVID          |    SALES      |    55000        |    40        |    2021-13-13            |    david@salesdept.com<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeValidation",
+      "x": "378.451px",
+      "y": "236.622px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textfield",
+          "title": "Description",
+          "description": "Validations being Performed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"email\"]",
+          "widget": "variables_list_select",
+          "title": "Columns",
+          "description": "Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "functions",
+          "value": "[\"IS_VALID_EMAIL_ADDRESS\"]",
+          "widget": "variables_list_array",
+          "title": "Function",
+          "description": "Validation Function to apply",
+          "optionsArray": [
+            "LENGTH_LESS_THAN",
+            "LENGTH_EQUALS",
+            "LENGTH_GREATER_THAN",
+            "VALUE_LESS_THAN",
+            "VALUE_EQUALS",
+            "VALUE_GREATER_THAN",
+            "IS_NULL",
+            "IS_NOT_NULL",
+            "IS_VALID_EMAIL_ADDRESS",
+            "IS_VALID_DATE_FORMAT"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "values",
+          "value": "[\"\"]",
+          "widget": "variables_list_textfield",
+          "title": "Values",
+          "description": "Values",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "652.979px",
+      "y": "110.642px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Valid Email Records",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "670.726px",
+      "y": "310.393px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "title",
+          "value": "Invalid Email Records",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes on the Workflow",
+      "details": "",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "95px",
+      "y": "370px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "bgColor",
+          "value": "blue",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "width",
+          "value": "565px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "height",
+          "value": "193px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "comment",
+          "value": "<h1>Validation Workflow</h1><p><br></p><p>This workflow reads in a dataset. For each record it checks to see if the email address specified is valid.</p><p><br></p><p>The valid records are output in the first edge, and the invalid records are output into the second edge.</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "7",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "56.7619px",
+      "y": "214.762px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "dataset",
+          "value": "f5dd55f0-874d-434c-a61a-33b991d06acb",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "8",
+      "name": "Columns Rename",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "This node creates a new DataFrame by renaming existing columns with the new name",
+      "details": "This node creates a new DataFrame by renaming existing columns with the new name.<br>\n<br>\nFor the columns to be renamed, provide the new column name. The output dataframe would have the specified columns renamed to the new ones.<br>",
+      "examples": "If incoming Dataframe has a column as [CUST NAME] that needs to be renamed to [CUST_NAME] then below details need to be provided in the node:<br>\n<br>\n<ul>\n<li> CURRENT COLUMN NAMES : CUST NAME</li>\n<li> COLUMNS NEW NAME : CUST_NAME</li>\n</ul>\nThis would result in output Dataframe having renameed column [CUST_NAME]. A seprate row needs to be added for each Column Rename requirement.<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeColumnsRename",
+      "x": "213.762px",
+      "y": "222.762px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "currentColNames",
+          "value": "[\"C4\"]",
+          "widget": "variables_list_select",
+          "title": "Current Column Names",
+          "description": "Current Column Names",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        },
+        {
+          "name": "newColNames",
+          "value": "[\"email\"]",
+          "widget": "variables_list_textfield",
+          "title": "Columns New Name",
+          "description": "New name for existing columns",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": ""
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "2",
+      "target": "4",
+      "id": 2
+    },
+    {
+      "source": "2",
+      "target": "5",
+      "id": 3
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 4
+    },
+    {
+      "source": "8",
+      "target": "2",
+      "id": 5
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 804,
+      "uuid": "f5dd55f0-874d-434c-a61a-33b991d06acb",
+      "header": false,
+      "path": "data/COMMON/Validation/Improper-Dataset.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"C0\",\"C1\",\"C2\",\"C3\",\"C4\",\"C5\",\"C6\"],\"colTypes\":[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}

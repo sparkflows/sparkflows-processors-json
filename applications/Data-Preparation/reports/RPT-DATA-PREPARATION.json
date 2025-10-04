@@ -1,0 +1,73 @@
+{
+  "name": "RPT-DATA-PREPARATION",
+  "uuid": "649106c4-6626-4a96-9133-cab08ba7b5c7",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Workflows Used in DATA-PREPARATION",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Quality on EMAIL",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 4,
+          "name": "PrintNRows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "652.979px",
+          "y": "110.642px",
+          "workflowId": "51e5b0de-7c2d-4fe8-9642-0a0228f0450b",
+          "workflowName": "Email-Validation",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "PrintNRows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "678.965px",
+          "y": "342.642px",
+          "workflowId": "51e5b0de-7c2d-4fe8-9642-0a0228f0450b",
+          "workflowName": "Email-Validation",
+          "nodeId": "5",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Concatenate Example",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 4,
+          "name": "PrintNRows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "663.966px",
+          "y": "162.617px",
+          "workflowId": "e02a4779-04fb-4c88-b7e4-233034b2550b",
+          "workflowName": "Concatenating-Multiple-Columns",
+          "nodeId": "4",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
