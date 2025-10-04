@@ -1,0 +1,75 @@
+{
+  "uuid": "1faf02a2-8197-478e-8f79-ae0965ee20e8",
+  "name": "Insurance-Claims-Data",
+  "header": true,
+  "path": "data/INSURANCE/Auto-Mobile-Insurance-Claims-Analytics/Raw-Data/Insurance-Claims-Data.json",
+  "delimiter": ",",
+  "datasetType": "JSON",
+  "datasetSchema": "{colNames:[\"claim_amount\",\"claim_date\",\"claim_no\",\"collision\",\"driver\",\"incident\",\"months_as_customer\",\"number_of_witnesses\",\"policy_no\",\"suspicious_activity\"],colTypes:[\"STRUCT\",\"STRING\",\"STRING\",\"STRUCT\",\"STRUCT\",\"STRUCT\",\"LONG\",\"LONG\",\"STRING\",\"BOOLEAN\"],colFormats:[\"{\\\"claim_amount\\\":{\\\"type\\\":\\\"struct\\\",\\\"fields\\\":[{\\\"name\\\":\\\"injury\\\",\\\"type\\\":\\\"long\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"property\\\",\\\"type\\\":\\\"long\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"total\\\",\\\"type\\\":\\\"long\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"vehicle\\\",\\\"type\\\":\\\"long\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}}]}}\",\"\",\"\",\"{\\\"collision\\\":{\\\"type\\\":\\\"struct\\\",\\\"fields\\\":[{\\\"name\\\":\\\"number_of_vehicles_involved\\\",\\\"type\\\":\\\"long\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"type\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}}]}}\",\"{\\\"driver\\\":{\\\"type\\\":\\\"struct\\\",\\\"fields\\\":[{\\\"name\\\":\\\"age\\\",\\\"type\\\":\\\"double\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"insured_relationship\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"license_issue_date\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}}]}}\",\"{\\\"incident\\\":{\\\"type\\\":\\\"struct\\\",\\\"fields\\\":[{\\\"name\\\":\\\"date\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"hour\\\",\\\"type\\\":\\\"long\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"severity\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}},{\\\"name\\\":\\\"type\\\",\\\"type\\\":\\\"string\\\",\\\"nullable\\\":true,\\\"metadata\\\":{}}]}}\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "claim_amount",
+        "colType": "STRUCT",
+        "colFormat": "{\"claim_amount\":{\"type\":\"struct\",\"fields\":[{\"name\":\"injury\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"property\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"total\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicle\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}}]}}",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "claim_date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "claim_no",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "collision",
+        "colType": "STRUCT",
+        "colFormat": "{\"collision\":{\"type\":\"struct\",\"fields\":[{\"name\":\"number_of_vehicles_involved\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"type\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}}",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "driver",
+        "colType": "STRUCT",
+        "colFormat": "{\"driver\":{\"type\":\"struct\",\"fields\":[{\"name\":\"age\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"insured_relationship\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"license_issue_date\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}}",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "incident",
+        "colType": "STRUCT",
+        "colFormat": "{\"incident\":{\"type\":\"struct\",\"fields\":[{\"name\":\"date\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"hour\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"severity\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"type\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}}",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "months_as_customer",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "number_of_witnesses",
+        "colType": "LONG",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "policy_no",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "suspicious_activity",
+        "colType": "BOOLEAN",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

@@ -1,0 +1,553 @@
+{
+  "name": "Insurance Claims Analysis Report",
+  "uuid": "3022322a-0ccc-49c1-999f-2b8ac74448e9",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "category": "category",
+  "description": "Claim Analytics",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analytics",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 40,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "853.6px",
+          "y": "331px",
+          "workflowId": "7c759abd-0a7f-405b-9ba2-9c2a1b2c466f",
+          "workflowName": "01-Combine-Policy-And-Claims-Data",
+          "nodeId": "40",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "579.8px",
+          "y": "203.8px",
+          "workflowId": "f79f0c00-63ff-4a4e-bda6-b6a3f26c3ae2",
+          "workflowName": "03-Policy-And-Claims-Dataset-Preparation",
+          "nodeId": "16",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "472px",
+          "y": "97px",
+          "workflowId": "f79f0c00-63ff-4a4e-bda6-b6a3f26c3ae2",
+          "workflowName": "03-Policy-And-Claims-Dataset-Preparation",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "916.2px",
+          "y": "41.15px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "914.2px",
+          "y": "156.2px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 57,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1432.6px",
+          "y": "92.6px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "57",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "924.8px",
+          "y": "236.775px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "935.6px",
+          "y": "325.6px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 65,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1548.4px",
+          "y": "374.4px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "65",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "336px",
+          "y": "634px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "862.6px",
+          "y": "390.6px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "853.6px",
+          "y": "497.6px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "985.6px",
+          "y": "583.575px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "980.4px",
+          "y": "691.2px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "28",
+          "grow": 0
+        },
+        {
+          "id": 71,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1648.2px",
+          "y": "716.2px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "71",
+          "grow": 0
+        },
+        {
+          "id": 32,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1074.4px",
+          "y": "793.375px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "32",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1074.6px",
+          "y": "894.8px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 77,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1749.8px",
+          "y": "1019.8px",
+          "workflowId": "67fc7c2b-bc59-42b0-8772-7a35b8ce1d45",
+          "workflowName": "03-EDA-On-Policies-And-Claims-Combined-Data-A",
+          "nodeId": "77",
+          "grow": 0
+        },
+        {
+          "id": 47,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "983.6px",
+          "y": "223.8px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "47",
+          "grow": 0
+        },
+        {
+          "id": 50,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "986px",
+          "y": "321px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "50",
+          "grow": 0
+        },
+        {
+          "id": 72,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1587.2px",
+          "y": "307.2px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "72",
+          "grow": 0
+        },
+        {
+          "id": 52,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "993.6px",
+          "y": "434.2px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "52",
+          "grow": 0
+        },
+        {
+          "id": 55,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "995px",
+          "y": "546.4px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "55",
+          "grow": 0
+        },
+        {
+          "id": 78,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1690.2px",
+          "y": "571.2px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "78",
+          "grow": 0
+        },
+        {
+          "id": 79,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1191.8px",
+          "y": "853px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "79",
+          "grow": 0
+        },
+        {
+          "id": 82,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1311.2px",
+          "y": "892.8px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "82",
+          "grow": 0
+        },
+        {
+          "id": 89,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1630.6px",
+          "y": "1035.6px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "89",
+          "grow": 0
+        },
+        {
+          "id": 92,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1419.4px",
+          "y": "1179.6px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "92",
+          "grow": 0
+        },
+        {
+          "id": 95,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1572.8px",
+          "y": "1208.4px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "95",
+          "grow": 0
+        },
+        {
+          "id": 102,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1703.2px",
+          "y": "1358.2px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "102",
+          "grow": 0
+        },
+        {
+          "id": 60,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "864px",
+          "y": "606.2px",
+          "workflowId": "94714d80-34a1-4e00-8349-08bddbf010a0",
+          "workflowName": "04-EDA-On-Policies-And-Claims-Combined-Data-B",
+          "nodeId": "60",
+          "grow": 0
+        },
+        {
+          "id": 70,
+          "name": "Graph - Claim by Months",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "490.2px",
+          "y": "19.175px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "70",
+          "grow": 0
+        },
+        {
+          "id": 71,
+          "name": "Graph - Policy Issued By Months",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "490.8px",
+          "y": "141.775px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "71",
+          "grow": 0
+        },
+        {
+          "id": 73,
+          "name": "Graph - Total Claim Amount by Month",
+          "type": "transform",
+          "x": "537px",
+          "y": "262px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "73",
+          "grow": 0
+        },
+        {
+          "id": 74,
+          "name": "Bar Group Chart - Total Claim Amount Monthly",
+          "type": "transform",
+          "x": "628.6px",
+          "y": "356.6px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "74",
+          "grow": 0
+        },
+        {
+          "id": 82,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "880.6px",
+          "y": "636.4px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "82",
+          "grow": 0
+        },
+        {
+          "id": 88,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "877.4px",
+          "y": "551.6px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "88",
+          "grow": 0
+        },
+        {
+          "id": 87,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "877px",
+          "y": "876.8px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "87",
+          "grow": 0
+        },
+        {
+          "id": 89,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "876px",
+          "y": "767.2px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "89",
+          "grow": 0
+        },
+        {
+          "id": 76,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "738.2px",
+          "y": "489.2px",
+          "workflowId": "fd0af0a9-2ed2-4386-b966-f91c4851ec4c",
+          "workflowName": "04-EDA-Timeseries-Analysis-Of-Policies-And-Claims-Combined-Data-C",
+          "nodeId": "76",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Predictive Analytics",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "708.6px",
+          "y": "104.6px",
+          "workflowId": "b381341b-4a8d-4c13-ada2-3a7ae5f61481",
+          "workflowName": "07-Cluster-Profiling-on-Claim-Data",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "699.6px",
+          "y": "210.6px",
+          "workflowId": "b381341b-4a8d-4c13-ada2-3a7ae5f61481",
+          "workflowName": "07-Cluster-Profiling-on-Claim-Data",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "713.8px",
+          "y": "311.8px",
+          "workflowId": "b381341b-4a8d-4c13-ada2-3a7ae5f61481",
+          "workflowName": "07-Cluster-Profiling-on-Claim-Data",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "845px",
+          "y": "421px",
+          "workflowId": "b381341b-4a8d-4c13-ada2-3a7ae5f61481",
+          "workflowName": "07-Cluster-Profiling-on-Claim-Data",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "852.6px",
+          "y": "551.6px",
+          "workflowId": "b381341b-4a8d-4c13-ada2-3a7ae5f61481",
+          "workflowName": "07-Cluster-Profiling-on-Claim-Data",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1376.8px",
+          "y": "110.8px",
+          "workflowId": "b381341b-4a8d-4c13-ada2-3a7ae5f61481",
+          "workflowName": "07-Cluster-Profiling-on-Claim-Data",
+          "nodeId": "14",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet/ Tab name",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
