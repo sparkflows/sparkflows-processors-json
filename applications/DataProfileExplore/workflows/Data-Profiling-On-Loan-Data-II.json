@@ -1,0 +1,1181 @@
+{
+  "name": "Data-Profiling-On-Loan-Data-II",
+  "uuid": "9002216a-ccd4-42cd-b184-f0956acc3d66",
+  "category": "DataProfiling",
+  "nodes": [
+    {
+      "id": "7",
+      "name": "LoanAmount vs ApplicantIncome & CoapplicantIncome",
+      "type": "transform",
+      "nodeClass": "fire.nodes.graph.NodeGraphValues",
+      "x": "72.8439px",
+      "y": "53.2407px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "LoanAmount vs ApplicantIncome/CoapplicantIncome",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "titleColor",
+          "value": "#77C27F",
+          "widget": "textcolors",
+          "title": "Title Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textareafield",
+          "title": "Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "descriptionColor",
+          "value": "#808080",
+          "widget": "textcolors",
+          "title": "Description Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "Loan Amount",
+          "widget": "textfield",
+          "title": "X Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "Applicant / Coapplicant Income",
+          "widget": "textfield",
+          "title": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "graphType",
+          "value": "SCATTERCHART",
+          "widget": "enum",
+          "title": "Chart Type",
+          "optionsMap": {
+            "LINECHART": "Line Chart",
+            "COLUMNCHART": "Side by Side Bar Chart",
+            "BARCHART": "Stacked Bar Chart",
+            "PIE": "Pie Chart",
+            "SCATTERCHART": "Scatter Chart"
+          },
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "chartColors",
+          "value": "",
+          "widget": "colors",
+          "title": "Chart Colors",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "isStreaming",
+          "value": "false",
+          "widget": "array",
+          "title": "Is Streaming?",
+          "description": "Whether the Graph is a Streaming Graph or not",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "markerSize",
+          "value": "12",
+          "widget": "textfield",
+          "title": "Marker size",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xCol",
+          "value": "LoanAmount",
+          "widget": "variable",
+          "title": "X Column",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xSortCol",
+          "value": "true",
+          "widget": "array",
+          "title": "Sort on X Column?",
+          "description": "Whether to Sort on X column or not",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "yCols",
+          "value": "[\"ApplicantIncome\",\"CoapplicantIncome\"]",
+          "widget": "variables",
+          "title": "Y Columns",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ySortCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Y Sort Column",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "reNameYColumns",
+          "value": "[]",
+          "widget": "variables_selected",
+          "title": "Rename Y Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "10",
+      "name": "FlagOutlier",
+      "description": "Flag the outlier based on the selected column using Box-and-Whisker technique.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeFlagOutlier",
+      "x": "451.032px",
+      "y": "335.116px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCol",
+          "value": "ApplicantIncome",
+          "widget": "variable",
+          "title": "Input Column to flag the outlier",
+          "description": "The Input Column to flag the outlier",
+          "datatypes": [
+            "double",
+            "integer",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "lowerQuantile",
+          "value": "0.25",
+          "widget": "textfield",
+          "title": "LowerQuantile",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "upperQuantile",
+          "value": "0.75",
+          "widget": "textfield",
+          "title": "UpperQuantile",
+          "description": "",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "11",
+      "name": "Loan Amount Distribution",
+      "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeHistoGramCal",
+      "x": "283.426px",
+      "y": "87.2989px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "",
+          "widget": "textfield",
+          "title": "Title",
+          "description": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "titleColor",
+          "value": "#77C27F",
+          "widget": "textcolors",
+          "title": "Title Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textareafield",
+          "title": "Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "descriptionColor",
+          "value": "#808080",
+          "widget": "textcolors",
+          "title": "Description Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "chartColors",
+          "value": "",
+          "widget": "colors",
+          "title": "Chart Colors",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "LoanAmount",
+          "widget": "variable",
+          "title": "Column Name",
+          "description": "Name of column",
+          "datatypes": [
+            "double",
+            "integer",
+            "long"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bins",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Number of Bins",
+          "description": "Number of Bins",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "15",
+      "name": "GroupBy",
+      "description": "Group By Node",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeGroupBy",
+      "x": "331.386px",
+      "y": "235.341px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Aggregation Setting",
+          "value": "",
+          "widget": "tab",
+          "title": "Aggregation Setting",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "groupingCols",
+          "value": "[\"Loan_Status\"]",
+          "widget": "variables",
+          "title": "Grouping Columns",
+          "description": "Grouping Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "aggregateCols",
+          "value": "[\"Loan_ID\",\"ApplicantIncome\",\"CoapplicantIncome\",\"LoanAmount\"]",
+          "widget": "variables_list_select",
+          "title": "Aggregate Columns",
+          "description": "Aggregate Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "aggregateOperations",
+          "value": "[\"count\",\"sum\",\"sum\",\"sum\"]",
+          "widget": "variables_list_array",
+          "title": "Aggregate Operation",
+          "description": "Aggregate Operation",
+          "optionsArray": [
+            "sum",
+            "avg",
+            "min",
+            "max",
+            "count",
+            "count_distinct"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "outputColNames",
+          "value": "[]",
+          "widget": "variables_list_textfield",
+          "title": "Output Column Names",
+          "description": "Output Column Names, default value is aggregateOperation_aggregateCol.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "Filter Setting",
+          "value": "",
+          "widget": "tab",
+          "title": "Filter Setting",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "whereClause",
+          "value": "",
+          "widget": "textarea_small",
+          "title": "Where Clause",
+          "description": "where condition before group by function",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "havingClause",
+          "value": "",
+          "widget": "textarea_small",
+          "title": "Having Clause",
+          "description": "having condition after group by function",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "16",
+      "name": "Status vs amount's",
+      "type": "transform",
+      "nodeClass": "fire.nodes.graph.NodeGraphValues",
+      "x": "678.368px",
+      "y": "270.32px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Graph",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "titleColor",
+          "value": "#77C27F",
+          "widget": "textcolors",
+          "title": "Title Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "description",
+          "value": "",
+          "widget": "textareafield",
+          "title": "Description",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "descriptionColor",
+          "value": "#808080",
+          "widget": "textcolors",
+          "title": "Description Color",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xlabel",
+          "value": "status",
+          "widget": "textfield",
+          "title": "X Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ylabel",
+          "value": "amounts",
+          "widget": "textfield",
+          "title": "Y Label",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "graphType",
+          "value": "COLUMNCHART",
+          "widget": "enum",
+          "title": "Chart Type",
+          "optionsMap": {
+            "LINECHART": "Line Chart",
+            "COLUMNCHART": "Side by Side Bar Chart",
+            "BARCHART": "Stacked Bar Chart",
+            "PIE": "Pie Chart",
+            "SCATTERCHART": "Scatter Chart"
+          },
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "chartColors",
+          "value": "",
+          "widget": "colors",
+          "title": "Chart Colors",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "isStreaming",
+          "value": "false",
+          "widget": "array",
+          "title": "Is Streaming?",
+          "description": "Whether the Graph is a Streaming Graph or not",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "markerSize",
+          "value": "12",
+          "widget": "textfield",
+          "title": "Marker size",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xCol",
+          "value": "Loan_Status",
+          "widget": "variable",
+          "title": "X Column",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "xSortCol",
+          "value": "true",
+          "widget": "array",
+          "title": "Sort on X Column?",
+          "description": "Whether to Sort on X column or not",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "yCols",
+          "value": "[\"sum_ApplicantIncome\",\"sum_CoapplicantIncome\",\"sum_LoanAmount\"]",
+          "widget": "variables",
+          "title": "Y Columns",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "ySortCol",
+          "value": "",
+          "widget": "variable",
+          "title": "Y Sort Column",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "reNameYColumns",
+          "value": "[]",
+          "widget": "variables_selected",
+          "title": "Rename Y Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "17",
+      "name": "StickyNote",
+      "description": "Allows capturing Notes on the Workflow",
+      "type": "sticky",
+      "nodeClass": "fire.nodes.doc.NodeStickyNote",
+      "x": "480px",
+      "y": "40px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "width",
+          "value": "510px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "height",
+          "value": "220px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>Data Profile:</p><p><br></p><p>Scatter Plot: To check the distribution of the LoanAmount vs ApplicantIncome/CoapplicantIncome fields.</p><p>FlagOutlier: Flag the outlier based on the selected column using Box-and-Whisker technique.</p><p>Histogram: Loan Amount field distribution.</p><p>Bar Chart: Loan Status vs Loan Amount, <span style=\"color: rgb(74, 74, 74);\">ApplicantIncome &amp; CoapplicantIncome.</span></p><p><span style=\"color: rgb(74, 74, 74);\">Skewness &amp; K</span>urtosis</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Workflow",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "18",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "127.683px",
+      "y": "316.619px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "dataset",
+          "value": "d05f6925-30cf-4bec-97aa-bafda9246bef",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "19",
+      "name": "Skewness And Kurtosis",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeSkewnessAndKurtosis",
+      "x": "261.847px",
+      "y": "420.1px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"ApplicantIncome\",\"CoapplicantIncome\",\"LoanAmount\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns to get the skewness and kurtosis.",
+          "datatypes": [
+            "double",
+            "integer",
+            "long",
+            "float"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "20",
+      "name": "Print N Rows",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "612.841px",
+      "y": "378.847px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "title",
+          "value": "Output data of Outliers",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "n",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "18",
+      "target": "7",
+      "id": 1
+    },
+    {
+      "source": "18",
+      "target": "11",
+      "id": 2
+    },
+    {
+      "source": "18",
+      "target": "15",
+      "id": 3
+    },
+    {
+      "source": "15",
+      "target": "16",
+      "id": 4
+    },
+    {
+      "source": "18",
+      "target": "10",
+      "id": 5
+    },
+    {
+      "source": "18",
+      "target": "19",
+      "id": 6
+    },
+    {
+      "source": "10",
+      "target": "20",
+      "id": 7
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3025,
+      "uuid": "d05f6925-30cf-4bec-97aa-bafda9246bef",
+      "header": true,
+      "readOptions": "{\"mode\":\"DROPMALFORMED\"}",
+      "path": "data/COMMON/Loan/Loan-Training.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"Loan_ID\",\"Gender\",\"Married\",\"Dependents\",\"Education\",\"Self_Employed\",\"ApplicantIncome\",\"CoapplicantIncome\",\"LoanAmount\",\"Loan_Amount_Term\",\"Credit_History\",\"Property_Area\",\"Loan_Status\"],\"colTypes\":[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}
