@@ -1,0 +1,39 @@
+{
+  "uuid": "bbeff50f-c338-4cdd-bf81-488d8e34f159",
+  "name": "Coupon Redempt",
+  "header": true,
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/coupon_redempt.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"household_key\",\"DAY\",\"COUPON_UPC\",\"CAMPAIGN\"],colTypes:[\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "household_key",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DAY",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COUPON_UPC",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CAMPAIGN",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

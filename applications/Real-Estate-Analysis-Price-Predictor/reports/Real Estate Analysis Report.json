@@ -1,0 +1,322 @@
+{
+  "name": "Real Estate Analysis Report",
+  "uuid": "9dd16dfe-6fce-4276-987a-abc91cf1bd7f",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Housing Insights and Forecasting Report",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 23,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "1442.87px",
+          "y": "670.733px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 2,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "438.588px",
+          "y": "176.6px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "422.6px",
+          "y": "271.6px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "421.6px",
+          "y": "379.6px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "599.6px",
+          "y": "508.188px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1111.6px",
+          "y": "288.6px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1062.2px",
+          "y": "405.8px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1831.27px",
+          "y": "700.867px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1065.07px",
+          "y": "161.067px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1062px",
+          "y": "549.6px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1734.25px",
+          "y": "324.433px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1726.47px",
+          "y": "495.067px",
+          "workflowId": "cb86f402-d4d6-4b5a-934e-57ce0a6af2ee",
+          "workflowName": "5-Analyzing-Housing-Data",
+          "nodeId": "22",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 8,
+          "name": "Regression Evaluator",
+          "description": "Evaluator for regression, which expects two input columns: prediction and label.",
+          "type": "ml-evaluator",
+          "x": "815px",
+          "y": "129px",
+          "workflowId": "bb7348b9-ee3b-4b5c-a047-28d5487d07f9",
+          "workflowName": "7-Predicting-House-Price",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "609.588px",
+          "y": "0px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 2,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "622.6px",
+          "y": "140.6px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "623.4px",
+          "y": "240.4px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "651.4px",
+          "y": "346.4px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "666.2px",
+          "y": "452.2px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1155px",
+          "y": "20px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1240.2px",
+          "y": "129.2px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1231px",
+          "y": "238px",
+          "workflowId": "864854db-9f9b-4c9f-a991-56c94ab22ec3",
+          "workflowName": "8-Predictive-Analysis",
+          "nodeId": "15",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Data Quality",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 4,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "788.133px",
+          "y": "264.133px",
+          "workflowId": "a3aed32b-2241-4749-90af-f4b458608d22",
+          "workflowName": "3-Data-Quality-Analysis-on-Housing-Data",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "574.163px",
+          "y": "848.2px",
+          "workflowId": "a3aed32b-2241-4749-90af-f4b458608d22",
+          "workflowName": "3-Data-Quality-Analysis-on-Housing-Data",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "413.388px",
+          "y": "512.2px",
+          "workflowId": "a3aed32b-2241-4749-90af-f4b458608d22",
+          "workflowName": "3-Data-Quality-Analysis-on-Housing-Data",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "410.6px",
+          "y": "722.8px",
+          "workflowId": "a3aed32b-2241-4749-90af-f4b458608d22",
+          "workflowName": "3-Data-Quality-Analysis-on-Housing-Data",
+          "nodeId": "12",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

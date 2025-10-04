@@ -1,0 +1,29 @@
+{
+  "uuid": "dc4aee0b-c365-466d-a78e-eadf2acadbfb",
+  "name": "People",
+  "category": "PARQUET",
+  "description": "People Dataset",
+  "header": true,
+  "path": "data/DATA-ENGINEERING/Parquet/People",
+  "delimiter": ",",
+  "datasetType": "PARQUET",
+  "datasetSchema": "{colNames:[\"label\",\"text\"],colTypes:[\"DOUBLE\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "label",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "text",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

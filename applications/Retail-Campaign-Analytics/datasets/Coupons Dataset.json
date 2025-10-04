@@ -1,0 +1,34 @@
+{
+  "uuid": "e33af1ef-4249-4d01-8427-94827f95fd2f",
+  "name": "Coupons Dataset",
+  "header": true,
+  "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/coupon.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"COUPON_UPC\",\"PRODUCT_ID\",\"CAMPAIGN\"],colTypes:[\"DOUBLE\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "COUPON_UPC",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PRODUCT_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "CAMPAIGN",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

@@ -1,0 +1,73 @@
+{
+  "name": "2-Model-Evaluation-Report",
+  "uuid": "f0f19ce3-f7a2-47da-b4ee-4c6403e26bb3",
+  "icon": {
+    "type": "svg",
+    "icon": "images/report.svg"
+  },
+  "description": "Model Evaluation",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Feature Importance",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 13,
+          "name": "Feature Selection With Importance",
+          "description": "",
+          "type": "transform",
+          "x": "228px",
+          "y": "69px",
+          "workflowId": "6d5aca76-57a2-4a00-98eb-fb6735d3a617",
+          "workflowName": "02-Predictive-Maintenance-Model-Training",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Feature Selection With Correlation",
+          "description": "",
+          "type": "transform",
+          "x": "210px",
+          "y": "405px",
+          "workflowId": "6d5aca76-57a2-4a00-98eb-fb6735d3a617",
+          "workflowName": "02-Predictive-Maintenance-Model-Training",
+          "nodeId": "14",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Training Metrics",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 16,
+          "name": "H2O Generalized Linear Models",
+          "description": "Generalized Linear Models (GLM) estimate regression models for outcomes following exponential distributions",
+          "type": "ml-estimator",
+          "x": "453px",
+          "y": "116px",
+          "workflowId": "6d5aca76-57a2-4a00-98eb-fb6735d3a617",
+          "workflowName": "02-Predictive-Maintenance-Model-Training",
+          "nodeId": "16",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Training Metric",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

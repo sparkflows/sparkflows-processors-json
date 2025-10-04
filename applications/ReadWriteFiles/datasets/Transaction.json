@@ -1,0 +1,84 @@
+{
+  "uuid": "883dd369-f832-4c6a-8681-0dffc8ab638a",
+  "name": "Transaction",
+  "category": "DELTA",
+  "description": "Retail Transactions Datset",
+  "header": true,
+  "path": "data/DATA-ENGINEERING/Delta/Raw-Data/Delta-Transaction.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "filterLinesContaining": "purchasequantity",
+  "datasetSchema": "{colNames:[\"id\",\"chain\",\"dept\",\"category\",\"company\",\"brand\",\"date\",\"productsize\",\"productmeasure\",\"purchasequantity\",\"purchaseamount\"],colTypes:[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"STRING\",\"INTEGER\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "chain",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "dept",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "category",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "company",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "brand",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "productsize",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "productmeasure",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "purchasequantity",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "purchaseamount",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

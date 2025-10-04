@@ -1,0 +1,70 @@
+{
+  "name": "3-Real-Estate-Model-Validation",
+  "uuid": "2fcdfb4e-fd97-4f88-9bda-3adeb340cc07",
+  "icon": {
+    "type": "svg",
+    "icon": "images/report.svg"
+  },
+  "description": "Model Validation",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 7,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "534.108px",
+          "y": "66.1111px",
+          "workflowId": "ada3e9c1-3ca4-4c62-8a4e-a25ddf4a1a01",
+          "workflowName": "04-Report-Predictive-Analysis",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "597.111px",
+          "y": "330.111px",
+          "workflowId": "ada3e9c1-3ca4-4c62-8a4e-a25ddf4a1a01",
+          "workflowName": "04-Report-Predictive-Analysis",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "631.875px",
+          "y": "363.875px",
+          "workflowId": "3d1097dc-e14a-4b98-9ee0-24b74cd9aaa5",
+          "workflowName": "03-Predictive-Maintenance-Model-Prediction",
+          "nodeId": "7",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

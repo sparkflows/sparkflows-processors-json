@@ -1,0 +1,69 @@
+{
+  "uuid": "16ceca7c-e8b5-4f78-a26c-ba9c5999fffb",
+  "name": "Real-Estate-Sensor-Raw-Data",
+  "header": true,
+  "path": "data/REAL-ESTATE/raw/FACILITY-MAINTENANCE/Raw-Data/Maintenance_Based_on_Sensor_Thresholds.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Property_ID\",\"Date\",\"HVAC_Temp\",\"Water_Pressure\",\"Power_Usage\",\"Elevator_Vibration\",\"Smoke_Level\",\"Maintenance_Type\",\"Maintenance_Required\"],colTypes:[\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Property_ID",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "HVAC_Temp",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Water_Pressure",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Power_Usage",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Elevator_Vibration",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Smoke_Level",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "Maintenance_Type",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Maintenance_Required",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

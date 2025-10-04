@@ -1,0 +1,162 @@
+{
+  "name": "Price Optimization Report",
+  "uuid": "a8ef362c-b3e5-408d-b416-0b40a9f2f6e0",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Price Optimization Output",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "644.05px",
+          "y": "60.0333px",
+          "workflowId": "1e37523c-b6ff-4b49-9d27-ce065f8578c8",
+          "workflowName": "02-Price-Optimization-Workflow",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "802.75px",
+          "y": "340.85px",
+          "workflowId": "1e37523c-b6ff-4b49-9d27-ce065f8578c8",
+          "workflowName": "02-Price-Optimization-Workflow",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "507.45px",
+          "y": "121.45px",
+          "workflowId": "1e37523c-b6ff-4b49-9d27-ce065f8578c8",
+          "workflowName": "02-Price-Optimization-Workflow",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "546.133px",
+          "y": "368.033px",
+          "workflowId": "1e37523c-b6ff-4b49-9d27-ce065f8578c8",
+          "workflowName": "02-Price-Optimization-Workflow",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "556.6px",
+          "y": "237.6px",
+          "workflowId": "633ad158-1ad1-4bf3-9cc7-749e7f3590bd",
+          "workflowName": "03-SuperImposed-Visualization",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "552px",
+          "y": "198px",
+          "workflowId": "8c14dcd2-0cf2-4aa1-916c-e7ab812795bf",
+          "workflowName": "01-Feature-Data-Profiling",
+          "nodeId": "8",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Optimized Details",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 4,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "420.8px",
+          "y": "145.8px",
+          "workflowId": "9a199513-d281-4e3b-957c-f69fb4cad955",
+          "workflowName": "05-Optimized-Laddering",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "434.383px",
+          "y": "277.4px",
+          "workflowId": "9a199513-d281-4e3b-957c-f69fb4cad955",
+          "workflowName": "05-Optimized-Laddering",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "MRP Revenue Comparison",
+          "type": "transform",
+          "x": "689.183px",
+          "y": "162.183px",
+          "workflowId": "9a199513-d281-4e3b-957c-f69fb4cad955",
+          "workflowName": "05-Optimized-Laddering",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Max Revenue Comparison",
+          "type": "transform",
+          "x": "667.8px",
+          "y": "53.8px",
+          "workflowId": "9a199513-d281-4e3b-957c-f69fb4cad955",
+          "workflowName": "05-Optimized-Laddering",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Volume Comparison",
+          "type": "transform",
+          "x": "677.6px",
+          "y": "345.6px",
+          "workflowId": "9a199513-d281-4e3b-957c-f69fb4cad955",
+          "workflowName": "05-Optimized-Laddering",
+          "nodeId": "11",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

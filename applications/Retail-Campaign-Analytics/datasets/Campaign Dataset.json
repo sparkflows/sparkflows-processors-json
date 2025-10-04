@@ -1,0 +1,40 @@
+{
+  "uuid": "8e7a2c51-716c-43c5-b720-84c88496e5dd",
+  "name": "Campaign Dataset",
+  "header": true,
+  "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/campaign_desc.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"DESCRIPTION\",\"CAMPAIGN\",\"START_DAY\",\"END_DAY\"],colTypes:[\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "DESCRIPTION",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CAMPAIGN",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "START_DAY",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "END_DAY",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

@@ -1,0 +1,212 @@
+{
+  "name": "1 - Campaign Data Assessment Report",
+  "uuid": "84fd21f9-1d25-43da-aae1-99a54bd16b44",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 66,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "895px",
+          "y": "511px",
+          "workflowId": "3658a808-f51e-48c6-a4b8-82530a69d81f",
+          "workflowName": "01C - Profiling Transactional Data - Part 2",
+          "nodeId": "66",
+          "grow": 0
+        },
+        {
+          "id": 60,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "835.778px",
+          "y": "1461.78px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "60",
+          "grow": 0
+        },
+        {
+          "id": 31,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "564px",
+          "y": "553px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "31",
+          "grow": 0
+        },
+        {
+          "id": 32,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "570px",
+          "y": "681px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "32",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "577px",
+          "y": "801px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 62,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "865.531px",
+          "y": "184.469px",
+          "workflowId": "2544c74e-c5fb-42b3-b3ff-c25cd0750b5a",
+          "workflowName": "01A - Profiling Transactions Data",
+          "nodeId": "62",
+          "grow": 0
+        },
+        {
+          "id": 59,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "867.531px",
+          "y": "64.4688px",
+          "workflowId": "2544c74e-c5fb-42b3-b3ff-c25cd0750b5a",
+          "workflowName": "01A - Profiling Transactions Data",
+          "nodeId": "59",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "569px",
+          "y": "934px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "34",
+          "grow": 0
+        },
+        {
+          "id": 41,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "844.194px",
+          "y": "908.611px",
+          "workflowId": "3658a808-f51e-48c6-a4b8-82530a69d81f",
+          "workflowName": "01C - Profiling Transactional Data - Part 2",
+          "nodeId": "41",
+          "grow": 0
+        },
+        {
+          "id": 42,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "1083.63px",
+          "y": "1033.05px",
+          "workflowId": "3658a808-f51e-48c6-a4b8-82530a69d81f",
+          "workflowName": "01C - Profiling Transactional Data - Part 2",
+          "nodeId": "42",
+          "grow": 0
+        },
+        {
+          "id": 78,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "2435.75px",
+          "y": "295.734px",
+          "workflowId": "32ff4225-8fa9-4b64-b565-c1ad94cde1cb",
+          "workflowName": "01D- Profiling Transactional Data - Part 3",
+          "nodeId": "78",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Data Quality",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 19,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "178.067px",
+          "y": "46.0667px",
+          "workflowId": "05aeede2-b529-4002-9f8a-9240767857af",
+          "workflowName": "02 C - Quality Assessment of Sales Transaction Data - Part 3",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 46,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "943.264px",
+          "y": "1572.69px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "46",
+          "grow": 0
+        },
+        {
+          "id": 37,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "403px",
+          "y": "1181px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "37",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "391.2px",
+          "y": "1295.19px",
+          "workflowId": "b488aa95-cea2-44dd-8a38-d01b9feaa3d6",
+          "workflowName": "01B - Profile Transactional Data - Part1",
+          "nodeId": "38",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Page 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

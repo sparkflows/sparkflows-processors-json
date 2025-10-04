@@ -1,0 +1,88 @@
+{
+  "uuid": "70b51953-1a38-4551-9e76-27ede2a1e703",
+  "name": "Sales Dataset",
+  "header": true,
+  "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/sales_transaction.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"household_key\",\"BASKET_ID\",\"DAY\",\"PRODUCT_ID\",\"QUANTITY\",\"SALES_VALUE\",\"STORE_ID\",\"RETAIL_DISC\",\"TRANS_TIME\",\"WEEK_NO\",\"COUPON_DISC\",\"COUPON_MATCH_DISC\"],colTypes:[\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "household_key",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "BASKET_ID",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DAY",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "PRODUCT_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "QUANTITY",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "SALES_VALUE",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "STORE_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "RETAIL_DISC",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "TRANS_TIME",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "WEEK_NO",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COUPON_DISC",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "COUPON_MATCH_DISC",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

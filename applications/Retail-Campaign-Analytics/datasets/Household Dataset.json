@@ -1,0 +1,64 @@
+{
+  "uuid": "2b4b196d-238d-4adc-ad3d-9db99ccd65e8",
+  "name": "Household Dataset",
+  "header": true,
+  "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/hh_demographic.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"AGE_DESC\",\"MARITAL_STATUS_CODE\",\"INCOME_DESC\",\"HOMEOWNER_DESC\",\"HH_COMP_DESC\",\"HOUSEHOLD_SIZE_DESC\",\"KID_CATEGORY_DESC\",\"household_key\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "AGE_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "MARITAL_STATUS_CODE",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "INCOME_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "HOMEOWNER_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "HH_COMP_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "HOUSEHOLD_SIZE_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "KID_CATEGORY_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "household_key",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

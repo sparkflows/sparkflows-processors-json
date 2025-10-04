@@ -1,0 +1,442 @@
+{
+  "name": "1-Housing-Data-Data-Profile",
+  "uuid": "2a22e833-efe9-4b40-b77b-43699b33c5ff",
+  "category": "DataProfiling",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "79px",
+      "y": "250.984px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "d20d0d13-0dbf-4a8d-ad2d-b7907a4f2ca5",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "DropRowsWithNull",
+      "description": "This node creates a new DataFrame by dropping rows containing null values",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeDropRowsWithNull",
+      "x": "266.496px",
+      "y": "416.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "Summary",
+      "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeSummary",
+      "x": "502.496px",
+      "y": "120.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Summary",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "colNames",
+          "value": "[\"id\",\"price\",\"bedrooms\",\"bathrooms\",\"sqft_living\",\"sqft_lot\",\"floors\",\"waterfront\",\"view\",\"condition\",\"grade\",\"sqft_above\",\"sqft_basement\",\"yr_built\",\"yr_renovated\",\"zipcode\",\"lat\",\"long\",\"sqft_living15\",\"sqft_lot15\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Column Names for Summary",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Save Summary Statistics to Path",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "4",
+      "name": "NullValuesInColumn",
+      "description": "Number of Null Values in Selected Columns.",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodeNullValuesInColumn",
+      "x": "502.496px",
+      "y": "257.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"id\",\"date\",\"price\",\"bedrooms\",\"bathrooms\",\"sqft_living\",\"sqft_lot\",\"floors\",\"waterfront\",\"view\",\"condition\",\"grade\",\"sqft_above\",\"sqft_basement\",\"yr_built\",\"yr_renovated\",\"zipcode\",\"lat\",\"long\",\"sqft_living15\",\"sqft_lot15\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns for Number of Null Values Check",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "5",
+      "name": "Correlation",
+      "description": "calculates the correlation between two series of data.",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeCorrelation",
+      "x": "504.496px",
+      "y": "417.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Correlation Matrix",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"id\",\"price\",\"bedrooms\",\"bathrooms\",\"sqft_living\",\"sqft_lot\",\"floors\",\"waterfront\",\"view\",\"condition\",\"grade\",\"sqft_above\",\"sqft_basement\",\"yr_built\",\"yr_renovated\",\"zipcode\",\"lat\",\"long\",\"sqft_living15\",\"sqft_lot15\"]",
+          "widget": "variables",
+          "title": "Input Column for Correlation",
+          "description": "Column Names to check correlation ",
+          "datatypes": [
+            "integer",
+            "long",
+            "double",
+            "float",
+            "decimal"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "6",
+      "name": "ColumnsCardinality",
+      "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+      "details": "",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.ml.NodeColumnsCardinality",
+      "x": "504.496px",
+      "y": "517.734px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "maxValuesToDisplay",
+          "value": "20",
+          "widget": "textfield",
+          "title": "Max Values To Display",
+          "description": "Maximum number of values to display in result.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "inputCols",
+          "value": "[\"date\"]",
+          "widget": "variables",
+          "title": "Column Names",
+          "description": "Name of columns for the cardinality data",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "3",
+      "id": 1
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "id": 2
+    },
+    {
+      "source": "1",
+      "target": "2",
+      "id": 3
+    },
+    {
+      "source": "2",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "id": 5
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 2228,
+      "uuid": "d20d0d13-0dbf-4a8d-ad2d-b7907a4f2ca5",
+      "header": true,
+      "path": "data/REAL-ESTATE/raw/Housing-Dataset.csv",
+      "delimiter": "\\t",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"id\",\"date\",\"price\",\"bedrooms\",\"bathrooms\",\"sqft_living\",\"sqft_lot\",\"floors\",\"waterfront\",\"view\",\"condition\",\"grade\",\"sqft_above\",\"sqft_basement\",\"yr_built\",\"yr_renovated\",\"zipcode\",\"lat\",\"long\",\"sqft_living15\",\"sqft_lot15\"],\"colTypes\":[\"DOUBLE\",\"STRING\",\"DOUBLE\",\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

@@ -1,0 +1,58 @@
+{
+  "uuid": "202c724e-66db-4bf6-8e7d-4f3f0639bb52",
+  "name": "Product Dataset",
+  "header": true,
+  "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/product.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"PRODUCT_ID\",\"MANUFACTURER\",\"DEPARTMENT\",\"BRAND\",\"COMMODITY_DESC\",\"SUB_COMMODITY_DESC\",\"CURR_SIZE_OF_PRODUCT\"],colTypes:[\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "PRODUCT_ID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "MANUFACTURER",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "DEPARTMENT",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "BRAND",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "COMMODITY_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "SUB_COMMODITY_DESC",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "CURR_SIZE_OF_PRODUCT",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

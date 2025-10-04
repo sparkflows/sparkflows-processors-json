@@ -1,0 +1,39 @@
+{
+  "uuid": "26f99fa2-67f5-4359-ad75-340bb411c6e4",
+  "name": "Product Review",
+  "header": true,
+  "path": "data/MARKETING/Retail-Campaign-Analytics/Raw-Data/product_review.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"id\",\"text\",\"date\",\"rating\"],colTypes:[\"STRING\",\"STRING\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "id",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "text",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "rating",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

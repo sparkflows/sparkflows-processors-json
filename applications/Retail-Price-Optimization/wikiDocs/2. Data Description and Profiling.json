@@ -1,0 +1,15 @@
+{
+  "id": 3337,
+  "uuid": "c5011219-c0eb-433f-aa47-8de6aae5e843",
+  "name": "2. Data Description and Profiling",
+  "category": "",
+  "projectId": 1618,
+  "content": "<h3>Data Description</h3><p>The dataset consists of 420 rows and 24 features, covering weekly retail sales and pricing information.</p><ul><li>Categorical Variables:</li><li>SIZE (Product size: S, M, L, etc.)</li><li>PRD_CD (Product identifier)</li><li>YEAR_WEEK (Time granularity: weekly)</li><li>Numerical Variables:</li><li>SALES_VOLUME (Target variable: units sold per week)</li><li>PACK_PRICE_PRD (Our product’s price)</li><li>PACK_PRICE_COMPETITOR1–5 (Competitor prices)</li><li>ADV_SPEND (Advertising spend per week)</li><li>WEEK_MIN_PRD_PACK_PRICE (Minimum product pack price observed that week)</li><li>LOG_* features (log-transformed versions for elasticity modeling)</li><li>Event/Promotion Variables:</li><li>BAU, EVENT, FLEETING, SVD (Indicators of promotions and special events)</li><li>Q1, Q2, Q3 (Quarter indicators)</li></ul><p>Time Period Covered: Weekly data from 2023 (full year).</p><p>Granularity: Product × Week level.</p><h3>Data Preparation</h3><ol><li>Missing Value Handling:</li></ol><ul><li>Fill missing competitor prices (PACK_PRICE_COMPETITOR4) using forward/backward fill or competitor median pricing.</li><li>Impute missing product prices and log-transformed features (PACK_PRICE_PRD, LOG_SALES_VOLUME, LOG_PRD_PRICE).</li></ul><p>\t\t2.Outlier Detection:</p><ul><li>Identify unusually high/low sales or advertising spend using IQR or Z-score methods.</li></ul><p>\t\t3.Feature Engineering:</p><ul><li>Price elasticity features: ratio of product price vs. competitor minimum price.</li><li>Promotion impact: binary indicators for promotions (EVENT, FLEETING).</li><li>Seasonality: encode week and quarter effects.</li></ul><p>\t\t4.Transformation:</p><ul><li>Use log transformations for skewed variables (SALES_VOLUME, PACK_PRICE_PRD).</li><li>Standardize numerical features for model stability.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:31 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 7:02:04 AM"
+}
