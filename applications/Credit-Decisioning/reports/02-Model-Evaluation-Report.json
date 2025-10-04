@@ -1,0 +1,59 @@
+{
+  "name": "02-Model-Evaluation-Report",
+  "uuid": "f1f0d775-de38-4d93-ab04-12e4bd45aee8",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/Manufacturing.svg"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Model Evaluation",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 25,
+          "name": "Random Forest Classifier",
+          "description": "Supports both binary and multiclass labels, as well as both continuous and categorical features.",
+          "type": "ml-estimator",
+          "x": "764px",
+          "y": "85px",
+          "workflowId": "f59d8c5c-645a-490e-ba2a-e6c88b6a14dc",
+          "workflowName": "05-Creating-Risk-Model-Using-RF-Classifier",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Binary Classification Evaluator",
+          "description": "Evaluator for binary classification, which expects two input columns: rawPrediction and label.",
+          "type": "ml-evaluator",
+          "x": "757px",
+          "y": "427px",
+          "workflowId": "4d3b8713-f3c9-44dd-8886-3d32f75fa43f",
+          "workflowName": "06-Prediction-Risk-Using-RF-Classifier",
+          "nodeId": "27",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

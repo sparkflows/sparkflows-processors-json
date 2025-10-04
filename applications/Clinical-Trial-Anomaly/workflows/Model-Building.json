@@ -1,0 +1,758 @@
+{
+  "name": "Model-Building",
+  "uuid": "2a9914f6-250f-41ca-9f4d-38c6d012097a",
+  "category": "-",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "101.8px",
+      "y": "122.8px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataset",
+          "value": "93ca06fd-6f1e-4b42-bed4-2d4e12ec048a",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "2",
+      "name": "H2O Isolation Forest",
+      "iconImage": "fa fa-qrcode",
+      "description": "Isolation Forest is similar in principle to Random Forest and is built on the basis of decision trees.",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.h2o.NodeH2OIsolationForest",
+      "x": "334.8px",
+      "y": "135.8px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "sampleSize",
+          "value": "256",
+          "widget": "textfield",
+          "title": "Sample Size",
+          "description": "Number of randomly sampled observations used to train each Isolation Forest tree. Only one of parameters sample_size and sample_rate should be defined. If sample_rate is defined, sample_size will be ignored",
+          "datatypes": [
+            "long"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "featuresCols",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Feature Columns",
+          "description": "Features to be used for Modelling",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "sampleRate",
+          "value": "-1.0",
+          "widget": "textfield",
+          "title": "Sample Rate",
+          "description": "Row sample rate per tree (from 0.0 to 1.0).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "mtries",
+          "value": "-1",
+          "widget": "textfield",
+          "title": "mtries",
+          "description": "Number of variables randomly sampled as candidates at each split. If set to -1, defaults to sqrt{p} for classification and p/3 for regression (where p is the # of predictors.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "contamination",
+          "value": "-1.0",
+          "widget": "textfield",
+          "title": "Contamination",
+          "description": "Contamination ratio - the proportion of anomalies in the input dataset. If undefined (-1) the predict function will not mark observations as anomalies and only anomaly score will be returned.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "ntrees",
+          "value": "50",
+          "widget": "textfield",
+          "title": "Number of Trees",
+          "description": "Number of trees.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "maxDepth",
+          "value": "8",
+          "widget": "textfield",
+          "title": "Max Depth",
+          "description": "Maximum tree depth (0 for unlimited).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "minRows",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Min Rows",
+          "description": "Fewest allowed (weighted) observations in a leaf.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "seed",
+          "value": "-1",
+          "widget": "textfield",
+          "title": "Seed",
+          "description": "Seed for pseudo random number generator (if applicable).",
+          "datatypes": [
+            "Long"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "buildTreeOneNode",
+          "value": "false",
+          "widget": "array",
+          "title": "Build tree one node",
+          "description": "Enables to run on a single node",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "colSampleRatePerTree",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Column Sample Rate Per Tree (from 0.0 to 1.0).",
+          "description": "Column sample rate per tree (from 0.0 to 1.0).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "colSampleRateChangePerLevel",
+          "value": "1.0",
+          "widget": "textfield",
+          "title": "Column Sample Rate change Per Level",
+          "description": "Relative change of the column sampling rate for every level (must be > 0.0 and <= 2.0).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "scoreTreeInterval",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Score Tree Interval",
+          "description": "Score the model after every so many trees. Disabled if set to 0.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "categoricalEncoding",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "Categorical Encoding",
+          "description": "Specify one of the various encoding schemes for handling categorical features",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "AUTO",
+            "OneHotInternal",
+            "OneHotExplicit",
+            "Enum",
+            " Binary",
+            "Eigen",
+            "LabelEncode",
+            "SortByResponse",
+            "EnumLimited"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "ignoreConstCols",
+          "value": "true",
+          "widget": "array",
+          "title": "Ignore Const Columns",
+          "description": "Ignore constant columns.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "ignoredCols",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Ignore Columns",
+          "description": "Ignore Columns.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "columnsToCategorical",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Columns to Categorical",
+          "description": "Columns to be Categorical encoded",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "scoreEachIteration",
+          "value": "false",
+          "widget": "array",
+          "title": "Score Each Iteration",
+          "description": "Whether to score during each iteration of model training.",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "false",
+            "true"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "stoppingRounds",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Stopping Rounds",
+          "description": "Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "maxRuntimeSecs",
+          "value": "0.0",
+          "widget": "textfield",
+          "title": "Max Runtime Secs",
+          "description": "his argument specifies the maximum time that the AutoML process will run for. If both max_runtime_secs and max_models are specified, then the AutoML run will stop as soon as it hits either of these limits. If neither max_runtime_secs nor max_models are specified, then max_runtime_secs defaults to 3600 seconds (1 hour).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "stoppingMetric",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "StoppingMetric",
+          "description": "Metric to use for early stopping (AUTO: logloss for classification, deviance for regression)",
+          "optionsArray": [
+            "AUTO",
+            "deviance",
+            "logloss",
+            "MSE",
+            "RMSE",
+            "MAE",
+            "RMSLE",
+            "AUC",
+            "AUCPR",
+            "lift_top_group",
+            "misclassification",
+            "mean_per_class_error",
+            "anomaly_score",
+            "custom",
+            "custom_increasing"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "stoppingTolerance",
+          "value": "0.01",
+          "widget": "textfield",
+          "title": "StoppingTolerance",
+          "description": "Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "Grid Search",
+          "value": "",
+          "widget": "tab",
+          "title": "Grid Search",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "paramKeys",
+          "value": "[]",
+          "widget": "key_array",
+          "title": "Param Name",
+          "description": "Param Names. eg: maxDepth ,learnRate, nTrees,distribution",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "paramValues",
+          "value": "[]",
+          "widget": "value_array",
+          "title": "Param Value",
+          "description": "Enter comma separated values.eg: 4,5,6, eg: gaussian, gamma, bernoulli",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridStrategy",
+          "value": "Cartesian",
+          "widget": "array",
+          "title": "Grid Search Strategy",
+          "description": "Strategy to use for model hyperparameter search. Cartesian does exhaustive search; RandomDiscrete searches randomly within given time or model limits.",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "Cartesian",
+            "RandomDiscrete"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridMaxModels",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Grid Max Models",
+          "description": "Maximum number of models to build in the grid search (0 for unlimited).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridMaxRuntimeSecs",
+          "value": "0",
+          "widget": "textfield",
+          "title": "Grid Max Runtime Seconds",
+          "description": "Maximum runtime in seconds for the grid search (0 for unlimited).",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridStoppingRounds",
+          "value": "3",
+          "widget": "textfield",
+          "title": "Grid Stopping Rounds",
+          "description": "Early stopping based on convergence of the metric during grid search (0 to disable).",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridStoppingTolerance",
+          "value": "0.001",
+          "widget": "textfield",
+          "title": "Grid Stopping Tolerance",
+          "description": "Tolerance for metric-based stopping criterion during grid search.",
+          "datatypes": [
+            "double"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridStoppingMetric",
+          "value": "AUTO",
+          "widget": "array",
+          "title": "Grid Stopping Metric",
+          "description": "Metric to use for early stopping during grid search (AUTO: logloss for classification, deviance for regression).",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "AUTO",
+            "deviance",
+            "logloss",
+            "MSE",
+            "RMSE",
+            "MAE",
+            "RMSLE",
+            "AUC",
+            "AUCPR",
+            "lift_top_group",
+            "misclassification",
+            "mean_per_class_error",
+            "anomaly_score",
+            "custom",
+            "custom_increasing"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridParallelism",
+          "value": "2",
+          "widget": "textfield",
+          "title": "Grid Parallelism",
+          "description": "Level of parallelism to use when building models in the grid.",
+          "datatypes": [
+            "integer"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "gridSelectBestModelBy",
+          "value": "RMSE",
+          "widget": "array",
+          "title": "Grid Select Best Model By",
+          "description": "Metric used to select the best model from the grid.",
+          "datatypes": [
+            "string"
+          ],
+          "optionsArray": [
+            "MSE",
+            "RMSE",
+            "MeanNormalizedScore",
+            "MeanScore"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [],
+  "dataSetDetails": [
+    {
+      "id": 2831,
+      "uuid": "93ca06fd-6f1e-4b42-bed4-2d4e12ec048a",
+      "header": true,
+      "path": "/home/sparkflows/fire-data/data/HEALTHCARE/Clinical-Trial-Anamoly/Dataset/Bells_Palsy_Detection.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"PatientID\",\"Sex\",\"Age\",\"BaselineScoreonHouseBrackmannscale\",\"Timebetweenonsetofsymptomsandstartoftreatment\",\"TreatmentGroup\",\"ReceivedPrednisolone\",\"ReceivedAcyclovir\",\"3MonthScoreonHouseBrackmannscale\",\"FullRecoveryin3Months\",\"9MonthScoreonHouseBrackmannscale\",\"FullRecoveryin9Months\",\"FacialAsymmetryObserved\",\"InabilitytoCloseEye\",\"LossofTaste\",\"PainBehindEar\",\"SuddenFacialWeakness\",\"RecentViralInfection\",\"PreexistingDiabetes\",\"PreexistingHypertension\",\"PainLevel\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"STRING\",\"INTEGER\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

@@ -1,0 +1,331 @@
+{
+  "name": "01-ETL-Credit-Decisioning-Simple",
+  "uuid": "fa158c65-858d-40c2-b1da-248b4f20e046",
+  "category": "ETL",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "36px",
+      "y": "161px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "87dbac83-f994-4512-abb4-b5b1775d1216",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "2",
+      "name": "Import Validator",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "250px",
+      "y": "169px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Row Values",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "3",
+      "name": "Write To Snowflake",
+      "iconImage": "fa fa-tumblr-square",
+      "description": "",
+      "details": "<h2> Write To Snowflake Node Details</h2>\n<br>\nThis node saves the rows of the incoming dataframe into the specified table in Snowflake.<br>\n<br>\n<h4> Parameters to be set:</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> CONNECTION : Select the desired snowflake connection to be used.</li>\n<li> SNOWFLAKE WAREHOUSE : Specify the virtual warehouse to use for the connection.</li>\n<li> SNOWFLAKE DATABASE : Specify the database to use once connected.</li>\n<li> SNOWFLAKE SCHEMA : Specify the schema to use for the specified database once connected.</li>\n<li> SNOWFLAKE TABLE : Specify the table from which data is to be read.</li>\n<li> SAVE MODE : Select the mode of operation on the table. </li>\n</ul>\nOverwrite: If table already exists, existing data is overwritten by the new content. <br>\nErrorIfExists: If data already exists, an exception is thrown and operation stops.<br>\nIgnore: If table already exists, the save operation is ignored.<br>",
+      "examples": "<h2> Write To Snowflake Node Examples</h2>\n<br>\n<h4> The below example will save the input dataframe to the `CUST_BASIC_LA` table.</h4>\n<br>\n<ul>\n<li> CONNECTION : SNOWFLAKE_DEV_ENV_NCUS</li>\n<li> SNOWFLAKE WAREHOUSE : SNOWFLAKE_BI_VWH</li>\n<li> SNOWFLAKE DATABASE : CUSTOMER_SALES_NCUS</li>\n<li> SNOWFLAKE SCHEMA : INT_NA_CUSTSALES</li>\n<li> SNOWFLAKE TABLE : CUST_BASIC_LA</li>\n<li> SAVE MODE : Overwrite</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.snowflake.NodeWriteToSnowFlake",
+      "x": "448px",
+      "y": "165px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "authType",
+          "value": "UserCredential",
+          "widget": "array",
+          "title": "Auth Type",
+          "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL",
+          "optionsArray": [
+            "UserCredential",
+            "OAuth"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "connection",
+          "value": "3",
+          "widget": "object_array",
+          "title": "Connection",
+          "description": "The Snowflake connection to connect",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "sfWarehouse",
+          "value": "COMPUTE_WH",
+          "widget": "textfield",
+          "title": "Snowflake Warehouse",
+          "description": "Warehouse for connecting to the Snowflake",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "sfDatabase",
+          "value": "BANK_SAMPLEDB",
+          "widget": "textfield",
+          "title": "Snowflake Database",
+          "description": "Database for connecting to the Snowflake",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "sfSchema",
+          "value": "CREDIT_CARD_SCHEMA",
+          "widget": "textfield",
+          "title": "Snowflake Schema",
+          "description": "Schema for connecting to the Snowflake",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dbtable",
+          "value": "CREDIT_DECISIONING",
+          "widget": "textfield",
+          "title": "Snowflake Table",
+          "description": "Snowflake Table from which to write the data",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "saveMode",
+          "value": "Append",
+          "widget": "array",
+          "title": "Save Mode",
+          "description": "Whether to Append, Overwrite or Error if the table Exists",
+          "optionsArray": [
+            "Append",
+            "Overwrite",
+            "ErrorIfExists",
+            "Ignore"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 265,
+      "uuid": "87dbac83-f994-4512-abb4-b5b1775d1216",
+      "header": true,
+      "readOptions": "{\"mode\":\"PERMISSIVE\"}",
+      "path": "/home/sparkflows/fire-data/data/BFSI/Credit-Card-Transaction/bank_credit_decisioning.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"applicant_id\",\"applicant_name\",\"age_years\",\"approval_type\",\"application_score\",\"fico_score\",\"limit_approved\",\"dod_stat\",\"state\",\"employer\",\"manual_reviewer_comments\"],\"colTypes\":[\"INTEGER\",\"STRING\",\"INTEGER\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"STRING\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "scala"
+}

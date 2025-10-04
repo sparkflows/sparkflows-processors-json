@@ -1,0 +1,51 @@
+{
+  "uuid": "de2d7e01-484e-4a26-b0ba-c7f1a76f891f",
+  "name": "processed-dataset",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/data/CPG/CPG-Customer-LifeTime-Value-Prediction/Output/",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"CustomerID\",\"max_invoice_date\",\"max_date\",\"recency\",\"frequency\",\"revenue_sum\"],colTypes:[\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"DOUBLE\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "CustomerID",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "max_invoice_date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "max_date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "recency",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "frequency",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "revenue_sum",
+        "colType": "DOUBLE",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

@@ -1,0 +1,94 @@
+{
+  "name": "Customer Retention & Financial Impact Analysis",
+  "uuid": "e4595953-49ef-4bfd-97bf-6931e593375c",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/Manufacturing.svg"
+  },
+  "description": "A comprehensive overview of customer retention and its direct impact on revenue",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Monthly Retention Trend",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 8,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "357.614px",
+          "y": "20.5909px",
+          "workflowId": "a366f52b-a32d-4150-b804-1981e9ed4524",
+          "workflowName": "02A-Customer-Churn-Report",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Monthly Customer Churn Report",
+          "type": "transform",
+          "x": "461.182px",
+          "y": "120.182px",
+          "workflowId": "a366f52b-a32d-4150-b804-1981e9ed4524",
+          "workflowName": "02A-Customer-Churn-Report",
+          "nodeId": "6",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Financial Impact of Lost Customers",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 59,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "150.794px",
+          "y": "551.794px",
+          "workflowId": "131a0759-7309-4d5a-9ab5-5c87bb8c2618",
+          "workflowName": "02-Perform-Exploratory-Data-Analysis",
+          "nodeId": "59",
+          "grow": 0
+        },
+        {
+          "id": 61,
+          "name": "The Value Chart ",
+          "type": "transform",
+          "x": "37.1063px",
+          "y": "703.481px",
+          "workflowId": "131a0759-7309-4d5a-9ab5-5c87bb8c2618",
+          "workflowName": "02-Perform-Exploratory-Data-Analysis",
+          "nodeId": "61",
+          "grow": 0
+        },
+        {
+          "id": 62,
+          "name": "The Volume Chart",
+          "type": "transform",
+          "x": "128.1px",
+          "y": "707.294px",
+          "workflowId": "131a0759-7309-4d5a-9ab5-5c87bb8c2618",
+          "workflowName": "02-Perform-Exploratory-Data-Analysis",
+          "nodeId": "62",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

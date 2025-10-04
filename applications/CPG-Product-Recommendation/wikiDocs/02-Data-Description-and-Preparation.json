@@ -1,0 +1,15 @@
+{
+  "id": 3328,
+  "uuid": "d125184a-d123-4b07-a00c-1c5138565773",
+  "name": "02-Data-Description-and-Preparation",
+  "category": "",
+  "projectId": 2462,
+  "content": "<h2>Data Description and Preparation</h2><h3>Data Description</h3><p>Two datasets are used:</p><ol><li>Customer Invoice Data (1,712 rows × 8 columns):</li></ol><ul><li>Customer_ID (int): Unique identifier for each customer.</li><li>Invoice_Num (string): Unique invoice identifier.</li><li>SalesOrder_Num (string): Sales order reference.</li><li>SalesOrder_Dt (string): Date of sales order.</li><li>Sales_NetAmount (float): Transaction value.</li><li>Invoice_Dt (string): Invoice date.</li><li>Product_Cd (string): Purchased product code.</li><li>Transaction_Type (string): Transaction type (e.g., sales, returns).</li></ul><p>\t   2.Parent-Product Mapping Data (46 rows × 2 columns):</p><ul><li>Parent_Prd (string): Parent product grouping.</li><li>Product_Cd (string): Associated product code.</li></ul><p>The data covers transaction-level granularity, linking customers to purchased products over time.</p><h3>Data Preparation</h3><ul><li>Data Cleaning: Handle missing values, check for duplicate invoices, and validate data types.</li><li>Data Transformation: Convert dates into proper datetime format, normalize transaction values.</li><li>Feature Engineering:</li><li>Build RFM metrics (Recency, Frequency, Monetary).</li><li>Construct customer-product interaction matrix.</li><li>Map products to their parent categories for hierarchical analysis.</li><li>Encoding: Transform categorical variables into numerical representations where required.</li><li>Aggregation: Aggregate transactions at customer-product and customer-parent-product levels.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:28 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 11, 2025, 12:57:39 PM"
+}

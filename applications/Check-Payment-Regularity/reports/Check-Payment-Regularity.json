@@ -1,0 +1,117 @@
+{
+  "name": "Check-Payment-Regularity",
+  "uuid": "abdb8c56-d8e9-4dc9-a6fe-edc261e83881",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "category": "",
+  "description": "",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "478.8px",
+          "y": "94.8px",
+          "workflowId": "aabcb0b7-8cfc-488a-a7eb-20e52fe8e927",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "480.8px",
+          "y": "233.8px",
+          "workflowId": "aabcb0b7-8cfc-488a-a7eb-20e52fe8e927",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "328.8px",
+          "y": "377.8px",
+          "workflowId": "aabcb0b7-8cfc-488a-a7eb-20e52fe8e927",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "649.8px",
+          "y": "497px",
+          "workflowId": "aabcb0b7-8cfc-488a-a7eb-20e52fe8e927",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Month Distribution",
+          "description": "This node Finds the distribution of months from Date values",
+          "type": "transform",
+          "x": "327.587px",
+          "y": "620.4px",
+          "workflowId": "aabcb0b7-8cfc-488a-a7eb-20e52fe8e927",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "15",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "EDA",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 2,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "499.6px",
+          "y": "71.6px",
+          "workflowId": "aeab1205-173b-411a-9db6-54eb91adbb1a",
+          "workflowName": "04-Example-Transaction-Visualization",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "406.8px",
+          "y": "210.8px",
+          "workflowId": "aeab1205-173b-411a-9db6-54eb91adbb1a",
+          "workflowName": "04-Example-Transaction-Visualization",
+          "nodeId": "7",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

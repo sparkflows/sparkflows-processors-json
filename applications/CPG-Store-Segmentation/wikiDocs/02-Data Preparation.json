@@ -1,0 +1,14 @@
+{
+  "id": 2032,
+  "uuid": "78ebb67a-f426-47f3-9282-b9edd4cbb535",
+  "name": "02-Data Preparation",
+  "category": "",
+  "projectId": 1569,
+  "content": "<h3><strong>Data Preparation</strong></h3><h2><br></h2><h4><strong>Dataset Description:</strong> The data consists of two related datasets containing customer transaction information and product mapping details from what appears to be a business invoicing system. These datasets are structured to track sales transactions and maintain product categorization.</h4><p><br></p><h4><strong>Customer-Invoice:</strong> This dataset contains detailed transaction records with the following key columns:</h4><ul><li><strong>Customer_ID (STRING):</strong> Unique identifier for each customer</li><li><strong>Invoice_Num (STRING):</strong> Unique invoice number for each transaction</li><li><strong>SalesOrder_Num (STRING):</strong> Sales order reference number</li><li><strong>SalesOrder_Dt (STRING):</strong> Date when the sales order was created</li><li><strong>Sales_NetAmount (DOUBLE):</strong> Net amount of the sales transaction</li><li><strong>Invoice_Dt (STRING):</strong> Date when the invoice was generated</li><li><strong>Product_Cd (STRING):</strong> Product code identifier</li><li><strong>Transaction_Type (STRING):</strong> Type of transaction (e.g., SS appears to be standard sales)</li></ul><p><br></p><h4><strong>Product-Mapping:</strong> This dataset provides product categorization information:</h4><ul><li><strong>Parent_Prd (STRING):</strong> Parent product category identifier</li><li><strong>Product_Cd (STRING):</strong> Product code that links to the Customer-Invoice dataset</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "May 5, 2025, 12:53:41 PM",
+  "dateLastUpdated": "May 5, 2025, 12:53:41 PM"
+}

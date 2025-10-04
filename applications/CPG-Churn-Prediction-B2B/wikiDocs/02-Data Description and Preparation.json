@@ -1,0 +1,15 @@
+{
+  "id": 3372,
+  "uuid": "3aa53f7d-7bba-42fc-b69e-037616675e6e",
+  "name": "02-Data Description and Preparation",
+  "category": "",
+  "projectId": 1617,
+  "content": "<h3>Data Description</h3><p>The project integrates four main datasets:</p><p>\t1.Sales Transactions</p><ul><li>Features: Distributor ID, Customer ID, Invoice Date, Invoice Number, Product SKU, Quantity, Gross Value, Unit Price, Tax, Discounts, Net Amount.</li><li>Granularity: Transaction-level (per product per invoice).</li><li>Type: Mix of categorical (IDs, SKUs) and numerical (Qty, Gross, Net).</li><li>Time Coverage: Daily transactions spanning multiple months/years.</li></ul><p>\t2.Products</p><ul><li>Features: Sector, Category, Subcategory, SKU ID.</li><li>Granularity: Product-level.</li><li>Type: Categorical.</li></ul><p>\t3.Customers</p><ul><li>Features: Distributor ID, Customer ID, Customer Name, Start Date, Country.</li><li>Granularity: Customer-level.</li><li>Type: Categorical and date variables.</li></ul><p>\t4.Distributors</p><ul><li>Features: Distributor ID, Distributor Name, Country.</li><li>Granularity: Distributor-level.</li><li>Type: Categorical.</li></ul><h3>Data Preparation</h3><ul><li>Cleaning: Handle missing values in discounts, taxes, or start dates. Remove duplicate transactions.</li><li>Transformation: Standardize dates (convert to YYYY-MM-DD), normalize currency values.</li><li>Feature Engineering:</li><li>Recency, frequency, monetary (RFM) metrics.</li><li>Churn labels based on inactivity windows (e.g., no purchases in last 90 days).</li><li>Discount dependency (ratio of discount-adjusted sales to total sales).</li><li>Product diversity (number of unique SKUs purchased).</li><li>Integration: Merge datasets on keys (DISTRIBUTOR_ID, CUSTOMER_ID, SKUID).</li><li>Outlier Handling: Winsorization or capping extreme values in sales/discounts.</li></ul><h1><br></h1>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:34 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 15, 2025, 9:49:27 AM"
+}

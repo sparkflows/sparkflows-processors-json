@@ -1,0 +1,15 @@
+{
+  "id": 3377,
+  "uuid": "9d76832c-fbf2-486f-a3fe-14e24b7495dd",
+  "name": "2-Data-Description-And-Preparation",
+  "category": "",
+  "projectId": 1625,
+  "content": "<h3>Data Description</h3><p>The dataset is a transaction-level retail sales dataset containing the following attributes:</p><ul><li>InvoiceNo (Categorical/Numeric): Unique identifier for each transaction.</li><li>StockCode (Categorical): Product identifier.</li><li>Description (Categorical/Text): Name of the product.</li><li>Quantity (Numerical): Number of units purchased per transaction.</li><li>InvoiceDate (Datetime): Date and time of the transaction.</li><li>UnitPrice (Numerical): Price per unit of product.</li><li>CustomerID (Categorical): Unique identifier for each customer.</li><li>Country (Categorical): Geographic location of the customer.</li></ul><p>Granularity: Each record corresponds to a single product line within an invoice.</p><p> Time Coverage: Covers daily transactions over a multi-year period (2010–2011 in the provided sample).</p><p> Feature Count: 8 core features, with potential for engineered features (e.g., Recency, Frequency, Monetary).</p><h3>Data Preparation</h3><p>Data Cleaning:</p><ul><li>Handle missing CustomerID values.</li><li>Remove negative or zero Quantity and UnitPrice entries (indicative of returns or errors).</li></ul><p>Data Transformation:</p><ul><li>Convert InvoiceDate into datetime format.</li><li>Create new time-based features (e.g., days since last purchase).</li></ul><p>Feature Engineering:</p><ul><li>Recency: Days since the last purchase.</li><li>Frequency: Number of unique transactions.</li><li>Monetary: Total revenue generated (Quantity × UnitPrice).</li><li>Aggregate data at the customer level for CLV modeling.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:34 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 8:35:18 AM"
+}

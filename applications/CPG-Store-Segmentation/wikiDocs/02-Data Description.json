@@ -1,0 +1,15 @@
+{
+  "id": 3343,
+  "uuid": "d31bab28-ee24-4d8e-b06c-2e1c0ba2938e",
+  "name": "02-Data Description",
+  "category": "",
+  "projectId": 2463,
+  "content": "<h3>Data Description</h3><p>Two main datasets are used:</p><ol><li>Customer Invoice Data (Customer_Invoice_data_trunc.csv)</li></ol><ul><li>Contains transactional-level details including:</li><li>InvoiceNo (transaction ID)</li><li>StockCode (product ID)</li><li>Description (product description)</li><li>Quantity (units purchased)</li><li>InvoiceDate (timestamp of transaction)</li><li>UnitPrice (price per unit)</li><li>CustomerID (unique customer)</li><li>Country (customer/store location)</li><li>Data granularity: Transaction-level, covering multiple stores and customers across time.</li></ul><p>\t   2.Parent Product Mapping (Parent_Product_mapping_trunc.csv)</p><ul><li>Maps StockCodes to parent product categories.</li><li>Enables grouping of items into higher-level product families for analysis.</li></ul><p>Variable Types:</p><ul><li>Categorical: StockCode, Description, CustomerID, Country, Parent_Product</li><li>Numerical: Quantity, UnitPrice, TotalAmount (= Quantity × UnitPrice)</li><li>Temporal: InvoiceDate</li></ul><h3>Data Preparation</h3><ol><li>Data Cleaning</li></ol><ul><li>Handle missing CustomerIDs (may classify them under “Unknown”).</li><li>Remove negative or zero Quantity/UnitPrice values (returns or errors).</li><li>Standardize product descriptions and codes.</li></ul><p>\t   2.Feature Engineering</p><ul><li>Calculate basket size per invoice.</li><li>Derive store-level KPIs: total revenue, average basket value, unique customers, repeat purchase rates.</li><li>Create product preference indicators using Parent Product mapping.</li><li>Add temporal features (month, quarter, seasonality trends).</li></ul><p>\t   3.Transformation</p><ul><li>Normalize skewed features (e.g., log transform sales).</li><li>Encode categorical features (one-hot or frequency encoding).</li><li>Aggregate transaction-level data to store-level feature vectors for segmentation.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:33 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 11, 2025, 12:31:19 PM"
+}

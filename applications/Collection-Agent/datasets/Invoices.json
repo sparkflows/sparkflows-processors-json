@@ -1,0 +1,51 @@
+{
+  "uuid": "1722b2d2-2a64-427c-829b-c982f8062b0c",
+  "name": "Invoices",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/Collection-agents/invoices.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"invoice_no\",\"customer_id\",\"invoice_amt\",\"invoice_status\",\"invoice_date\",\"due_date\"],colTypes:[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"DATE\",\"STRING\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "invoice_no",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "customer_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "invoice_amt",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "invoice_status",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "invoice_date",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "due_date",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

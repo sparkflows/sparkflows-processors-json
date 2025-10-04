@@ -1,0 +1,126 @@
+{
+  "name": "Report-Store-Segmentation",
+  "uuid": "73947cf2-34f3-4c7b-a6ba-f8640b40c26e",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 38,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1971.65px",
+          "y": "170.975px",
+          "workflowId": "1c6c7d4c-73b2-413f-a10a-2956465a5030",
+          "workflowName": "01-Customers-Invoice-Data-EDA",
+          "nodeId": "38",
+          "grow": 0
+        },
+        {
+          "id": 44,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "740.975px",
+          "y": "592.6px",
+          "workflowId": "1c6c7d4c-73b2-413f-a10a-2956465a5030",
+          "workflowName": "01-Customers-Invoice-Data-EDA",
+          "nodeId": "44",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "FEATURES USED",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 33,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "2110.57px",
+          "y": "272.6px",
+          "workflowId": "41dec8dc-d19d-4d24-87e9-0424154bc713",
+          "workflowName": "02-Invoice-Data-Cleaning",
+          "nodeId": "33",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "CLUSTER PROFILE",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1440.98px",
+          "y": "84.975px",
+          "workflowId": "770304b6-19db-46f8-b079-87d0deddab14",
+          "workflowName": "04-Customers-Clustering-And-Profiling",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1975.4px",
+          "y": "135.975px",
+          "workflowId": "770304b6-19db-46f8-b079-87d0deddab14",
+          "workflowName": "04-Customers-Clustering-And-Profiling",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1977.6px",
+          "y": "257.2px",
+          "workflowId": "770304b6-19db-46f8-b079-87d0deddab14",
+          "workflowName": "04-Customers-Clustering-And-Profiling",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1988px",
+          "y": "381.2px",
+          "workflowId": "770304b6-19db-46f8-b079-87d0deddab14",
+          "workflowName": "04-Customers-Clustering-And-Profiling",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1991px",
+          "y": "497px",
+          "workflowId": "770304b6-19db-46f8-b079-87d0deddab14",
+          "workflowName": "04-Customers-Clustering-And-Profiling",
+          "nodeId": "27",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

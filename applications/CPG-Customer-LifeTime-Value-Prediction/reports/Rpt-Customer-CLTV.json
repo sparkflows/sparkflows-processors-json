@@ -1,0 +1,104 @@
+{
+  "name": "Rpt-Customer-CLTV",
+  "uuid": "76a35a23-6be8-4eb8-b233-72d13539e911",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Customer Lifetime Value Prediction Report",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 13,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "652.075px",
+          "y": "8.05px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Bubble Chart",
+          "description": "A bubble chart is used to visualize a data set with two to four dimensions",
+          "type": "transform",
+          "x": "1237.53px",
+          "y": "137.925px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "28",
+          "grow": 0
+        },
+        {
+          "id": 30,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1214.45px",
+          "y": "389.25px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "30",
+          "grow": 0
+        },
+        {
+          "id": 45,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "749.325px",
+          "y": "636.35px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "45",
+          "grow": 0
+        },
+        {
+          "id": 47,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1413.85px",
+          "y": "242.675px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "47",
+          "grow": 0
+        },
+        {
+          "id": 58,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "898.625px",
+          "y": "397.45px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "58",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "CLTV Calculation Using Regression",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet/ Tab name",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

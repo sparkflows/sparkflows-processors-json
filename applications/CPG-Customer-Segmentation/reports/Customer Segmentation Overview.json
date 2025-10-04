@@ -1,0 +1,196 @@
+{
+  "name": "Customer Segmentation Overview",
+  "uuid": "24ecd100-4a06-47ff-a417-0c20ca86666b",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "361.719px",
+          "y": "145.062px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Columns Cardinality",
+          "description": "Distribution of categorical data. Calculates the count of records for each unique value for the column specified.",
+          "type": "transform",
+          "x": "498.188px",
+          "y": "247.531px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "372.906px",
+          "y": "364.906px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 6,
+          "name": "HistoGram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "529.906px",
+          "y": "455.906px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "6",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "844.219px",
+          "y": "789.984px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "655.562px",
+          "y": "551.562px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 52,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "945.069px",
+          "y": "934.083px",
+          "workflowId": "544e6d70-15f4-457f-aaa2-767170185080",
+          "workflowName": "01 - Performing EDA on Transactional Data",
+          "nodeId": "52",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Evaluation",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 5,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "790.15px",
+          "y": "280.125px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "570.025px",
+          "y": "173.05px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "580.45px",
+          "y": "411.95px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1111.1px",
+          "y": "85.05px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1115.1px",
+          "y": "231.05px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1112.07px",
+          "y": "359.05px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1141.7px",
+          "y": "565.65px",
+          "workflowId": "1dee9c11-5e67-46b6-a5dd-79f90b71eda9",
+          "workflowName": "05 - Analyzing Clusters",
+          "nodeId": "23",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Overview",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

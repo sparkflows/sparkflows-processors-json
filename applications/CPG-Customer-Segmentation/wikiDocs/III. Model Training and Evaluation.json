@@ -1,0 +1,15 @@
+{
+  "id": 3956,
+  "uuid": "a1d84c8d-2a06-4c45-830b-a42726ea70fb",
+  "name": "III. Model Training and Evaluation",
+  "category": "",
+  "projectId": 2469,
+  "content": "<h3>Model Used</h3><p>The primary model proposed is KMeans Clustering, chosen for its efficiency and scalability on large transaction datasets. Alternative clustering approaches such as Hierarchical Clustering or Gaussian Mixture Models may be tested for comparison.</p><p>Justification:</p><ul><li>Unsupervised learning is ideal since the goal is to discover natural groupings without labeled outcomes.</li><li>KMeans allows easy interpretability of clusters and business application of results.</li></ul><h3>Features Details</h3><p>Key features include:</p><ul><li>Purchase Behavior: Average spend, basket size, frequency of visits, product categories purchased.</li><li>Coupon &amp; Campaign Response: Redemption rates, campaign participation.</li><li>Demographics: Age group, income bracket, household size, presence of kids.</li><li>Product Preferences: Share of spend across departments, brands, and commodities.</li></ul><h3>Feature Importance</h3><p>Feature importance in clustering will be derived by analyzing:</p><ul><li>Cluster centroids: Identifying which variables drive separation between clusters.</li><li>PCA (Principal Component Analysis): Used to reduce dimensionality and visualize segment differentiation.</li><li>Business Interpretability: Assessing which features have the most practical influence on defining customer groups.</li></ul><h3>Model Metrics</h3><p>Clustering models will be evaluated using:</p><ul><li>Silhouette Score: Measures cohesion and separation of clusters.</li><li>Davies-Bouldin Index: Evaluates intra- vs. inter-cluster distances.</li><li>Cluster Size Distribution: Ensures segments are meaningful and not dominated by noise.</li><li>Business Relevance: Validation through domain expertise (e.g., do clusters align with intuitive customer groups?).</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 15, 2025, 9:36:51 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 15, 2025, 9:39:23 AM"
+}

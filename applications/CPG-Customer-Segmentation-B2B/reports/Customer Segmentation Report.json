@@ -1,0 +1,82 @@
+{
+  "name": "Customer Segmentation Report",
+  "uuid": "8bee32a5-81ad-48e9-a700-ff2d722ec363",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "FEATURE DATASET",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 42,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "1170.4px",
+          "y": "617.2px",
+          "workflowId": "cd498126-1af3-4519-8ca4-d6d9530f1e0a",
+          "workflowName": "01-Customer-Segmentation-B2B-Feature-Engineering",
+          "nodeId": "42",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Valdiation",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 10,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "999.703px",
+          "y": "159.719px",
+          "workflowId": "3eabc760-103a-4ac7-8f39-41132f12e39f",
+          "workflowName": "03A-Customer-Segmentation-H2O-Model-Validation",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "986.969px",
+          "y": "293.969px",
+          "workflowId": "3eabc760-103a-4ac7-8f39-41132f12e39f",
+          "workflowName": "03A-Customer-Segmentation-H2O-Model-Validation",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 30,
+          "name": "Scatter Cluster Chart",
+          "type": "transform",
+          "x": "678.6px",
+          "y": "106.575px",
+          "workflowId": "3eabc760-103a-4ac7-8f39-41132f12e39f",
+          "workflowName": "03A-Customer-Segmentation-H2O-Model-Validation",
+          "nodeId": "30",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

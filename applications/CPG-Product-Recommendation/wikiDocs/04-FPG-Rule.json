@@ -1,0 +1,15 @@
+{
+  "id": 3331,
+  "uuid": "351bac5e-f3e5-40f7-83a8-cae46d220a24",
+  "name": "04-FPG-Rule",
+  "category": "",
+  "projectId": 2462,
+  "content": "<h1>Data Profiling and Analysis</h1><h3>Data Profiling</h3><p>The dataset was profiled to identify patterns in customer purchasing behavior and product associations. Frequent Pattern Growth (FPG) was applied to discover itemsets that commonly occur together in customer carts. The profiling process included:</p><ul><li>Association rule mining: Identifying co-occurring items in transactions.</li><li>Metric evaluation: Measuring the strength of associations using confidence, support, and lift.</li><li>Antecedent/Consequent analysis: Determining which products lead to subsequent purchases.</li></ul><h3>Descriptive Analysis</h3><ul><li>Confidence (0.86): Indicates the reliability of the association. Here, 86% of the time when customers have L’Oreal Paris Voluminous Mascara Tube, Tide Original Liquid Laundry Detergent Bottle, and Google Nest Mini Smart Speaker in their cart, they also purchase Colgate Total Toothpaste Tube.</li><li>Lift (7.14): Measures the strength of association beyond chance. A lift value of 7.14 shows that customers with the above items in their cart are 7.14 times more likely to buy Colgate Total Toothpaste Tube compared to the average customer.</li><li>Antecedent (In Cart): {L’Oreal Paris Voluminous Mascara Tube, Tide Original Liquid Laundry Detergent Bottle, Google Nest Mini Smart Speaker}.</li><li>Consequent (Recommended Product): {Colgate Total Toothpaste Tube}.</li></ul><h3>Predictive Analysis</h3><ul><li>The FPG rule suggests that customers who buy beauty, household essentials, and smart home products together are highly likely to also purchase oral care products.</li><li>This insight enables the business to:</li><li>Cross-sell opportunities: Bundle toothpaste offers with cosmetic or household products.</li><li>Personalized recommendations: Suggest Colgate Total Toothpaste Tube when the antecedent items are detected in a customer’s basket.</li><li>Strategic promotions: Place oral care items near high-lift associated products in marketing campaigns.</li></ul><h3>Interpretation</h3><p>This rule demonstrates a strong and actionable association: customers purchasing a combination of beauty, household, and tech products also have a strong likelihood of adding oral care to their cart. Leveraging such patterns can enhance basket-level recommendations and improve cross-category sales.</p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:28 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 11, 2025, 1:00:59 PM"
+}

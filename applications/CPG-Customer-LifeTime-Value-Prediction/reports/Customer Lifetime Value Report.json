@@ -1,0 +1,188 @@
+{
+  "name": "Customer Lifetime Value Report",
+  "uuid": "b9cfe45b-ce99-4043-ac0e-836ecb28c0a5",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/CLTV.svg"
+  },
+  "category": "Reports",
+  "description": "Identify and target high-value customers by forecasting their future contribution",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 15,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "1239.25px",
+          "y": "18.25px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Bubble Chart",
+          "description": "A bubble chart is used to visualize a data set with two to four dimensions",
+          "type": "transform",
+          "x": "1237.53px",
+          "y": "137.925px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "28",
+          "grow": 0
+        },
+        {
+          "id": 45,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "749.325px",
+          "y": "636.35px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "45",
+          "grow": 0
+        },
+        {
+          "id": 47,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1413.85px",
+          "y": "242.675px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "47",
+          "grow": 0
+        },
+        {
+          "id": 58,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "898.625px",
+          "y": "397.45px",
+          "workflowId": "9ec2b57b-99b2-450e-abec-ca0f91799403",
+          "workflowName": "01-CLTV-Transactional-Data-EDA",
+          "nodeId": "58",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1667.1px",
+          "y": "166.525px",
+          "workflowId": "6420e988-2386-485d-81bc-f456424ec9c0",
+          "workflowName": "02-CLTV-Transactional-Data-EDA",
+          "nodeId": "34",
+          "grow": 0
+        },
+        {
+          "id": 43,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1622.33px",
+          "y": "387.025px",
+          "workflowId": "6420e988-2386-485d-81bc-f456424ec9c0",
+          "workflowName": "02-CLTV-Transactional-Data-EDA",
+          "nodeId": "43",
+          "grow": 0
+        },
+        {
+          "id": 49,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1431.35px",
+          "y": "519.7px",
+          "workflowId": "6420e988-2386-485d-81bc-f456424ec9c0",
+          "workflowName": "02-CLTV-Transactional-Data-EDA",
+          "nodeId": "49",
+          "grow": 0
+        },
+        {
+          "id": 55,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1447.72px",
+          "y": "679.55px",
+          "workflowId": "6420e988-2386-485d-81bc-f456424ec9c0",
+          "workflowName": "02-CLTV-Transactional-Data-EDA",
+          "nodeId": "55",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Feature Generation",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 21,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "1891.33px",
+          "y": "41.0667px",
+          "workflowId": "904e6c7a-1b56-4a18-996c-7fa1714b931f",
+          "workflowName": "05-CLTV-Customer-Segmentation-Model-Training",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "1631.8px",
+          "y": "50.0667px",
+          "workflowId": "904e6c7a-1b56-4a18-996c-7fa1714b931f",
+          "workflowName": "05-CLTV-Customer-Segmentation-Model-Training",
+          "nodeId": "20",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Customer Prediction",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 25,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "1096.73px",
+          "y": "360.067px",
+          "workflowId": "7c90070d-8ade-482d-bfc8-c737cdc147e9",
+          "workflowName": "06-CLTV-Customer-Segmentation-Prediction",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Print Rich Text",
+          "description": "Displaying rich text",
+          "type": "transform",
+          "x": "1092.07px",
+          "y": "379.067px",
+          "workflowId": "6b199fe4-34ab-4b6d-b712-04399cc68d52",
+          "workflowName": "07-CLTV-Compute-Clusterwise-Avg-Feature-Data",
+          "nodeId": "19",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

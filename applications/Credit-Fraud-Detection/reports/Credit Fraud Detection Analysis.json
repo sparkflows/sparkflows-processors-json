@@ -1,0 +1,272 @@
+{
+  "name": "Credit Fraud Detection Analysis",
+  "uuid": "ebb5cff5-a72a-4122-8dea-c742f6c3081c",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/finance.svg"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 4,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "454px",
+          "y": "53px",
+          "workflowId": "79897167-bc68-4d58-97da-83790f5e342b",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "4",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "460.8px",
+          "y": "254.8px",
+          "workflowId": "79897167-bc68-4d58-97da-83790f5e342b",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "432px",
+          "y": "536px",
+          "workflowId": "79897167-bc68-4d58-97da-83790f5e342b",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "839px",
+          "y": "183px",
+          "workflowId": "79897167-bc68-4d58-97da-83790f5e342b",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "840px",
+          "y": "319px",
+          "workflowId": "79897167-bc68-4d58-97da-83790f5e342b",
+          "workflowName": "01-Data-Profiling",
+          "nodeId": "14",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "489px",
+          "y": "37px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Hierarchy Chart",
+          "type": "transform",
+          "x": "499px",
+          "y": "165px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "952px",
+          "y": "358px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1243px",
+          "y": "479px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "790.8px",
+          "y": "584.8px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "793.8px",
+          "y": "705.8px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "518px",
+          "y": "282px",
+          "workflowId": "3257af02-0fdc-47f1-b42d-87ee50079256",
+          "workflowName": "02-Exploring-Transactional-Data",
+          "nodeId": "27",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Model Evaluation",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 3,
+          "name": "Custom Metrics",
+          "description": "Custom Metrics to check on aggregated field, which expects prediction, label, aggregate column and metrics.",
+          "type": "transform",
+          "x": "502px",
+          "y": "155px",
+          "workflowId": "c813cd3a-6c52-436b-a84c-d706f385a07c",
+          "workflowName": "06-Model-Evaluation",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 4,
+          "name": "Custom Metrics",
+          "description": "Custom Metrics to check on aggregated field, which expects prediction, label, aggregate column and metrics.",
+          "type": "transform",
+          "x": "506px",
+          "y": "274px",
+          "workflowId": "c813cd3a-6c52-436b-a84c-d706f385a07c",
+          "workflowName": "06-Model-Evaluation",
+          "nodeId": "4",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 4,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "4",
+      "items": [
+        {
+          "id": 5,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "421.2px",
+          "y": "108.2px",
+          "workflowId": "a90fa6d2-c633-4c1a-a31b-bb510fc0ec3a",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "417.2px",
+          "y": "205.2px",
+          "workflowId": "a90fa6d2-c633-4c1a-a31b-bb510fc0ec3a",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "940.667px",
+          "y": "20.6389px",
+          "workflowId": "a90fa6d2-c633-4c1a-a31b-bb510fc0ec3a",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "436.013px",
+          "y": "307.013px",
+          "workflowId": "a90fa6d2-c633-4c1a-a31b-bb510fc0ec3a",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1615.44px",
+          "y": "126.333px",
+          "workflowId": "a90fa6d2-c633-4c1a-a31b-bb510fc0ec3a",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 29,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "958px",
+          "y": "286.889px",
+          "workflowId": "a90fa6d2-c633-4c1a-a31b-bb510fc0ec3a",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "29",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "name": "01-Credit-Risk-Report",
+  "uuid": "b975d0d1-c508-4f84-956a-7b1446a5ca39",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/BFSI/credit_decision.svg"
+  },
+  "description": "",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Risk Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 8,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "140px",
+          "y": "588px",
+          "workflowId": "568454d7-5a90-4455-806b-3088db36604f",
+          "workflowName": "03-Exploring-Credit-Data",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 17,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "140px",
+          "y": "138px",
+          "workflowId": "568454d7-5a90-4455-806b-3088db36604f",
+          "workflowName": "03-Exploring-Credit-Data",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "558px",
+          "y": "119px",
+          "workflowId": "568454d7-5a90-4455-806b-3088db36604f",
+          "workflowName": "03-Exploring-Credit-Data",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Low Risk Application Count by Financial Status",
+          "type": "transform",
+          "x": "797.333313px",
+          "y": "787.333313px",
+          "workflowId": "568454d7-5a90-4455-806b-3088db36604f",
+          "workflowName": "03-Exploring-Credit-Data",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "559px",
+          "y": "18px",
+          "workflowId": "568454d7-5a90-4455-806b-3088db36604f",
+          "workflowName": "03-Exploring-Credit-Data",
+          "nodeId": "18",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Model Evaluation",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 11,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "327.194px",
+          "y": "484.986px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 2,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "473.208px",
+          "y": "10.0694px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 7,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "726.444px",
+          "y": "145.319px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "7",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "754.555px",
+          "y": "282.444px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "760.555px",
+          "y": "401.444px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "784.778px",
+          "y": "509.972px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "805.555px",
+          "y": "748.986px",
+          "workflowId": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "workflowName": "07-Predictive-Analysis",
+          "nodeId": "22",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

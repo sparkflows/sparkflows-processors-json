@@ -1,0 +1,15 @@
+{
+  "id": 3329,
+  "uuid": "590423c4-63ba-4a8c-9899-42f16ab1ceb7",
+  "name": "01-Project-Overview",
+  "category": "",
+  "projectId": 2462,
+  "content": "<h2>Project Overview</h2><h3>Objective</h3><p>The objective of this project is to build a product recommendation system leveraging customer invoice history and product hierarchy data. The primary business problem addressed is improving cross-sell and upsell opportunities by suggesting relevant products to customers based on their historical purchases, product affinities, and parent-child product groupings. This helps in personalizing customer engagement and boosting sales conversion.</p><h3>Approach</h3><p>The project follows a structured data science workflow:</p><ol><li>Data Ingestion – Load and merge the customer invoice data with parent-product mapping.</li><li>Data Preparation – Cleanse data, handle missing values, ensure correct data types, and create customer-product interaction matrices.</li><li>Exploratory Data Analysis (EDA) – Profile customer purchase patterns, product frequency, and revenue contribution.</li><li>Feature Engineering – Derive features such as purchase frequency, recency, monetary value (RFM), and product affinities.</li><li>Model Training – Apply collaborative filtering and content-based models to generate product recommendations.</li><li>Evaluation – Assess model accuracy using ranking metrics (e.g., precision@k, recall@k).</li><li>Deployment – Expose recommendations through an API or integrate them into a web application for end-users.</li></ol><h3>Significance</h3><p>Personalized product recommendations are crucial for customer retention, revenue maximization, and inventory optimization. By leveraging past customer behavior and product relationships, the business can provide data-driven suggestions, improving the overall shopping experience.</p><h3>Benefits</h3><ul><li>Revenue Growth: Increased sales via targeted recommendations.</li><li>Customer Retention: Improved satisfaction through personalization.</li><li>Operational Efficiency: Better product targeting reduces marketing spend waste.</li><li>Strategic Advantage: Stronger customer insights enabling loyalty-building initiatives.</li></ul><h3>Expected Outcomes</h3><ul><li>A working recommendation engine that suggests products to customers.</li><li>Improved cross-sell/upsell conversion rates.</li><li>Data-driven customer segmentation insights.</li><li>Measurable improvement in engagement metrics (CTR, purchase frequency).</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:28 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 11, 2025, 12:56:28 PM"
+}

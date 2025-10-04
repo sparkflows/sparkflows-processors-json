@@ -1,0 +1,45 @@
+{
+  "uuid": "e1571ab2-6aab-4b26-9e00-34a5ec77ab3b",
+  "name": "emails",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/Collection-agents/emails.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"email_id\",\"collection_id\",\"subject\",\"body\",\"timestamp\"],colTypes:[\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"DATE\"],colFormats:[\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "email_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "collection_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "subject",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "body",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "timestamp",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

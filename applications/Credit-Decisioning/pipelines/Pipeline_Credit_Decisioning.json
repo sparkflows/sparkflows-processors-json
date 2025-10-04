@@ -1,0 +1,1334 @@
+{
+  "name": "Pipeline_Credit_Decisioning",
+  "uuid": "cdcf59a8-54dd-498d-8a5c-ba065bbf4b6a",
+  "category": "-",
+  "description": "",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "1",
+      "path": "/08-Workflow/",
+      "name": "01 - Data Profiling",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "93.7778px",
+      "y": "208.764px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "5e738614-a347-42b7-95b9-2163d4255de1",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "path": "/08-Workflow/",
+      "name": "02 - Data Cleaning",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "276.444px",
+      "y": "199.389px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "5aee6d3d-0290-42e0-b3f7-cb525c53391e",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "path": "/08-Workflow/",
+      "name": "03 - Exploring Credit Data",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "450.778px",
+      "y": "194.764px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "568454d7-5a90-4455-806b-3088db36604f",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "path": "/08-Workflow/",
+      "name": "04 - Data Preparation and Feature Engineering",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "625.778px",
+      "y": "183.764px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "9bebed68-e32b-40ba-8eef-d29c66bd998d",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "path": "/08-Workflow/",
+      "name": "05 -  Creating Risk Model Using RF Classifier",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "813.778px",
+      "y": "176.764px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "f59d8c5c-645a-490e-ba2a-e6c88b6a14dc",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "path": "/08-Workflow/",
+      "name": "06 - Prediction Risk Using RF Classifier",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "989.778px",
+      "y": "170.764px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "4d3b8713-f3c9-44dd-8886-3d32f75fa43f",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "path": "/08-Workflow/",
+      "name": "07 - Predictive-Analysis",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "1131.78px",
+      "y": "165.764px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "e06bf1e7-d34e-4f78-bb2a-5cccc279d033",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "path": "/08-Workflow/",
+      "name": "08-App-Data-Profiling",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "163.067px",
+      "y": "528.067px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "50f592e7-a5b9-4e08-87e1-61a6395e7588",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"agescore1\",\"Value\":\"2\"},{\"Key\":\"agefrom1\",\"Value\":\"25\"},{\"Key\":\"ageto1\",\"Value\":\"35\"},{\"Key\":\"agescore2\",\"Value\":\"3\"},{\"Key\":\"agefrom2\",\"Value\":\"36\"},{\"Key\":\"ageto2\",\"Value\":\"45\"},{\"Key\":\"agescore3\",\"Value\":\"4\"},{\"Key\":\"agefrom3\",\"Value\":\"46\"},{\"Key\":\"ageto3\",\"Value\":\"70\"},{\"Key\":\"ageweightage\",\"Value\":\"1\"},{\"Key\":\"goToNextTab1\",\"Value\":\"true\"},{\"Key\":\"genderscore1\",\"Value\":\"1\"},{\"Key\":\"genderscore2\",\"Value\":\"1\"},{\"Key\":\"genderweightage\",\"Value\":\"1\"},{\"Key\":\"goToPreviousTab2\",\"Value\":\"false\"},{\"Key\":\"goToNextTab2\",\"Value\":\"true\"},{\"Key\":\"jobscore1\",\"Value\":\"0\"},{\"Key\":\"jobscore2\",\"Value\":\"1\"},{\"Key\":\"jobscore3\",\"Value\":\"2\"},{\"Key\":\"jobscore4\",\"Value\":\"3\"},{\"Key\":\"jobweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab3\",\"Value\":\"false\"},{\"Key\":\"goToNextTab3\",\"Value\":\"true\"},{\"Key\":\"housingscore1\",\"Value\":\"0\"},{\"Key\":\"housingscore2\",\"Value\":\"1\"},{\"Key\":\"housingscore3\",\"Value\":\"2\"},{\"Key\":\"housingweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab4\",\"Value\":\"false\"},{\"Key\":\"goToNextTab4\",\"Value\":\"true\"},{\"Key\":\"savingaccscore1\",\"Value\":\"1\"},{\"Key\":\"savingaccscore2\",\"Value\":\"2\"},{\"Key\":\"savingaccscore3\",\"Value\":\"3\"},{\"Key\":\"savingaccscore4\",\"Value\":\"4\"},{\"Key\":\"savingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab5\",\"Value\":\"false\"},{\"Key\":\"goToNextTab5\",\"Value\":\"true\"},{\"Key\":\"checkingaccscore1\",\"Value\":\"1\"},{\"Key\":\"checkingaccscore2\",\"Value\":\"2\"},{\"Key\":\"checkingaccscore3\",\"Value\":\"3\"},{\"Key\":\"checkingaccscore4\",\"Value\":\"4\"},{\"Key\":\"checkingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab6\",\"Value\":\"false\"},{\"Key\":\"goToNextTab6\",\"Value\":\"true\"},{\"Key\":\"creditamtscore1\",\"Value\":\"1\"},{\"Key\":\"creditamtfrom1\",\"Value\":\"0\"},{\"Key\":\"creditamtto1\",\"Value\":\"250\"},{\"Key\":\"creditamtscore2\",\"Value\":\"3\"},{\"Key\":\"creditamtfrom2\",\"Value\":\"251\"},{\"Key\":\"creditamtto2\",\"Value\":\"1500\"},{\"Key\":\"creditamtscore3\",\"Value\":\"4\"},{\"Key\":\"creditamtfrom3\",\"Value\":\"1501\"},{\"Key\":\"creditamtto3\",\"Value\":\"2500\"},{\"Key\":\"creditamtscore4\",\"Value\":\"5\"},{\"Key\":\"creditamtfrom4\",\"Value\":\"2501\"},{\"Key\":\"creditamtto4\",\"Value\":\"4000\"},{\"Key\":\"creditamtscore5\",\"Value\":\"7\"},{\"Key\":\"creditamtfrom5\",\"Value\":\"4001\"},{\"Key\":\"creditamtto5\",\"Value\":\"20000\"},{\"Key\":\"creditamtweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab7\",\"Value\":\"false\"},{\"Key\":\"goToNextTab7\",\"Value\":\"true\"},{\"Key\":\"durationscore1\",\"Value\":\"1\"},{\"Key\":\"durationfrom1\",\"Value\":\"0\"},{\"Key\":\"durationto1\",\"Value\":\"4\"},{\"Key\":\"durationscore2\",\"Value\":\"2\"},{\"Key\":\"durationfrom2\",\"Value\":\"5\"},{\"Key\":\"durationto2\",\"Value\":\"12\"},{\"Key\":\"durationscore3\",\"Value\":\"3\"},{\"Key\":\"durationfrom3\",\"Value\":\"13\"},{\"Key\":\"durationto3\",\"Value\":\"18\"},{\"Key\":\"durationscore4\",\"Value\":\"4\"},{\"Key\":\"durationfrom4\",\"Value\":\"19\"},{\"Key\":\"durationto4\",\"Value\":\"24\"},{\"Key\":\"durationscore5\",\"Value\":\"5\"},{\"Key\":\"durationfrom5\",\"Value\":\"25\"},{\"Key\":\"durationto5\",\"Value\":\"75\"},{\"Key\":\"durationweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab8\",\"Value\":\"false\"},{\"Key\":\"goToNextTab8\",\"Value\":\"true\"},{\"Key\":\"thresholdvalue\",\"Value\":\"30\"},{\"Key\":\"goToPreviousTab9\",\"Value\":\"false\"},{\"Key\":\"destinationPath\",\"Value\":\"data/BFSI/Credit-Decisioning/Incremental-Data/\"},{\"Key\":\"prevStage\",\"Value\":\"false\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "path": "/08-Workflow/",
+      "name": "08-Analytical-App-EDA-1",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "262.067px",
+      "y": "557.067px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "e3e61d8e-3870-45d6-88d3-627e9e6f73fb",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"agescore1\",\"Value\":\"2\"},{\"Key\":\"agefrom1\",\"Value\":\"25\"},{\"Key\":\"ageto1\",\"Value\":\"35\"},{\"Key\":\"agescore2\",\"Value\":\"3\"},{\"Key\":\"agefrom2\",\"Value\":\"36\"},{\"Key\":\"ageto2\",\"Value\":\"45\"},{\"Key\":\"agescore3\",\"Value\":\"4\"},{\"Key\":\"agefrom3\",\"Value\":\"46\"},{\"Key\":\"ageto3\",\"Value\":\"70\"},{\"Key\":\"ageweightage\",\"Value\":\"1\"},{\"Key\":\"goToNextTab1\",\"Value\":\"true\"},{\"Key\":\"genderscore1\",\"Value\":\"1\"},{\"Key\":\"genderscore2\",\"Value\":\"1\"},{\"Key\":\"genderweightage\",\"Value\":\"1\"},{\"Key\":\"goToPreviousTab2\",\"Value\":\"false\"},{\"Key\":\"goToNextTab2\",\"Value\":\"true\"},{\"Key\":\"jobscore1\",\"Value\":\"0\"},{\"Key\":\"jobscore2\",\"Value\":\"1\"},{\"Key\":\"jobscore3\",\"Value\":\"2\"},{\"Key\":\"jobscore4\",\"Value\":\"3\"},{\"Key\":\"jobweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab3\",\"Value\":\"false\"},{\"Key\":\"goToNextTab3\",\"Value\":\"true\"},{\"Key\":\"housingscore1\",\"Value\":\"0\"},{\"Key\":\"housingscore2\",\"Value\":\"1\"},{\"Key\":\"housingscore3\",\"Value\":\"2\"},{\"Key\":\"housingweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab4\",\"Value\":\"false\"},{\"Key\":\"goToNextTab4\",\"Value\":\"true\"},{\"Key\":\"savingaccscore1\",\"Value\":\"1\"},{\"Key\":\"savingaccscore2\",\"Value\":\"2\"},{\"Key\":\"savingaccscore3\",\"Value\":\"3\"},{\"Key\":\"savingaccscore4\",\"Value\":\"4\"},{\"Key\":\"savingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab5\",\"Value\":\"false\"},{\"Key\":\"goToNextTab5\",\"Value\":\"true\"},{\"Key\":\"checkingaccscore1\",\"Value\":\"1\"},{\"Key\":\"checkingaccscore2\",\"Value\":\"2\"},{\"Key\":\"checkingaccscore3\",\"Value\":\"3\"},{\"Key\":\"checkingaccscore4\",\"Value\":\"4\"},{\"Key\":\"checkingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab6\",\"Value\":\"false\"},{\"Key\":\"goToNextTab6\",\"Value\":\"true\"},{\"Key\":\"creditamtscore1\",\"Value\":\"1\"},{\"Key\":\"creditamtfrom1\",\"Value\":\"0\"},{\"Key\":\"creditamtto1\",\"Value\":\"250\"},{\"Key\":\"creditamtscore2\",\"Value\":\"3\"},{\"Key\":\"creditamtfrom2\",\"Value\":\"251\"},{\"Key\":\"creditamtto2\",\"Value\":\"1500\"},{\"Key\":\"creditamtscore3\",\"Value\":\"4\"},{\"Key\":\"creditamtfrom3\",\"Value\":\"1501\"},{\"Key\":\"creditamtto3\",\"Value\":\"2500\"},{\"Key\":\"creditamtscore4\",\"Value\":\"5\"},{\"Key\":\"creditamtfrom4\",\"Value\":\"2501\"},{\"Key\":\"creditamtto4\",\"Value\":\"4000\"},{\"Key\":\"creditamtscore5\",\"Value\":\"7\"},{\"Key\":\"creditamtfrom5\",\"Value\":\"4001\"},{\"Key\":\"creditamtto5\",\"Value\":\"20000\"},{\"Key\":\"creditamtweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab7\",\"Value\":\"false\"},{\"Key\":\"goToNextTab7\",\"Value\":\"true\"},{\"Key\":\"durationscore1\",\"Value\":\"1\"},{\"Key\":\"durationfrom1\",\"Value\":\"0\"},{\"Key\":\"durationto1\",\"Value\":\"4\"},{\"Key\":\"durationscore2\",\"Value\":\"2\"},{\"Key\":\"durationfrom2\",\"Value\":\"5\"},{\"Key\":\"durationto2\",\"Value\":\"12\"},{\"Key\":\"durationscore3\",\"Value\":\"3\"},{\"Key\":\"durationfrom3\",\"Value\":\"13\"},{\"Key\":\"durationto3\",\"Value\":\"18\"},{\"Key\":\"durationscore4\",\"Value\":\"4\"},{\"Key\":\"durationfrom4\",\"Value\":\"19\"},{\"Key\":\"durationto4\",\"Value\":\"24\"},{\"Key\":\"durationscore5\",\"Value\":\"5\"},{\"Key\":\"durationfrom5\",\"Value\":\"25\"},{\"Key\":\"durationto5\",\"Value\":\"75\"},{\"Key\":\"durationweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab8\",\"Value\":\"false\"},{\"Key\":\"goToNextTab8\",\"Value\":\"true\"},{\"Key\":\"thresholdvalue\",\"Value\":\"30\"},{\"Key\":\"goToPreviousTab9\",\"Value\":\"false\"},{\"Key\":\"destinationPath\",\"Value\":\"data/BFSI/Credit-Decisioning/Incremental-Data/\"},{\"Key\":\"prevStage\",\"Value\":\"false\"},{\"Key\":\"submit2\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "path": "/08-Workflow/",
+      "name": "08-Analytical-App-EDA-2",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "337.117px",
+      "y": "572.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "ee425ed2-4128-43d3-9f18-1b67584357fb",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"agescore1\",\"Value\":\"2\"},{\"Key\":\"agefrom1\",\"Value\":\"25\"},{\"Key\":\"ageto1\",\"Value\":\"35\"},{\"Key\":\"agescore2\",\"Value\":\"3\"},{\"Key\":\"agefrom2\",\"Value\":\"36\"},{\"Key\":\"ageto2\",\"Value\":\"45\"},{\"Key\":\"agescore3\",\"Value\":\"4\"},{\"Key\":\"agefrom3\",\"Value\":\"46\"},{\"Key\":\"ageto3\",\"Value\":\"70\"},{\"Key\":\"ageweightage\",\"Value\":\"1\"},{\"Key\":\"goToNextTab1\",\"Value\":\"true\"},{\"Key\":\"genderscore1\",\"Value\":\"1\"},{\"Key\":\"genderscore2\",\"Value\":\"1\"},{\"Key\":\"genderweightage\",\"Value\":\"1\"},{\"Key\":\"goToPreviousTab2\",\"Value\":\"false\"},{\"Key\":\"goToNextTab2\",\"Value\":\"true\"},{\"Key\":\"jobscore1\",\"Value\":\"0\"},{\"Key\":\"jobscore2\",\"Value\":\"1\"},{\"Key\":\"jobscore3\",\"Value\":\"2\"},{\"Key\":\"jobscore4\",\"Value\":\"3\"},{\"Key\":\"jobweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab3\",\"Value\":\"false\"},{\"Key\":\"goToNextTab3\",\"Value\":\"true\"},{\"Key\":\"housingscore1\",\"Value\":\"0\"},{\"Key\":\"housingscore2\",\"Value\":\"1\"},{\"Key\":\"housingscore3\",\"Value\":\"2\"},{\"Key\":\"housingweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab4\",\"Value\":\"false\"},{\"Key\":\"goToNextTab4\",\"Value\":\"true\"},{\"Key\":\"savingaccscore1\",\"Value\":\"1\"},{\"Key\":\"savingaccscore2\",\"Value\":\"2\"},{\"Key\":\"savingaccscore3\",\"Value\":\"3\"},{\"Key\":\"savingaccscore4\",\"Value\":\"4\"},{\"Key\":\"savingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab5\",\"Value\":\"false\"},{\"Key\":\"goToNextTab5\",\"Value\":\"true\"},{\"Key\":\"checkingaccscore1\",\"Value\":\"1\"},{\"Key\":\"checkingaccscore2\",\"Value\":\"2\"},{\"Key\":\"checkingaccscore3\",\"Value\":\"3\"},{\"Key\":\"checkingaccscore4\",\"Value\":\"4\"},{\"Key\":\"checkingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab6\",\"Value\":\"false\"},{\"Key\":\"goToNextTab6\",\"Value\":\"true\"},{\"Key\":\"creditamtscore1\",\"Value\":\"1\"},{\"Key\":\"creditamtfrom1\",\"Value\":\"0\"},{\"Key\":\"creditamtto1\",\"Value\":\"250\"},{\"Key\":\"creditamtscore2\",\"Value\":\"3\"},{\"Key\":\"creditamtfrom2\",\"Value\":\"251\"},{\"Key\":\"creditamtto2\",\"Value\":\"1500\"},{\"Key\":\"creditamtscore3\",\"Value\":\"4\"},{\"Key\":\"creditamtfrom3\",\"Value\":\"1501\"},{\"Key\":\"creditamtto3\",\"Value\":\"2500\"},{\"Key\":\"creditamtscore4\",\"Value\":\"5\"},{\"Key\":\"creditamtfrom4\",\"Value\":\"2501\"},{\"Key\":\"creditamtto4\",\"Value\":\"4000\"},{\"Key\":\"creditamtscore5\",\"Value\":\"7\"},{\"Key\":\"creditamtfrom5\",\"Value\":\"4001\"},{\"Key\":\"creditamtto5\",\"Value\":\"20000\"},{\"Key\":\"creditamtweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab7\",\"Value\":\"false\"},{\"Key\":\"goToNextTab7\",\"Value\":\"true\"},{\"Key\":\"durationscore1\",\"Value\":\"1\"},{\"Key\":\"durationfrom1\",\"Value\":\"0\"},{\"Key\":\"durationto1\",\"Value\":\"4\"},{\"Key\":\"durationscore2\",\"Value\":\"2\"},{\"Key\":\"durationfrom2\",\"Value\":\"5\"},{\"Key\":\"durationto2\",\"Value\":\"12\"},{\"Key\":\"durationscore3\",\"Value\":\"3\"},{\"Key\":\"durationfrom3\",\"Value\":\"13\"},{\"Key\":\"durationto3\",\"Value\":\"18\"},{\"Key\":\"durationscore4\",\"Value\":\"4\"},{\"Key\":\"durationfrom4\",\"Value\":\"19\"},{\"Key\":\"durationto4\",\"Value\":\"24\"},{\"Key\":\"durationscore5\",\"Value\":\"5\"},{\"Key\":\"durationfrom5\",\"Value\":\"25\"},{\"Key\":\"durationto5\",\"Value\":\"75\"},{\"Key\":\"durationweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab8\",\"Value\":\"false\"},{\"Key\":\"goToNextTab8\",\"Value\":\"true\"},{\"Key\":\"thresholdvalue\",\"Value\":\"30\"},{\"Key\":\"goToPreviousTab9\",\"Value\":\"false\"},{\"Key\":\"destinationPath\",\"Value\":\"data/BFSI/Credit-Decisioning/Incremental-Data/\"},{\"Key\":\"prevStage\",\"Value\":\"false\"},{\"Key\":\"submit2\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "path": "/08-Workflow/",
+      "name": "08-App-Prediction-Risk-Using-RF-Classifier",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "457.117px",
+      "y": "568.133px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "0d276fc1-b95c-4e5c-a3b0-219e6609dfd1",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"agescore1\",\"Value\":\"2\"},{\"Key\":\"agefrom1\",\"Value\":\"25\"},{\"Key\":\"ageto1\",\"Value\":\"35\"},{\"Key\":\"agescore2\",\"Value\":\"3\"},{\"Key\":\"agefrom2\",\"Value\":\"36\"},{\"Key\":\"ageto2\",\"Value\":\"45\"},{\"Key\":\"agescore3\",\"Value\":\"4\"},{\"Key\":\"agefrom3\",\"Value\":\"46\"},{\"Key\":\"ageto3\",\"Value\":\"70\"},{\"Key\":\"ageweightage\",\"Value\":\"1\"},{\"Key\":\"goToNextTab1\",\"Value\":\"true\"},{\"Key\":\"genderscore1\",\"Value\":\"1\"},{\"Key\":\"genderscore2\",\"Value\":\"1\"},{\"Key\":\"genderweightage\",\"Value\":\"1\"},{\"Key\":\"goToPreviousTab2\",\"Value\":\"false\"},{\"Key\":\"goToNextTab2\",\"Value\":\"true\"},{\"Key\":\"jobscore1\",\"Value\":\"0\"},{\"Key\":\"jobscore2\",\"Value\":\"1\"},{\"Key\":\"jobscore3\",\"Value\":\"2\"},{\"Key\":\"jobscore4\",\"Value\":\"3\"},{\"Key\":\"jobweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab3\",\"Value\":\"false\"},{\"Key\":\"goToNextTab3\",\"Value\":\"true\"},{\"Key\":\"housingscore1\",\"Value\":\"0\"},{\"Key\":\"housingscore2\",\"Value\":\"1\"},{\"Key\":\"housingscore3\",\"Value\":\"2\"},{\"Key\":\"housingweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab4\",\"Value\":\"false\"},{\"Key\":\"goToNextTab4\",\"Value\":\"true\"},{\"Key\":\"savingaccscore1\",\"Value\":\"1\"},{\"Key\":\"savingaccscore2\",\"Value\":\"2\"},{\"Key\":\"savingaccscore3\",\"Value\":\"3\"},{\"Key\":\"savingaccscore4\",\"Value\":\"4\"},{\"Key\":\"savingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab5\",\"Value\":\"false\"},{\"Key\":\"goToNextTab5\",\"Value\":\"true\"},{\"Key\":\"checkingaccscore1\",\"Value\":\"1\"},{\"Key\":\"checkingaccscore2\",\"Value\":\"2\"},{\"Key\":\"checkingaccscore3\",\"Value\":\"3\"},{\"Key\":\"checkingaccscore4\",\"Value\":\"4\"},{\"Key\":\"checkingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab6\",\"Value\":\"false\"},{\"Key\":\"goToNextTab6\",\"Value\":\"true\"},{\"Key\":\"creditamtscore1\",\"Value\":\"1\"},{\"Key\":\"creditamtfrom1\",\"Value\":\"0\"},{\"Key\":\"creditamtto1\",\"Value\":\"250\"},{\"Key\":\"creditamtscore2\",\"Value\":\"3\"},{\"Key\":\"creditamtfrom2\",\"Value\":\"251\"},{\"Key\":\"creditamtto2\",\"Value\":\"1500\"},{\"Key\":\"creditamtscore3\",\"Value\":\"4\"},{\"Key\":\"creditamtfrom3\",\"Value\":\"1501\"},{\"Key\":\"creditamtto3\",\"Value\":\"2500\"},{\"Key\":\"creditamtscore4\",\"Value\":\"5\"},{\"Key\":\"creditamtfrom4\",\"Value\":\"2501\"},{\"Key\":\"creditamtto4\",\"Value\":\"4000\"},{\"Key\":\"creditamtscore5\",\"Value\":\"7\"},{\"Key\":\"creditamtfrom5\",\"Value\":\"4001\"},{\"Key\":\"creditamtto5\",\"Value\":\"20000\"},{\"Key\":\"creditamtweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab7\",\"Value\":\"false\"},{\"Key\":\"goToNextTab7\",\"Value\":\"true\"},{\"Key\":\"durationscore1\",\"Value\":\"1\"},{\"Key\":\"durationfrom1\",\"Value\":\"0\"},{\"Key\":\"durationto1\",\"Value\":\"4\"},{\"Key\":\"durationscore2\",\"Value\":\"2\"},{\"Key\":\"durationfrom2\",\"Value\":\"5\"},{\"Key\":\"durationto2\",\"Value\":\"12\"},{\"Key\":\"durationscore3\",\"Value\":\"3\"},{\"Key\":\"durationfrom3\",\"Value\":\"13\"},{\"Key\":\"durationto3\",\"Value\":\"18\"},{\"Key\":\"durationscore4\",\"Value\":\"4\"},{\"Key\":\"durationfrom4\",\"Value\":\"19\"},{\"Key\":\"durationto4\",\"Value\":\"24\"},{\"Key\":\"durationscore5\",\"Value\":\"5\"},{\"Key\":\"durationfrom5\",\"Value\":\"25\"},{\"Key\":\"durationto5\",\"Value\":\"75\"},{\"Key\":\"durationweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab8\",\"Value\":\"false\"},{\"Key\":\"goToNextTab8\",\"Value\":\"true\"},{\"Key\":\"thresholdvalue\",\"Value\":\"30\"},{\"Key\":\"goToPreviousTab9\",\"Value\":\"false\"},{\"Key\":\"destinationPath\",\"Value\":\"data/BFSI/Credit-Decisioning/Incremental-Data/\"},{\"Key\":\"prevStage\",\"Value\":\"false\"},{\"Key\":\"submit2\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "path": "/08-Workflow/",
+      "name": "08-Analytical-App-Predicting-Credit-Risk",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "601.183px",
+      "y": "561.2px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "1dddf57c-5f0c-4e3a-9328-d82ee28cd5f5",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"agescore1\",\"Value\":\"2\"},{\"Key\":\"agefrom1\",\"Value\":\"25\"},{\"Key\":\"ageto1\",\"Value\":\"35\"},{\"Key\":\"agescore2\",\"Value\":\"3\"},{\"Key\":\"agefrom2\",\"Value\":\"36\"},{\"Key\":\"ageto2\",\"Value\":\"45\"},{\"Key\":\"agescore3\",\"Value\":\"4\"},{\"Key\":\"agefrom3\",\"Value\":\"46\"},{\"Key\":\"ageto3\",\"Value\":\"70\"},{\"Key\":\"ageweightage\",\"Value\":\"1\"},{\"Key\":\"goToNextTab1\",\"Value\":\"true\"},{\"Key\":\"genderscore1\",\"Value\":\"1\"},{\"Key\":\"genderscore2\",\"Value\":\"1\"},{\"Key\":\"genderweightage\",\"Value\":\"1\"},{\"Key\":\"goToPreviousTab2\",\"Value\":\"false\"},{\"Key\":\"goToNextTab2\",\"Value\":\"true\"},{\"Key\":\"jobscore1\",\"Value\":\"0\"},{\"Key\":\"jobscore2\",\"Value\":\"1\"},{\"Key\":\"jobscore3\",\"Value\":\"2\"},{\"Key\":\"jobscore4\",\"Value\":\"3\"},{\"Key\":\"jobweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab3\",\"Value\":\"false\"},{\"Key\":\"goToNextTab3\",\"Value\":\"true\"},{\"Key\":\"housingscore1\",\"Value\":\"0\"},{\"Key\":\"housingscore2\",\"Value\":\"1\"},{\"Key\":\"housingscore3\",\"Value\":\"2\"},{\"Key\":\"housingweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab4\",\"Value\":\"false\"},{\"Key\":\"goToNextTab4\",\"Value\":\"true\"},{\"Key\":\"savingaccscore1\",\"Value\":\"1\"},{\"Key\":\"savingaccscore2\",\"Value\":\"2\"},{\"Key\":\"savingaccscore3\",\"Value\":\"3\"},{\"Key\":\"savingaccscore4\",\"Value\":\"4\"},{\"Key\":\"savingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab5\",\"Value\":\"false\"},{\"Key\":\"goToNextTab5\",\"Value\":\"true\"},{\"Key\":\"checkingaccscore1\",\"Value\":\"1\"},{\"Key\":\"checkingaccscore2\",\"Value\":\"2\"},{\"Key\":\"checkingaccscore3\",\"Value\":\"3\"},{\"Key\":\"checkingaccscore4\",\"Value\":\"4\"},{\"Key\":\"checkingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab6\",\"Value\":\"false\"},{\"Key\":\"goToNextTab6\",\"Value\":\"true\"},{\"Key\":\"creditamtscore1\",\"Value\":\"1\"},{\"Key\":\"creditamtfrom1\",\"Value\":\"0\"},{\"Key\":\"creditamtto1\",\"Value\":\"250\"},{\"Key\":\"creditamtscore2\",\"Value\":\"3\"},{\"Key\":\"creditamtfrom2\",\"Value\":\"251\"},{\"Key\":\"creditamtto2\",\"Value\":\"1500\"},{\"Key\":\"creditamtscore3\",\"Value\":\"4\"},{\"Key\":\"creditamtfrom3\",\"Value\":\"1501\"},{\"Key\":\"creditamtto3\",\"Value\":\"2500\"},{\"Key\":\"creditamtscore4\",\"Value\":\"5\"},{\"Key\":\"creditamtfrom4\",\"Value\":\"2501\"},{\"Key\":\"creditamtto4\",\"Value\":\"4000\"},{\"Key\":\"creditamtscore5\",\"Value\":\"7\"},{\"Key\":\"creditamtfrom5\",\"Value\":\"4001\"},{\"Key\":\"creditamtto5\",\"Value\":\"20000\"},{\"Key\":\"creditamtweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab7\",\"Value\":\"false\"},{\"Key\":\"goToNextTab7\",\"Value\":\"true\"},{\"Key\":\"durationscore1\",\"Value\":\"1\"},{\"Key\":\"durationfrom1\",\"Value\":\"0\"},{\"Key\":\"durationto1\",\"Value\":\"4\"},{\"Key\":\"durationscore2\",\"Value\":\"2\"},{\"Key\":\"durationfrom2\",\"Value\":\"5\"},{\"Key\":\"durationto2\",\"Value\":\"12\"},{\"Key\":\"durationscore3\",\"Value\":\"3\"},{\"Key\":\"durationfrom3\",\"Value\":\"13\"},{\"Key\":\"durationto3\",\"Value\":\"18\"},{\"Key\":\"durationscore4\",\"Value\":\"4\"},{\"Key\":\"durationfrom4\",\"Value\":\"19\"},{\"Key\":\"durationto4\",\"Value\":\"24\"},{\"Key\":\"durationscore5\",\"Value\":\"5\"},{\"Key\":\"durationfrom5\",\"Value\":\"25\"},{\"Key\":\"durationto5\",\"Value\":\"75\"},{\"Key\":\"durationweightage\",\"Value\":\"2\"},{\"Key\":\"goToPreviousTab8\",\"Value\":\"false\"},{\"Key\":\"goToNextTab8\",\"Value\":\"true\"},{\"Key\":\"thresholdvalue\",\"Value\":\"30\"},{\"Key\":\"goToPreviousTab9\",\"Value\":\"false\"},{\"Key\":\"destinationPath\",\"Value\":\"data/BFSI/Credit-Decisioning/Incremental-Data/\"},{\"Key\":\"prevStage\",\"Value\":\"false\"},{\"Key\":\"submit2\",\"Value\":\"true\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "path": "/08-Workflow/",
+      "name": "08-Analytical App-Computing Credit Score",
+      "description": "This node allows user to select the list of workflows in the project to create a pipeline.",
+      "details": "<h2>Workflow</h2>\n<br>\nThis node allows user to select the list of workflows in the project to create a pipeline.<br>",
+      "examples": "<h2> Workflow Examples</h2>\n<br>\n<h4> Example of Creating a Workflow Node</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"\",<br>\n\"notes\": \"\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example demonstrates how to create a Workflow node by selecting a specific workflow identified by its UUID.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_task\"</li>\n</ul>\n<h4> Example of Creating a Workflow Node with Spark Configuration and Notes</h4>\n<br>\n{<br>\n\"workflowUUID\": \"12345-abcde-67890-fghij\",<br>\n\"sparkConf\": \"spark.executor.memory=4g,spark.driver.memory=2g\",<br>\n\"notes\": \"This workflow processes data for the quarterly report.\"<br>\n}<br>\n<br>\n<h4> Explanation</h4>\n<ul>\n<li> This example illustrates how to create a Workflow node while also specifying Spark configuration options and adding notes about the workflow's purpose.</li>\n</ul>\n<h4> Usage</h4>\n<ul>\n<li> Task ID: \"workflow_with_spark_conf_task\"</li>\n</ul>",
+      "type": "workflow",
+      "nodeClass": "fire.pipelineNodes.Workflow",
+      "x": "720.2px",
+      "y": "531.183px",
+      "fields": [
+        {
+          "name": "workflowUUID",
+          "value": "6a826158-89c6-4a3e-b6e6-5480ee6215a1",
+          "widget": "workflow",
+          "title": "Workflow",
+          "description": "List of Workflows",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "sparkConf",
+          "value": "",
+          "widget": "textfield",
+          "title": "Spark Conf",
+          "description": "Add spark conf",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": true,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "trigger_rule",
+          "value": "all_success",
+          "widget": "array",
+          "title": "Trigger Rule",
+          "description": "Trigger Rule to be used",
+          "optionsArray": [
+            "all_success",
+            "always"
+          ],
+          "required": true,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "notes",
+          "value": "",
+          "widget": "textfield",
+          "title": "Notes",
+          "description": "Notes",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "wf_parameters",
+          "value": "[{\"Key\":\"selectOperation1\",\"Value\":\"creditScoreComputation\"},{\"Key\":\"agescore1\",\"Value\":\"2\"},{\"Key\":\"agefrom1\",\"Value\":\"25\"},{\"Key\":\"ageto1\",\"Value\":\"35\"},{\"Key\":\"agescore2\",\"Value\":\"3\"},{\"Key\":\"agefrom2\",\"Value\":\"36\"},{\"Key\":\"ageto2\",\"Value\":\"45\"},{\"Key\":\"agescore3\",\"Value\":\"4\"},{\"Key\":\"agefrom3\",\"Value\":\"46\"},{\"Key\":\"ageto3\",\"Value\":\"70\"},{\"Key\":\"ageweightage\",\"Value\":\"1\"},{\"Key\":\"prevStage\",\"Value\":\"false\"},{\"Key\":\"goToNextTab1\",\"Value\":\"false\"},{\"Key\":\"genderscore1\",\"Value\":\"1\"},{\"Key\":\"genderscore2\",\"Value\":\"1\"},{\"Key\":\"genderweightage\",\"Value\":\"1\"},{\"Key\":\"goToPreviousTab2\",\"Value\":\"false\"},{\"Key\":\"goToNextTab2\",\"Value\":\"false\"},{\"Key\":\"jobscore1\",\"Value\":\"0\"},{\"Key\":\"jobscore2\",\"Value\":\"1\"},{\"Key\":\"jobscore3\",\"Value\":\"2\"},{\"Key\":\"jobscore4\",\"Value\":\"3\"},{\"Key\":\"jobweightage\",\"Value\":\"3\"},{\"Key\":\"goToPreviousTab3\",\"Value\":\"false\"},{\"Key\":\"goToNextTab3\",\"Value\":\"false\"},{\"Key\":\"housingscore1\",\"Value\":\"0\"},{\"Key\":\"housingscore2\",\"Value\":\"1\"},{\"Key\":\"housingscore3\",\"Value\":\"2\"},{\"Key\":\"housingweightage\",\"Value\":\"2\"},{\"Key\":\"goToNextTab4\",\"Value\":\"false\"},{\"Key\":\"savingaccscore1\",\"Value\":\"1\"},{\"Key\":\"savingaccscore2\",\"Value\":\"2\"},{\"Key\":\"savingaccscore3\",\"Value\":\"3\"},{\"Key\":\"savingaccscore4\",\"Value\":\"4\"},{\"Key\":\"savingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToNextTab5\",\"Value\":\"false\"},{\"Key\":\"checkingaccscore1\",\"Value\":\"1\"},{\"Key\":\"checkingaccscore2\",\"Value\":\"2\"},{\"Key\":\"checkingaccscore3\",\"Value\":\"3\"},{\"Key\":\"checkingaccscore4\",\"Value\":\"4\"},{\"Key\":\"checkingaccweightage\",\"Value\":\"3\"},{\"Key\":\"goToNextTab6\",\"Value\":\"false\"},{\"Key\":\"creditamtscore1\",\"Value\":\"1\"},{\"Key\":\"creditamtfrom1\",\"Value\":\"0\"},{\"Key\":\"creditamtto1\",\"Value\":\"250\"},{\"Key\":\"creditamtscore2\",\"Value\":\"3\"},{\"Key\":\"creditamtfrom2\",\"Value\":\"251\"},{\"Key\":\"creditamtto2\",\"Value\":\"1500\"},{\"Key\":\"creditamtscore3\",\"Value\":\"4\"},{\"Key\":\"creditamtfrom3\",\"Value\":\"1501\"},{\"Key\":\"creditamtto3\",\"Value\":\"2500\"},{\"Key\":\"creditamtscore4\",\"Value\":\"5\"},{\"Key\":\"creditamtfrom4\",\"Value\":\"2501\"},{\"Key\":\"creditamtto4\",\"Value\":\"4000\"},{\"Key\":\"creditamtscore5\",\"Value\":\"7\"},{\"Key\":\"creditamtfrom5\",\"Value\":\"4001\"},{\"Key\":\"creditamtto5\",\"Value\":\"20000\"},{\"Key\":\"creditamtweightage\",\"Value\":\"3\"},{\"Key\":\"goToNextTab7\",\"Value\":\"false\"},{\"Key\":\"durationscore1\",\"Value\":\"1\"},{\"Key\":\"durationfrom1\",\"Value\":\"0\"},{\"Key\":\"durationto1\",\"Value\":\"4\"},{\"Key\":\"durationscore2\",\"Value\":\"2\"},{\"Key\":\"durationfrom2\",\"Value\":\"5\"},{\"Key\":\"durationto2\",\"Value\":\"12\"},{\"Key\":\"durationscore3\",\"Value\":\"3\"},{\"Key\":\"durationfrom3\",\"Value\":\"13\"},{\"Key\":\"durationto3\",\"Value\":\"18\"},{\"Key\":\"durationscore4\",\"Value\":\"4\"},{\"Key\":\"durationfrom4\",\"Value\":\"19\"},{\"Key\":\"durationto4\",\"Value\":\"24\"},{\"Key\":\"durationscore5\",\"Value\":\"5\"},{\"Key\":\"durationfrom5\",\"Value\":\"25\"},{\"Key\":\"durationto5\",\"Value\":\"75\"},{\"Key\":\"durationweightage\",\"Value\":\"2\"},{\"Key\":\"goToNextTab8\",\"Value\":\"false\"},{\"Key\":\"thresholdvalue\",\"Value\":\"30\"},{\"Key\":\"goToPreviousTab4\",\"Value\":\"false\"},{\"Key\":\"applicantID\",\"Value\":\"1\"}]",
+          "widget": "variablesList",
+          "title": "Parameters",
+          "description": "List of parameters from selected workflow",
+          "optionsArray": [
+            "Key",
+            "Value"
+          ],
+          "required": false,
+          "display": true,
+          "editable": false,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "path": "/09-Documentation/",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes",
+      "details": "<h2>Sticky Note</h2>\n<br>\nAllows capturing Notes.<br>",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.pipelineNodes.doc.NodeStickyNote",
+      "x": "84.0667px",
+      "y": "81.0667px",
+      "fields": [
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "width",
+          "value": "300px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "height",
+          "value": "110px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of the note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>Workflows pipeline</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Pipeline",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "path": "/09-Documentation/",
+      "name": "Sticky Note",
+      "description": "Allows capturing Notes",
+      "details": "<h2>Sticky Note</h2>\n<br>\nAllows capturing Notes.<br>",
+      "examples": "",
+      "type": "sticky",
+      "nodeClass": "fire.pipelineNodes.doc.NodeStickyNote",
+      "x": "67.0667px",
+      "y": "354.067px",
+      "fields": [
+        {
+          "name": "bgColor",
+          "value": "gray",
+          "widget": "textfield",
+          "title": "Bg Color",
+          "description": "Background of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "width",
+          "value": "300px",
+          "widget": "textfield",
+          "title": "Width",
+          "description": "Width of the Note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "height",
+          "value": "110px",
+          "widget": "textfield",
+          "title": "Height",
+          "description": "Height of the note",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        },
+        {
+          "name": "comment",
+          "value": "<p>App workflow pipeline</p>",
+          "widget": "textarea_rich",
+          "title": "Comment",
+          "description": "Comments for the Pipeline",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "expandable": false,
+          "disableRefresh": false,
+          "keyValue": false
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "id": 3
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "id": 4
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "id": 5
+    },
+    {
+      "source": "6",
+      "target": "7",
+      "id": 6
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "id": 7
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "id": 8
+    },
+    {
+      "source": "9",
+      "target": "10",
+      "id": 9
+    },
+    {
+      "source": "10",
+      "target": "11",
+      "id": 10
+    },
+    {
+      "source": "11",
+      "target": "12",
+      "id": 11
+    },
+    {
+      "source": "12",
+      "target": "13",
+      "id": 12
+    }
+  ]
+}

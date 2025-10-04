@@ -1,0 +1,14 @@
+{
+  "id": 2007,
+  "uuid": "591005ca-0001-4067-a1c8-f030437830ac",
+  "name": "SQL Code-Library",
+  "category": "",
+  "projectId": 1553,
+  "content": "<h2><strong>SQL Code-Library :-</strong></h2><p><br></p><p>We?re using <code>select * from fire_temp_table;</code> in SQL Code-Library node on the housing dataset we loaded, this query will return the entire dataset, displaying all columns and rows, which include:</p><ul><li>Property details like <code>price</code>, <code>lotsize</code>, <code>bedrooms</code>, etc.</li><li>Amenities information (<code>driveway</code>, <code>recroom</code>, <code>fullbase</code>, etc.)</li><li>Location-based preference with <code>prefarea</code>.</li></ul><p>Here?s a quick breakdown of what each column we are getting from SQL Code-Library :</p><ol><li><strong>id</strong>: Identifier for each property or entry.</li><li><strong>price</strong>: Price of the property.</li><li><strong>lotsize</strong>: Size of the lot on which the property is built, likely in square feet or meters.</li><li><strong>bedrooms</strong>: Number of bedrooms in the property.</li><li><strong>bathrms</strong>: Number of bathrooms in the property.</li><li><strong>stories</strong>: Number of stories (floors) in the property.</li><li><strong>driveway</strong>: Whether the property has a driveway (usually a binary value like 0 for No, 1 for Yes).</li><li><strong>recroom</strong>: Whether the property has a recreation room (0 for No, 1 for Yes).</li><li><strong>fullbase</strong>: Whether the property has a full basement (0 for No, 1 for Yes).</li><li><strong>gashw</strong>: Whether the property has gas hot water (0 for No, 1 for Yes).</li><li><strong>airco</strong>: Whether the property has air conditioning (0 for No, 1 for Yes).</li><li><strong>garagepl</strong>: Number of garage places (possibly a count of parking spaces).</li><li><strong>prefarea</strong>: Whether the property is in a preferred area (0 for No, 1 for Yes).</li></ol><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "May 5, 2025, 12:53:40 PM",
+  "dateLastUpdated": "May 5, 2025, 12:53:40 PM"
+}

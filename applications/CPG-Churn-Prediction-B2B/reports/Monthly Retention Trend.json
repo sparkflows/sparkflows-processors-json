@@ -1,0 +1,53 @@
+{
+  "name": "Monthly Retention Trend",
+  "uuid": "6ccbeb35-f963-4093-80f8-79730b709fa2",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/Manufacturing.svg"
+  },
+  "description": "The stickiness of the customer base",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Sheet/ Tab name",
+      "type": "type",
+      "idx": "1",
+      "items": [],
+      "rows": [
+        {
+          "items": [
+            {
+              "id": 65,
+              "name": "Print N Rows",
+              "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+              "type": "transform",
+              "x": "457.614px",
+              "y": "30.5909px",
+              "workflowId": "131a0759-7309-4d5a-9ab5-5c87bb8c2618",
+              "workflowName": "02-Perform-Exploratory-Data-Analysis",
+              "nodeId": "65",
+              "grow": 1
+            }
+          ],
+          "height": 0
+        },
+        {
+          "items": [
+            {
+              "id": 63,
+              "name": "Monthly Customer Churn Report",
+              "type": "transform",
+              "x": "580.369px",
+              "y": "9.38124px",
+              "workflowId": "131a0759-7309-4d5a-9ab5-5c87bb8c2618",
+              "workflowName": "02-Perform-Exploratory-Data-Analysis",
+              "nodeId": "63",
+              "grow": 1
+            }
+          ],
+          "height": 0
+        }
+      ]
+    }
+  ]
+}

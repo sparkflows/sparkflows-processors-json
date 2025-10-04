@@ -1,0 +1,305 @@
+{
+  "name": "Pipe-Python-With-Pandas",
+  "uuid": "6039be1f-a3e1-41de-9ab1-3a7f1ef7f046",
+  "category": "Python",
+  "description": "-",
+  "parameters": "-",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "DatasetStructured",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "140.5px",
+      "y": "117.667px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "dataset",
+          "value": "68d15f1c-60ca-48fd-bea3-064820bd8815",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "2",
+      "name": "Pipe Python2",
+      "description": "This node runs any given Python code. It pipes the incoming DataFrame through pipe to the Python Script. Output back to Spark has to be written out using print.",
+      "details": "<h2>Pipe Python Details</h2>\n<br>\nThe Pipe Python node receives an incoming DataFrame. It pipes the DataFrame through to a Python script that runs the given Python code. The script can operate on each row of the DataFrame and returns an updated row.<br>\n<br>\nThe input to the script is passed as a string and the output from the script is also passed as a string. The input schema of the DataFrame is also passed to the Python script through the command line argument - argv[1].<br>\n<br>\nThe output from the Python script has to be written back to Spark using print. The node then creates an updated DataFrame based on the output from the script and passes it on to the next node in the pipeline.<br>",
+      "examples": "<h2>Pipe Python Examples</h2>\n<br>\nBelow are some examples of the Python code that can be run in the Pipe Python node.<br>\n<br>\nThe schema of the Input DataFrame is : id, price, lotsize, bedrooms, bathrms, stories, driveway, recroom, fullbase, gashw, airco, garagepl, prefarea<br>\n<br>\n<h4> Update the value of price</h4>\ndef update_price(record):<br>\nrecord['price'] = int(record['price']) + 1000<br>\nreturn record<br>\n<br>\nprint(update_price(record))<br>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.etl.NodePipePython2",
+      "x": "439.5px",
+      "y": "121.667px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "codeHeader",
+          "value": "#!/usr/bin/python\n\nimport sys\nimport pandas as pd\n\ndataframe_list_of_rows = []\n\nfor line in sys.stdin:\n\n    line = line.strip()\n    if not line:\n        continue\n\n    row_list = []\n    for field in line.split(\",\"):\n        row_list.append(field)\n\n    # convert list to tuple\n    row_tuple = tuple(row_list)\n    dataframe_list_of_rows.append(row_tuple)\n\n\n# generate column names\nschema = sys.argv[1]\ncolumn_names = []\nschema_columns = schema.split(\"|\")\nfor column_name_with_type in schema_columns:\n    column_name_with_type_split = column_name_with_type.split(\":\")\n    column_names.append(column_name_with_type_split[0])\n\n# create dataframe from the input rows\ninput_dataframe = pd.DataFrame.from_records(dataframe_list_of_rows, columns=column_names)",
+          "widget": "textarea_small",
+          "title": "Pipe Header Code",
+          "description": "Header part of the Python code to be run. It receives each record as a string",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "codeBody",
+          "value": "output_dataframe = input_dataframe",
+          "widget": "textarea_large",
+          "title": "Pipe Body Code",
+          "description": "Body part of the Python code to be run.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "codeFooter",
+          "value": "# output the output_dataframe dtypes to the provided file name\n\ndataframe_dtypes = output_dataframe.dtypes\n\nf = open(sys.argv[2],'w+')\nf.write(str(dataframe_dtypes))\nf.close()\n\n\n# iterate over the dataframe created and return it to the pipeNode\nfor index, row in output_dataframe.iterrows():\n  list = row.tolist()\n  row_string = ','.join(str(e) for e in list)\n  print(row_string)",
+          "widget": "textarea_small",
+          "title": "Pipe Footer Code",
+          "description": "Footer part of the Python code to be run. It should write out each resulting record back as a string.",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColNames",
+          "value": "[\"c1\",\"c2\",\"c3\",\"c4\"]",
+          "widget": "schema_col_names",
+          "title": "Output Column Names",
+          "description": "Output Schema of Pipe Python Processor",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColTypes",
+          "value": "[\"STRING\",\"STRING\",\"STRING\",\"STRING\"]",
+          "widget": "schema_col_types",
+          "title": "Output Column Types",
+          "description": "Data Type of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "outputColFormats",
+          "value": "[\"\",\"\",\"\",\"\"]",
+          "widget": "schema_col_formats",
+          "title": "Output Column Formats",
+          "description": "Format of the Output Columns",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    },
+    {
+      "id": "3",
+      "name": "PrintNRows",
+      "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+      "details": "<h2>Print N Rows Node Details</h2>\n<br>\nThis node is used to print the first N rows from the incoming dataframe.<br>\n<br>\nThe Number of rows that needs to be printed can be configured in the node.<br>\n<br>\n<h4>Input Parameters</h4>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> TITLE : Enter a short description for the type of information being displayed.</li>\n<li> NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).</li>\n<li> DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.</li>\n</ul>\n<h4>Output</h4>\n<ul>\n<li> This node can be used to view, analyze and validate the output of the Dataframe.</li>\n</ul>",
+      "examples": "",
+      "type": "transform",
+      "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
+      "x": "778.5px",
+      "y": "120.667px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "title",
+          "value": "Pipe Python Example Output",
+          "widget": "textfield",
+          "title": "Title",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "n",
+          "value": "10",
+          "widget": "textfield",
+          "title": "Num Rows to Print",
+          "description": "number of rows to be printed",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        },
+        {
+          "name": "displayDataType",
+          "value": "true",
+          "widget": "array",
+          "title": "Display Data Type",
+          "description": "If true display rows DataType",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%"
+        }
+      ],
+      "engine": "scala"
+    }
+  ],
+  "edges": [
+    {
+      "source": "1",
+      "target": "2",
+      "id": 1
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "id": 2
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3022,
+      "uuid": "68d15f1c-60ca-48fd-bea3-064820bd8815",
+      "header": true,
+      "path": "data/CODING/cars.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"c1\",\"c2\",\"c3\",\"c4\"],\"colTypes\":[\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\"],\"colFormats\":[\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\"]}"
+    }
+  ],
+  "engine": "scala"
+}

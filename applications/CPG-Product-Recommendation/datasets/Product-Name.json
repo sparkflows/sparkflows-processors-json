@@ -1,0 +1,33 @@
+{
+  "uuid": "2516c6d1-2f4e-49e2-8424-a89bc0a10fa4",
+  "name": "Product-Name",
+  "header": true,
+  "path": "data/CPG/CPG-Product-Recommendation/Raw-Data/Parent-Product-Name.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Parent_Prd\",\"Product_Cd\",\"Product_Name\"],colTypes:[\"STRING\",\"STRING\",\"STRING\"],colFormats:[\"\",\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Parent_Prd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product_Cd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product_Name",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

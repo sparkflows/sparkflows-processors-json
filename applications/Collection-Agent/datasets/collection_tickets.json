@@ -1,0 +1,51 @@
+{
+  "uuid": "28e7d040-92e4-466d-8102-bebafd348950",
+  "name": "collection_tickets",
+  "header": true,
+  "path": "/home/sparkflows/fire-data/Collection-agents/collection_tickets.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"collection_id\",\"customer_id\",\"invoice_id\",\"created_date\",\"status\",\"escalation_flag\"],colTypes:[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"DATE\",\"STRING\",\"INTEGER\"],colFormats:[\"\",\"\",\"\",\"\",\"\",\"\"],colMLTypes:[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "collection_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "customer_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "invoice_id",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      },
+      {
+        "colName": "created_date",
+        "colType": "DATE",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "status",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "escalation_flag",
+        "colType": "INTEGER",
+        "colFormat": "",
+        "colMLType": "NUMERIC"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": 3955,
+  "uuid": "c18e1182-f9ca-42dc-9d4c-c3f41ba39ecc",
+  "name": "II. Data Description and Preparation",
+  "category": "",
+  "projectId": 2469,
+  "content": "<h3>Data Description</h3><p>The project integrates multiple datasets:</p><p>\t\t1.Transaction Data (basket-level):</p><ul><li>Fields: household_key, BASKET_ID, DAY, PRODUCT_ID, QUANTITY, SALES_VALUE, STORE_ID, RETAIL_DISC, TRANS_TIME, WEEK_NO, COUPON_DISC, COUPON_MATCH_DISC.</li><li>Type: Primarily numerical and categorical.</li><li>Granularity: Basket/transaction level for each household.</li></ul><p>\t\t2.Campaign Description:</p><ul><li>Fields: DESCRIPTION, CAMPAIGN, START_DAY, END_DAY.</li><li>Defines campaign timelines and types.</li></ul><p>\t\t3.Product Data (product_trunc):</p><ul><li>Fields: PRODUCT_ID, MANUFACTURER, DEPARTMENT, BRAND, COMMODITY_DESC, SUB_COMMODITY_DESC, CURR_SIZE_OF_PRODUCT.</li><li>Provides categorical and descriptive information on products.</li></ul><p>\t\t4.Household Demographics:</p><ul><li>Fields: AGE_DESC, MARITAL_STATUS_CODE, INCOME_DESC, HOMEOWNER_DESC, HH_COMP_DESC, HOUSEHOLD_SIZE_DESC, KID_CATEGORY_DESC, household_key.</li><li>Categorical and ordinal variables describing households.</li></ul><p>\t\t5.Coupon Data (coupon_trunc):</p><ul><li>Fields: COUPON_UPC, PRODUCT_ID, CAMPAIGN.</li><li>Links coupons to products and campaigns.</li></ul><p>\t\t6.Campaign-Household Mapping:</p><ul><li>Fields: DESCRIPTION, household_key, CAMPAIGN.</li><li>Tracks household participation in campaigns.</li></ul><p>Time Period: Multiple weeks of transaction-level data, aligned with campaigns.</p><p> Granularity: Household and basket-level.</p><h3>Data Preparation</h3><p>Key steps include:</p><p>\t\t1.Data Cleaning:</p><ul><li>Handle missing demographic attributes (e.g., unknown household income).</li><li>Address outliers in sales values and quantities.</li></ul><p>\t\t2.Feature Engineering:</p><ul><li>Calculate household-level features such as average basket size, coupon redemption rate, discount sensitivity, campaign participation rate, product category preferences.</li><li>Encode categorical variables (e.g., income, age group) into numeric representations.</li><li>Aggregate transaction data into weekly or monthly purchase summaries.</li></ul><p>\t\t3.Data Transformation:</p><ul><li>Normalize skewed variables (e.g., sales values).</li><li>Create dummy variables for categorical features such as brand, department, and campaign type.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 15, 2025, 8:46:23 AM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 15, 2025, 8:57:13 AM"
+}

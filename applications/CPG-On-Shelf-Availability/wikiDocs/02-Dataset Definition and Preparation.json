@@ -1,0 +1,15 @@
+{
+  "id": 3324,
+  "uuid": "56b781fd-eaf6-4c90-b962-ad7e168d3dfb",
+  "name": "02-Dataset Definition and Preparation",
+  "category": "",
+  "projectId": 2461,
+  "content": "<h3>Data Description</h3><p>The dataset captures on-shelf availability metrics at a daily granularity across stores and SKUs.</p><p>Key Attributes:</p><ul><li>date (temporal, daily granularity) – Transaction/recording date.</li><li>store_id (categorical) – Identifier of the retail store.</li><li>sku (categorical) – Identifier of the product SKU.</li><li>product_category (categorical) – Category grouping of SKUs.</li><li>total_sales_units (numerical) – Units sold on a given day.</li><li>on_hand_inventory_units (numerical) – Units available in-store.</li><li>replenishment_units (numerical) – Units replenished onto shelves.</li><li>inventory_pipeline (numerical) – Units pending within the supply chain pipeline.</li><li>units_in_transit (numerical) – Units moving between DC and store.</li><li>units_in_dc (numerical) – Units currently available in distribution centers.</li><li>units_on_order (numerical) – Units ordered but not yet delivered.</li><li>units_under_promotion (numerical) – Units currently under promotional activities.</li><li>shelf_capacity (numerical) – Maximum units a shelf can hold for the SKU.</li></ul><p>The dataset allows analysis across time (daily), location (store), and product (SKU/category) levels, supporting granular tracking of stock flows.</p><h3>Data Preparation</h3><p>Steps required:</p><p>\t\t1.Data Cleaning:</p><ul><li>Handle missing values in sales, replenishment, or pipeline fields.</li><li>Remove duplicates and align date formatting.</li><li>Impute zero sales days carefully to distinguish true zero-demand from stockout-driven sales loss.</li></ul><p>\t\t2.Feature Engineering:</p><ul><li>Stockout flag: (on_hand_inventory_units = 0 AND sales &gt; 0).</li><li>Shelf utilization ratio: total_sales_units ÷ shelf_capacity.</li><li>Replenishment efficiency: replenishment_units ÷ total_sales_units.</li><li>Inventory coverage days: on_hand_inventory_units ÷ avg_daily_sales.</li></ul><p>\t\t3.Data Transformation:</p><ul><li>Normalize continuous variables (sales, inventory, replenishment).</li><li>Encode categorical fields (store_id, sku, product_category).</li><li>Create rolling averages and lag features for time series forecasting.</li></ul>",
+  "icon": "{\"icon\":\"images/icons/project-icons/Sales_forecasting.svg\",\"type\":\"svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:28 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 10:36:24 AM"
+}

@@ -1,0 +1,142 @@
+{
+  "name": "Product Recommendation Report",
+  "uuid": "fd3cc1de-3888-4295-a9c8-c9ba145d49fd",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "category": "",
+  "description": "",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 13,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "310px",
+          "y": "64.9167px",
+          "workflowId": "c0e72e44-7e86-4559-85ea-1dd9b7e26f20",
+          "workflowName": "01-Performing-EDA-On-Customer-Invoice-Data",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Null Values In Column",
+          "description": "Number of Null Values in Selected Columns.",
+          "type": "transform",
+          "x": "311px",
+          "y": "310.986px",
+          "workflowId": "c0e72e44-7e86-4559-85ea-1dd9b7e26f20",
+          "workflowName": "01-Performing-EDA-On-Customer-Invoice-Data",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1177.98px",
+          "y": "204.333px",
+          "workflowId": "c0e72e44-7e86-4559-85ea-1dd9b7e26f20",
+          "workflowName": "01-Performing-EDA-On-Customer-Invoice-Data",
+          "nodeId": "38",
+          "grow": 0
+        },
+        {
+          "id": 57,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1014px",
+          "y": "516px",
+          "workflowId": "c0e72e44-7e86-4559-85ea-1dd9b7e26f20",
+          "workflowName": "01-Performing-EDA-On-Customer-Invoice-Data",
+          "nodeId": "57",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Clustering the customer",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 18,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "894px",
+          "y": "213px",
+          "workflowId": "cff126ac-5de6-46c3-b9e1-af3df08ecdbc",
+          "workflowName": "04-Segmenting-And-Profiling-Customers",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 15,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "862px",
+          "y": "106.988px",
+          "workflowId": "cff126ac-5de6-46c3-b9e1-af3df08ecdbc",
+          "workflowName": "04-Segmenting-And-Profiling-Customers",
+          "nodeId": "15",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1179.4px",
+          "y": "173px",
+          "workflowId": "cff126ac-5de6-46c3-b9e1-af3df08ecdbc",
+          "workflowName": "04-Segmenting-And-Profiling-Customers",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1182.4px",
+          "y": "282px",
+          "workflowId": "cff126ac-5de6-46c3-b9e1-af3df08ecdbc",
+          "workflowName": "04-Segmenting-And-Profiling-Customers",
+          "nodeId": "25",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Product recommendation",
+      "type": "type",
+      "idx": "3",
+      "items": [
+        {
+          "id": 59,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "632px",
+          "y": "313.969px",
+          "workflowId": "bb6cc9c6-a7ee-460d-ae70-f1d2ad7fe609",
+          "workflowName": "05 -Product-Recommendation-Using-FPG",
+          "nodeId": "59",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    }
+  ]
+}

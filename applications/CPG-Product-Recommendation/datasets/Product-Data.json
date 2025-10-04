@@ -1,0 +1,27 @@
+{
+  "uuid": "0c4746fc-ae81-4a97-9afa-9d5371f09bff",
+  "name": "Product-Data",
+  "header": true,
+  "path": "data/CPG/CPG-Product-Recommendation/Raw-Data/Parent-Product-Mapping-Trunc.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Parent_Prd\",\"Product_Cd\"],colTypes:[\"STRING\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Parent_Prd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product_Cd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": true,
+  "multiLine": true
+}

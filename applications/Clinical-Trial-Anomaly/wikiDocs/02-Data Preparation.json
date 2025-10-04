@@ -1,0 +1,14 @@
+{
+  "id": 4028,
+  "uuid": "2aa6ec6d-0eeb-4c99-8c82-510e39a1a066",
+  "name": "02-Data Preparation",
+  "category": "",
+  "projectId": 2281,
+  "content": "<h2>Data Description and Preparation</h2><h3>Data Description:</h3><p> The input dataset includes patient-level clinical trial records for Bellâs Palsy treatment:</p><ul><li>Features: 19 variables capturing demographics, treatment details, clinical scores, symptoms, and medical history.</li><li>Variable Types:</li><li class=\"ql-indent-1\">Categorical: Sex, Treatment Group, Prednisolone/Acyclovir flags, symptom indicators, preexisting conditions, recovery status.</li><li class=\"ql-indent-1\">Numerical: Age, Baseline Score, Time to Treatment, Recovery Scores, Pain Level.</li><li>Granularity: Subject-level with longitudinal measurements at baseline, 3 months, and 9 months.</li></ul><h3>Data Preparation:</h3><ul><li>Cleaning: Handle missing or inconsistent entries, standardize time intervals.</li><li>Feature Engineering: Encode categorical variables, create derived features such as time-to-treatment or severity indexes.</li><li>Transformation: Normalize numerical features for anomaly detection algorithms.</li><li>Outlier Analysis: Identify extreme or unusual values to enhance model performance.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Sep 22, 2025, 11:05:39 AM",
+  "dateLastUpdated": "Sep 22, 2025, 11:05:39 AM"
+}

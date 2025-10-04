@@ -1,0 +1,136 @@
+{
+  "name": "Clinical Trial AnomalyDetection",
+  "uuid": "025f6061-7131-4840-9dfa-3f7d2c05441c",
+  "icon": {
+    "type": "svg",
+    "icon": "images/icons/project-icons/healthcare.svg"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "EDA",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 2,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "454.2px",
+          "y": "300.2px",
+          "workflowId": "828d0f6d-38ff-4c13-bb2c-1d4831db0453",
+          "workflowName": "EDA",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "463.594px",
+          "y": "73.5875px",
+          "workflowId": "828d0f6d-38ff-4c13-bb2c-1d4831db0453",
+          "workflowName": "EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Scatter Chart",
+          "type": "transform",
+          "x": "181.8px",
+          "y": "29.8px",
+          "workflowId": "828d0f6d-38ff-4c13-bb2c-1d4831db0453",
+          "workflowName": "EDA",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "485.2px",
+          "y": "200.2px",
+          "workflowId": "828d0f6d-38ff-4c13-bb2c-1d4831db0453",
+          "workflowName": "EDA",
+          "nodeId": "3",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Anomaly_Visualizations",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 2,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "591.581px",
+          "y": "180.575px",
+          "workflowId": "c0617828-6097-4bcf-94fa-e09006ca5264",
+          "workflowName": "Isolation_Visualisation",
+          "nodeId": "2",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "681.525px",
+          "y": "309.544px",
+          "workflowId": "c0617828-6097-4bcf-94fa-e09006ca5264",
+          "workflowName": "Isolation_Visualisation",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "706.362px",
+          "y": "444.362px",
+          "workflowId": "c0617828-6097-4bcf-94fa-e09006ca5264",
+          "workflowName": "Isolation_Visualisation",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "800.925px",
+          "y": "564.931px",
+          "workflowId": "c0617828-6097-4bcf-94fa-e09006ca5264",
+          "workflowName": "Isolation_Visualisation",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Bar Chart",
+          "type": "transform",
+          "x": "427.187px",
+          "y": "672.2px",
+          "workflowId": "c0617828-6097-4bcf-94fa-e09006ca5264",
+          "workflowName": "Isolation_Visualisation",
+          "nodeId": "25",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

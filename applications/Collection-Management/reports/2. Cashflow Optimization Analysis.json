@@ -1,0 +1,283 @@
+{
+  "name": "2. Cashflow Optimization Analysis",
+  "uuid": "a9449621-b9fd-43af-9518-e208543b5254",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Descriptive Analysis",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 3,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "582.391px",
+          "y": "45.4062px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "720.391px",
+          "y": "177.391px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 9,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "358.172px",
+          "y": "444px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "9",
+          "grow": 0
+        },
+        {
+          "id": 10,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "729.172px",
+          "y": "292.188px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 13,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "740px",
+          "y": "404px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "13",
+          "grow": 0
+        },
+        {
+          "id": 22,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "699.18px",
+          "y": "1335.6px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "22",
+          "grow": 0
+        },
+        {
+          "id": 23,
+          "name": "Correlation",
+          "description": "calculates the correlation between two series of data.",
+          "type": "transform",
+          "x": "754.969px",
+          "y": "1947.17px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "23",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "867.375px",
+          "y": "1115.34px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Summary Statistics",
+          "description": "Summary statistics provide useful information about sample data. eg: measures of spread.",
+          "type": "transform",
+          "x": "428.375px",
+          "y": "1414.38px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "906.25px",
+          "y": "1840.67px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "34",
+          "grow": 0
+        },
+        {
+          "id": 38,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "898.319px",
+          "y": "1501.32px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "38",
+          "grow": 0
+        },
+        {
+          "id": 41,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "891.847px",
+          "y": "1642.06px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "41",
+          "grow": 0
+        },
+        {
+          "id": 46,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "849.047px",
+          "y": "988.047px",
+          "workflowId": "e6194cee-62ee-4ecc-83d2-6d2ec0485383",
+          "workflowName": "03-Invoice-Data-EDA",
+          "nodeId": "46",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Predictive Analysis",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 10,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1682.06px",
+          "y": "634.889px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "10",
+          "grow": 0
+        },
+        {
+          "id": 12,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1680.46px",
+          "y": "517.889px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "12",
+          "grow": 0
+        },
+        {
+          "id": 14,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1683.26px",
+          "y": "749.681px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "14",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1688.64px",
+          "y": "873.083px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "16",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1902.8px",
+          "y": "998px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1910.08px",
+          "y": "1129.26px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "21",
+          "grow": 0
+        },
+        {
+          "id": 25,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1774.49px",
+          "y": "212.486px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "25",
+          "grow": 0
+        },
+        {
+          "id": 26,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "1204.85px",
+          "y": "201.889px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "26",
+          "grow": 0
+        },
+        {
+          "id": 28,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1644.42px",
+          "y": "360.861px",
+          "workflowId": "ab424e3c-49e5-42ae-a47c-3df7ea34efd4",
+          "workflowName": "05-Predicting-Payment-Status",
+          "nodeId": "28",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "name": "1.Sentiment-Analysis-email-Score",
+  "uuid": "736f7b0d-1c8a-4460-a6ed-81a42164b3b8",
+  "category": "Model Building",
+  "parameters": "",
+  "nodes": [
+    {
+      "id": "8",
+      "name": "Hugging Face Sentiment Analysis",
+      "description": "Grammatical Correctness using models hosted in Hugging Face repository.",
+      "details": "",
+      "examples": "",
+      "type": "ml-estimator",
+      "nodeClass": "fire.nodes.gai.NodeHFSentimentAnalysis",
+      "x": "522.987px",
+      "y": "141.981px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "column_name",
+          "value": "email_text",
+          "widget": "variable",
+          "title": "Column to check for Grammatical Correctness",
+          "description": "Column to check for Grammatical Correctness.",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "preloaded_model",
+          "value": "distilbert-base-uncased-finetuned-sst-2-english",
+          "widget": "array",
+          "title": "Model to be used for checking Grammatical Correctness",
+          "description": "Checks for grammatical correctness.",
+          "optionsArray": [
+            "textattack-distilbert-base-uncased-CoLA"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "preloaded_model_path",
+          "value": "",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Pre-loaded models parent directory.",
+          "datatypes": [
+            "String"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "custom_model",
+          "value": "",
+          "widget": "textfield",
+          "title": "Custom model name",
+          "description": "Model name to pull model from Hugging Face repo.",
+          "datatypes": [
+            "String"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "explain_prediction",
+          "value": "true",
+          "widget": "array",
+          "title": "Top word affecting the sentiment per row?",
+          "description": "Do you need the top word affecting the sentiment per row? Computation takes time",
+          "datatypes": [
+            "boolean"
+          ],
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "pyspark"
+    },
+    {
+      "id": "10",
+      "name": "Dataset Structured",
+      "iconImage": "fa fa-th-list",
+      "description": "This Node creates a DataFrame by reading data from HDFS, HIVE etc. The dataset was defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.",
+      "details": "This Node creates a DataFrame by reading data from HDFS, HIVE etc.<br>\n<br>\nThe data has been defined earlier in Fire by using the Dataset Feature. As a user, you just have to select the Dataset of your interest.<br>",
+      "examples": "<h2> Dataset Structured Node Example</h2>\n<br>\nScenario:<br>\n<br>\nLet's say you have multiple datasets available in your workflow and you want to select one of them as input for the next node. You can use the Dataset Structured node to choose the desired dataset.<br>\n<br>\nConfiguration:<br>\n<br>\n1. **Output Storage Level:** Select the desired storage level for the output DataFrame.<br>\n2. **Dataset:** Choose the dataset from the dropdown list.<br>\n<br>\nOutput:<br>\n<br>\nThe node will output the selected dataset as a DataFrame.<br>",
+      "type": "dataset",
+      "nodeClass": "fire.nodes.dataset.NodeDatasetStructured",
+      "x": "191px",
+      "y": "119px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "dataset",
+          "value": "7f45d2c9-a6ca-4dc1-af70-6ee285cab27b",
+          "widget": "dataset",
+          "title": "Dataset",
+          "description": "Selected Dataset",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        }
+      ],
+      "engine": "all"
+    },
+    {
+      "id": "13",
+      "name": "Save Parquet",
+      "description": "Saves the DataFrame into the specified location in Parquet Format. When running on Hadoop, it is saved onto HDFS.",
+      "details": "<h2> Save Parquet Node Details</h2>\n<br>\nSaves the DataFrame into the specified location in Parquet Format. When running on Hadoop, it is saved onto HDFS.<br>\n<br>\n<h4> Parameters to be set:</h4>\nGeneral:<br>\n<ul>\n<li> OUTPUT STORAGE LEVEL : Keep this as DEFAULT.</li>\n<li> PATH : Specify the path of the Parquet file to be saved.</li>\n<li> SAVE MODE : Specify the save mode - Append, Overwrite, ErrorIfExists and Ignore.</li>\n</ul>\n<ul>\n<li> PARTITION COLUMN NAMES : Specify the columns to be used for partitioning the Parquet files.</li>\n</ul>",
+      "examples": "<h2> Save Parquet Node Examples</h2>\n<br>\n<h4> Example of Values</h4>\nGeneral:<br>\n<ul>\n<li> PATH : /tmp/sample.parquet</li>\n<li> SAVE MODE : Append</li>\n</ul>\n<ul>\n<li> PARTITION COLUMN NAMES : col1,col2</li>\n</ul>",
+      "type": "transform",
+      "nodeClass": "fire.nodes.save.NodeSaveParquet",
+      "x": "766.381px",
+      "y": "146.387px",
+      "fields": [
+        {
+          "name": "storageLevel",
+          "value": "DEFAULT",
+          "widget": "array",
+          "title": "Output Storage Level",
+          "description": "Storage Level of the Output Datasets of this Node",
+          "optionsArray": [
+            "DEFAULT",
+            "NONE",
+            "DISK_ONLY",
+            "DISK_ONLY_2",
+            "MEMORY_ONLY",
+            "MEMORY_ONLY_2",
+            "MEMORY_ONLY_SER",
+            "MEMORY_ONLY_SER_2",
+            "MEMORY_AND_DISK",
+            "MEMORY_AND_DISK_2",
+            "MEMORY_AND_DISK_SER",
+            "MEMORY_AND_DISK_SER_2",
+            "OFF_HEAP"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "path",
+          "value": "gs://ic-incorta-ml-2024-6kgxz-bucket/Tenants/demo/data/Collection-agents/sentiment-score/",
+          "widget": "textfield",
+          "title": "Path",
+          "description": "Path where to save the Parquet files",
+          "required": true,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "saveMode",
+          "value": "Overwrite",
+          "widget": "array",
+          "title": "Save Mode",
+          "description": "Whether to Append, Overwrite or Error if the path Exists",
+          "optionsArray": [
+            "Append",
+            "Overwrite",
+            "ErrorIfExists",
+            "Ignore"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "advanced",
+          "value": "",
+          "widget": "tab",
+          "title": "Advanced",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "partitionColNames",
+          "value": "[]",
+          "widget": "variables",
+          "title": "Partition Column Names",
+          "description": "Partition Column Names",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "createDataset",
+          "value": "false",
+          "widget": "array_single",
+          "title": "Auto create dataset",
+          "description": "Select Models",
+          "optionsArray": [
+            "true",
+            "false"
+          ],
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": ""
+        },
+        {
+          "name": "datasetName",
+          "value": "",
+          "widget": "textfield",
+          "wdgtCommon": "createDataset",
+          "title": "Dataset Name",
+          "description": "Dataset Name",
+          "required": false,
+          "display": true,
+          "editable": true,
+          "disableRefresh": false,
+          "disabled": false,
+          "expandable": false,
+          "header": "",
+          "size": "100%",
+          "toggle": "true"
+        }
+      ],
+      "engine": "all"
+    }
+  ],
+  "edges": [
+    {
+      "source": "10",
+      "target": "8",
+      "id": 1
+    },
+    {
+      "source": "8",
+      "target": "13",
+      "id": 3
+    }
+  ],
+  "dataSetDetails": [
+    {
+      "id": 3348,
+      "uuid": "7f45d2c9-a6ca-4dc1-af70-6ee285cab27b",
+      "header": true,
+      "path": "/home/sparkflows/fire-data/Collection-agents/Raw-Data/collection_dataset_1000_correlated.csv",
+      "delimiter": ",",
+      "datasetType": "CSV",
+      "datasetSchema": "{\"colNames\":[\"collection_id\",\"invoice_no\",\"customer_id\",\"invoice_date\",\"due_date\",\"invoice_age\",\"days_past_due\",\"invoice_amount\",\"invoice_status\",\"num_reminders_sent\",\"percent_historical_on_timelowamount\",\"percent_historical_on_timelargeamount\",\"prior_agent_effectiveness\",\"avg_amount_recovered_per_agent_visit\",\"customer_credit_score\",\"industry_sector_risk\",\"geo_risk_index\",\"customer_segment\",\"email_text\",\"sentiment_score\",\"payment_likelihood\",\"issue_resolved\",\"recovery_amount\",\"RFM_category_customer\"],\"colTypes\":[\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"STRING\",\"INTEGER\",\"INTEGER\",\"INTEGER\",\"STRING\",\"INTEGER\",\"DOUBLE\",\"DOUBLE\",\"DOUBLE\",\"INTEGER\",\"INTEGER\",\"STRING\",\"DOUBLE\",\"STRING\",\"STRING\",\"DOUBLE\",\"DOUBLE\",\"STRING\",\"DOUBLE\",\"STRING\"],\"colFormats\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"colMLTypes\":[\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\",\"TEXT\",\"NUMERIC\",\"NUMERIC\",\"TEXT\",\"NUMERIC\",\"TEXT\"]}"
+    }
+  ],
+  "engine": "pyspark"
+}

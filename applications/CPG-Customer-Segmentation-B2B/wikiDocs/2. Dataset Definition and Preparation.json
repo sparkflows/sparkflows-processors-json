@@ -1,0 +1,15 @@
+{
+  "id": 3366,
+  "uuid": "9abb0f6e-6984-4035-9a98-255e506b89a8",
+  "name": "2. Dataset Definition and Preparation",
+  "category": "",
+  "projectId": 2467,
+  "content": "<h3>Data Description</h3><p>The project uses four primary datasets:</p><p>1.Customer Data</p><ul><li>Attributes: Distributor ID, Customer ID, Name, Start Date, Country ID</li><li>Type: Mostly categorical (IDs, names, country) + temporal (start date).</li><li>Granularity: Customer-level information.</li></ul><p>2.Sales Data</p><ul><li>Attributes: Distributor ID, Customer ID, Invoice Date, Invoice No, SKU ID, Quantity, Gross, Unit Price, Discounts, Net Sales.</li><li>Type: Combination of categorical (IDs), numerical (quantity, prices, discounts), temporal (invoice date).</li><li>Granularity: Transaction-level records.</li></ul><p>3.Product Data</p><ul><li>Attributes: Sector, Category, Subcategory, SKU ID.</li><li>Type: Categorical.</li><li>Granularity: Product-level hierarchy mapping.</li></ul><p>4.Distribution Data</p><ul><li>Attributes: Distributor ID, Distributor Name, Country ID.</li><li>Type: Categorical.</li><li>Granularity: Distributor-level metadata.</li></ul><p>Time Coverage: Sales dataset covers transactions dated 2021–2023.</p><h3>Data Preparation</h3><p>Key preparation steps include:</p><ul><li>Handle missing customer start dates or distributor mapping.</li><li>Remove duplicate invoice records.</li><li>Standardize country codes.</li><li>Compute Customer Lifetime Value (CLV) from cumulative net sales.</li><li>Calculate purchase frequency (invoices per month).</li><li>Derive average order size and discount utilization rate.</li><li>Map products to categories and sectors for aggregated preferences.</li><li>Normalize numerical variables (e.g., sales, discounts) for clustering.</li><li>Encode categorical variables (country, sector).</li><li>Create aggregated customer-level dataset from transaction-level data.</li></ul>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "admin",
+  "dateCreated": "Aug 2, 2025, 12:11:33 PM",
+  "updatedBy": "rohan",
+  "dateLastUpdated": "Sep 12, 2025, 7:42:17 AM"
+}

@@ -1,0 +1,28 @@
+{
+  "uuid": "42c441ff-775f-4273-bfa7-2b7e72b369a1",
+  "name": "Product-Mapping",
+  "description": "Product-Mapping",
+  "header": true,
+  "path": "data/CPG/CPG-Store-Segmentation/Raw-Data/Parent_Product_mapping_trunc.csv",
+  "delimiter": ",",
+  "datasetType": "CSV",
+  "datasetSchema": "{colNames:[\"Parent_Prd\",\"Product_Cd\"],colTypes:[\"STRING\",\"STRING\"],colFormats:[\"\",\"\"],colMLTypes:[\"TEXT\",\"TEXT\"]}",
+  "schemaModel": {
+    "schemaColList": [
+      {
+        "colName": "Parent_Prd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      },
+      {
+        "colName": "Product_Cd",
+        "colType": "STRING",
+        "colFormat": "",
+        "colMLType": "TEXT"
+      }
+    ]
+  },
+  "dropSpecialCharacterInColumnName": false,
+  "multiLine": false
+}

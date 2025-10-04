@@ -1,0 +1,128 @@
+{
+  "name": "1. Data Assessment Report",
+  "uuid": "92b0f44f-a5e4-4a9f-88e2-5a560b108a29",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Data Profiling & Quality",
+      "type": "type",
+      "idx": "1",
+      "items": [
+        {
+          "id": 5,
+          "name": "Histogram",
+          "description": "Computes a histogram of the data using number of bins evenly spaced between the minimum and maximum of the specific columns.",
+          "type": "transform",
+          "x": "254.713px",
+          "y": "738.713px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 24,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "682.775px",
+          "y": "737.4px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "24",
+          "grow": 0
+        },
+        {
+          "id": 33,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1870.97px",
+          "y": "845.375px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "33",
+          "grow": 0
+        },
+        {
+          "id": 34,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1869.95px",
+          "y": "1020.96px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "34",
+          "grow": 0
+        },
+        {
+          "id": 35,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1874.35px",
+          "y": "1206.57px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "35",
+          "grow": 0
+        },
+        {
+          "id": 39,
+          "name": "Box Plot",
+          "description": "",
+          "type": "transform",
+          "x": "1101.97px",
+          "y": "1319.39px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "39",
+          "grow": 0
+        },
+        {
+          "id": 64,
+          "name": "Geo Chart",
+          "description": "This node maps the values on a Map",
+          "type": "transform",
+          "x": "186.45px",
+          "y": "1305.58px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "64",
+          "grow": 0
+        },
+        {
+          "id": 65,
+          "name": "Graph Group By Column",
+          "description": "Groups the data by the given column and plots the number of records in each group",
+          "type": "transform",
+          "x": "684.9px",
+          "y": "876.533px",
+          "workflowId": "848ed0b6-4dec-45d5-9064-60cadd10d991",
+          "workflowName": "01-Data-Profiling-on-Invoice-Data",
+          "nodeId": "65",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Sheet 2",
+      "type": "type",
+      "idx": "2",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": 3986,
+  "uuid": "fef7c3b1-efed-4b2a-afd3-a68aff9ff437",
+  "name": "02-Data Description and Preparation",
+  "category": "",
+  "projectId": 1901,
+  "content": "<h2>Data Description and Preparation</h2><p><strong>Data Description:</strong></p><p> The dataset contains <strong>transaction-level customer data</strong>.</p><ul><li><strong>Categorical Variables:</strong> Gender, Transaction Reason, Job, State, Fraud_Label.</li><li><strong>Numerical Variables:</strong> Amount, City Population, Transaction Frequency.</li><li><strong>Target Variable:</strong> Fraud_Label → 1 (Fraud), 0 (Non-Fraud).</li><li><strong>Granularity:</strong> Each row = individual transaction.</li></ul><p><strong>Data Preparation Steps:</strong></p><ol><li><strong>Data Cleaning:</strong></li></ol><ul><li>Handle missing demographic details (e.g., impute Gender or Job).</li><li>Remove outliers in transaction Amount.</li></ul><ol><li><strong>Feature Engineering:</strong></li></ol><ul><li>Create Transaction_Frequency per customer.</li><li>Encode categorical variables (Job, State, Transaction Reason).</li><li>Generate risk ratios (e.g., fraud-to-total transactions per job).</li></ul><ol><li><strong>Data Transformation:</strong></li></ol><ul><li>One-hot encoding for categorical fields.</li><li>Scaling for high-variance features like Amount and City Population.</li><li>Partition into <strong>Training Dataset</strong> and <strong>Prediction Dataset</strong>.</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/wiki_icon.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "abhilash",
+  "dateCreated": "Sep 16, 2025, 7:24:46 AM",
+  "updatedBy": "abhilash",
+  "dateLastUpdated": "Sep 16, 2025, 7:25:01 AM"
+}
