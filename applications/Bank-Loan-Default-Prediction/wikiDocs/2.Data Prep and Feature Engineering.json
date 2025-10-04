@@ -1,0 +1,15 @@
+{
+  "id": 3782,
+  "uuid": "0dd69b2c-a8c5-4e23-b78b-bd6ff87d4bd8",
+  "name": "2.Data Prep and Feature Engineering",
+  "category": "",
+  "projectId": 130,
+  "content": "<h2>Data Description and Preparation</h2><p><strong>Data Description (from dataset):</strong></p><p><strong> The dataset contains customer and loan attributes used to assess credit risk.</strong></p><ul><li><strong>Demographic Features:</strong></li><li>Gender, Married, Dependents, Education, Self_Employed.</li><li><strong>Financial Features:</strong></li><li>ApplicantIncome, CoapplicantIncome, LoanAmount, Loan_Amount_Term, Credit_History.</li><li><strong>Loan Features:</strong></li><li>Property_Area, Loan_Status (target variable).</li><li><strong>Target Variable:</strong></li><li>Loan_Status: Y = Loan Approved (non-default), N = Loan Rejected/Default-prone.</li></ul><p><strong>Data Preparation Steps:</strong></p><ol><li><strong>Data Cleaning:</strong></li></ol><ul><li>Handle missing values in LoanAmount, Loan_Amount_Term, and Credit_History.</li><li>Treat outliers in ApplicantIncome and LoanAmount.</li></ul><p><strong>Feature Engineering:</strong></p><ul><li>Create <strong>Debt-to-Income ratio</strong> = (LoanAmount) / (ApplicantIncome + CoapplicantIncome).</li><li>Bin continuous variables (e.g., income groups, loan amount categories).</li><li>Encode categorical features (one-hot or label encoding).</li></ul><p><strong>Balancing Data:</strong></p><ul><li>Address class imbalance between defaults and non-defaults using <strong>SMOTE</strong> or class-weighted models.</li></ul><p><strong>Data Transformation:</strong></p><ul><li>Scale numerical features for models sensitive to magnitude (e.g., Logistic Regression, Neural Nets).</li></ul><p><br></p>",
+  "icon": "{\"type\":\"svg\",\"icon\":\"images/createApplications.svg\"}",
+  "description": "",
+  "syncedWithGithub": false,
+  "createdBy": "rohan",
+  "dateCreated": "Aug 25, 2025, 7:01:11 AM",
+  "updatedBy": "abhilash",
+  "dateLastUpdated": "Sep 17, 2025, 3:19:27 AM"
+}

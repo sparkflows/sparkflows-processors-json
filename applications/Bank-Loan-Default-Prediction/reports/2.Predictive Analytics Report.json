@@ -1,0 +1,181 @@
+{
+  "name": "2.Predictive Analytics Report",
+  "uuid": "58a82b4c-cc0e-4140-9c6d-25d12cda066f",
+  "icon": {
+    "type": "font",
+    "icon": "fa fa-tachometer"
+  },
+  "description": "Predictive Analysis Report",
+  "sheets": [
+    {
+      "id": 1,
+      "name": "Feature Engineering",
+      "type": "type",
+      "idx": "1",
+      "items": [],
+      "rows": []
+    },
+    {
+      "id": 2,
+      "name": "Charts on Predicted Loss",
+      "type": "type",
+      "idx": "2",
+      "items": [
+        {
+          "id": 17,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1211px",
+          "y": "154px",
+          "workflowId": "d57aef44-8e07-4ddd-9efa-10a213da7084",
+          "workflowName": "19-Top-20-Loan Defaulter",
+          "nodeId": "17",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "1225px",
+          "y": "403px",
+          "workflowId": "d57aef44-8e07-4ddd-9efa-10a213da7084",
+          "workflowName": "19-Top-20-Loan Defaulter",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 27,
+          "name": "Bar Group Chart",
+          "type": "transform",
+          "x": "1172px",
+          "y": "16px",
+          "workflowId": "d57aef44-8e07-4ddd-9efa-10a213da7084",
+          "workflowName": "19-Top-20-Loan Defaulter",
+          "nodeId": "27",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "PySpark",
+          "description": "This node runs any given PySpark code. The input dataframe is passed into the function myfn as a parameter.",
+          "type": "pyspark",
+          "x": "447px",
+          "y": "450px",
+          "workflowId": "bde1165b-8489-4740-8176-eba5c50cdbae",
+          "workflowName": "17-Gen-AI-Report",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 3,
+          "name": "Print N Rows",
+          "description": "Prints the specified number of records in the DataFrame. It is useful for seeing intermediate output",
+          "type": "transform",
+          "x": "297.8px",
+          "y": "147.8px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "3",
+          "grow": 0
+        },
+        {
+          "id": 5,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "443.8px",
+          "y": "271.8px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "5",
+          "grow": 0
+        },
+        {
+          "id": 8,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "399.391px",
+          "y": "415.391px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "8",
+          "grow": 0
+        },
+        {
+          "id": 11,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "395.594px",
+          "y": "546.594px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "11",
+          "grow": 0
+        },
+        {
+          "id": 16,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "446.594px",
+          "y": "633.594px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "16",
+          "grow": 0
+        },
+        {
+          "id": 18,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "438.797px",
+          "y": "165.797px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "18",
+          "grow": 0
+        },
+        {
+          "id": 19,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "478.594px",
+          "y": "482.594px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "19",
+          "grow": 0
+        },
+        {
+          "id": 20,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "557.6px",
+          "y": "621.6px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "20",
+          "grow": 0
+        },
+        {
+          "id": 21,
+          "name": "Graph Values",
+          "type": "transform",
+          "x": "541.4px",
+          "y": "374.4px",
+          "workflowId": "f3e1d100-4c69-49b4-80f5-607fa21bc265",
+          "workflowName": "15 - EL Plots",
+          "nodeId": "21",
+          "grow": 0
+        }
+      ],
+      "rows": []
+    },
+    {
+      "id": 3,
+      "name": "Sheet 3",
+      "type": "type",
+      "idx": "3",
+      "items": [],
+      "rows": []
+    }
+  ]
+}
