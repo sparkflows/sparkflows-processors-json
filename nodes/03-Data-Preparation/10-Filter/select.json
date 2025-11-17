@@ -1,51 +1,90 @@
 {
-  "id": "6",
+  "id": "1236",
   "name": "Select",
-  "description": "",
-  "input": "It takes in a DataFrame as input",
-  "output": "Dataframe with selected Columns",
+  "description": "Selects specific columns from the input DataFrame, with support for renaming, data type changes, column dropping, and propagation of unspecified columns.",
+  "input": "It takes a DataFrame as input.",
+  "output": "DataFrame with selected, renamed, and optionally type-cast columns.",
   "type": "transform",
   "engine": "all",
   "nodeClass": "fire.nodes.etl.NodeSelect",
-  "fields" : [
+  "fields": [
+    {"name": "General", "value":"", "widget": "tab", "title": "General"},
     {"name": "inputCols", "value":"[]", "widget": "variables_list_select", "title": "Columns", "description": "Columns"},
     {"name": "renameCols", "value":"[]", "widget": "variables_list_textfield", "title": "Rename", "description": "Rename Column"},
-    {"name": "colType", "value":"[]", "widget": "variables_list_array", "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"], "title": "Change Data Type", "description": "Change Data Type"}
+    {"name": "colType", "value":"[]", "widget": "variables_list_array", "optionsArray": ["BOOLEAN", "BYTE", "DATE", "DECIMAL", "DOUBLE", "FLOAT", "INTEGER", "LONG", "SHORT", "STRING", "TIMESTAMP"], "title": "Change Data Type", "description": "Change Data Type"},
+    {"name": "drop", "value":"", "widget": "tab", "title": "Drop & Options"},
+    {
+      "name": "dropInputCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Drop Columns",
+      "description": "Columns to exclude from the final output"
+    },
+    {
+      "name": "inputColumnPropagation",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Enable Input Column Propagation",
+      "description": "When enabled, automatically include all unspecified input columns."
+    }
   ]
 }
-
 start-details:
 
-h2: Select Node
+h2:Select Node Details
 
-This node allows you to select specific columns from an input DataFrame. You can also rename columns and change their data types.
+The **Select Node** enables flexible column-level transformations on a DataFrame. You can choose which columns to keep, rename them, modify their data types, and decide whether to include unspecified columns automatically.
+
+h3:General:
+
+h4:Columns:
+Specifies the list of input columns to include in the output DataFrame.
+
+h4:Rename Columns:
+Optionally provide new names for the selected columns. If left blank, the original names are retained.
+
+h4:Change Data Type:
+Allows you to cast each selected column to a new data type such as STRING, INTEGER, DOUBLE, DATE, etc.
+
+h4:Drop Columns:
+Specifies which columns should be excluded from the final output. This is equivalent to setting `selected="False"` in Alteryx.
+
+h4:Enable Input Column Propagation (*Unknown):
+When enabled, all input columns not explicitly listed in the `Columns` field (and not in `Drop Columns`) are automatically included in the output. This mirrors the *Unknown field propagation behavior in Alteryx.
+
+h3:Output:
+Returns a DataFrame containing:
+- The selected columns
+- Any renamed columns
+- Columns with modified data types
+- Optionally, propagated unspecified input columns
 
 end-details:
 
 start-examples:
 
-h2: Select Node Example
+h2:Select Node Example
 
-Given the following dataset:
+h3:Input:
+| State | Unit | Rate | Amount | Extra |
+|-------|------|------|--------|--------|
+| CA | KG | 0.05 | 100 | X |
+| NY | LB | 0.08 | 200 | Y |
+| TX | KG | 0.07 | 150 | Z |
 
-| ColumnA | ColumnB | ColumnC | ColumnD |
-|---|---|---|---|
-| 1 | A | 10.0 | 2023-01-01 |
-| 2 | B | 20.5 | 2023-02-02 |
-| 3 | C | 30.7 | 2023-03-03 |
+h3:Configuration:
+- Columns: `["State", "Unit", "Rate"]`
+- Rename Columns: `["State", "Unit", "Tax Rate"]`
+- Change Data Type: `["STRING", "STRING", "DOUBLE"]`
+- Drop Columns: `["Amount"]`
+- Enable Input Column Propagation (*Unknown): true
 
-If you configure the Select node to:
-
-* Select columns `ColumnA` and `ColumnC`
-* Rename `ColumnA` to `ID`
-* Change the data type of `ColumnC` to integer
-
-The output would be:
-
-| ID | ColumnC |
-|---|---|
-| 1 | 10 |
-| 2 | 20 |
-| 3 | 30 |
+h3:Output:
+| State | Unit | Tax Rate | Extra |
+|--------|------|----------|--------|
+| CA | KG | 0.05 | X |
+| NY | LB | 0.08 | Y |
+| TX | KG | 0.07 | Z |
 
 end-examples:

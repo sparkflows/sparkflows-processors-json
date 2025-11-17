@@ -1,0 +1,111 @@
+{
+  "id": "12",
+  "name": "Join",
+  "iconImage": "/images/icons/node-icon/latest-nodes/join_node_2input_3output.svg",
+  "description": "Append fields from a Source DataFrame to every row of a Target DataFrame (Cartesian-style append).",
+  "type": "join2inputs",
+  "nodeClass": "fire.nodes.etl.NodeJoin",
+  "fields": [
+    {"name": "Join", "value":"", "widget": "tab", "title": "Join"},
+
+    {"name": "joinBy", "value": "Specific Fields", "widget": "array_single", "optionsArray": ["Position", "Specific Fields"], "title": "Join By", "description": "whether to append dataframe as a table to email content"},
+
+    {"name": "leftTableJoinColumn", "value":"[]", "widget": "key_array_join",
+      "title": "LeftTableJoinColumn", "description": "","wdgtCommon":"joinBy", "toggle":"Specific Fields"},
+
+    {"name": "rightTableJoinColumn", "value":"[]", "widget": "value_array_join",
+      "title": "RightTableJoinColumn", "description": ""},
+
+
+    {"name": "Select", "value":"", "widget": "tab", "title": "Select"},
+
+    {
+      "name": "selectLeftFields",
+      "value": "[]",
+      "widget": "variables_list_select",
+      "title": "Select Left Fields",
+      "description": "Columns"
+    },
+    {
+      "name": "dataTypeLeftFields",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "optionsArray": [
+        "BOOLEAN",
+        "BYTE",
+        "DATE",
+        "DECIMAL",
+        "DOUBLE",
+        "FLOAT",
+        "INTEGER",
+        "LONG",
+        "SHORT",
+        "STRING",
+        "TIMESTAMP"
+      ],
+      "title": "Data Type Left Fields",
+      "description": "New data type (INTEGER, DOUBLE, STRING, LONG, SHORT)",
+      "wdgtCommon": "selectLeftFields"
+    },
+    {
+      "name": "renameLeftFields",
+      "value": "[]",
+      "widget": "variables_list_textfield",
+      "title": "Rename Left Fields",
+      "description": "rename column",
+      "wdgtCommon": "selectLeftFields"
+    },
+
+    {
+      "name": "selectRightFields",
+      "value": "[]",
+      "widget": "variables_list_select",
+      "title": "Select Right Fields",
+      "description": "Columns"
+    },
+    {
+      "name": "dataTypeRightFields",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "optionsArray": [
+        "BOOLEAN",
+        "BYTE",
+        "DATE",
+        "DECIMAL",
+        "DOUBLE",
+        "FLOAT",
+        "INTEGER",
+        "LONG",
+        "SHORT",
+        "STRING",
+        "TIMESTAMP"
+      ],
+      "title": "Data Type Right Fields",
+      "description": "New data type (INTEGER, DOUBLE, STRING, LONG, SHORT)",
+      "wdgtCommon": "selectRightFields"
+    },
+    {
+      "name": "renameRightFields",
+      "value": "[]",
+      "widget": "variables_list_textfield",
+      "title": "Rename Right Fields",
+      "description": "rename column",
+      "wdgtCommon": "selectRightFields"
+    },
+    {"name": "Drop", "value":"", "widget": "tab", "title": "Drop"},
+
+    {
+      "name": "inputPropagateSchema",
+      "value": "false",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Propagate Input Schema",
+      "description": "propagate input schema "
+    },
+
+    {"name":"dropLeftFields", "value":"[]", "widget": "variables", "title": "Drop Left Columns", "description": " Drop Columns", "schemaIndex": "0"},
+
+    {"name":"dropRightFields", "value":"[]", "widget": "variables", "title": "Drop Right Columns", "description": " Drop Columns", "schemaIndex": "1"}
+
+  ]
+}

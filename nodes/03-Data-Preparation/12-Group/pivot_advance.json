@@ -1,0 +1,87 @@
+{
+  "id": "6",
+  "name": "Pivot By Advance",
+  "description": "Pivot Node with advanced options",
+  "iconImage": "/images/icons/node-icon/latest-nodes/pivot_by.svg",
+  "type": "transform",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodePivotAdvance",
+  "fields": [
+    {"name": "aggregate", "value": "", "widget": "tab", "title": "Aggregate"},
+
+    {"name": "groupingCols", "value": "[]", "widget": "variables", "title": "Grouping Columns", "description": "Grouping Columns"},
+    {"name": "aggregateCols", "value": "[]", "widget": "variables_list_select", "title": "Aggregate Columns", "description": "Aggregate Columns"},
+    {
+      "name": "aggregateOperations",
+      "value": "[]",
+      "widget": "variables_list_array",
+      "optionsArray": [ "sum", "avg", "min", "max", "count", "count_distinct", "concat", "first", "last", "count_with_nulls", "count_distinct_with_nulls", "percent_row", "percent_col", "total_row", "total_col" ],
+      "title": "Aggregate Operation to use",
+      "description": "Aggregate Operation"
+    },
+
+    {"name": "pivot", "value": "", "widget": "tab", "title": "Pivot"},
+    {"name": "pivotCol", "value": "", "widget": "variable", "title": "Pivot Column", "description": "Pivoting Column", "required": "true"},
+    {"name": "uniqueValues", "value": "", "widget": "textareafield", "title": "Unique Values", "description": "Comma separated unique values: Providing Unique values while performing pivot operation improves the performance of the operation since Spark does not have to first compute the list of distinct values of Pivot Column internally."},
+
+    {"name": "options", "value": "", "widget": "tab", "title": "Options"},
+    {"name": "caseInsensitive", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Case Insensitive Grouping", "description": "If true, grouping will ignore case differences"},
+    {"name": "retainSpecialChars", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Retain Special Characters", "description": "If false, special characters in pivot column values will be replaced with underscores"},
+    {"name": "concatSeparator", "value": ",", "widget": "textfield", "title": "Concatenation Separator", "description": "Used only if 'concat' aggregation is selected"},
+    {"name": "maxConcatLength", "value": "2048", "widget": "textfield", "title": "Field Size (Max Characters)", "description": "Maximum field length for concatenating strings. Strings longer than this will be truncated, and a warning will appear in the logs."},
+
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name": "outputColNames", "value": "[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name": "outputColTypes", "value": "[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name": "outputColFormats", "value": "[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+  ]
+}
+
+start-details:
+
+This node creates a Dataframe based on the Pivot table created out of the incoming Dataframe.
+
+Pivot table is created by Aggregation of rows by applying the Aggregate functions on the Aggregate Columns against the Grouping and Pivot Columns selected.
+It supports multiple aggregate operations including SUM, AVG, MIN, MAX, COUNT, FIRST, LAST, and CONCAT.
+Special aggregations like row totals, column totals, row percentages, and column percentages can also be applied.
+Providing unique pivot values improves performance, and special characters in column names can optionally be retained or replaced.
+
+end-details:
+
+start-examples:
+
+Incoming Dataframe has following rows:
+
+EMP_CD    |    EMP_NAME    |    LOCATION    |    DEPT         |    SALARY
+-----------------------------------------------------------------------------
+E01       |    DAVID       |    NEW YORK    |    HR           |    10000
+E02       |    JOHN        |    NEW JERSEY  |    SALES        |    11000
+E03       |    MARTIN      |    NEW YORK    |    MARKETING    |    12000
+E04       |    TONY        |    NEW JERSEY  |    MARKETING    |    13000
+E05       |    ROSS        |    NEW YORK    |    FRONT DESK   |    10000
+E06       |    LISA        |    NEW JERSEY  |    FRONT DESK   |    11000
+E07       |    PAUL        |    NEW YORK    |    MAINTENANCE  |    12000
+E08       |    MARK        |    NEW JERSEY  |    MAINTENANCE  |    13000
+
+if NodePivotAdvance is configured as below:
+
+GROUPING COLUMNS      :    DEPT
+PIVOT COLUMNS         :    LOCATION
+
+AGGREGATE COLUMNS    |    AGGREGATE OPERATION
+-------------------------------------------------
+EMP_CD               |    COUNT
+SALARY               |    SUM
+
+then outgoing Dataframe would be created as below after performing specified aggregation
+Count of Employees and Sum of Salary for each combination of [DEPT] and [LOCATION] would be listed as below:
+
+DEPT         |    NEW JERSEY_COUNT    |    NEW YORK_COUNT    |    NEW JERSEY_SUM    |    NEW YORK_SUM
+-----------------------------------------------------------------------------------------------
+FRONT DESK   |    1                   |    1                 |    11000            |    10000
+MARKETING    |    1                   |    1                 |    13000            |    12000
+HR           |                        |    1                 |                     |    10000
+SALES        |    1                   |                     |    11000            |
+MAINTENANCE  |    1                   |    1                 |    13000            |    12000
+
+end-examples:

@@ -1,0 +1,162 @@
+{
+  "id": "node_regex_advanced",
+  "name": "Regex Advanced",
+  "description": "Advanced regex operations for text processing - similar to Alteryx Regex Tool with auto-detection of capturing groups",
+  "input": "It accepts a DataFrame as input from the previous Node",
+  "output": "Returns a DataFrame with extracted patterns, marked matches, replaced text, or tokenized data based on the selected regex mode",
+  "type": "transform",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodeRegexAdvanced",
+  "fields": [
+    {
+      "name": "general", "value": "", "widget": "tab", "title": "General"
+    },
+    {"name": "inputCol", "value": "", "widget": "variable", "title": "Input Column", "description": "Column to apply regex operations on"},
+    {"name": "regexPattern", "value": "", "widget": "textfield", "title": "Regular Expression Pattern", "description": "Enter the regex pattern"},
+    {"name": "regexMode", "value": "PARSE", "widget": "array", "title": "Regex Mode", "optionsArray": ["PARSE","TOKENIZE_COL","TOKENIZE_ROW", "REPLACE", "MATCH"], "description": "Select the regex operation mode"},
+    {"name": "caseSensitive", "value": "true", "widget": "array_single", "title": "Case Sensitive", "optionsArray": ["true", "false"], "description": "Enable case-sensitive pattern matching"},
+    {"name": "errorHandling", "value": "IGNORE", "widget": "array", "title": "Error Handling", "optionsArray": ["FAIL", "SKIP", "IGNORE"], "description": "How to handle errors: FAIL (stop execution), SKIP (remove row), IGNORE", "size": "50%"},
+    {"name": "replacementText", "value": "", "widget": "textfield", "title": "Replacement Text", "description": "Text to replace matched patterns with (REPLACE mode only)", "wdgtCommon": "regexMode", "toggle": "REPLACE"},
+    {"name": "tokenSplit", "value": "1 ", "widget": "textfield", "title": "Split to Columns", "description": "Enter Number of columns to split", "wdgtCommon": "regexMode", "toggle": "TOKENIZE_COL", "size": "50%"},
+    {"name": "inputMatchCol", "value": "", "widget": "textfield", "title": "Match Column Name", "description": "Enter Column Name for Match Status", "wdgtCommon": "regexMode", "toggle": "MATCH"},
+    {"name": "newColName", "value":"[]", "widget": "key_array", "title": "Target Column", "description": "Enter New Column Name","wdgtCommon": "regexMode", "toggle": "PARSE" },
+    {"name": "regularexpression", "value":"[]", "widget": "value_array", "title": "Expression", "description": "Regular Expression on how to get the data which has to be placed under this column", "type": "sparksql","wdgtCommon": "regexMode", "toggle": "PARSE"},
+    {
+      "name": "schema", "value": "", "widget": "tab", "title": "InferSchema"
+    },
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}
+
+
+
+
+start-details:
+
+h2: Regex Advanced Node
+
+h4: Overview:
+
+The Regex Advanced node provides powerful text processing capabilities using regular expressions, similar to the Alteryx Regex Tool. It allows parsing, tokenizing, matching, and replacing text in a DataFrame column. Users can also auto-detect capturing groups for parsing operations and control case-sensitivity and error handling.
+
+h4: Input:
+
+* Input Column: The column from the input DataFrame on which regex operations will be applied.
+
+* Regex Pattern: The regular expression pattern to extract, match, replace, or tokenize text.
+
+* Regex Mode: Select the operation mode:
+
+* **PARSE** – Extract data into new columns based on capturing groups.
+* **TOKENIZE_COL** – Split text into multiple columns.
+* **TOKENIZE_ROW** – Split text into multiple rows.
+* **REPLACE** – Replace matched patterns with specified text.
+* **MATCH** – Create a column marking whether the pattern matches.
+
+* Case Sensitivity: Specify whether pattern matching should be case-sensitive.
+
+* Error Handling: Choose how errors should be handled – FAIL, SKIP, or IGNORE.
+
+h4: Output:
+
+Returns a transformed DataFrame with new columns or updated values based on the selected regex mode. Output may include:
+
+* Parsed columns from capturing groups (PARSE mode).
+* Tokenized columns or rows (TOKENIZE_COL/TOKENIZE_ROW).
+* Replaced text in the input column (REPLACE mode).
+* Match status column indicating success/failure (MATCH mode).
+
+h4: Advanced Options:
+
+* Replacement Text: Text to replace matches (REPLACE mode).
+* Split to Columns: Number of columns to split text into (TOKENIZE_COL mode).
+* Match Column Name: Name of the column storing match status (MATCH mode).
+* Target Column Names & Expressions (Parse tab): Map capturing groups to new column names with corresponding regex expressions.
+* Infer Schema (Schema tab): Define output column names, types, and formats.
+
+end-details:
+
+start-examples:
+
+h2: Regex Advanced Node Examples
+
+h3:Example 1 – Parse Mode
+
+**Input DataFrame:**
+
+| id | info                |
+| -- | ------------------- |
+| 1  | Name: John Age: 25  |
+| 2  | Name: Alice Age: 30 |
+| 3  | Name: Bob Age: 22   |
+
+**Node Configuration:**
+
+* Input Column: info
+* Regex Pattern: `Name:\s*(\w+)\s+Age:\s*(\d+)`
+* Regex Mode: PARSE
+* Target Column Names: ["name", "age"]
+* Expressions: ["(\w+)", "(\d+)"]
+
+**Output DataFrame:**
+
+| id | info                | name  | age |
+| -- | ------------------- | ----- | --- |
+| 1  | Name: John Age: 25  | John  | 25  |
+| 2  | Name: Alice Age: 30 | Alice | 30  |
+| 3  | Name: Bob Age: 22   | Bob   | 22  |
+
+
+h3:Example 2 – Replace Mode
+
+**Input DataFrame:**
+
+| id | email                                                 |
+| -- | ----------------------------------------------------- |
+| 1  | [john.doe@gmail.com](mailto:john.doe@gmail.com)       |
+| 2  | [alice.smith@yahoo.com](mailto:alice.smith@yahoo.com) |
+
+**Node Configuration:**
+
+* Input Column: email
+* Regex Pattern: `@.*`
+* Regex Mode: REPLACE
+* Replacement Text: `@example.com`
+
+**Output DataFrame:**
+
+| id | email                                                     |
+| -- | --------------------------------------------------------- |
+| 1  | [john.doe@example.com](mailto:john.doe@example.com)       |
+| 2  | [alice.smith@example.com](mailto:alice.smith@example.com) |
+
+
+h3:Example 3 – Match Mode
+
+**Input DataFrame:**
+
+| id | code  |
+| -- | ----- |
+| 1  | AB123 |
+| 2  | XY789 |
+| 3  | 1234  |
+
+**Node Configuration:**
+
+* Input Column: code
+* Regex Pattern: `^[A-Z]{2}\d{3}$`
+* Regex Mode: MATCH
+* Match Column Name: is_valid
+
+**Output DataFrame:**
+
+| id | code  | is_valid |
+| -- | ----- | -------- |
+| 1  | AB123 | true     |
+| 2  | XY789 | true     |
+| 3  | 1234  | false    |
+
+end-examples:

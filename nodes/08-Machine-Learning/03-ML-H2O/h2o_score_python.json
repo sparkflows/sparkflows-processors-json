@@ -29,7 +29,15 @@
         {"name": "roc_title", "value":"Title", "widget": "textfield", "title": "ROC Curve Chart Title", "description": "Title name to display in ROC Curve Chart"},
         {"name": "roc_description", "value":"Receiver operating characteristic (ROC) curve", "widget": "textfield", "title": "ROC Curve Chart Description", "description": "Add Description for ROC Curve Chart"},
         {"name": "xlabel", "value":"False Positive Rate (specificity)", "widget": "textfield", "title": "X Label", "description": "X label"},
-        {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"}
+        {"name": "ylabel", "value":"True Positive Rate (sensitivity)", "widget": "textfield", "title": "Y Label", "description": "Y Label"},
+        {"name": "predictionOverTime", "value":"", "widget": "tab", "title": "Prediction Over Time"},
+        {"name":"model_uuid", "display": true, "value":"", "widget": "textfield", "title": "Model UUID", "description": "Enter the model uuid"},
+
+        {"name": "enablePredictionOverTimeMetrics", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"],
+          "title": "Enable Prediction Over Time Metrics", "description": "enable "},
+
+        {"name":"modelCategory",  "value":"", "widget": "array","optionsArray": ["Regression", "Classification", "Clustering"], "title": "Model Category",
+          "description":"Select the category", "wdgtCommon":"enablePredictionOverTimeMetrics", "toggle":"true"}
 
     ]
 }

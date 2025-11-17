@@ -1,6 +1,7 @@
 {
   "id": "6",
   "name": "Expressions",
+  "iconImage": "/images/icons/node-icon/latest-nodes/expression.svg",
   "description": "This node creates a new DataFrame by adding new columns to the incoming Dataframe as per the Expression computation",
   "type": "transform",
   "nodeClass": "fire.nodes.etl.NodeExpressions",
@@ -10,15 +11,15 @@
     {"name": "Expressions", "value":"", "widget": "tab", "title": "Expressions"},
 
     {"name": "outputCols", "value":"[]", "widget": "key_array",
-      "title": "Column Name", "description": "Output Column Name", "header":"Expressions", "type": "sparksql" },
+      "title": "Column Name", "description": "Output Column Name", "header":"Expressions", "type": "sparksql"},
 
     {"name": "expressions", "value":"[]", "widget": "value_array",
       "title": "Expression", "description": "Expression to create new columns", "type": "sparksql"},
 
     {"name": "propagation", "value":"", "widget": "tab", "title": "ColumnPropagation"},
 
-    {"name":"inputColumnPropagation", "value":"true", "widget": "array", "title": "Input Column Propagation,", "optionsArray": ["true","false"],
-      "description": "By default all the input columns will be propagated as outputcolumns along with columns from EXPRESSION"},
+    {"name":"inputColumnPropagation", "value":"false", "widget": "array_single", "title": "Input Column Propagation", "optionsArray": ["true","false"],
+      "description": "By default all the input columns will be propagated as output columns along with columns from EXPRESSION"},
 
     {"name": "outputSchema", "value":"", "widget": "tab", "title": "InferSchema"},
     {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Output Column Name", "description": "Output Columns"},

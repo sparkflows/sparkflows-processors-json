@@ -5,7 +5,7 @@
   "input": "It takes a DataFrame with date, and optionally user, amount, quantity columns.",
   "output": "Returns the original DataFrame with new global moving average feature columns appended.",
   "type": "pyspark",
-  "engine": "pyspark",
+  "engine": "all",
   "nodeClass": "fire.nodes.fe.NodeMovingAverageFeatures",
   "fields": [
     {"name": "dateCol", "value": "", "widget": "variable", "title": "Date/Timestamp Column", "description": "Column representing the transaction date or timestamp.", "required": true, "size": "50%"},

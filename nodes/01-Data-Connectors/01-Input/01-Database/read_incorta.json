@@ -1,7 +1,7 @@
 {
   "id": "11",
   "name": "Read Incorta",
-
+  "iconImage": "/images/icons/node-icon/info.svg",
   "description": "",
   "input": "",
   "output": "",
@@ -13,11 +13,7 @@
 
     {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Incorta connection to connect" ,"required":"true"},
 
-    {"name":"dbtable", "value":"", "widget": "textfield", "title": "DB Table", "required":"true",
-      "description": "database and table name"},
-
-    {"name":"tenant", "value":"default", "widget": "textfield", "title": "Tenant", "required":"true",
-      "description": "tenant name"},
+    {"name":"table", "value":"", "widget": "textfield", "title": "Table", "description": "Incorta Table from which to read the data",  "required": "true"},
 
     {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
 

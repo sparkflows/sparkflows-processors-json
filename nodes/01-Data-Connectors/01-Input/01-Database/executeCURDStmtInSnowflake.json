@@ -1,12 +1,12 @@
 {
   "id": "11",
   "name": "Execute CRUD Stmt In Snowflake",
-
+  "iconImage": "/images/icons/node-icon/Snowflake.svg",
   "description": "This node executes Stored Procedure in Snowflake",
   "input": "",
   "output": "pass the input dataframe to next node.",
   "type": "shellcommand",
-  "nodeClass": "fire.nodes.snowflake.NodeExecuteCRUDStmtInSnowflake",
+  "nodeClass": "fire.nodes.snowflake.NodeExecuteCURDStmtInSnowflake",
   "fields" : [
     {"name":"authType", "value":"UserCredential", "widget": "array", "title": "Auth Type", "description": "Authentication Type. Possible value is OAUTH or USER_CREDENTIAL or KEYPAIR" ,"required":"true","optionsArray": ["UserCredential","OAuth","KeyPair"]},
     {"name":"connection", "value":"", "widget": "object_array", "title": "Connection", "description": "The Snowflake connection to connect" ,"required":"true"},

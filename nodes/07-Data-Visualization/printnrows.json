@@ -7,8 +7,9 @@
   "engine": "all",
   "nodeClass": "fire.nodes.util.NodePrintFirstNRows",
   "fields" : [
-  	{"name":"title", "value":"Row Values", "widget": "textfield", "title": "Title"},
-    {"name":"n", "value":"10", "widget": "textfield", "title": "Num Rows to Print","description":"number of rows to be printed"},
+    {"name":"title", "value":"Row Values", "widget": "textfield", "title": "Title"},
+    {"name":"n", "value":"10", "widget": "textfield", "title": "Num Rows to Print","description":"Number of rows to be printed"},
+    {"name": "columns", "value": "[]", "widget": "variables", "title": "Select Columns to Print", "description": "Select the columns to display, or leave blank to show all columns"},
     {"name":"displayDataType", "value":"true", "widget": "array", "title": "Display Data Type", "optionsArray": ["true","false"],"description":"If true display rows DataType"}
   ]
 }
@@ -17,31 +18,55 @@ start-details:
 
 h2:Print N Rows Node Details
 
-This node is used to print the first N rows from the incoming dataframe.
-
-The Number of rows that needs to be printed can be configured in the node.
+This node is used to print the first N rows from the incoming dataframe. You can choose to display all columns or select specific columns to focus on relevant data.
 
 h4:Input Parameters
 * OUTPUT STORAGE LEVEL : Keep this as DEFAULT.
 * TITLE : Enter a short description for the type of information being displayed.
-* NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed(Default N=10).
+* NUM ROWS TO PRINT : Set an integer value(N) which controls the number of rows to be displayed (Default N=10).
+* SELECT COLUMNS TO PRINT : Choose specific columns to display. If no columns are selected, all columns will be shown.
 * DISPLAY DATA TYPE : Shows the output dataframe column datatypes by default.
 
 h4:Output
-* This node can be used to view, analyze and validate the output of the Dataframe.
+* Displays the first N rows of the DataFrame with selected columns
+* Passes the filtered DataFrame (with selected columns) to subsequent nodes
+* Useful for data validation, debugging, and intermediate result inspection
 
 end-details:
 
 start-examples:
 
-when input 5 in no of rows,it will show first 5 rows of the table as follows
+h4:Example 1: Display All Columns (No Column Selection)
+When input 5 in "Num Rows to Print" and no columns selected, it shows first 5 rows with all columns:
 
-PartID	SupplierID	PartName	
+PartID	SupplierID	PartName	Category	Price
+P9271	S798	Part_D	Electronics	249.99
+P523	S955	Part_K	Mechanical	156.50
+P3201	S332	Part_M	Electronics	320.75
+P9634	S527	Part_G	Mechanical	89.99
+P9345	S850	Part_M	Electronics	275.00
 
-P9271	  S798	    Part_D	
-P523	  S955	    Part_K	
-P3201	  S332	    Part_M	
-P9634	  S527	    Part_G	
-P9345	  S850	    Part_M
+h4:Example 2: Display Selected Columns Only
+When input 5 in "Num Rows to Print" and columns PartID, PartName, Price are selected:
+
+PartID	PartName	Price
+P9271	Part_D	249.99
+P523	Part_K	156.50
+P3201	Part_M	320.75
+P9634	Part_G	89.99
+P9345	Part_M	275.00
+
+h4:Example 3: With Data Types Displayed
+When "Display Data Type" is enabled:
+
+Column	DataType
+PartID	string
+PartName	string
+Price	double
+
+PartID	PartName	Price
+P9271	Part_D	249.99
+P523	Part_K	156.50
+P3201	Part_M	320.75
 
 end-examples:

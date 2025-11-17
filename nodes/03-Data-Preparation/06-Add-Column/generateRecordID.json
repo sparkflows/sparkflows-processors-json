@@ -1,0 +1,166 @@
+{
+  "id": "12",
+  "name": "Record ID",
+  "description": "Adds a sequential Record ID column to the dataset, similar to Alteryx Record ID Tool. Supports grouping, sorting, and formatted incremental IDs.",
+  "input": "Accepts a DataFrame as input.",
+  "output": "Returns a DataFrame with a new Record ID column added.",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeGenerateRecordID",
+  "fields" : [
+    { "name": "outputCol", "value": "RecordID", "widget": "textfield", "title": "Output Column Name", "description": "Name of the column that will contain generated Record IDs." },
+    { "name": "startValue", "value": "1", "widget": "textfield", "title": "Starting Value", "description": "The first value in the sequence. Default is 1." },
+    { "name": "dataType", "value": "Int64", "widget": "array", "title": "Data Type", "optionsArray": ["INTEGER", "LONG","String"], "description": "Select the data type of the Record ID column." },
+    { "name": "size", "value": "6", "widget": "textfield", "title": "Size (String Only)", "description": "Applicable only when Data Type is String. Pads the value with leading zeros to match this length.", "wdgtCommon":"dataType", "toggle":"String" },
+    { "name": "position", "value": "last", "widget": "array", "title": "Column Position", "optionsArray": ["first", "last"], "description": "Position of the new column in the output DataFrame." },
+    { "name": "generationScope", "value": "entire_table", "widget": "array", "title": "Record ID Generation Scope", "optionsArray": ["entire_table", "within_group"], "description": "Generate IDs across the entire dataset or restart numbering within each group." },
+    { "name": "groupByCols", "value": "", "widget": "variable", "title": "Group By Columns", "description": "Columns to group by when generating Record IDs within groups.", "wdgtCommon":"generationScope", "toggle":"within_group" },
+    { "name": "orderByCols", "value": "", "widget": "variable", "title": "Order Rows Within Each Group", "description": "Optional columns to define the order of rows within each group before numbering. Supports ascending or descending order.", "wdgtCommon":"generationScope", "toggle":"within_group" }
+  ]
+}
+
+start-details:
+<h2>Record ID Node Details</h2>
+The Record ID Node generates a unique sequential identifier for each row in a DataFrame, similar to the Alteryx Record ID Tool. It supports flexible configuration, including grouping, sorting, and formatting, making it useful for adding row indexes or uniquely identifying records across or within groups.
+
+<h3>General:</h3>
+
+<h4>Output Column Name:</h4>
+Specifies the name of the new column that will contain generated Record IDs. Example: "RecordID" or "RowNumber".
+
+<h4>Starting Value:</h4>
+Specifies the initial number in the sequence. Default is 1. Example: Setting 1000 will start IDs from 1000.
+
+<h4>Data Type:</h4>
+Determines the data type of the Record ID column. Options include:
+- Int32: Generates 32-bit integer IDs.
+- Int64: Generates 64-bit integer IDs.
+- String: Generates IDs as strings (supports zero-padding when "Size" is specified).
+
+<h4>Size (String Only):</h4>
+Specifies the number of characters for each Record ID when Data Type is set to "String". IDs are padded with leading zeros to match this length. Example: Size=6 produces IDs like "000001", "000002", etc.
+
+<h4>Column Position:</h4>
+Defines where to insert the Record ID column in the output DataFrame. Options:
+- first: Adds Record ID as the first column.
+- last: Adds Record ID as the last column (default).
+
+<h4>Record ID Generation Scope:</h4>
+Specifies how Record IDs are generated across the dataset:
+- entire_table: IDs are assigned sequentially across all rows.
+- within_group: IDs restart from the start value within each group defined by Group By Columns.
+
+<h4>Group By Columns:</h4>
+Specifies one or more columns used to group rows. Record IDs reset for each group. Example: "Department" groups data by department before generating IDs.
+
+<h4>Order Rows Within Each Group:</h4>
+Specifies columns used to order rows before assigning IDs. This supports ascending or descending order notation, e.g., "date asc, amount desc".
+
+<h3>Output:</h3>
+The node returns a DataFrame identical to the input but with an additional column containing generated Record IDs. The output respects ordering and grouping configurations.
+
+end-details:
+
+start-examples:
+<h2>Example: Record ID Node</h2>
+
+<h3>Example 1: Sequential IDs for Entire Dataset</h3>
+<h4>Input:</h4>
+| Name  | Department |
+|--------|-------------|
+| John  | HR          |
+| Mary  | IT          |
+| Steve | HR          |
+
+<h4>Configuration:</h4>
+- Output Column Name: RecordID
+- Starting Value: 1
+- Data Type: Int64
+- Column Position: last
+- Generation Scope: entire_table
+
+<h4>Output:</h4>
+| Name  | Department | RecordID |
+|--------|-------------|----------|
+| John  | HR          | 1        |
+| Mary  | IT          | 2        |
+| Steve | HR          | 3        |
+
+---
+
+<h3>Example 2: Group-wise Record ID Generation</h3>
+<h4>Input:</h4>
+| Name  | Department |
+|--------|-------------|
+| John  | HR          |
+| Mary  | HR          |
+| Steve | IT          |
+| Alice | IT          |
+
+<h4>Configuration:</h4>
+- Output Column Name: EmpID
+- Starting Value: 1
+- Data Type: Int32
+- Generation Scope: within_group
+- Group By Columns: Department
+
+<h4>Output:</h4>
+| Name  | Department | EmpID |
+|--------|-------------|-------|
+| John  | HR          | 1     |
+| Mary  | HR          | 2     |
+| Steve | IT          | 1     |
+| Alice | IT          | 2     |
+
+---
+
+<h3>Example 3: String-formatted Record IDs with Zero Padding</h3>
+<h4>Input:</h4>
+| Product | Price |
+|----------|--------|
+| Pen      | 10     |
+| Pencil   | 5      |
+| Eraser   | 3      |
+
+<h4>Configuration:</h4>
+- Output Column Name: RowID
+- Starting Value: 1
+- Data Type: String
+- Size: 4
+- Column Position: first
+
+<h4>Output:</h4>
+| RowID | Product | Price |
+|--------|----------|--------|
+| 0001  | Pen      | 10     |
+| 0002  | Pencil   | 5      |
+| 0003  | Eraser   | 3      |
+
+---
+
+<h3>Example 4: Ordered Record ID Generation Within Groups</h3>
+<h4>Input:</h4>
+| Dept | Salary | Name |
+|-------|---------|------|
+| HR    | 50000   | John |
+| HR    | 60000   | Mary |
+| IT    | 80000   | Alice |
+| IT    | 75000   | Bob |
+
+<h4>Configuration:</h4>
+- Output Column Name: RankID
+- Starting Value: 1
+- Data Type: Int64
+- Generation Scope: within_group
+- Group By Columns: Dept
+- Order Rows Within Each Group: Salary desc
+
+<h4>Output:</h4>
+| Dept | Salary | Name | RankID |
+|-------|---------|------|--------|
+| HR    | 60000   | Mary | 1      |
+| HR    | 50000   | John | 2      |
+| IT    | 80000   | Alice | 1     |
+| IT    | 75000   | Bob   | 2     |
+
+end-examples:

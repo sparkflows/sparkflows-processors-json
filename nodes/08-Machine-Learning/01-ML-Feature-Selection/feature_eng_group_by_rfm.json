@@ -1,12 +1,13 @@
 {
   "id": "7",
-  "name": "Feature Engineering",
+  "name": "Group By RFM Features",
+  "iconImage": "/images/icons/node-icon/latest-nodes/group_by.svg",
   "description": "This node computes feature engineering tasks such as group by, frequency, recency, average days between purchases, total value of purchases, and customer age. These are computed per user using the selected operations.",
   "input": "It takes DataFrame(s) as input for processing.",
   "output": "Returns engineered features as a DataFrame.",
   "type": "pyspark",
-  "engine": "pyspark",
-  "nodeClass": "fire.nodes.fe.NodeFeatureEngineering",
+  "engine": "all",
+  "nodeClass": "fire.nodes.fe.NodeRFMFeatures",
 
   "fields": [
     {"name": "groupByCols", "value": "[]", "widget": "variables", "title": "Group By Columns", "description": "Columns to group by", "wdgtCommon": "groupBy", "toggle": "true"},

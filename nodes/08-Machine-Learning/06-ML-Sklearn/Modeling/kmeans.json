@@ -1,0 +1,111 @@
+{
+  "id": "11",
+  "name": "Sklearn K-Means",
+  "description": "K-Means clustering algorithm using scikit-learn. K-Means falls in the general category of clustering algorithms, which partition observations into groups based on similarity without using labels.",
+  "input": "It takes in a DataFrame as input",
+  "output": "Outputs cluster centers, labels, and metrics such as inertia",
+  "type": "ml-estimator",
+  "engine": "pyspark",
+  "nodeClass": "fire.nodes.sklearn.NodeSklearnKMeans",
+  "fields": [
+    {
+      "name": "n_clusters",
+      "value": "3",
+      "required": true,
+      "widget": "textfield",
+      "title": "Number of Clusters",
+      "description": "The number of clusters to form and centroids to generate.",
+      "datatypes": ["integer"]
+    },
+    {
+      "name": "featuresCols",
+      "value": "[]",
+      "widget": "variables",
+      "title": "Feature Columns",
+      "description": "Features to be used for clustering."
+    },
+    {
+      "name": "init",
+      "value": "k-means++",
+      "widget": "array",
+      "optionsArray": ["k-means++", "random"],
+      "title": "Initialization Mode",
+      "description": "Method for initialization: 'k-means++' for smart initialization to speed up convergence, 'random' to choose n_clusters observations at random.",
+      "datatypes": ["string"]
+    },
+    {
+      "name": "n_init",
+      "value": "10",
+      "widget": "textfield",
+      "title": "Number of Initializations",
+      "description": "Number of times the k-means algorithm will run with different centroid seeds. The best output is chosen based on inertia.",
+      "datatypes": ["integer"]
+    },
+    {
+      "name": "max_iter",
+      "value": "300",
+      "widget": "textfield",
+      "title": "Max Iterations",
+      "description": "Maximum number of iterations for a single run of the k-means algorithm.",
+      "datatypes": ["integer"]
+    },
+    {
+      "name": "tol",
+      "value": "1e-4",
+      "widget": "textfield",
+      "title": "Tolerance",
+      "description": "Relative tolerance with regards to Frobenius norm of the difference in cluster centers to declare convergence.",
+      "datatypes": ["float"]
+    },
+    {
+      "name": "verbose",
+      "value": "0",
+      "widget": "textfield",
+      "title": "Verbose",
+      "description": "Verbosity mode: 0 for silent, 1 for verbose output.",
+      "datatypes": ["integer"]
+    },
+    {
+      "name": "random_state",
+      "value": 42,
+      "widget": "textfield",
+      "title": "Random State",
+      "description": "Seed for random number generation to ensure deterministic results. Leave empty for non-deterministic behavior.",
+      "datatypes": ["integer"]
+    },
+    {
+      "name": "copy_x",
+      "value": "true",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Copy X",
+      "description": "If true, the original data is not modified during pre-computation of distances. If false, data may be modified but restored.",
+      "datatypes": ["boolean"]
+    },
+    {
+      "name": "algorithm",
+      "value": "auto",
+      "widget": "array",
+      "optionsArray": ["auto", "full", "elkan"],
+      "title": "Algorithm",
+      "description": "K-means algorithm: 'full' for classical EM-style, 'elkan' for a more efficient variation using the triangle inequality, 'auto' to choose based on data.",
+      "datatypes": ["string"]
+    },
+    {
+      "name": "saveCentroidsPath",
+      "value": "",
+      "widget": "textfield",
+      "title": "Save Centroids Path",
+      "description": "Path to save cluster centroids as CSV."
+    },
+    {
+      "name": "output_cluster_centers",
+      "value": "true",
+      "widget": "array",
+      "optionsArray": ["true", "false"],
+      "title": "Output Cluster Centers",
+      "description": "Whether to output the cluster centers as a table.",
+      "datatypes": ["boolean"]
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "id": "13",
+  "name": "Aggregate",
+  "description": "Performs conditional, grouped, and pivoted aggregations similar to Prophecy Aggregate Gem. Supports pre-aggregation filters, transformations, and multiple aggregation targets.",
+  "input": "Accepts one or more DataFrames as input.",
+  "output": "Returns an aggregated DataFrame.",
+  "type": "transform",
+  "engine": "all",
+  "nodeClass": "fire.nodes.etl.NodeAggregateColumns",
+  "fields": [
+    {"name": "Aggregate", "value":"", "widget": "tab", "title": "Aggregate Columns"},
+
+    {"name": "aggregatetargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Column", "description": "Output column name of aggregated column.","header":"Aggregate", "type": "sparksql"},
+
+    {"name": "aggregateexpressions", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "Aggregate function expression that generates the target column values. Example: sum(amount), count(*), avg(amount)", "type": "sparksql"},
+
+    { "name": "propagateAllInputColumns", "value": "false", "widget": "array_single", "optionsArray": ["true", "false"], "title": "Propagate All Input Columns", "description": "If true, all columns from the input DataFrame will be propagated to the output. Unaggregated columns will use first(col_name) by default." },
+
+    {"name": "GroupBy", "value":"", "widget": "tab", "title": "Group By Columns"},
+
+    {"name": "groupByTargetColumns", "value":"[]", "widget": "key_array",
+      "title": "Target Column", "description": "Output column name of the key column for grouping.","header":"GroupBy", "type": "sparksql" },
+
+    {"name": "groupByExpressions", "value":"[]", "widget": "value_array",
+      "title": "Expression", "description": "Expression that generates how to group the data. In many cases, this is simply the column name.", "type": "sparksql"},
+
+    {"name": "Pivot", "value":"", "widget": "tab", "title": "Pivot"},
+
+    { "name": "pivotCol", "value": "", "widget": "variable", "title": "Pivot Column", "description": "Name of the column whose unique values become the new column headers."},
+    { "name": "uniqueValues", "value": "", "widget": "textfield", "title": "Unique Values", "description": "Comma-separated list of values in the pivot column that will be translated to columns in the output DataFrame. Providing Unique values improves performance since Spark does not have to first compute distinct values internally." },
+
+    {"name": "schema", "value":"", "widget": "tab", "title": "InferSchema"},
+
+    {"name":"outputColNames", "value":"[]", "widget": "schema_col_names", "title": "Column Names of the Table", "description": "Output Columns Names of the Table"},
+    {"name":"outputColTypes", "value":"[]", "widget": "schema_col_types", "title": "Column Types of the Table", "description": "Output Column Types of the Table"},
+    {"name":"outputColFormats", "value":"[]", "widget": "schema_col_formats", "title": "Column Formats", "description": "Output Column Formats"}
+
+  ]
+}
+
+start-details:
+
+h2: Aggregate Node Details
+
+The Aggregate node performs conditional, grouped, and pivoted aggregations on a DataFrame, similar to the Prophecy Aggregate Gem. It supports multiple aggregation targets, group by operations, pivot transformations, and the option to propagate input columns. The node uses Spark's DataFrame API to execute aggregations, making it suitable for large-scale data processing.
+
+h4:The configuration includes:
+* Aggregate Tab: Define aggregation expressions (e.g., sum, count, avg) and their target column names. Optionally propagate all input columns using the first() function for non-aggregated columns.
+* Group By Tab: Specify columns or expressions to group the data, with corresponding target column names.
+* Pivot Tab: Enable pivoting by selecting a pivot column and optionally providing unique values for performance optimization.
+* Schema Tab: Define an explicit output schema or rely on automatic schema inference based on the aggregation configuration.
+
+h4:The node supports:
+* Global aggregations (no grouping).
+* Grouped aggregations with or without pivot.
+* Propagation of non-grouped, non-pivoted columns when enabled.
+* Schema inference or explicit schema definition.
+
+end-details:
+
+
+start-examples:
+
+h2: Aggregate Node Examples
+
+h3: Example 1 — Global Aggregation (No Grouping)
+
+h4:Incoming DataFrame
+
+order_id | customer_id | amount
+---------|-------------|-------
+1        | 101         | 100
+2        | 102         | 200
+3        | 101         | 150
+4        | 103         | 300
+5        | 102         | 400
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_amount, Expression: sum(amount)
+* Target Column: order_count, Expression: count(*)
+* Propagate All Input Columns: false
+* Group By Columns: []
+* Pivot Column: None
+* Unique Values: None
+
+h4:Final Output
+
+total_amount | order_count
+-------------|------------
+1150         | 5
+
+h4:Explanation:
+This configuration computes the total sum of amount and the count of all rows across the entire DataFrame, as no grouping is specified.
+
+h3: Example 2 — Grouped Aggregation
+
+h4:Incoming DataFrame
+
+order_id | customer_id | amount
+---------|-------------|-------
+1        | 101         | 100
+2        | 102         | 200
+3        | 101         | 150
+4        | 103         | 300
+5        | 102         | 400
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_amount, Expression: sum(amount)
+* Propagate All Input Columns: false
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Pivot Column: None
+* Unique Values: None
+
+h4:Final Output
+
+cust_id | total_amount
+--------|-------------
+101     | 250
+102     | 600
+103     | 300
+
+h4:Explanation:
+The data is grouped by customer_id (aliased as cust_id), and the sum of amount is computed for each group.
+
+h3: Example 3 — Grouped Aggregation with Propagation
+
+h4:Incoming DataFrame
+
+order_id | customer_id | amount | order_date
+---------|-------------|--------|------------
+1        | 101         | 100    | 2023-01-01
+2        | 102         | 200    | 2023-01-02
+3        | 101         | 150    | 2023-01-03
+4        | 103         | 300    | 2023-01-04
+5        | 102         | 400    | 2023-01-05
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_amount, Expression: sum(amount)
+* Propagate All Input Columns: true
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Pivot Column: None
+* Unique Values: None
+
+h4:Final Output
+
+cust_id | total_amount | order_id | order_date
+--------|-------------|----------|------------
+101     | 250         | 1        | 2023-01-01
+102     | 600         | 2        | 2023-01-02
+103     | 300         | 4        | 2023-01-04
+
+h4:Explanation:
+The data is grouped by customer_id (aliased as cust_id), with the sum of amount computed. Since propagateAllInputColumns is true, non-grouped columns (order_id, order_date) are propagated using first() to select one value per group.
+
+h3: Example 4 — Pivot Aggregation
+
+h4:Incoming DataFrame
+
+order_id | customer_id | status    | amount
+---------|-------------|-----------|-------
+1        | 101         | Pending   | 100
+2        | 102         | Shipped   | 200
+3        | 101         | Shipped   | 150
+4        | 103         | Pending   | 300
+5        | 102         | Cancelled | 400
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_amount, Expression: sum(amount)
+* Propagate All Input Columns: false
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Pivot Column: status
+* Unique Values: Pending,Shipped,Cancelled
+
+h4:Final Output
+
+cust_id | Pending | Shipped | Cancelled
+--------|---------|---------|----------
+101     | 100     | 150     | null
+102     | null    | 200     | 400
+103     | 300     | null    | null
+
+h4:Explanation:
+The data is grouped by customer_id (aliased as cust_id) and pivoted on the status column, with sum(amount) calculated for each status value. The uniqueValues list ensures only specified values become columns.
+
+h3: Example 5 — Pivot with Propagation and No Unique Values
+
+h4:Incoming DataFrame
+
+order_id | customer_id | status    | amount | order_date
+---------|-------------|-----------|--------|------------
+1        | 101         | Pending   | 100   | 2023-01-01
+2        | 102         | Shipped   | 200   | 2023-01-02
+3        | 101         | Shipped   | 150   | 2023-01-03
+4        | 103         | Pending   | 300   | 2023-01-04
+5        | 102         | Cancelled | 400   | 2023-01-05
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_amount, Expression: sum(amount)
+* Propagate All Input Columns: true
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Pivot Column: status
+* Unique Values: None
+
+h4:Final Output
+
+cust_id | Pending | Shipped | Cancelled | order_id | order_date
+--------|---------|---------|----------|----------|------------
+101     | 100     | 150     | null     | 1        | 2023-01-01
+102     | null    | 200     | 400      | 2        | 2023-01-02
+103     | 300     | null    | null     | 4        | 2023-01-04
+
+h4:Explanation:
+Similar to Example 4, but without uniqueValues, Spark infers pivot values from the status column. Propagated columns (order_id, order_date) are included using first().
+
+h3: Example 6 — Complex Aggregation with Expression
+
+h4:Incoming DataFrame
+
+order_id | customer_id | amount | quantity
+---------|-------------|--------|---------
+1        | 101         | 100    | 2
+2        | 102         | 200    | 3
+3        | 101         | 150    | 1
+4        | 103         | 300    | 4
+5        | 102         | 400    | 2
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_revenue, Expression: sum(amount * quantity)
+* Target Column: avg_amount, Expression: avg(amount)
+* Propagate All Input Columns: false
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Pivot Column: None
+* Unique Values: None
+
+h4:Final Output
+
+cust_id | total_revenue | avg_amount
+--------|--------------|------------
+101     | 350          | 125.0
+102     | 1400         | 300.0
+103     | 1200         | 300.0
+
+h4:Explanation:
+The total_revenue is computed as sum(amount * quantity), and avg_amount is avg(amount) for each customer_id group.
+
+h3: Example 7 — Aggregation with No Aggregations (Distinct Groups)
+
+h4:Incoming DataFrame
+
+order_id | customer_id | region
+---------|-------------|-------
+1        | 101         | North
+2        | 102         | South
+3        | 101         | North
+4        | 103         | West
+5        | 102         | South
+
+h4:Configuration
+* Aggregate Columns: []
+* Propagate All Input Columns: false
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Target Column: region, Expression: region
+* Pivot Column: None
+* Unique Values: None
+
+h4:Final Output
+
+cust_id | region
+--------|-------
+101     | North
+102     | South
+103     | West
+
+h4:Explanation:
+With no aggregation expressions, the node returns distinct groups based on customer_id and region.
+
+h3: Example 8 — Explicit Schema Definition
+
+h4:Incoming DataFrame
+
+order_id | customer_id | amount
+---------|-------------|-------
+1        | 101         | 100
+2        | 102         | 200
+3        | 101         | 150
+
+h4:Configuration
+* Aggregate Columns:
+* Target Column: total_amount, Expression: sum(amount)
+* Propagate All Input Columns: false
+* Group By Columns:
+* Target Column: cust_id, Expression: customer_id
+* Pivot Column: None
+* Unique Values: None
+* Schema:
+* outputColNames: ["cust_id", "total_amount"]
+* outputColTypes: ["INTEGER", "DOUBLE"]
+* outputColFormats: ["", ""]
+
+h4:Final Output
+
+cust_id | total_amount
+--------|-------------
+101     | 250.0
+102     | 200.0
+
+h4:Explanation:
+The explicit schema ensures the output has cust_id as INTEGER and total_amount as DOUBLE, overriding inferred types.
+
+end-examples:

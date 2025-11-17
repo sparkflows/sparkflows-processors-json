@@ -1,0 +1,154 @@
+{
+  "id": "7",
+  "name": "Save Excel Advanced",
+  "iconImage": "/images/icons/node-icon/excel.svg",
+  "description": "Saves the DataFrame to an Excel file with sheet/range control and multiple save options",
+  "type": "transform",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.save.NodeSaveExcelAdvanced",
+  "fields": [
+    {"name":"path","display":true,"value":"","widget":"textfield","title":"Path / File","description":"Destination path (e.g. /some/file.xlsx)","required":"true"},
+    {"name":"saveMode","value":"OverwriteSheet","widget":"array","optionsArray":["OverwriteFile","OverwriteSheet","AppendSheet","ErrorIfExists","Ignore"],"title":"Save Mode","description":"Specifies how to handle existing files or sheets: OverwriteFile (replaces file), OverwriteSheet (replaces specific sheet), AppendSheet (adds to sheet), ErrorIfExists (throws error if exists), Ignore (skips if exists)"},
+    {"name":"sheetName","display":true,"value":"Sheet1","widget":"textfield","title":"Sheet Name","description":"Name of the sheet (tab) to write to (e.g. 'Sheet1')","required":"true"},
+    {"name":"range","display":true,"value":"","widget":"textfield","title":"Range","description":"Optional cell or range to write data into (e.g., 'C10' to start from C10, or 'B5:F15' to limit data to that range, truncating excess data). Required for preserving formatting when using a range."},
+    {"name":"takeNameFromField","display":true,"value":"","widget":"textfield","title":"Sheet Name / File From Field","description":"Name of a column whose value will be used as the sheet name or file name dynamically"},
+    {"name":"includeHeader","display":true,"value":"true","widget":"array","optionsArray":["true","false"],"title":"Include Header Row","description":"Whether to include column headers in the Excel output","datatypes":["boolean"]},
+    {"name":"preserveFormatting","display":true,"value":"false","widget":"array","optionsArray":["true","false"],"title":"Preserve Formatting","description":"Preserve existing Excel formatting when overwriting a range or sheet (requires range and OverwriteSheet mode)","datatypes":["boolean"]},
+    {"name":"suppressIfNoRecords","value":"false","widget":"array","optionsArray":["true","false"],"title":"Suppress Output if No Records","description":"Do not create output file if there are no records","datatypes":["boolean"]},
+    {"name":"maxRecordsPerSheet","value":"0","widget":"textfield","title":"Max Records Per Sheet","description":"Maximum number of records per Excel sheet before creating a new sheet (0 means unlimited)"},
+    {"name":"maxRecordsPerFile","value":"0","widget":"textfield","title":"Max Records Per File","description":"Maximum number of records per output file (0 means unlimited)"},
+    {"name":"password","value":"","widget":"textfield","title":"Password","description":"Optional password to protect the Excel file"}
+  ]
+}
+
+start-details:
+h2:Save Excel Node Details
+The Save Excel node is designed to save Spark DataFrames to Excel files (.xlsx) with flexible options for specifying sheets, ranges, and formatting. It supports various save modes, sheet splitting based on record counts, and password protection. The node works with both local file systems and distributed storage systems like HDFS, S3, and GCS.
+h3:General:
+h4:Path:
+Specifies the complete path where the Excel file will be saved. This can be a local file path or a distributed storage path (HDFS, S3, GCS). Example: "/data/output.xlsx" or "s3://bucket/output/file.xlsx".
+h4:Save Mode:
+Controls how the node handles existing files or sheets. Options:
+- OverwriteFile: Creates a new file, overwriting any existing file.
+- OverwriteSheet: Replaces the specified sheet or clears the specified range while optionally preserving formatting.
+- AppendSheet: Appends data to the existing sheet, starting after the last row.
+- ErrorIfExists: Throws an error if the file already exists.
+- Ignore: Skips writing if the file already exists.
+Example: "OverwriteSheet" to replace the specified sheet.
+h4:Sheet Name:
+Specifies the name of the Excel sheet to write to. If not specified, defaults to "Sheet1". Example: "SalesData", "Summary".
+h4:Range:
+Specifies a starting cell or range to write data into. A single cell (e.g., "C10") starts writing data from that cell. A range (e.g., "B5:B15") limits the data to that range, truncating excess rows or columns. Required for preserving formatting when using a range. Example: "A1" writes from A1, "B5:F10" writes only within B5:F10.
+h4:Take Name From Field:
+Specifies a column name to group data by, creating a separate sheet for each unique value in that column. Example: "Region" creates sheets named after unique values like "North", "South".
+h4:Include Header:
+Indicates whether to include column headers in the output Excel file. When enabled, the DataFrame's column names are written as the first row. Example: true writes headers, false skips them.
+h4:Preserve Formatting:
+When enabled and a range is specified, preserves existing cell formatting (e.g., fonts, colors) in the specified range while overwriting data. Requires a range like "A1:F10". Example: true to keep formatting in the range.
+h4:Suppress If No Records:
+When enabled, skips writing to the Excel file if the input DataFrame is empty. Example: true prevents writing empty files.
+h4:Max Records Per File:
+Limits the number of records per output file. If exceeded, multiple files are created (e.g., output_0001.xlsx, output_0002.xlsx). 0 means no limit. Example: 1000 creates new files every 1000 records.
+h4:Max Records Per Sheet:
+Limits the number of records per sheet. If exceeded, new sheets are created (e.g., Sheet1_1, Sheet1_2). 0 means no limit. Example: 25 writes 25 records per sheet.
+h4:Password:
+Specifies a password to protect the sheet. If provided, the sheet is locked with the password. Example: "secret123" protects the sheet.
+h3:Output:
+The node saves the input DataFrame to an Excel file at the specified path and passes the DataFrame unchanged to the next node in the workflow. The Excel file contains the data formatted according to the specified options, with support for multiple sheets, ranges, and formatting preservation.
+end-details:
+start-examples:
+h2:Save Excel Node Examples
+h3:Example 1: Basic Excel Writing
+h4:Input:
+DataFrame with:
+- Name: "John Doe", Email: "john@company.com", Phone: "123-456-7890", Department: "Engineering", Salary: 75000
+- Name: "Jane Smith", Email: "jane@company.com", Phone: "123-456-7891", Department: "Marketing", Salary: 65000
+h4:Configuration:
+- Path: "/data/employees.xlsx"
+- Sheet Name: "Sheet1"
+- Save Mode: "OverwriteFile"
+- Include Header: true
+- Max Records Per Sheet: 0
+- Max Records Per File: 0
+h4:Output:
+An Excel file "employees.xlsx" with a sheet "Sheet1" containing:
+- Row 1: Name, Email, Phone, Department, Salary
+- Row 2: John Doe, john@company.com, 123-456-7890, Engineering, 75000
+- Row 3: Jane Smith, jane@company.com, 123-456-7891, Marketing, 65000
+The input DataFrame is passed to the next node.
+h3:Example 2: Writing to Specific Range with Truncation
+h4:Input:
+DataFrame with 20 rows of sales data:
+- Product: "Widget A", Units: 100, Revenue: 5000.0
+- Product: "Widget B", Units: 150, Revenue: 7500.0
+- ... (18 more rows)
+h4:Configuration:
+- Path: "/data/sales.xlsx"
+- Sheet Name: "Sales"
+- Range: "B5:D10"
+- Save Mode: "OverwriteSheet"
+- Include Header: true
+- Preserve Formatting: true
+h4:Output:
+An Excel file "sales.xlsx" with a sheet "Sales" where data is written in range B5:D10 (6 rows including header). Only the first 5 data rows are written (due to range limit), with existing formatting preserved in B5:D10. The input DataFrame is passed to the next node.
+h3:Example 3: Multiple Sheets by Grouping
+h4:Input:
+DataFrame with:
+- Region: "North", Product: "Laptop", Sales: 1000
+- Region: "South", Product: "Tablet", Sales: 800
+- Region: "North", Product: "Phone", Sales: 600
+- Region: "South", Product: "Laptop", Sales: 1200
+h4:Configuration:
+- Path: "/data/regional_sales.xlsx"
+- Save Mode: "OverwriteFile"
+- Take Name From Field: "Region"
+- Include Header: true
+h4:Output:
+An Excel file "regional_sales.xlsx" with two sheets:
+- Sheet "North":
+- Row 1: Region, Product, Sales
+- Row 2: North, Laptop, 1000
+- Row 3: North, Phone, 600
+- Sheet "South":
+- Row 1: Region, Product, Sales
+- Row 2: South, Tablet, 800
+- Row 3: South, Laptop, 1200
+The input DataFrame is passed to the next node.
+h3:Example 4: Splitting Sheets by Record Count
+h4:Input:
+DataFrame with 100 rows of customer data:
+- CustomerID: 1, Name: "Alice", Age: 30
+- CustomerID: 2, Name: "Bob", Age: 25
+- ... (98 more rows)
+h4:Configuration:
+- Path: "/data/customers.xlsx"
+- Sheet Name: "Customers"
+- Save Mode: "OverwriteFile"
+- Max Records Per Sheet: 25
+- Include Header: true
+h4:Output:
+An Excel file "customers.xlsx" with four sheets:
+- Customers: Rows 1-25 + header
+- Customers_1: Rows 26-50 + header
+- Customers_2: Rows 51-75 + header
+- Customers_3: Rows 76-100 + header
+The input DataFrame is passed to the next node.
+h3:Example 5: Password-Protected Sheet with Single Cell Start
+h4:Input:
+DataFrame with:
+- ID: 101, Name: "Alice Brown", Salary: 85000.50
+- ID: 102, Name: "Bob Wilson", Salary: 92000.75
+h4:Configuration:
+- Path: "/data/protected.xlsx"
+- Sheet Name: "Employees"
+- Save Mode: "OverwriteFile"
+- Range: "C10"
+- Include Header: true
+- Password: "secret123"
+h4:Output:
+An Excel file "protected.xlsx" with a sheet "Employees" where data is written starting from C10:
+- Row 10: [C10] ID, [D10] Name, [E10] Salary
+- Row 11: [C11] 101, [D11] Alice Brown, [E11] 85000.50
+- Row 12: [C12] 102, [D12] Bob Wilson, [E12] 92000.75
+The sheet is password-protected with "secret123". The input DataFrame is passed to the next node.
+end-examples:

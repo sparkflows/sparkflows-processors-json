@@ -5,7 +5,7 @@
   "input": "It takes a DataFrame with user, date, and optionally amount, item, and category columns.",
   "output": "Returns the original DataFrame with new time-series feature columns appended.",
   "type": "pyspark",
-  "engine": "pyspark",
+  "engine": "all",
   "nodeClass": "fire.nodes.fe.NodeTimeSeriesFeatures",
   "fields": [
     {"name": "userCol", "value": "", "widget": "variable", "title": "User ID Column", "description": "Column representing the user or entity ID.", "required": true, "size": "50%"},

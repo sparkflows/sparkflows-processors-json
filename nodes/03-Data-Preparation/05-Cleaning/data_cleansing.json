@@ -1,6 +1,7 @@
 {
   "id": "11",
   "name": "Data Cleansing",
+  "iconImage": "/images/icons/node-icon/latest-nodes/data_cleaning.svg",
   "description": "This node cleanses the selected columns from the dataset",
   "input": "It accepts DataFrame as input from the previous Node",
   "output": "This node output cleansed data",
@@ -16,18 +17,23 @@
     {"name": "removeNullColumns", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Remove Null Columns", "description": "Remove Null Data. When no column is selected it removes row/column if all the fields are empty","required": false,"datatypes":["boolean"]},
 
     {"name": "Replace Nulls", "value":"", "widget": "tab", "title": "Replace Nulls"},
-    {"name": "repalceWithBlanks", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Replace With Blanks (String fields)", "description": "Replace Null Data","required": false,"datatypes":["boolean"]},
+    {"name": "replaceWithBlanks", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Replace With Blanks (String fields)", "description": "Replace Null Data","required": false,"datatypes":["boolean"]},
     {"name": "replaceWithZero", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Replace with 0 (Numeric fields)", "description": "Replace Null Data","required": false,"datatypes":["boolean"]},
 
     {"name": "Remove Unwanted Characters", "value":"", "widget": "tab", "title": "Remove Unwanted Characters"},
+    {"name": "trimWhitespace", "value": "false", "widget": "array", "optionsArray": ["false", "true"], "title": "Trim Leading/Trailing Whitespace", "description": "Remove leading and trailing whitespace from selected columns", "required": false, "datatypes": ["boolean"]},
+    {"name": "removeTabsLineBreaks", "value": "false", "widget": "array", "optionsArray": ["false", "true"], "title": "Remove Tabs, Line Breaks, and Duplicate Whitespace", "description": "Remove tabs, line breaks, and duplicate whitespace from selected columns", "required": false, "datatypes": ["boolean"]},
     {"name": "allWhiteSpace", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "All Whitespace", "description": "Remove Unwanted Characters","required": false,"datatypes":["boolean"]},
     {"name": "letters", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Letters", "description": "Remove Unwanted Characters","required": false,"datatypes":["boolean"]},
+    {"name": "lettersExceptions", "value":"", "widget": "textfield", "title": "Letters Exceptions", "description": "Letters to exclude from removal (e.g., 'A,B')", "required": false, "datatypes": ["string"],"wdgtCommon": "letters", "toggle": "true"},
     {"name": "numbers", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Numbers", "description": "Remove Unwanted Characters","required": false,"datatypes":["boolean"]},
+    {"name": "numbersExceptions", "value":"", "widget": "textfield", "title": "Numbers Exceptions", "description": "Digits to exclude from removal (e.g., '1,3')", "required": false, "datatypes": ["string"],"wdgtCommon": "numbers", "toggle": "true"},
     {"name": "punctuation", "value":"false", "widget": "array","optionsArray": ["false","true"], "title": "Punctuation", "description": "Remove Unwanted Characters","required": false,"datatypes":["boolean"]},
+    {"name": "punctuationExceptions", "value":"", "widget": "textfield", "title": "Punctuation Exceptions", "description": "Punctuation marks to exclude from removal (e.g., '.,!')", "required": false, "datatypes": ["string"],"wdgtCommon": "punctuation", "toggle": "true"},
 
     {"name": "Modify Case", "value":"", "widget": "tab", "title": "Modify Case"},
     {"name": "modifyCase", "value":"Default", "widget": "array", "title": "Modify Case", "optionsArray": ["Upper case", "Lower Case", "Title Case","Default"], "description": "Modify case to Upper,Lower or Title Case" }
-    ]
+  ]
 }
 
 start-details:

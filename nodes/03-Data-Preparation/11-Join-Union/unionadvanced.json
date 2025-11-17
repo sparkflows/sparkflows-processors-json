@@ -1,0 +1,85 @@
+{
+  "id": "3",
+  "name": "Union Advanced",
+  "description": "This node combines rows from multiple DataFrames with configurable union methods based on column names or positions.",
+  "input": "It accepts two or more DataFrames as input from the previous nodes.",
+  "output": "This node outputs a single DataFrame resulting from the union operation based on the selected configuration.",
+  "type": "join",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.etl.NodeUnionAdvanced",
+  "fields": [
+    {
+      "name": "allowMissingColumns",
+      "value": "true",
+      "widget": "array_single",
+      "optionsArray": ["true", "false"],
+      "title": "Allow Missing Columns",
+      "description": "When true, allows union of DataFrames with different schemas by filling missing columns with null values. When false, all DataFrames must have identical schemas."
+    },
+    {
+      "name": "configBy",
+      "value": "NAME",
+      "widget": "array",
+      "optionsArray": ["NAME", "POSITION"],
+      "title": "Configure By",
+      "description": "Method to configure the union: 'NAME' matches columns by name, 'POSITION' matches by column order."
+    },
+    {
+      "name": "outputFields",
+      "value": "ALL",
+      "widget": "array",
+      "optionsArray": ["ALL", "COMMON"],
+      "title": "Output Fields",
+      "description": "Determines output columns: 'ALL' includes all columns with nulls for missing, 'COMMON' includes only common columns."
+    }
+  ]
+}
+
+start-details:
+
+h2:Union Advanced Node Details
+
+This node combines rows from multiple DataFrames with flexible configuration options. It supports union operations based on column names or positions, allowing for handling of differing schemas. The `configBy` parameter determines the union method: 'NAME' aligns columns by their names, while 'POSITION' aligns them by their order, using the first DataFrame's field names.
+
+end-details:
+
+start-examples:
+
+h2:Union Advanced Node Examples
+
+h4: Incoming Datasets
+
+1st Incoming DataFrame:
+EMP_CD  |  EMP_NAME  |  DEPT
+--------|------------|---------
+E01     |  DAVID     |  HR
+E02     |  JOHN      |  SALES
+
+2nd Incoming DataFrame:
+DEPT    |  EMP_CD  |  LOC
+--------|----------|---------
+HR      |  E01     |  IND
+SALES   |  E02     |  AUS
+MARKET  |  E03     |  UK
+
+h4: When configBy is 'NAME' and outputFields is 'ALL'
+h4: Final Output
+EMP_CD  |  EMP_NAME  |  DEPT    |  LOC
+--------|------------|----------|---------
+E01     |  DAVID     |  HR      |  null
+E02     |  JOHN      |  SALES   |  null
+E01     |  null      |  HR      |  IND
+E02     |  null      |  SALES   |  AUS
+E03     |  null      |  MARKET  |  UK
+
+h4: When configBy is 'POSITION' and outputFields is 'COMMON'
+h4: Final Output
+EMP_CD  |  EMP_NAME  |  DEPT
+--------|------------|---------
+E01     |  DAVID     |  HR
+E02     |  JOHN      |  SALES
+E01     |  null      |  HR
+E02     |  null      |  SALES
+E03     |  null      |  MARKET
+
+end-examples:

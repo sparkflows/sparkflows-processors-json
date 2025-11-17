@@ -1,0 +1,177 @@
+{
+  "id": "11",
+  "name": "Read Excel Advanced",
+  "iconImage": "/images/icons/node-icon/excel.svg",
+  "description": "Dataset Node for Reading Excel Files",
+  "input": "Reads data from Excel files (.xlsx, .xls) with support for sheets, ranges, and custom schemas.",
+  "output": "Returns a DataFrame containing the Excel data with proper column names and types.",
+  "type": "dataset",
+  "engine": "scala",
+  "nodeClass": "fire.nodes.dataset.NodeDatasetExcelAdvanced",
+  "fields": [
+    {"name": "path", "display": true, "value": "", "widget": "textfield", "title": "Path", "description": "Path of the Excel file"},
+    {"name": "recdirectorysearch", "value": "false", "widget": "array_single", "title": "Read subdirectory recursively", "optionsArray": ["true","false"], "description": "Recursively process the documents in the given Directory"},
+    {"name": "readAllSheets", "value": "false", "widget": "array", "title": "Read All Sheets", "optionsArray": ["true","false"], "description": "Automatically read all sheets from the Excel file"},
+    {"name": "selectedSheets", "value": "", "widget": "textfield", "title": "Select Sheets", "description": "Specify one or more sheets to import (leave empty for single-sheet mode) Use comma separated for different sheets. Ex-sheet1, Worksheet"},
+    {"name": "namedRange", "value": "", "widget": "textfield", "title": "Named Range", "description": "Named range to import instead of sheet"},
+    {"name": "range", "value": "", "widget": "textfield", "title": "Range", "description": "Specify cell range, e.g., A1:F10"},
+    {"name": "startLine", "value": "1", "widget": "textfield", "title": "Start Data Import on Line", "description": "Line number to start importing data from"},
+    {"name": "header_option", "value": "NO_HEADER", "widget": "array", "title": "Header Handling Mode", "description": "Select how the header should be read. Options: No Header (default), Header as the first row, Header as the row before start, or Header from a custom row range.",
+      "optionsArray": ["NO_HEADER","FIRST_ROW", "PREVIOUS_ROW", "CUSTOM_ROW"]},
+    {"name": "dropSpecialCharacterInColumnName", "value":"true", "widget": "array_single", "title": "Drop Special Character In ColumnName", "optionsArray": ["true","false"],"description": "Whether to drop the Special Characters and Spaces in Column Name."},
+    {"name": "customHeaderRow", "value": "", "widget": "textfield", "title": "Custom Header Row", "description": "Specify custom header row (e.g., '7' or '5') when using 'Header from Custom Row' mode.", "wdgtCommon":"header_option", "toggle":"CUSTOM_ROW" },
+    {"name": "importSheetNamesOnly", "value": "false", "widget": "array", "title": "Import Only Sheet Names", "optionsArray": ["true","false"], "description": "Output list of sheet names instead of data", "datatypes": ["boolean"]},
+    {"name": "outputFileName", "value": "no", "widget": "array", "title": "Output File Name as Field", "optionsArray": ["no","filename","fullpath"], "description": "Add a field with file name"},
+    {"name": "sheetNameDisplay", "value": "false", "widget": "array_single", "title": "Output Sheet Name as Field", "optionsArray": ["true","false"], "description": "Add a field with sheet name"},
+     {"name": "enforceSchema", "value":"false", "widget": "array", "title": "Enforce Schema", "optionsArray": ["false","true"],
+      "description": "If it is set to true, the specified or inferred schema will be forcibly applied to datasource files, and headers in XLS files will be ignored."},
+    {"name": "schema", "value": "", "widget": "tab", "title": "InferSchema"},
+    {"name": "outputColNames", "value": "[]", "widget": "schema_col_names", "title": "Column Names for the Excel", "description": "New Output Columns of the SQL"},
+    {"name": "outputColTypes", "value": "[]", "widget": "schema_col_types", "title": "Column Types for the Excel", "description": "Data Type of the Output Columns"},
+    {"name": "outputColFormats", "value": "[]", "widget": "schema_col_formats", "title": "Column Formats for the Excel", "description": "Format of the Output Columns"}
+  ]
+}
+
+start-details:
+
+h2:Read Excel Node Details
+
+The Read Excel node is designed to read data from Excel files (.xlsx, .xls) and convert them into Spark DataFrames. It provides flexible options for reading specific sheets, ranges, and handling different data formats with custom schemas. The node supports both local file systems and distributed storage systems like HDFS, S3, and GCS.
+
+h3:General:
+
+h4:Path:
+Specifies the complete path to the Excel file. This can be a local file path or a distributed storage path (HDFS, S3, GCS). Example: "/data/sales.xlsx" or "s3://bucket/data/file.xlsx".
+
+h4:Sheet Name:
+Specifies the name of the Excel sheet to read from. If left empty, the first sheet will be used. Example: "Sheet1", "Sales Data".
+
+h4:Named Range:
+Specifies a predefined named range within the Excel file to read from. Named ranges are defined in Excel and can refer to specific cell ranges. Example: "SalesData", "QuarterlyReport".
+
+h4:Range:
+Specifies a specific cell range to read from the Excel sheet. Uses Excel-style range notation. Example: "A1:F100" reads cells from A1 to F100, "B5:D20" reads from B5 to D20.
+
+h4:Start Data Import on Line:
+Specifies the line number (1-based) where data reading should start. When Header is enabled, this line is treated as the header row. Example: 1 starts from the first row, 15 starts from row 15.
+
+h4:Header:
+Indicates whether the Excel file contains a header row. When enabled, the first row of data (at Start Line) is used as column names. When disabled, columns are named automatically as _c0, _c1, etc.
+
+h4:Import Only Sheet Names:
+When enabled, the node outputs only the list of sheet names available in the Excel file instead of reading the actual data. Useful for exploring Excel file structure.
+
+h4:Output File Name as Field:
+Adds a column with file information to the output DataFrame. Options: "no" (no file info), "filename" (only file name), "fullpath" (complete file path).
+
+h3:Schema Configuration:
+
+h4:Column Names for the Excel:
+Specifies custom column names for the output DataFrame. Overrides the header names from Excel when provided. Example: ["Name", "Email", "Phone", "Address"].
+
+h4:Column Types for the Excel:
+Specifies data types for each column in the output DataFrame. Supported types: string, integer, double, boolean, date, timestamp. Example: ["string", "string", "string", "string"].
+
+h4:Column Formats for the Excel:
+Specifies format patterns for date and timestamp columns. Uses Java SimpleDateFormat patterns. Example: ["", "", "", "yyyy-MM-dd"] for date formatting.
+
+h3:Output:
+The node outputs a DataFrame containing the Excel data with proper column names and types. When custom schema is provided, columns are renamed and cast to specified types. The output maintains the row order from the Excel file and preserves data integrity.
+
+end-details:
+
+start-examples:
+
+h2:Read Excel Node Examples
+
+h3:Example 1: Basic Excel Reading
+
+h4:Input:
+Excel file "employees.xlsx" with sheet "Sheet1" containing:
+- Row 1: Name, Email, Phone, Department, Salary
+- Row 2: John Doe, john@company.com, 123-456-7890, Engineering, 75000
+- Row 3: Jane Smith, jane@company.com, 123-456-7891, Marketing, 65000
+
+h4:Configuration:
+- Path: "/data/employees.xlsx"
+- Sheet Name: "Sheet1"
+- Start Data Import on Line: 1
+- Header: true
+- Import Only Sheet Names: false
+- Output File Name as Field: "filename"
+
+h4:Output:
+The node produces a DataFrame with:
+- Name: "John Doe", Email: "john@company.com", Phone: "123-456-7890", Department: "Engineering", Salary: 75000, filename: "employees.xlsx"
+- Name: "Jane Smith", Email: "jane@company.com", Phone: "123-456-7891", Department: "Marketing", Salary: 65000, filename: "employees.xlsx"
+
+h3:Example 2: Reading Specific Range with Custom Schema
+
+h4:Input:
+Excel file "sales_data.xlsx" with sheet "Q1_Sales" containing data starting from row 5, but we want to read from row 10 with custom column names.
+
+h4:Configuration:
+- Path: "/data/sales_data.xlsx"
+- Sheet Name: "Q1_Sales"
+- Range: "A10:F50"
+- Start Data Import on Line: 10
+- Header: false
+- Output File Name as Field: "no"
+- Column Names: ["Region", "Product", "Units", "Revenue", "Date", "SalesRep"]
+- Column Types: ["string", "string", "integer", "double", "date", "string"]
+- Column Formats: ["", "", "", "", "yyyy-MM-dd", ""]
+
+h4:Output:
+The node produces a DataFrame with custom column names and proper data types, reading only rows 10-50 from columns A-F.
+
+h3:Example 3: Reading Named Range
+
+h4:Input:
+Excel file "financial_report.xlsx" with a named range "QuarterlySummary" defined in Excel that refers to cells B5:G20.
+
+h4:Configuration:
+- Path: "/data/financial_report.xlsx"
+- Named Range: "QuarterlySummary"
+- Header: true
+- Output File Name as Field: "fullpath"
+
+h4:Output:
+The node produces a DataFrame containing only the data from the named range "QuarterlySummary" with the full file path included.
+
+h3:Example 4: Sheet Names Only
+
+h4:Input:
+Excel file "multi_sheet_report.xlsx" with sheets: "Summary", "Details", "Charts", "RawData"
+
+h4:Configuration:
+- Path: "/data/multi_sheet_report.xlsx"
+- Import Only Sheet Names: true
+
+h4:Output:
+The node produces a single-column DataFrame:
+- sheetName: "Summary"
+- sheetName: "Details"
+- sheetName: "Charts"
+- sheetName: "RawData"
+
+h3:Example 5: Complex Data with Mixed Types
+
+h4:Input:
+Excel file "complex_data.xlsx" with:
+- Row 1: ID, Name, BirthDate, Salary, IsActive, Notes
+- Row 2: 101, "Alice Brown", 1990-05-15, 85000.50, TRUE, "Team lead"
+- Row 3: 102, "Bob Wilson", 1985-12-20, 92000.75, FALSE, "On leave"
+
+h4:Configuration:
+- Path: "/data/complex_data.xlsx"
+- Start Data Import on Line: 1
+- Header: true
+- Column Types: ["integer", "string", "date", "double", "boolean", "string"]
+- Column Formats: ["", "", "yyyy-MM-dd", "", "", ""]
+
+h4:Output:
+The node produces a DataFrame with properly typed columns:
+- ID: 101 (integer), Name: "Alice Brown" (string), BirthDate: 1990-05-15 (date), Salary: 85000.50 (double), IsActive: true (boolean), Notes: "Team lead" (string)
+- ID: 102 (integer), Name: "Bob Wilson" (string), BirthDate: 1985-12-20 (date), Salary: 92000.75 (double), IsActive: false (boolean), Notes: "On leave" (string)
+
+end-examples:
